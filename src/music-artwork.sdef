@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Music Artwork Dictionary">
+	<suite name="Music Artwork Suite" code="mart">
+		<command name="Get iTunes Albums" code="ftchitns" description="Get selected iTunes Albums">
+			<cocoa name="fetch" class="FetchiTunesAlbumsScriptCommand"/>
+		</command>
+	</suite>
+</dictionary>
