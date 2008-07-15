@@ -124,7 +124,7 @@
 - (BOOL)displayErrorWithTitle:(NSString *)title message:(NSString *)message {
 	NSArray *data = [NSArray arrayWithObjects:title, message, nil];
 
-	fixme: use regular call
+//	fixme: use regular call
 //	[[NSNotificationCenter defaultCenter] postNotificationName:@"errorMessage" object:data];
 }
 
