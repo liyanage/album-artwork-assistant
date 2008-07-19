@@ -1,6 +1,6 @@
 //
 //  GoogleImageItem.m
-//  Music Artwork
+//  Album Artwork Assistant
 //
 //  Created by Marc Liyanage on 14.07.08.
 //  Copyright 2008 Marc Liyanage <http://www.entropy.ch>. All rights reserved.
@@ -65,6 +65,18 @@
 	return [searchResult valueForKey:@"url"];
 }
 	
+
+- (NSImage *)tinyImage {
+	// http://www.omnigroup.com/mailman/archive/macosx-dev/2001-November/033402.html
+	NSImage *image = [[NSImage alloc] initWithData:imageData];
+	NSImageRep *sourceImageRep = [image bestRepresentationForDevice:nil];
+	NSImage *targetImage = [[NSImage alloc] initWithSize:NSMakeSize(28, 28)];
+	[targetImage lockFocus];
+	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+	[sourceImageRep drawInRect:NSMakeRect(0, 0, 28, 28)];
+	[targetImage unlockFocus];
+	return targetImage;
+}
 
 
 

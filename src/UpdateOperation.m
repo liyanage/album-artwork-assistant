@@ -1,6 +1,6 @@
 //
 //  UpdateOperation.m
-//  Music Artwork
+//  Album Artwork Assistant
 //
 //  Created by Marc Liyanage on 14.07.08.
 //  Copyright 2008 Marc Liyanage <http://www.entropy.ch>. All rights reserved.
@@ -12,49 +12,89 @@
 
 @implementation UpdateOperation
 
-- (id)initWithTracks:(NSArray *)t imageItem:(GoogleImageItem *)ii {
+- (id)initWithTracks:(NSArray *)t imageItem:(GoogleImageItem *)ii statusDelegate:(id <StatusDelegateProtocol>)sd {
 	self = [super init];
 	if (!self) return self;
 	tracks = t;
 	imageItem = ii;
-//	NSLog(@"update operation init thread: %@", [NSThread currentThread]);
-//	NSLog(@"update operation init: %@", t);
+	statusDelegate = sd;
 	return self;
 }
 
-
-
 - (void)main {
 
-	NSLog(@"update operation start : %@", self);
+	@try {
 
-	NSData *imageData = [imageItem imageData];
-	NSString *tempFilePath = [NSString stringWithFormat:@"%@/music-artwork.tmp", NSTemporaryDirectory()];
-	NSError *error = nil;
-	[imageData writeToFile:tempFilePath options:0 error:&error];
-	if (error) {
-		NSLog(@"error writing temp file '%@': %@", tempFilePath, error);
-		return;
+		NSData *imageData = [imageItem imageData];
+
+		[statusDelegate startBusy:@"Writing temporary image file"];
+
+		NSString *tempFilePath = [NSString stringWithFormat:@"%@/music-artwork.tmp", NSTemporaryDirectory()];
+		NSError *error = nil;
+		[imageData writeToFile:tempFilePath options:0 error:&error];
+		if (error) {
+			NSString *reason = [NSString stringWithFormat:@"Unable to write temporary image file '%@': %@", tempFilePath, error];
+			@throw [NSException exceptionWithName:@"TempFile" reason:reason userInfo:nil];
+		}
+		
+		[statusDelegate startBusy:[NSString stringWithFormat:@"Adding image to “%@”", [self albumTitle]]];
+
+		NSString *scptPath = [[NSBundle mainBundle] pathForResource:@"embed-artwork" ofType:@"scpt" inDirectory:@"Scripts"];
+		NSURL *scptUrl = [NSURL fileURLWithPath:scptPath];
+		NSDictionary *errorDict = nil;
+		NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL:scptUrl error:&errorDict];
+
+		if (errorDict) {
+			@throw [NSException exceptionWithName:@"AppleScriptLoad" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
+		}
+
+		NSArray *params = [NSArray arrayWithObjects:tracks, tempFilePath, nil];
+		NSArray *data = [NSArray arrayWithObjects:script, params, nil];
+
+		[self performSelectorOnMainThread:@selector(executeAppleScriptWithData:) withObject:data waitUntilDone:YES];
+
+		[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:&error];
+	}
+	
+	@catch (NSException *e) {
+		[statusDelegate displayErrorWithTitle:@"Unable to set album artwork" message:[e reason]];
+	}
+	
+	@finally {
+		[statusDelegate clearBusy];
 	}
 
-	NSString *scptPath = [[NSBundle mainBundle] pathForResource:@"embed-artwork" ofType:@"scpt" inDirectory:@"Scripts"];
-	NSURL *scptUrl = [NSURL fileURLWithPath:scptPath];
-
-	NSDictionary *errorDict = nil;
-	NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL:scptUrl error:&errorDict];
-
-	NSArray *params = [NSArray arrayWithObjects:tracks, tempFilePath, nil];
-	[script gtm_executePositionalHandler:@"embedArtwork" parameters:params error:&errorDict];
-
-	[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:&error];
-
-	if (errorDict) {
-		NSLog(@"UpdateOperation error: %@", [errorDict valueForKey:NSAppleScriptErrorBriefMessage]);
-		return;
-	}
-
-	NSLog(@"update operation end : %@", self);
 }
+
+
+- (void)executeAppleScriptWithData:(NSArray *)data {
+	NSAppleScript *script = [data objectAtIndex:0];
+	NSArray *params = [data objectAtIndex:1];
+	NSDictionary *errorDict = nil;
+	[script gtm_executePositionalHandler:@"embedArtwork" parameters:params error:&errorDict];
+	if (errorDict) {
+		@throw [NSException exceptionWithName:@"AppleScriptExecute" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
+	}
+		
+}
+
+
+
+
+
+
+
+- (NSString *)albumTitle {
+	return [[tracks objectAtIndex:0] valueForKey:@"trackalbum"];
+}
+
+
+
+- (NSImage *)tinyAlbumImage {
+	if (albumImage) return albumImage;
+	return albumImage = [imageItem tinyImage];
+}
+
 
 
 - (NSString *)description {
