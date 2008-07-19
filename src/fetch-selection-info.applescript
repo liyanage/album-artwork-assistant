@@ -17,10 +17,11 @@ tell application "iTunes"
 					set myPosixPath to POSIX path of myAlias
 					set containerId to id of container of myAlbumTrack
 					set trackNumber to track number of myAlbumTrack
+					set trackartist to artist of myAlbumTrack
 					if trackNumber = "" then
 						set trackNumber to 1
 					end if
-					set trackData to {trackid:id of myAlbumTrack as number, trackalbum:myalbum, tracklocation:myPosixPath, trackname:name of myAlbumTrack, trackNumber:track number of myAlbumTrack, trackContainerId:containerId}
+					set trackData to {trackid:id of myAlbumTrack as number, trackartist:trackartist, trackalbum:myalbum, tracklocation:myPosixPath, trackname:name of myAlbumTrack, trackNumber:track number of myAlbumTrack, trackContainerId:containerId}
 					set end of myTracks to trackData
 				end repeat
 			end if

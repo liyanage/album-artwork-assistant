@@ -1,6 +1,6 @@
 //
 //  GoogleImageItem.h
-//  Music Artwork
+//  Album Artwork Assistant
 //
 //  Created by Marc Liyanage on 14.07.08.
 //  Copyright 2008 Marc Liyanage <http://www.entropy.ch>. All rights reserved.
@@ -23,5 +23,6 @@
 - (NSString *)imageSubtitle;
 - (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem;
 - (NSString *)url;
+- (NSImage *)tinyImage;
 
 @end
