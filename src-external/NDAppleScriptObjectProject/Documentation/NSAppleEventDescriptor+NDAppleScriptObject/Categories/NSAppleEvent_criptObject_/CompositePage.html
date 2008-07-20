@@ -1,0 +1,91 @@
+<html><head><title>NSAppleEventDescriptor(NDAppleScriptObject)</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>NSAppleEventDescriptor(NDAppleScriptObject)</h1></font><hr><br>
+<h2>Abstract</h2>
+Category of <tt>NSAppleEventDescriptor</tt>.
+<h2>Discussion</h2>
+Add some methods for use with AppleScripts and AppleEvents.
+ <hr><br><h2>Methods</h2>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithAEDesc:"></a>
+<h3><a name="descriptorWithAEDesc:">descriptorWithAEDesc:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for the <tt>AEDesc</tt>.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithAEDesc:</B>(const AEDesc *)<I>aeDesc;</I> </tt><br>
+</pre></blockquote>
+<p>Allocates, initializes and returns an <tt>NSAppleEventDescriptor</tt> that copies the Carbon <tt>AEDesc</tt> structure pointed to by <tt>aeDesc</tt>. Returns <tt>nil</tt> if an error occurs.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aeDesc</tt></td><td>A Carbon <tt>AEDesc</tt> structure</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithAEDescNoCopy:"></a>
+<h3><a name="descriptorWithAEDescNoCopy:">descriptorWithAEDescNoCopy:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for the <tt>AEDesc</tt>.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithAEDescNoCopy:</B>(const AEDesc *)<I>aeDesc;</I> </tt><br>
+</pre></blockquote>
+<p>Allocates, initializes and returns an <tt>NSAppleEventDescriptor</tt> that takes ownership of the Carbon <tt>AEDesc</tt> structure pointed to by <tt>aeDesc</tt>. Returns <tt>nil</tt> if an error occurs. The initialized object takes responsibility for calling the <tt>AEDisposeDesc</tt> function on the <tt>AEDesc</tt> at object deallocation time.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aeDesc</tt></td><td>A Carbon <tt>AEDesc</tt> structure.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/getAEDesc:"></a>
+<h3><a name="getAEDesc:">getAEDesc:</a></h3>
+<b>Abstract:</b> Get the receviers <tt>AEDesc</tt>.
+
+<blockquote><pre><tt>- (BOOL)<B>getAEDesc:</B>(AEDesc *)<I>aeDescPtr;</I> </tt><br>
+</pre></blockquote>
+<p>Copies the receviers <tt>AEDesc</tt> to the supplied <tt>AEDesc</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aeDescPtr</tt></td><td>The address of an empty <tt>AEDesc</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithAEDesc:"></a>
+<h3><a name="initWithAEDesc:">initWithAEDesc:</a></h3>
+<b>Abstract:</b> Intializes a <tt>NSAppleEventDescriptor</tt> with a <tt>AEDesc</tt>.
+
+<blockquote><pre><tt>- (id)<B>initWithAEDesc:</B>(const AEDesc *)<I>aeDesc;</I> </tt><br>
+</pre></blockquote>
+<p>Initializes and returns an <tt>NSAppleEventDescriptor</tt> that copies the Carbon <tt>AEDesc</tt> structure pointed to by <tt>aeDesc</tt>. Returns <tt>nil</tt> if an error occurs.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aeDesc</tt></td><td>A Carbon <tt>AEDesc</tt> structure</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/isTargetCurrentProcess"></a>
+<h3><a name="isTargetCurrentProcess">isTargetCurrentProcess</a></h3>
+<b>Abstract:</b> Determines if target is current process.
+
+<blockquote><pre><tt>- (BOOL)<B>isTargetCurrentProcess;</B> </tt><br>
+</pre></blockquote>
+<p>If the recevier is a AppleEvent that contains a target ProcessSerialNumber that is the current process (ie you application) then this method returns <tt>YES</tt>.
+</p>
+<b>Result:</b> Returns <tt>YES</tt> if the recevier is an AppleEvent for the current process.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

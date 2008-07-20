@@ -1,0 +1,480 @@
+<html><head><title>NSString(NDUtilities)</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>NSString(NDUtilities)</h1></font><hr><br>
+<h2>Abstract</h2>
+Addition methods for <tt>NSString</tt>
+<h2>Discussion</h2>
+Additonal useful methods for <tt>NSString</tt>, that can be used in general situations. see also NSString(NDContainsCharacterExtension), NSString(NDPathExtensions) and NSString(CarbonUtilitiesPaths).
+ <hr><br><h2>Methods</h2>
+<a name="//apple_ref/occ/instm/NSString/componentsSeparatedByString:withOpeningQuote:closingQuote:singleQuote:"></a>
+<h3><a name="componentsSeparatedByString:withOpeningQuote:closingQuote:singleQuote:">componentsSeparatedByString:withOpeningQuote:closingQuote:singleQuote:</a></h3>
+<b>Abstract:</b> Get an array of string componets.
+
+<blockquote><pre><tt>- (NSArray *)<B>componentsSeparatedByString:</B>(NSString *)<I>separator</I> <B>withOpeningQuote:</B>(NSString *)<I>openingQuote</I> <B>closingQuote:</B>(NSString *)<I>closingQuote</I> <B>singleQuote:</B>(NSString *)<I>singleQuote</I> <B>includeEmptyComponents:</B>(BOOL)<I>flag;</I> </tt><br>
+</pre></blockquote>
+<p>Returns an <tt>NSArray</tt> containing substrings from the receiver that have been divided by separator. The substrings in the array appear in the order they did in the receiver.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>separator</tt></td><td>The delimeter used to seperate the strings.</td><tr>
+<tr><td align = "center"><tt>openingQuote</tt></td><td>The string used to begin a quoted component, a component where the delimiter is ignored.</td><tr>
+<tr><td align = "center"><tt>closingQuote</tt></td><td>The string used to end a quoted component, a component where the delimiter is ignored.</td><tr>
+<tr><td align = "center"><tt>singleQuote</tt></td><td>The string used to quote a single character.</td><tr>
+<tr><td align = "center"><tt>flag</tt></td><td>Set to true if empty string are wanted.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSArray</tt> of components.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsAnyCharacterFromSet:"></a>
+<h3><a name="containsAnyCharacterFromSet:">containsAnyCharacterFromSet:</a></h3>
+<b>Abstract:</b> Test if a string contains a character from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsAnyCharacterFromSet:</B>(NSCharacterSet *)<I>set;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains any character within <tt><i>set</i></tt>, otherwise returns <tt>NO</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains any of the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsAnyCharacterFromSet:options:"></a>
+<h3><a name="containsAnyCharacterFromSet:options:">containsAnyCharacterFromSet:options:</a></h3>
+<b>Abstract:</b> Test if a string contains a character from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsAnyCharacterFromSet:</B>(NSCharacterSet *)<I>set</I> <B>options:</B>(unsigned int)<I>mask;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains any character within <tt><i>set</i></tt> within the range <tt><i>range</i></tt>, otherwise returns <tt>NO</tt>. The following options may be specified in <tt><i>mask</i></tt> by combining them with the C bitwise OR operator:
+<blockquote><blockquote><table border = "1" width = "90%">
+<thead>
+<th>Search Option</th>
+<th>Effect</th>
+</thead>
+<tr>
+<td align = "center"><tt>NSCaseInsensitiveSearch</tt></td>
+<td>Ignores case distinctions among characters.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSLiteralSearch</tt></td>
+<td>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSBackwardsSearch</tt></td>
+<td>Performs searching from the end of the range toward the beginning.</td>
+</tr>
+</table></blockquote></blockquote>
+See "Strings" for details on these options. Raises an <tt>NSInvalidArgumentException</tt> if any of the arguments are <tt>nil</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains any of the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsAnyCharacterFromSet:options:range"></a>
+<h3><a name="containsAnyCharacterFromSet:options:range">containsAnyCharacterFromSet:options:range</a></h3>
+<b>Abstract:</b> Test if a string contains a character from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsAnyCharacterFromSet:</B>(NSCharacterSet *)<I>set</I> <B>options:</B>(unsigned int)<I>mask</I> <B>range:</B>(NSRange)<I>range;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains any character within <tt><i>set</i></tt> within the range <tt><i>range</i></tt>, otherwise returns <tt>NO</tt>. The following options may be specified in <tt><i>mask</i></tt> by combining them with the C bitwise OR operator:
+<blockquote><blockquote><table border = "1" width = "90%">
+<thead>
+<th>Search Option</th>
+<th>Effect</th>
+</thead>
+<tr>
+<td align = "center"><tt>NSCaseInsensitiveSearch</tt></td>
+<td>Ignores case distinctions among characters.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSLiteralSearch</tt></td>
+<td>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSBackwardsSearch</tt></td>
+<td>Performs searching from the end of the range toward the beginning.</td>
+</tr>
+</table></blockquote></blockquote>
+See "Strings" for details on these options. Raises an <tt>NSInvalidArgumentException</tt> if any of the arguments are <tt>nil</tt>. Raises an <tt>NSRangeException</tt> if any part of <tt><i>range</i></tt> lies beyond the end of the string.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+<tr><td align = "center"><tt>range</tt></td><td>The range to limit the search to.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains any of the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsCharacter:"></a>
+<h3><a name="containsCharacter:">containsCharacter:</a></h3>
+<b>Abstract:</b> Test if a string contains a character.
+
+<blockquote><pre><tt>- (BOOL)<B>containsCharacter:</B>(unichar)<I>character;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains the character <tt><i>character</i></tt>, otherwise returns <tt>NO</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>character</tt></td><td>The character to look for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains the character.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsCharacter:range:"></a>
+<h3><a name="containsCharacter:range:">containsCharacter:range:</a></h3>
+<b>Abstract:</b> Test if a string contains a character.
+
+<blockquote><pre><tt>- (BOOL)<B>containsCharacter:</B>(unichar)<I>character</I> <B>range:</B>(NSRange)<I>range;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains the character <tt><i>character</i></tt> within the range <tt><i>range</i></tt>, otherwise returns <tt>NO</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>character</tt></td><td>The character to look for.</td><tr>
+<tr><td align = "center"><tt>range</tt></td><td>The range to limit the search to.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains the character.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsOnlyCharactersFromSet:"></a>
+<h3><a name="containsOnlyCharactersFromSet:">containsOnlyCharactersFromSet:</a></h3>
+<b>Abstract:</b> Test if a string contains only the characters from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsOnlyCharactersFromSet:</B>(NSCharacterSet *)<I>set;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains only characters in <tt><i>set</i></tt> within <tt><i>set</i></tt>, otherwise returns <tt>NO</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains only the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsOnlyCharactersFromSet:options:"></a>
+<h3><a name="containsOnlyCharactersFromSet:options:">containsOnlyCharactersFromSet:options:</a></h3>
+<b>Abstract:</b> Test if a string contains only the characters from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsOnlyCharactersFromSet:</B>(NSCharacterSet *)<I>set</I> <B>options:</B>(unsigned int)<I>mask;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains only character from <tt><i>set</i></tt>, otherwise returns <tt>NO</tt>. The following options may be specified in <tt><i>mask</i></tt> by combining them with the C bitwise OR operator:
+<blockquote><blockquote><table border = "1" width = "90%">
+<thead>
+<th>Search Option</th>
+<th>Effect</th>
+</thead>
+<tr>
+<td align = "center"><tt>NSCaseInsensitiveSearch</tt></td>
+<td>Ignores case distinctions among characters.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSLiteralSearch</tt></td>
+<td>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSBackwardsSearch</tt></td>
+<td>Performs searching from the end of the range toward the beginning.</td>
+</tr>
+</table></blockquote></blockquote>
+See "Strings" for details on these options. Raises an <tt>NSInvalidArgumentException</tt> if any of the arguments are <tt>nil</tt>. Raises an <tt>NSRangeException</tt> if any part of <tt><i>range</i></tt> lies beyond the end of the string.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains only the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsOnlyCharactersFromSet:options:range:"></a>
+<h3><a name="containsOnlyCharactersFromSet:options:range:">containsOnlyCharactersFromSet:options:range:</a></h3>
+<b>Abstract:</b> Test if a string contains only the characters from a set.
+
+<blockquote><pre><tt>- (BOOL)<B>containsOnlyCharactersFromSet:</B>(NSCharacterSet *)<I>set</I> <B>options:</B>(unsigned int)<I>mask</I> <B>range:</B>(NSRange)<I>range;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if the receiver contains only character from <tt><i>set</i></tt> within the range <tt><i>range</i></tt>, otherwise returns <tt>NO</tt>. The following options may be specified in <tt><i>mask</i></tt> by combining them with the C bitwise OR operator:
+<blockquote><blockquote><table border = "1" width = "90%">
+<thead>
+<th>Search Option</th>
+<th>Effect</th>
+</thead>
+<tr>
+<td align = "center"><tt>NSCaseInsensitiveSearch</tt></td>
+<td>Ignores case distinctions among characters.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSLiteralSearch</tt></td>
+<td>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</td>
+</tr>
+<tr>
+<td align = "center"><tt>NSBackwardsSearch</tt></td>
+<td>Performs searching from the end of the range toward the beginning.</td>
+</tr>
+</table></blockquote></blockquote>
+See "Strings" for details on these options. Raises an <tt>NSInvalidArgumentException</tt> if any of the arguments are <tt>nil</tt>. Raises an <tt>NSRangeException</tt> if any part of <tt><i>range</i></tt> lies beyond the end of the string.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>set</tt></td><td>The set of characters to look for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+<tr><td align = "center"><tt>range</tt></td><td>The range to limit the search to.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver contains only the characters.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsString:"></a>
+<h3><a name="containsString:">containsString:</a></h3>
+<b>Abstract:</b> Test if a string contains a substring.
+
+<blockquote><pre><tt>- (BOOL)<B>containsString:</B>(NSString *)<I>subString;</I> </tt><br>
+</pre></blockquote>
+<p>Invokes <tt>containsString:options:</tt> with no options. Raises an <tt>NSInvalidArgumentException</tt> if string is <tt>nil</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>subString</tt></td><td>The string to search for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if substring found otherwise <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsString:options:"></a>
+<h3><a name="containsString:options:">containsString:options:</a></h3>
+<b>Abstract:</b> Test if a string contains a substring.
+
+<blockquote><pre><tt>- (BOOL)<B>containsString:</B>(NSString *)<I>subString</I> <B>options:</B>(unsigned)<I>mask;</I> </tt><br>
+</pre></blockquote>
+<p>Invokes <tt>containsString:options:range:</tt> with the options specified by <tt><i>mask</i></tt> and the entire extent of the receiver as the range. Raises an <tt>NSInvalidArgumentException</tt> if any of the arguments are <tt>nil</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>subString</tt></td><td>The string to search for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if substring found otherwise <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/containsString:options:range:"></a>
+<h3><a name="containsString:options:range:">containsString:options:range:</a></h3>
+<b>Abstract:</b> Test if a string contains a substring.
+
+<blockquote><pre><tt>- (BOOL)<B>containsString:</B>(NSString *)<I>subString</I> <B>options:</B>(unsigned)<I>mask</I> <B>range:</B>(NSRange)<I>range;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if <tt><i>subString</i></tt> occurs within range in the receiver. If <tt><i>subString</i></tt> isn't found, returns a <tt>NO</tt>. The following options may be specified in <tt><i>mask</i></tt> by combining them with the C bitwise OR operator:
+<blockquote><table border = "1" width = "90%">
+<thead><tr><th>Search Option</th><th>Effect</th></tr></thead>
+<tr><td align = "center"><tt>NSCaseInsensitiveSearch</tt></td><td>Ignores case distinctions among characters.</td></tr>
+<tr><td align = "center"><tt>NSLiteralSearch</tt></td><td>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</td></tr>
+<tr><td align = "center"><tt>NSBackwardsSearch</tt></td><td>Performs searching from the end of the range toward the beginning.</td></tr>
+<tr><td align = "center"><tt>NSAnchoredSearch</tt></td><td>Performs searching only on characters at the beginning or end of the range. No match at the beginning or end means nothing is found, even if a matching sequence of characters occurs elsewhere in the string.</td></tr>
+</table ></blockquote >
+<br><br>
+Raises an NSRangeException if any part of range lies beyond the end of the string.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>subString</tt></td><td>The string to search for.</td><tr>
+<tr><td align = "center"><tt>mask</tt></td><td>Mask values determining how to search.</td><tr>
+<tr><td align = "center"><tt>range</tt></td><td>The range within the string to search.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if substring found otherwise <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/hasCaseInsensitivePrefix:"></a>
+<h3><a name="hasCaseInsensitivePrefix:">hasCaseInsensitivePrefix:</a></h3>
+<b>Abstract:</b> Test prefix.
+
+<blockquote><pre><tt>- (BOOL)<B>hasCaseInsensitivePrefix:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if <tt><i>string</i></tt> case insensitive matches the beginning characters of the receiver, <tt>NO</tt> otherwise. Returns <tt>NO</tt> if <tt><i>string</i></tt> is the <tt>nil</tt> string or empty. This method is a convenience for comparing strings using the <tt>NSAnchoredSearch</tt> option. See "Strings" for more information.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>The string to check for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if has case insensitive prefix <tt><i>string</i></tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/hasCaseInsensitiveSuffix:"></a>
+<h3><a name="hasCaseInsensitiveSuffix:">hasCaseInsensitiveSuffix:</a></h3>
+<b>Abstract:</b> Test suffix.
+
+<blockquote><pre><tt>- (BOOL)<B>hasCaseInsensitiveSuffix:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if <tt><i>string</i></tt> case insensitive matches the ending characters of the receiver, <tt>NO</tt otherwise. Returns <tt>NO</tt if <tt><i>string</i></tt> is the <tt>nil</tt> string or empty. This method is a convenience for comparing strings using the <tt>NSAnchoredSearch</tt> and <tt>NSBackwardsSearch</tt> options. See "Strings" for more information.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>The string to check for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if has case insensitive suffix <tt><i>string</i></tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/indexOfCharacter:"></a>
+<h3><a name="indexOfCharacter:">indexOfCharacter:</a></h3>
+<b>Abstract:</b> Get the index of a character.
+
+<blockquote><pre><tt>- (unsigned int)<B>indexOfCharacter:</B>(unichar)<I>character;</I> </tt><br>
+</pre></blockquote>
+<p>Returns the index of the first occurance of the character <tt><i>character</i></tt>, if the receiver does not contain the character then <tt>NSNotFound</tt> is return.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>character</tt></td><td>The character to look for.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the index of the character or <tt>NSNotFound</tt> if not found.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/indexOfCharacter:range:"></a>
+<h3><a name="indexOfCharacter:range:">indexOfCharacter:range:</a></h3>
+<b>Abstract:</b> Get the index of a character.
+
+<blockquote><pre><tt>- (unsigned int)<B>indexOfCharacter:</B>(unichar)<I>character</I> <B>range:</B>(NSRange)<I>range;</I> </tt><br>
+</pre></blockquote>
+<p>Returns the index of the first occurance of the character <tt><i>character</i></tt> within the range <tt><i>range</i></tt>, if the receiver does not contain the character within the range then <tt>NSNotFound</tt> is return.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>character</tt></td><td>The character to look for.</td><tr>
+<tr><td align = "center"><tt>range</tt></td><td>The range to limit the search to.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the index of the character or <tt>NSNotFound</tt> if not found.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/initWithNonLossyASCIIString:"></a>
+<h3><a name="initWithNonLossyASCIIString:">initWithNonLossyASCIIString:</a></h3>
+<b>Abstract:</b> Intialise a <tt>NSString</tt>.
+
+<blockquote><pre><tt>- (id)<B>initWithNonLossyASCIIString:</B>(const char *)<I>ASCIIString;</I> </tt><br>
+</pre></blockquote>
+<p>Initialises a <tt>NSString</tt> from <tt>NSNonLossyASCIIStringEncoding</tt> encoding, a 7-bit verbose ASCII to represent all Unicode characters.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>ASCIIString</tt></td><td>A 7 bit ASCII string in <tt>NSNonLossyASCIIStringEncoding</tt> encoding.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A initialised <tt>NSString</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/isCaseInsensitiveEqualToString:"></a>
+<h3><a name="isCaseInsensitiveEqualToString:">isCaseInsensitiveEqualToString:</a></h3>
+<b>Abstract:</b> Test if a string is case insensitive equivelent.
+
+<blockquote><pre><tt>- (BOOL)<B>isCaseInsensitiveEqualToString:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>Returns <tt>YES</tt> if string is case insensitive equivalent to the receiver (if they have the same <tt>id</tt> or if they are <tt>NSOrderedSame</tt> in a litereral, case insensitive comparison), <tt>NO</tt> otherwise. .
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>The string to compare with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> string are equivelent <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSString/nonLossyASCIIString"></a>
+<h3><a name="nonLossyASCIIString">nonLossyASCIIString</a></h3>
+<b>Abstract:</b> Get a 7 bit ASCII representation of a <tt>NSString</tt> containing Unicode characters.
+
+<blockquote><pre><tt>- (const char *)<B>nonLossyASCIIString;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a c string using <tt>NSNonLossyASCIIStringEncoding</tt> encoding, a 7-bit verbose ASCII to represent all Unicode characters. The returned C string will be automatically freed just as a returned object would be released; your code should copy the C string, if it needs to store the C string outside of the autorelease context in which the C string is created.
+</p>
+<b>Result:</b> A c string with <tt>NSNonLossyASCIIStringEncoding</tt> encoding.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSString/stringWithFormat:arguments:"></a>
+<h3><a name="stringWithFormat:arguments:">stringWithFormat:arguments:</a></h3>
+<b>Abstract:</b> Create a <tt>NSString</tt>.
+
+<blockquote><pre><tt>+ (id)<B>stringWithFormat:</B>(NSString *)<I>format</I> <B>arguments:</B>(va_list)<I>argList;</I> </tt><br>
+</pre></blockquote>
+<p>Creates a new string object, using <tt><i>format</i></tt> as a template into which the following <tt><i>argList</i></tt> values are substituted. Raises an <tt>NSInvalidArgumentException</tt> if <tt><i>format</i></tt> is <tt>nil</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>format</tt></td><td>The template string.</td><tr>
+<tr><td align = "center"><tt>argList</tt></td><td>The arguments to be inserted into <tt><i>format</i></tt></td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A new <tt>NSString</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSString/stringWithNonLossyASCIIString:"></a>
+<h3><a name="stringWithNonLossyASCIIString:">stringWithNonLossyASCIIString:</a></h3>
+<b>Abstract:</b> Create a <tt>NSString</tt>.
+
+<blockquote><pre><tt>+ (id)<B>stringWithNonLossyASCIIString:</B>(const char *)<I>ASCIIString;</I> </tt><br>
+</pre></blockquote>
+<p>Creates a <tt>NSString</tt> from <tt>NSNonLossyASCIIStringEncoding</tt> encoding, a 7-bit verbose ASCII to represent all Unicode characters
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>ASCIIString</tt></td><td>A 7 bit ASCII string in <tt>NSNonLossyASCIIStringEncoding</tt> encoding.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A new <tt>NSString</tt>
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

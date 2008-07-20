@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 39;
+	objects = {
+		014CEA4F0018CE4811CA2923 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				NSDebugEnabled = YES;
+				NSHangOnMallocError = YES;
+				NSHangOnUncaughtException = YES;
+				NSZombieEnabled = YES;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		014CEA500018CE4811CA2923 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OPTIMIZATION_CFLAGS = "-Os";
+				ZERO_LINK = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+//010
+//011
+//012
+//013
+//014
+//030
+//031
+//032
+//033
+//034
+		034768E6FF38A76511DB9C8B = {
+			explicitFileType = "compiled.mach-o.executable";
+			isa = PBXFileReference;
+			path = AppleScriptObjectProject;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+//030
+//031
+//032
+//033
+//034
+//080
+//081
+//082
+//083
+//084
+		08FB7793FE84155DC02AAC07 = {
+			buildSettings = {
+			};
+			buildStyles = (
+				014CEA4F0018CE4811CA2923,
+				014CEA500018CE4811CA2923,
+			);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			mainGroup = 08FB7794FE84155DC02AAC07;
+			projectDirPath = "";
+			targets = (
+				08FB779FFE84155DC02AAC07,
+			);
+		};
+		08FB7794FE84155DC02AAC07 = {
+			children = (
+				08FB7795FE84155DC02AAC07,
+				F5F9930201D6F50101108394,
+				D814942E04793EF700F1952F,
+				F5F3789A021E7DE901F4CAAC,
+				F50CEF2B01BDF8ED0153B19F,
+				08FB779DFE84155DC02AAC07,
+				1AB674ADFE9D54B511CA2CBB,
+				F59E212B03FE0D2201961376,
+			);
+			isa = PBXGroup;
+			name = AppleScriptObjectProject;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 = {
+			children = (
+				08FB7796FE84155DC02AAC07,
+			);
+			isa = PBXGroup;
+			name = Source;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		08FB7796FE84155DC02AAC07 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = main.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 = {
+			children = (
+				08FB779EFE84155DC02AAC07,
+				F52ABB4501B639C601796C49,
+			);
+			isa = PBXGroup;
+			name = "External Frameworks and Libraries";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		08FB779EFE84155DC02AAC07 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Foundation.framework;
+			path = /System/Library/Frameworks/Foundation.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		08FB779FFE84155DC02AAC07 = {
+			buildPhases = (
+				08FB77A0FE84155DC02AAC07,
+				08FB77A1FE84155DC02AAC07,
+				08FB77A3FE84155DC02AAC07,
+				08FB77A5FE84155DC02AAC07,
+			);
+			buildSettings = {
+				BUILD_SETTING = "";
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = AppleScriptObjectProject;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = AppleScriptObjectProject;
+			productInstallPath = "$(HOME)/bin";
+			productName = AppleScriptObjectProject;
+			productReference = 034768E6FF38A76511DB9C8B;
+		};
+		08FB77A0FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				D85BCFA10605BE0E008A807E,
+				D85BCFA20605BE0E008A807E,
+				D85BCFA60605BE34008A807E,
+				D85BCFA90605BE60008A807E,
+				D85BCFAE0605BEC4008A807E,
+				D85BCFB20605BF29008A807E,
+				D85BCFB60605BF42008A807E,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A1FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				08FB77A2FE84155DC02AAC07,
+				D85BCFA00605BE0E008A807E,
+				D85BCFA50605BE34008A807E,
+				D85BCFAA0605BE60008A807E,
+				D85BCFAD0605BEC4008A807E,
+				D85BCFB10605BF29008A807E,
+				D85BCFB50605BF42008A807E,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A2FE84155DC02AAC07 = {
+			fileRef = 08FB7796FE84155DC02AAC07;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		08FB77A3FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				F52ABB4601B639C601796C49,
+				F5F68C0A01D55F5E0148A480,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A5FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+//080
+//081
+//082
+//083
+//084
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+		1AB674ADFE9D54B511CA2CBB = {
+			children = (
+				034768E6FF38A76511DB9C8B,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+//D80
+//D81
+//D82
+//D83
+//D84
+		D80694870626633A00C5D112 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.rtf;
+			path = "Subroutine Format.rtf";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D814942E04793EF700F1952F = {
+			children = (
+				D814942F04793EF700F1952F,
+				D814943004793EF700F1952F,
+				D814943104793EF700F1952F,
+				D814943204793EF700F1952F,
+			);
+			isa = PBXGroup;
+			path = "Legacy Classes";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D814942F04793EF700F1952F = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = "NSAppleEventDescriptor+Legacy.h";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D814943004793EF700F1952F = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = "NSAppleEventDescriptor+Legacy.m";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D814943104793EF700F1952F = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = "NSAppleEventDescriptor+PreJaguar.h";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D814943204793EF700F1952F = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = "NSAppleEventDescriptor+PreJaguar.m";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D855C5CD063CA57C00FB002D = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "NSString+NDUtilities.h";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSString+NDUtilities.h";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D855C5CE063CA57C00FB002D = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = "NSString+NDUtilities.m";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSString+NDUtilities.m";
+			refType = 0;
+			sourceTree = "<absolute>";
+			wrapsLines = 1;
+		};
+		D85AF59D062AA2C000D23BE9 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.html.documentation;
+			name = masterTOC.html;
+			path = Documentation/masterTOC.html;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D85BCF9D0605BE0E008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = NDAppleScriptObject.m;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDAppleScriptObject.m;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCF9E0605BE0E008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = NDAppleScriptObject.h;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDAppleScriptObject.h;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCF9F0605BE0E008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = NDAppleScriptObject_Protocols.h;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDAppleScriptObject_Protocols.h;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFA00605BE0E008A807E = {
+			fileRef = D85BCF9D0605BE0E008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFA10605BE0E008A807E = {
+			fileRef = D85BCF9E0605BE0E008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFA20605BE0E008A807E = {
+			fileRef = D85BCF9F0605BE0E008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFA30605BE34008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = NDComponentInstance.m;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDComponentInstance.m;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFA40605BE34008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = NDComponentInstance.h;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDComponentInstance.h;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFA50605BE34008A807E = {
+			fileRef = D85BCFA30605BE34008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFA60605BE34008A807E = {
+			fileRef = D85BCFA40605BE34008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFA70605BE60008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = NDResourceFork.h;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDResourceFork.h;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFA80605BE60008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = NDResourceFork.m;
+			path = /Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NDResourceFork.m;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFA90605BE60008A807E = {
+			fileRef = D85BCFA70605BE60008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFAA0605BE60008A807E = {
+			fileRef = D85BCFA80605BE60008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFAB0605BEC4008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = "NSAppleEventDescriptor+NDAppleScriptObject.m";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSAppleEventDescriptor+NDAppleScriptObject.m";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFAC0605BEC4008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "NSAppleEventDescriptor+NDAppleScriptObject.h";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSAppleEventDescriptor+NDAppleScriptObject.h";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFAD0605BEC4008A807E = {
+			fileRef = D85BCFAB0605BEC4008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFAE0605BEC4008A807E = {
+			fileRef = D85BCFAC0605BEC4008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFAF0605BF29008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = "NSString+NDCarbonUtilities.m";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.m";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFB00605BF29008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "NSString+NDCarbonUtilities.h";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.h";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFB10605BF29008A807E = {
+			fileRef = D85BCFAF0605BF29008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFB20605BF29008A807E = {
+			fileRef = D85BCFB00605BF29008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFB30605BF42008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			name = "NSURL+NDCarbonUtilities.m";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSURL+NDCarbonUtilities.m";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFB40605BF42008A807E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "NSURL+NDCarbonUtilities.h";
+			path = "/Users/nathan/Desktop/NDAppleScriptObjectProject/Classes/NSURL+NDCarbonUtilities.h";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D85BCFB50605BF42008A807E = {
+			fileRef = D85BCFB30605BF42008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D85BCFB60605BF42008A807E = {
+			fileRef = D85BCFB40605BF42008A807E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//D80
+//D81
+//D82
+//D83
+//D84
+//F50
+//F51
+//F52
+//F53
+//F54
+		F50CEF2B01BDF8ED0153B19F = {
+			children = (
+				F5AF509101CE21740187E99C,
+			);
+			isa = PBXGroup;
+			name = "Test Scripts";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F52ABB4501B639C601796C49 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Carbon.framework;
+			path = /System/Library/Frameworks/Carbon.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		F52ABB4601B639C601796C49 = {
+			fileRef = F52ABB4501B639C601796C49;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E212B03FE0D2201961376 = {
+			children = (
+				D85AF59D062AA2C000D23BE9,
+				F59E213103FE1F3301961376,
+				F59E212C03FE0D3E01961376,
+			);
+			isa = PBXGroup;
+			name = Documentation;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F59E212C03FE0D3E01961376 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = NSAppleEventDescriptor.html;
+			path = /System/Library/Frameworks/Foundation.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSAppleEventDescriptor.html;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		F59E213103FE1F3301961376 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = OldCode.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F5AF509101CE21740187E99C = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.applescript;
+			path = "Test Script.applescript";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F5F3789A021E7DE901F4CAAC = {
+			children = (
+				F5F3789B021E7DE901F4CAAC,
+				D80694870626633A00C5D112,
+			);
+			isa = PBXGroup;
+			path = Notes;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F5F3789B021E7DE901F4CAAC = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.rtf;
+			path = "Known Problems-Issues.rtf";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F5F68C0A01D55F5E0148A480 = {
+			fileRef = 08FB779EFE84155DC02AAC07;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F9930201D6F50101108394 = {
+			children = (
+				D85BCF9F0605BE0E008A807E,
+				D85BCF9E0605BE0E008A807E,
+				D85BCF9D0605BE0E008A807E,
+				D85BCFA40605BE34008A807E,
+				D85BCFA30605BE34008A807E,
+				D85BCFA70605BE60008A807E,
+				D85BCFA80605BE60008A807E,
+				D85BCFAC0605BEC4008A807E,
+				D85BCFAB0605BEC4008A807E,
+				D85BCFB00605BF29008A807E,
+				D85BCFAF0605BF29008A807E,
+				D85BCFB40605BF42008A807E,
+				D85BCFB30605BF42008A807E,
+				D855C5CD063CA57C00FB002D,
+				D855C5CE063CA57C00FB002D,
+			);
+			isa = PBXGroup;
+			path = Classes;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+	};
+	rootObject = 08FB7793FE84155DC02AAC07;
+}

@@ -4,6 +4,9 @@
 #import "StatusDelegateProtocol.h"
 
 #define DOUBLECLICK_ACTION_QUEUE 1
+#define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
+#define GOOGLE_IMAGE_RESULTS_PER_PAGE 8
+#define ERRORDOMAIN @"ch.entropy.album-artwork-assistant"
 
 @interface AppDelegate : NSObject <StatusDelegateProtocol> {
 	IBOutlet NSProgressIndicator *progressIndicator;
@@ -31,21 +34,16 @@
 - (IBAction)fetch:(id)sender;
 - (IBAction)setAlbumArtwork:(id)sender;
 - (IBAction)setAlbumTitle:(NSString *)albumTitle;
-- (IBAction)setAlbumArtworkBackground:(id)sender;
+- (void)setAlbumArtworkBackground:(id)sender;
 - (IBAction)addToQueue:(id)sender;
 - (IBAction)addToQueueBackground:(id)sender;
 - (BOOL)fetchITunesTrackList;
-- (BOOL)displayErrorWithTitle:(NSString *)title message:(NSString *)message;
-- (void)runErrorSheet:(NSArray *)data;
 - (void)prepareAlbumTrackName;
 - (void)clearImages;
 - (IBAction)findImages:(id)sender;
-- (IBAction)doFindImages:(id)sender;
+- (void)doFindImages:(id)sender;
 - (IBAction)processQueue:(id)sender;
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)aBrowser;
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-- (void)startBusy:(NSString *)message;
-- (void)clearBusy;
 - (UpdateOperation *)makeUpdateOperation;
 - (void)processOneQueueEntry;
 - (NSArray *)searchSuggestions;

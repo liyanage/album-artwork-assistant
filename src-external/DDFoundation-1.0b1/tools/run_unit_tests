@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export DEVELOPER_DIR=${DEVELOPER_DIR:-/Developer}
+arch -arch `arch` ${DEVELOPER_DIR}/Tools/otest "$1"

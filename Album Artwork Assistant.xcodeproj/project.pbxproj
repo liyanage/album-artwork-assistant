@@ -44,6 +44,8 @@
 		1B8CF71A0E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF7190E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m */; };
 		1BAA29D30E2ABA3300B05717 /* GoogleImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA29D20E2ABA3300B05717 /* GoogleImageItem.m */; };
 		1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAA29D70E2ABB3000B05717 /* Quartz.framework */; };
+		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
+		1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -97,6 +99,25 @@
 		1BAA29D20E2ABA3300B05717 /* GoogleImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleImageItem.m; path = src/GoogleImageItem.m; sourceTree = "<group>"; };
 		1BAA29D70E2ABB3000B05717 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		1BAF14A50E328D6200A725F6 /* StatusDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusDelegateProtocol.h; path = src/StatusDelegateProtocol.h; sourceTree = "<group>"; };
+		1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "src-external/DDFoundation-1.0b1/lib/DDInvocationGrabber.m"; sourceTree = "<group>"; };
+		1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "src-external/DDFoundation-1.0b1/lib/NSObject+DDExtensions.m"; sourceTree = "<group>"; };
+		1BAF15C50E33D8EF00A725F6 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "src-external/DDFoundation-1.0b1/lib/DDInvocationGrabber.h"; sourceTree = "<group>"; };
+		1BAF15C60E33D8EF00A725F6 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "src-external/DDFoundation-1.0b1/lib/NSObject+DDExtensions.h"; sourceTree = "<group>"; };
+		1BAF160E0E33E16800A725F6 /* NSString+NDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NDUtilities.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDUtilities.m"; sourceTree = "<group>"; };
+		1BAF160F0E33E16800A725F6 /* NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDAppleScriptObject.m; path = "src-external/NDAppleScriptObjectProject/Classes/NDAppleScriptObject.m"; sourceTree = "<group>"; };
+		1BAF16100E33E16800A725F6 /* NDResourceFork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDResourceFork.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDResourceFork.h"; sourceTree = "<group>"; };
+		1BAF16110E33E16800A725F6 /* NDComponentInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDComponentInstance.m; path = "src-external/NDAppleScriptObjectProject/Classes/NDComponentInstance.m"; sourceTree = "<group>"; };
+		1BAF16120E33E16800A725F6 /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSURL+NDCarbonUtilities.h"; sourceTree = "<group>"; };
+		1BAF16130E33E16800A725F6 /* NDAppleScriptObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDAppleScriptObject.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDAppleScriptObject.h"; sourceTree = "<group>"; };
+		1BAF16140E33E16800A725F6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+NDAppleScriptObject.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = "<group>"; };
+		1BAF16150E33E16800A725F6 /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+NDCarbonUtilities.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSURL+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		1BAF16160E33E16800A725F6 /* NDResourceFork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDResourceFork.m; path = "src-external/NDAppleScriptObjectProject/Classes/NDResourceFork.m"; sourceTree = "<group>"; };
+		1BAF16170E33E16800A725F6 /* NSString+NDUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NDUtilities.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDUtilities.h"; sourceTree = "<group>"; };
+		1BAF16180E33E16800A725F6 /* NSAppleEventDescriptor+NDAppleScriptObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAppleEventDescriptor+NDAppleScriptObject.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSAppleEventDescriptor+NDAppleScriptObject.h"; sourceTree = "<group>"; };
+		1BAF16190E33E16800A725F6 /* NDAppleScriptObject_Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDAppleScriptObject_Protocols.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDAppleScriptObject_Protocols.h"; sourceTree = "<group>"; };
+		1BAF161A0E33E16800A725F6 /* NSString+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NDCarbonUtilities.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		1BAF161B0E33E16800A725F6 /* NDComponentInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDComponentInstance.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDComponentInstance.h"; sourceTree = "<group>"; };
+		1BAF161C0E33E16800A725F6 /* NSString+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NDCarbonUtilities.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.h"; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -124,6 +145,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
+				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
 				1B7657C90E28E229004A20AE /* RegexKitLite */,
 				1B7657C70E28E206004A20AE /* JSON */,
 				1B7657C80E28E20E004A20AE /* GTM */,
@@ -222,6 +245,39 @@
 				1B7656E60E28C648004A20AE /* RegexKitLite.m */,
 			);
 			name = RegexKitLite;
+			sourceTree = "<group>";
+		};
+		1BAF15B50E33D8A900A725F6 /* DDFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */,
+				1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */,
+				1BAF15C50E33D8EF00A725F6 /* DDInvocationGrabber.h */,
+				1BAF15C60E33D8EF00A725F6 /* NSObject+DDExtensions.h */,
+			);
+			name = DDFoundation;
+			sourceTree = "<group>";
+		};
+		1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */ = {
+			isa = PBXGroup;
+			children = (
+				1BAF16170E33E16800A725F6 /* NSString+NDUtilities.h */,
+				1BAF160E0E33E16800A725F6 /* NSString+NDUtilities.m */,
+				1BAF16190E33E16800A725F6 /* NDAppleScriptObject_Protocols.h */,
+				1BAF16130E33E16800A725F6 /* NDAppleScriptObject.h */,
+				1BAF160F0E33E16800A725F6 /* NDAppleScriptObject.m */,
+				1BAF16120E33E16800A725F6 /* NSURL+NDCarbonUtilities.h */,
+				1BAF16150E33E16800A725F6 /* NSURL+NDCarbonUtilities.m */,
+				1BAF16100E33E16800A725F6 /* NDResourceFork.h */,
+				1BAF16160E33E16800A725F6 /* NDResourceFork.m */,
+				1BAF16140E33E16800A725F6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */,
+				1BAF16180E33E16800A725F6 /* NSAppleEventDescriptor+NDAppleScriptObject.h */,
+				1BAF161B0E33E16800A725F6 /* NDComponentInstance.h */,
+				1BAF16110E33E16800A725F6 /* NDComponentInstance.m */,
+				1BAF161C0E33E16800A725F6 /* NSString+NDCarbonUtilities.h */,
+				1BAF161A0E33E16800A725F6 /* NSString+NDCarbonUtilities.m */,
+			);
+			name = NDAppleScriptObject;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* Music Artwork */ = {
@@ -344,6 +400,8 @@
 				1B8CF6230E2BD5140084C323 /* GTMFourCharCode.m in Sources */,
 				1B8CF6330E2BD5970084C323 /* GTMNSAppleEventDescriptor+Foundation.m in Sources */,
 				1B8CF71A0E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m in Sources */,
+				1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */,
+				1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

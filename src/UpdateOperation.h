@@ -22,6 +22,5 @@
 - (id)initWithTracks:(NSArray *)tracks imageItem:(GoogleImageItem *)imageItem statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
 - (NSString *)albumTitle;
 - (NSImage *)tinyAlbumImage;
-- (void)executeAppleScriptWithData:(NSArray *)data;
 
 @end

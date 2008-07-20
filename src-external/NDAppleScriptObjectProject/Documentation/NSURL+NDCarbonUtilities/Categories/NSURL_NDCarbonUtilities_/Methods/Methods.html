@@ -1,0 +1,216 @@
+<html><head><title>Methods</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>Methods</h1></font><hr><br>
+<a name="//apple_ref/occ/instm/NSURL/URLByDeletingLastPathComponent"></a>
+<h3><a name="URLByDeletingLastPathComponent">URLByDeletingLastPathComponent</a></h3>
+<b>Abstract:</b> Delete last component of a url.
+
+<blockquote><pre><tt>- (NSURL *)<B>URLByDeletingLastPathComponent;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a new <tt>NSURL</tt> equivelent to the receiver with the last component removed.
+</p>
+<b>Result:</b> A new <tt>NSURL</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSURL/URLWithFSRef:"></a>
+<h3><a name="URLWithFSRef:">URLWithFSRef:</a></h3>
+<b>Abstract:</b> Alloc and intialize a <tt>NSURL</tt>.
+
+<blockquote><pre><tt>+ (NSURL *)<B>URLWithFSRef:</B>(const FSRef *)<I>fsRef;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a file url for the file refered to by a <tt>FSRef</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>fsRef</tt></td><td>A pointer to a <tt>FSRef</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSURL</tt> containing a file url.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSURL/URLWithFileSystemPathHFSStyle:"></a>
+<h3><a name="URLWithFileSystemPathHFSStyle:">URLWithFileSystemPathHFSStyle:</a></h3>
+<b>Abstract:</b> Alloc and intialize a <tt>NSURL</tt>.
+
+<blockquote><pre><tt>+ (NSURL *)<B>URLWithFileSystemPathHFSStyle:</B>(NSString *)<I>hfsString;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a file url for the file refered to by a HFS style path.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>hfsString</tt></td><td>A <tt>NSString</tt> containing a HFS style path.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSURL</tt> containing a file url.
+	 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/fileSystemPathHFSStyle"></a>
+<h3><a name="fileSystemPathHFSStyle">fileSystemPathHFSStyle</a></h3>
+<b>Abstract:</b> Returns a HFS style path.
+
+<blockquote><pre><tt>- (NSString *)<B>fileSystemPathHFSStyle;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSString</tt> containg a HFS style path (e.g. <tt>Macitosh HD:Users:</tt>) useful for display purposes.
+</p>
+<b>Result:</b> A new <tt>NSString</tt> containing a HFS style path for the same file or directory as the receiver.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/finderInfoFlags:type:creator:"></a>
+<h3><a name="finderInfoFlags:type:creator:">finderInfoFlags:type:creator:</a></h3>
+<b>Abstract:</b> Get finder info flags creator and type.
+
+<blockquote><pre><tt>- (BOOL)<B>finderInfoFlags:</B>(UInt16*)<I>flags</I> <B>type:</B>(OSType*)<I>type</I> <B>creator:</B>(OSType*)<I>creator;</I> </tt><br>
+</pre></blockquote>
+<p>The bits of the finder info flag are
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>kIsOnDesk</tt></td><td>Files and folders (System 6)</td><tr>
+<tr><td align = "center"><tt>kColor</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsShared</tt></td><td>Files only (Applications only)<br>
+If clear, the application needs to write to its resource fork, and therefore cannot be shared on a server</td><tr>
+<tr><td align = "center"><tt>kHasNoINITs</tt></td><td>Files only (Extensions/Control Panels only)<br>
+This file contains no INIT resource</td><tr>
+<tr><td align = "center"><tt>kHasBeenInited</tt></td><td>Files only<br>
+Clear if the file contains desktop database resources ('BNDL', 'FREF', 'open', 'kind'...) that have not been added yet. Set only by the Finder</td><tr>
+<tr><td align = "center"><tt>kHasCustomIcon</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsStationery</tt></td><td>Files only</td><tr>
+<tr><td align = "center"><tt>kNameLocked</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kHasBundle</tt></td><td>Files only</td><tr>
+<tr><td align = "center"><tt>kIsInvisible</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsAlias</tt></td><td>Files only.</td><tr>
+</table>
+</blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>flags</tt></td><td>Contains finder flags on return.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>Contains finder type on return.</td><tr>
+<tr><td align = "center"><tt>creator</tt></td><td>Contains creator on return.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Return <tt>YES</tt> if successful, otherwise <tt>NO</tt> and the returned values are invalid.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/finderLocation"></a>
+<h3><a name="finderLocation">finderLocation</a></h3>
+<b>Abstract:</b> Return a finder items location.
+
+<blockquote><pre><tt>- (NSPoint)<B>finderLocation;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a finder items location within its parent window.
+</p>
+<b>Result:</b> A <tt>NSPoint</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/getFSRef:"></a>
+<h3><a name="getFSRef:">getFSRef:</a></h3>
+<b>Abstract:</b> Get a <tt>FSRef</tt>.
+
+<blockquote><pre><tt>- (BOOL)<B>getFSRef:</B>(FSRef *)<I>fsRef;</I> </tt><br>
+</pre></blockquote>
+<p>Obtain a <tt>FSRef</tt> for a file url.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>fsRef</tt></td><td>A pointer to a <tt>FSRef</tt> struct, to be filled by the method.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful, if the method returns <tt>NO</tt> then <tt>fsRef</tt> contains garbage.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/getFSSpec:"></a>
+<h3><a name="getFSSpec:">getFSSpec:</a></h3>
+<b>Abstract:</b> Get a <tt>FSSpec</tt>.
+
+<blockquote><pre><tt>- (BOOL)<B>getFSSpec:</B>(FSSpec *)<I>fsSpec;</I> </tt><br>
+</pre></blockquote>
+<p>Obtain a <tt>FSSpec</tt> for a file url.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>fsSpec</tt></td><td>A pointer to a <tt>FSSpec</tt> struct, to be filled by the method.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful, if the method returns <tt>NO</tt> then <tt>fsSpec</tt> contains garbage.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/resolveAliasFile"></a>
+<h3><a name="resolveAliasFile">resolveAliasFile</a></h3>
+<b>Abstract:</b> Resolve an alias file.
+
+<blockquote><pre><tt>- (NSURL *)<B>resolveAliasFile;</B> </tt><br>
+</pre></blockquote>
+<p>Returns an file url <tt>NSURL</tt> refered to by the receveive if the receveive refers to an alias file. If it does not refer to an alias file the a url identical to the receveive is returned.
+</p>
+<b>Result:</b> An file url <tt>NSURL</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/setFinderInfoFlags:mask:type:creator:"></a>
+<h3><a name="setFinderInfoFlags:mask:type:creator:">setFinderInfoFlags:mask:type:creator:</a></h3>
+<b>Abstract:</b> Set finder info flags, creator and type.
+
+<blockquote><pre><tt>- (BOOL)<B>setFinderInfoFlags:</B>(UInt16)<I>flags</I> <B>mask:</B>(UInt16)<I>aMask</I> <B>type:</B>(OSType)<I>type</I> <B>creator:</B>(OSType)<I>creator;</I> </tt><br>
+</pre></blockquote>
+<p>The bits of the finder info flag are
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>kIsOnDesk</tt></td><td>Files and folders (System 6)</td><tr>
+<tr><td align = "center"><tt>kColor</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsShared</tt></td><td>Files only (Applications only)<br>
+If clear, the application needs to write to its resource fork, and therefore cannot be shared on a server</td><tr>
+<tr><td align = "center"><tt>kHasNoINITs</tt></td><td>Files only (Extensions/Control Panels only)<br>
+This file contains no INIT resource</td><tr>
+<tr><td align = "center"><tt>kHasBeenInited</tt></td><td>Files only<br>
+Clear if the file contains desktop database resources ('BNDL', 'FREF', 'open', 'kind'...) that have not been added yet. Set only by the Finder</td><tr>
+<tr><td align = "center"><tt>kHasCustomIcon</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsStationery</tt></td><td>Files only</td><tr>
+<tr><td align = "center"><tt>kNameLocked</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kHasBundle</tt></td><td>Files only</td><tr>
+<tr><td align = "center"><tt>kIsInvisible</tt></td><td>Files and folders</td><tr>
+<tr><td align = "center"><tt>kIsAlias</tt></td><td>Files only.</td><tr>
+</table>
+</blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>flags</tt></td><td>Finder flags.</td><tr>
+<tr><td align = "center"><tt>aMask</tt></td><td>Mask for Finder flags</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The Finder file type</td><tr>
+<tr><td align = "center"><tt>creator</tt></td><td>The application creator code</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSURL/setFinderLocation:"></a>
+<h3><a name="setFinderLocation:">setFinderLocation:</a></h3>
+<b>Abstract:</b> Sets the location a finder item.
+
+<blockquote><pre><tt>- (BOOL)<B>setFinderLocation:</B>(NSPoint)<I>location;</I> </tt><br>
+</pre></blockquote>
+<p>Set the location of a finder item within in container.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>location</tt></td><td>The location</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

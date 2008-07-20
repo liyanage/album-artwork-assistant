@@ -1,0 +1,19 @@
+<html><head><title>NSAppleEventDescriptor(NDAppleScriptValueExtension)</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>NSAppleEventDescriptor(NDAppleScriptValueExtension)</h1></font><hr><br>
+<h2>Abstract</h2>
+category of <tt>NSAppleEventDescriptor</tt>.
+<h2>Discussion</h2>
+adds a method to <tt>NSAppleEventDescriptor</tt> retrieve a <tt>NDAppleScriptObject</tt> from a <tt>NSAppleEventDescriptor</tt>.
+ <hr><br><h2>Methods</h2>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/appleScriptValue"></a>
+<h3><a name="appleScriptValue">appleScriptValue</a></h3>
+<b>Abstract:</b> Category method for <tt>NSAppleEventDescriptor (NDAppleScriptObjectValueExtension)</tt>, converts any script data within a AppleEvent descriptor into an <tt>NDAppleScriptObject</tt>
+
+<blockquote><pre><tt>- (NDAppleScriptObject *)<B>appleScriptValue;</B> </tt><br>
+</pre></blockquote>
+<p>If an AppleScript return a AppleScript as it&rsquo;s result, this method can be used to convert the result <tt>NSAppleEventDescriptor</tt> into a <tt>NDAppleScriptObject</tt>. The <tt>NSAppleEventDescriptor</tt> method objectValue will use this method if available.
+</p>
+<b>Result:</b> a <tt>NDAppleScriptObject</tt> object for the AppleScript contained within the AppleEvent descriptor.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

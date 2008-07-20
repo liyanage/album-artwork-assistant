@@ -1,0 +1,438 @@
+<html><head><title>Methods</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>Methods</h1></font><hr><br>
+<a name="//apple_ref/occ/instm/NDResourceFork/addData:type:Id:name:"></a>
+<h3><a name="addData:type:Id:name:">addData:type:Id:name:</a></h3>
+<b>Abstract:</b> Adds a resource to the receivers resource file.
+
+<blockquote><pre><tt>- (BOOL)<B>addData:</B>(NSData *)<I>data</I> <B>type:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID</I> <B>name:</B>(NSString *)<I>name;</I> </tt><br>
+</pre></blockquote>
+<p><tt>addData:type:name:</tt> doesn't verify whether the resource ID you pass in the parameter <tt><i>ID</i></tt> is already assigned to another resource of the same type. You should use the methods <tt>addData:type:name:</tt> or <tt>dataForType:named:</tt> to get a unique resource ID when adding a resource . <tt>addData:type:Id:named:</tt> returns <tt>YES</tt> on success
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>data</tt></td><td>An <tt>NSData</tt> object containing the data to be added as a resource to the receivers resource file.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource to be added.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>The resource ID of the resource to be added.</td><tr>
+<tr><td align = "center"><tt>name</tt></td><td>The name of the resource to be added.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the resource was successfully added, otherwise it returns <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/addData:type:name:"></a>
+<h3><a name="addData:type:name:">addData:type:name:</a></h3>
+<b>Abstract:</b> Adds a resource to the receivers resource file.
+
+<blockquote><pre><tt>- (BOOL)<B>addData:</B>(NSData *)<I>data</I> <B>type:</B>(ResType)<I>type</I> <B>name:</B>(NSString *)<I>name;</I> </tt><br>
+</pre></blockquote>
+<p><tt>addData:type:name:</tt> uses an unique resource ID when adding a resource . <tt>addData:type:Id:named:</tt> returns <tt>YES</tt> on success
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>data</tt></td><td>An <tt>NSData</tt> object containing the data to be added as a resource to the receivers resource file.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource to be added.</td><tr>
+<tr><td align = "center"><tt>name</tt></td><td>The name of the resource to be added.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the resource was successfully added, otherwise it returns <tt>NO</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/dataForEntireResourceFork"></a>
+<h3><a name="dataForEntireResourceFork">dataForEntireResourceFork</a></h3>
+<b>Abstract:</b> Reads the receivers entire resource data.
+
+<blockquote><pre><tt>- (NSData *)<B>dataForEntireResourceFork;</B> </tt><br>
+</pre></blockquote>
+<p><tt>dataForEntireResourceFork</tt> returns a <tt>NSData</tt> object that contains the entire contents of the resource fork. <tt>dataForEntireResourceFork</tt> and it's conpanion method <tt>writeEntireResourceFork</tt> can be used for duplicating the resource fork for on file to the resource fork of another. <tt>dataForEntireResourceFork</tt> can also be used to convert a resource stored in a files resource fork into a resource stored in a data fork, simple by using the <tt>NSData</tt> methods <tt>writeToFile:atomically:</tt> or <tt>writeToURL:atomically:</tt>.
+</p>
+<b>Result:</b> A <tt>NSData</tt> object containing the resources data.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/dataForType:Id:"></a>
+<h3><a name="dataForType:Id:">dataForType:Id:</a></h3>
+<b>Abstract:</b> Gets resource data for a resource in the receivers resource file.
+
+<blockquote><pre><tt>- (NSData *)<B>dataForType:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p><tt>dataForType:Id:</tt> searches the receivers resource file's resource map in memory for the specified resource.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource which you wish to retrieve data.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>An integer that uniquely identifies the resource which you wish to retrieve data.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns an <tt>NSData</tt> object if successful otherwise returns nil.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/dataForType:named:"></a>
+<h3><a name="dataForType:named:">dataForType:named:</a></h3>
+<b>Abstract:</b> Gets resource data for a resource in the receivers resource file.
+
+<blockquote><pre><tt>- (NSData *)<B>dataForType:</B>(ResType)<I>type</I> <B>named:</B>(NSString *)<I>name;</I> </tt><br>
+</pre></blockquote>
+<p><tt>dataForType:Id:</tt> searches the receivers resource file's resource map in memory for the specified resource.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource which you wish to retrieve data.</td><tr>
+<tr><td align = "center"><tt>name</tt></td><td>A name that uniquely identifies the resource which you wish to retrieve data. Strings passed in this parameter are case-sensitive.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns an <tt>NSData</tt> object if successful otherwise returns nil.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/everyResourceType"></a>
+<h3><a name="everyResourceType">everyResourceType</a></h3>
+<b>Abstract:</b> Gets every resource type available in the receivers resource file.
+
+<blockquote><pre><tt>- (NSArray *)<B>everyResourceType;</B> </tt><br>
+</pre></blockquote>
+<p><tt>everyResourceType</tt> returns an <tt>NSArray</tt> of <tt>NSNumber</tt>s each containing a <tt>unsigned long</tt>  or <tt>ResType</tt>s.
+</p>
+<b>Result:</b> A <tt>NSArray</tt> of <tt>NSNumber</tt>s containing <tt>ResType</tt>s.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/getAttributeFlags:forResourceType:Id:"></a>
+<h3><a name="getAttributeFlags:forResourceType:Id:">getAttributeFlags:forResourceType:Id:</a></h3>
+<b>Abstract:</b> Gets a resource's attributes.
+
+<blockquote><pre><tt>- (BOOL)<B>getAttributeFlags:</B>(short int*)<I>attributes</I> <B>forResourceType:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>Returns the attributes for a resource in a pointer  to a <tt>short int</tt> and returns <tt>YES</tt> if retrieval of the attributes is succeeded. If <tt>getAttributeFlags:forResourceType:Id:</tt> returns <tt>NO</tt> then the value returned through the pointer <tt><i>attributes</i></tt> is garabage.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>attributes</tt></td><td>A pointer to an <tt>short int</tt> that on return contains the resources attributes, if the returned value is <tt>YES</tt>.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource for which you wish to retrieve the attributes.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>An integer that uniquely identifies the resource for which you wish to retrieve the attributes.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>YES</tt> if retrieval was successful.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/getId:ofResourceType:named:"></a>
+<h3><a name="getId:ofResourceType:named:">getId:ofResourceType:named:</a></h3>
+<b>Abstract:</b> Gets a named resource's resource id.
+
+<blockquote><pre><tt>- (BOOL)<B>getId:</B>(short int *)<I>ID</I> <B>ofResourceType:</B>(ResType)<I>type</I> <B>named:</B>(NSString *)<I>name;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a resources id in a pointer to a <tt>short int</tt> and returns <tt>YES</tt> if retrieval of the id is succeeded. If <tt>getId:ofResourceType:named:</tt> returns <tt>NO</tt> then the value returned through the pointer <tt><i>ID</i></tt> is garabage.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>ID</tt></td><td>A pointer to an <tt>short int</tt> that on return contains the resources id, if the returned value is <tt>YES</tt>.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource for which you wish to retrieve the id.</td><tr>
+<tr><td align = "center"><tt>name</tt></td><td>The resource name of the resource for which you wish to retrieve the id.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>YES</tt> if retrieval was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForPermission:AtPath:"></a>
+<h3><a name="initForPermission:AtPath:">initForPermission:AtPath:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForPermission:</B>(char)<I>permission</I> <B>AtPath:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for reading and/or writting using the path. If write permission is specified, then an empty resource fork created before hand if it does not already exists. The receivers resource fork is closed when the receiver is deallocated. Possible permission values are as follows;
+<blockquote>
+<table border=0 cellpadding=4>
+<tr><td width=80 valign=top><tt>fsCurPerm</tt></td>
+<td>Requests whatever permissions are currently allowed. If write access in unavailable (because the file is locked or the file is already open with write permission), then read permission is granted. Otherwise read/write permission is granted.</td></tr>
+<tr><td valign=top><tt>fsRdPerm</tt></td>
+<td>Requests permission to read the file.</td></tr>
+<tr><td valign=top><tt>fsWrPerm</tt></td>
+<td>Requests permission to write to the file. If write permission is granted, no other access paths are granted write permission. Note, however, that the File Manager does not support write-only access to a file. Thus, <tt>fsWrPerm</tt> is synonymous with <tt>fsRdWrPerm</tt> .</td></tr>
+<tr><td valign=top><tt>fsRdWrPerm</tt></td>
+<td>Requests exclusive read and write permission. If exclusive read/ write permission is granted, no other users are granted permission to write to the file. Other users may, however, be granted permission to read the file.</td></tr>
+<tr><td valign=top><tt>fsRdWrShPerm</tt></td>
+<td>Requests shared read and write permission. Shared read/ write permission allows mutliple access paths for reading and writing. This is safe only if there is some way of locking portions of the file before writing to them. Use the functions <tt>PBLockRangeSync</tt> and <tt>PBUnlockRangeSync</tt> to lock and unlock ranges of bytes within a file. On Mac OS 8 and 9, these functions are supported only on remotely mounted volumes, or on local volumes that are shareable on the network. You should check that range locking is available before requesting shared read/ write permission.  On Mac OS X, range locking is available on all volumes.</td></tr>
+<tr><td valign=top><tt>fsRdDenyPerm</tt></td>
+<td>Requests that any other paths be prevented from having read access. A path cannot be opened if you request read permission (with the <tt>fsRdPerm</tt> constant) but some other path has requested deny-read access. Similarly, the path cannot be opened if you request deny-read permission, but some other path already has read access. This constant is used with the <tt>PBHOpenDenySync</tt> and <tt>PBHOpenRFDenySync</tt> functions.</td></tr>
+<tr><td valign=top><tt>fsWrDenyPerm</tt></td>
+<td>Requests that any other paths be prevented from having write access. A path cannot be opened if you request write permission (with the <tt>fsWrPerm</tt> constant) but some other path has requested deny-write access. Similarly, the path cannot be opened if you request deny-write permission, but some other path already has write access. This constant is used with the <tt>PBHOpenDenySync</tt> and <tt>PBHOpenRFDenySync</tt> functions.</td></tr>
+</table>
+</blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>permission</tt></td><td>read/write permissions for the opened resource fork.</td><tr>
+<tr><td align = "center"><tt>path</tt></td><td>A path specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForPermission:AtURL:"></a>
+<h3><a name="initForPermission:AtURL:">initForPermission:AtURL:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForPermission:</B>(char)<I>permission</I> <B>AtURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for reading and/or writting using the file url. If write permission is specified, then an empty resource fork created before hand if it does not already exists.  The receivers resource fork is closed when the receiver is deallocated.Possible permission values are as follows;
+<blockquote>
+<table border=0 cellpadding=4>
+<tr><td width=80 valign=top><tt>fsCurPerm</tt></td>
+<td>Requests whatever permissions are currently allowed. If write access in unavailable (because the file is locked or the file is already open with write permission), then read permission is granted. Otherwise read/write permission is granted.</td></tr>
+<tr><td valign=top><tt>fsRdPerm</tt></td>
+<td>Requests permission to read the file.</td></tr>
+<tr><td valign=top><tt>fsWrPerm</tt></td>
+<td>Requests permission to write to the file. If write permission is granted, no other access paths are granted write permission. Note, however, that the File Manager does not support write-only access to a file. Thus, <tt>fsWrPerm</tt> is synonymous with <tt>fsRdWrPerm</tt> .</td></tr>
+<tr><td valign=top><tt>fsRdWrPerm</tt></td>
+<td>Requests exclusive read and write permission. If exclusive read/ write permission is granted, no other users are granted permission to write to the file. Other users may, however, be granted permission to read the file.</td></tr>
+<tr><td valign=top><tt>fsRdWrShPerm</tt></td>
+<td>Requests shared read and write permission. Shared read/ write permission allows mutliple access paths for reading and writing. This is safe only if there is some way of locking portions of the file before writing to them. Use the functions <tt>PBLockRangeSync</tt> and <tt>PBUnlockRangeSync</tt> to lock and unlock ranges of bytes within a file. On Mac OS 8 and 9, these functions are supported only on remotely mounted volumes, or on local volumes that are shareable on the network. You should check that range locking is available before requesting shared read/ write permission.  On Mac OS X, range locking is available on all volumes.</td></tr>
+<tr><td valign=top><tt>fsRdDenyPerm</tt></td>
+<td>Requests that any other paths be prevented from having read access. A path cannot be opened if you request read permission (with the <tt>fsRdPerm</tt> constant) but some other path has requested deny-read access. Similarly, the path cannot be opened if you request deny-read permission, but some other path already has read access. This constant is used with the <tt>PBHOpenDenySync</tt> and <tt>PBHOpenRFDenySync</tt> functions.</td></tr>
+<tr><td valign=top><tt>fsWrDenyPerm</tt></td>
+<td>Requests that any other paths be prevented from having write access. A path cannot be opened if you request write permission (with the <tt>fsWrPerm</tt> constant) but some other path has requested deny-write access. Similarly, the path cannot be opened if you request deny-write permission, but some other path already has write access. This constant is used with the <tt>PBHOpenDenySync</tt> and <tt>PBHOpenRFDenySync</tt> functions.</td></tr>
+</table>
+</blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>permission</tt></td><td>read/write permissions for the opened resource fork.</td><tr>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForReadingAtPath:"></a>
+<h3><a name="initForReadingAtPath:">initForReadingAtPath:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForReadingAtPath:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for reading using the path. The receivers resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForReadingAtURL:"></a>
+<h3><a name="initForReadingAtURL:">initForReadingAtURL:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForReadingAtURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for reading using the file url.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url specifying the name and location of the file whose resource fork is to be opened. The receivers resource fork is closed when the receiver is deallocated.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForReadingAtURL:"></a>
+<h3><a name="initForReadingAtURL:">initForReadingAtURL:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForWritingAtURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for writting, creating it before hand if it does not already exists, using the file url. The receivers resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/initForWritingAtPath:"></a>
+<h3><a name="initForWritingAtPath:">initForWritingAtPath:</a></h3>
+<b>Abstract:</b> Initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>- (id)<B>initForWritingAtPath:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Intializes the receiver and opens a resource fork for writting, creating it before hand if it does not already exists, using the path. The receivers resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or initalization failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/nameOfResourceType:Id:"></a>
+<h3><a name="nameOfResourceType:Id:">nameOfResourceType:Id:</a></h3>
+<b>Abstract:</b> Gets a resource's resource name.
+
+<blockquote><pre><tt>- (NSString *)<B>nameOfResourceType:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a resources name as an <tt>NSString</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource for which you wish to retrieve the name.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>An integer that uniquely identifies the resource for which you wish to retrieve the name.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An <tt>NSString</tt> containing the resources name.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/removeType:Id:"></a>
+<h3><a name="removeType:Id:">removeType:Id:</a></h3>
+<b>Abstract:</b> Removes a resource's entry from the receivers resource file.
+
+<blockquote><pre><tt>- (BOOL)<B>removeType:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>If the <tt>resProtected</tt> attribute for the resource is set, <tt>removeType:Id:</tt> does nothing, and returns <tt>NO</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource which you wish to remove.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>An integer that uniquely identifies the resource which you wish to remove.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if the resource was successfully removed, otherwise if returns <tt>NO</tt>.
+  
+<hr>
+<a name="//apple_ref/occ/clm/NDResourceFork/resourceForkForReadingAtPath:"></a>
+<h3><a name="resourceForkForReadingAtPath:">resourceForkForReadingAtPath:</a></h3>
+<b>Abstract:</b> Creates and initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>+ (id)<B>resourceForkForReadingAtPath:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Creates and intializes a <tt>NDResourceFork</tt> and opens a resource fork for reading using the path. The receivers resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or Create and initalise failed.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDResourceFork/resourceForkForReadingAtURL:"></a>
+<h3><a name="resourceForkForReadingAtURL:">resourceForkForReadingAtURL:</a></h3>
+<b>Abstract:</b> Creates and initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>+ (id)<B>resourceForkForReadingAtURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Creates and intializes a <tt>NDResourceFork</tt> and opens a resource fork for reading using the file url.. The <tt>NDResourceFork</tt> resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or Create and initalise failed.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDResourceFork/resourceForkForWritingAtPath:"></a>
+<h3><a name="resourceForkForWritingAtPath:">resourceForkForWritingAtPath:</a></h3>
+<b>Abstract:</b> Creates and initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>+ (id)<B>resourceForkForWritingAtPath:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Creates and intializes a <tt>NDResourceFork</tt>r and opens a resource fork for writting, creating it before hand if it does not already exists, using the path. The receivers resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or Create and initalise failed.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDResourceFork/resourceForkForWritingAtURL:"></a>
+<h3><a name="resourceForkForWritingAtURL:">resourceForkForWritingAtURL:</a></h3>
+<b>Abstract:</b> Creates and initalises a <tt>NDResourceFork</tt>.
+
+<blockquote><pre><tt>+ (id)<B>resourceForkForWritingAtURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Creates and intializes a <tt>NDResourceFork</tt> and opens a resource fork for writting, creating it before hand if it does not already exists, using the file url. The <tt>NDResourceFork</tt> resource fork is closed when the receiver is deallocated.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url specifying the name and location of the file whose resource fork is to be opened.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NDResourceFork</tt> for an opened resource fork, returns <tt>nil</tt> if the resource fork could not be opened or Create and initalise failed.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/setAttributeFlags:forResourceType:Id:"></a>
+<h3><a name="setAttributeFlags:forResourceType:Id:">setAttributeFlags:forResourceType:Id:</a></h3>
+<b>Abstract:</b> Sets a resource's attributes.
+
+<blockquote><pre><tt>- (BOOL)<B>setAttributeFlags:</B>(short int)<I>attributes</I> <B>forResourceType:</B>(ResType)<I>type</I> <B>Id:</B>(short int)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>Set the attributes for a resource in <tt><i>attributes</i></tt> and returns <tt>YES</tt> if setting of the attributes is succeeded.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>attributes</tt></td><td>A <tt>short int</tt> that contains the resources attributes to be set.</td><tr>
+<tr><td align = "center"><tt>type</tt></td><td>The resource type of the resource for which you wish to set the attributes.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>An integer that uniquely identifies the resource for which you wish to set the attributes.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>YES</tt> if <tt>setAttributeFlags:forResourceType:Id:</tt> was successful in setting the resources attributes.
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDResourceFork/writeEntireResourceFork:"></a>
+<h3><a name="writeEntireResourceFork:">writeEntireResourceFork:</a></h3>
+<b>Abstract:</b> Writes complete resource data to the receivers resource fork.
+
+<blockquote><pre><tt>- (BOOL)<B>writeEntireResourceFork:</B>(NSData *)<I>data;</I> </tt><br>
+</pre></blockquote>
+<p><tt>writeEntireResourceFork:</tt> writes the data in the <tt>NSData</tt> object out the the recievers resource fork. <tt>writeEntireResourceFork</tt> and it's conpanion method <tt>dataForEntireResourceFork</tt> can be used for duplicating the resource fork for on file to the resource fork of another. <tt>writeEntireResourceFork:</tt> can also be used to convert a resource stored in a files data fork into a resource stored in a files resource fork, simple by creating the <tt>NSData</tt> object with the methods <tt>dataWithContentsOfFile</tt> or <tt>dataWithContentsOfURL:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>data</tt></td><td>The complete resource data in a <tt>NSData</tt> object.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if writting was successful, returns <tt>NO</tt> otherwise.
+  
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>
