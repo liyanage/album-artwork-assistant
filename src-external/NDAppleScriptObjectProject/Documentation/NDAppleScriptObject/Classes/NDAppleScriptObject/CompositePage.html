@@ -1,0 +1,1040 @@
+<html><head><title>NDAppleScriptObject</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>NDAppleScriptObject</h1></font><hr><br>
+<h2>Abstract</h2>
+Class to represent an AppleScript.
+<h2>Discussion</h2>
+As well as representing an AppleScript, <tt>NDAppleScriptObject</tt> also can maintain seperate context for each AppleScript, useful if you want to run each script within a seperate thread. <tt>NDAppleScriptObject</tt> is interface compatabile with <tt>NSAppleScript</tt>
+  <hr><br><h2>Methods</h2>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/appleEventTarget"></a>
+<h3><a name="appleEventTarget">appleEventTarget</a></h3>
+<b>Abstract:</b> returns an AppleEvent desriptor that can be used in constructing complete AppleEvents.
+
+<blockquote><pre><tt>- (NSAppleEventDescriptor *)<B>appleEventTarget;</B> </tt><br>
+</pre></blockquote>
+<p>When construction AppleEvents using the <tt>NSAppleEventDescriptor</tt> method  <tt>appleEventWithEventClass:eventID:targetDescriptor:returnID:transactionID:</tt> to send to the script with the <tt>NDAppleScriptObject</tt> method <tt>executeEvent:</tt> the <tt>NSAppleEventDescriptor</tt> return from this method can be used as the target discriptor.
+</p>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> to be used as an AppleEvent target.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithContentsOfFile:"></a>
+<h3><a name="appleScriptObjectWithContentsOfFile:">appleScriptObjectWithContentsOfFile:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> by reading in the compiled AppleScipt at passed path.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithContentsOfFile:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of initWithContentsOfFile:.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path to the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithContentsOfFile:componentInstance:"></a>
+<h3><a name="appleScriptObjectWithContentsOfFile:componentInstance:">appleScriptObjectWithContentsOfFile:componentInstance:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> by reading in the compiled AppleScipt at passed path.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithContentsOfFile:</B>(NSString *)<I>aPath</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of initWithContentsOfFile:.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path to the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithContentsOfURL:"></a>
+<h3><a name="appleScriptObjectWithContentsOfURL:">appleScriptObjectWithContentsOfURL:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> by reading in the compiled AppleScipt at passed file URL.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithContentsOfURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of initWithContentsOfURL:.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url to the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithContentsOfURL:componentInstance:"></a>
+<h3><a name="appleScriptObjectWithContentsOfURL:componentInstance:">appleScriptObjectWithContentsOfURL:componentInstance:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> by reading in the compiled AppleScipt at passed file URL.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithContentsOfURL:</B>(NSURL *)<I>URL</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of initWithContentsOfURL:.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url to the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithData:"></a>
+<h3><a name="appleScriptObjectWithData:">appleScriptObjectWithData:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> from the <tt>NSData</tt> containing a compiled AppleScript.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithData:</B>(NSData *)<I>data;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of <tt>initWithData:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithData:componentInstance:"></a>
+<h3><a name="appleScriptObjectWithData:componentInstance:">appleScriptObjectWithData:componentInstance:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> from the <tt>NSData</tt> containing a compiled AppleScript.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithData:</B>(NSData *)<I>data</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of initWithData:.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithString:"></a>
+<h3><a name="appleScriptObjectWithString:">appleScriptObjectWithString:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> compiled from passed string.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithString:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of <tt>initWithString:</tt> with mode flags set to <tt>kOSAModeCompileIntoContext</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/appleScriptObjectWithString:componentInstance:"></a>
+<h3><a name="appleScriptObjectWithString:componentInstance:">appleScriptObjectWithString:componentInstance:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> compiled from passed string.
+
+<blockquote><pre><tt>+ (id)<B>appleScriptObjectWithString:</B>(NSString *)<I>string</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>An autorelease version of <tt>initWithString:</tt> with mode flags set to <tt>kOSAModeCompileIntoContext</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/arrayOfEventIdentifier"></a>
+<h3><a name="arrayOfEventIdentifier">arrayOfEventIdentifier</a></h3>
+<b>Abstract:</b> returns all event identifies the script respondes to.
+
+<blockquote><pre><tt>- (NSArray *)<B>arrayOfEventIdentifier;</B> </tt><br>
+</pre></blockquote>
+<p>returns and <tt>NSArray</tt> of <tt>NSDictionary</tt>s with the keys "<tt>EventClass</tt>" and "<tt>EventID</tt>".
+</p>
+<b>Result:</b> returns an <tt>NSArray</tt> of event identifier <tt>NSDictionary</tt>s.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/compile"></a>
+<h3><a name="compile">compile</a></h3>
+<b>Abstract:</b> Compile a AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>compile;</B> </tt><br>
+</pre></blockquote>
+<p>Compiles the receiver with a mode flag of <tt>kOSAModeCompileIntoContext</tt>, if it is not already compiled. Returns <tt>YES</tt> for success or if the script was already compiled, <tt>NO</tt> otherwise. Currently <tt>NDAppleScriptObject</tt> compiles scripts at initalization an will only be uncompiled if compilation failed.
+</p>
+<b>Result:</b> Returns <tt>YES</tt> if successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/compileAndReturnError:"></a>
+<h3><a name="compileAndReturnError:">compileAndReturnError:</a></h3>
+<b>Abstract:</b> Compile an AppleScipt.
+
+<blockquote><pre><tt>- (BOOL)<B>compileAndReturnError:</B>(NSDictionary **)<I>errorInfo;</I> </tt><br>
+</pre></blockquote>
+<p>This method is for interface compatability with Apples <tt>NSAppleScript</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>errorInfo</tt></td><td>On return contains a <tt>NSDictionary</tt> contain errror information.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> on success.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/compileExecuteString:"></a>
+<h3><a name="compileExecuteString:">compileExecuteString:</a></h3>
+<b>Abstract:</b> compiles and executes the apple script within the passed string.
+
+<blockquote><pre><tt>+ (id)<B>compileExecuteString:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>Executes the script by calling it&rsquo;s run handler.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the  AppleScipt source to be compiled and executed.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the result of executing the AppleScript as a Objective-C object, see <tt> objectValue:</tt> for more details.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NDAppleScriptObject/compileExecuteString:componentInstance:"></a>
+<h3><a name="compileExecuteString:componentInstance:">compileExecuteString:componentInstance:</a></h3>
+<b>Abstract:</b> compiles and executes the apple script within the passed string.
+
+<blockquote><pre><tt>+ (id)<B>compileExecuteString:</B>(NSString *)<I>string</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>Executes the script by calling it&rsquo;s run handler.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled and executed.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the result of executing the AppleScript as a Objective-C object, see <tt>resultObject</tt> for more details.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/compileWithModeFlags:"></a>
+<h3><a name="compileWithModeFlags:">compileWithModeFlags:</a></h3>
+<b>Abstract:</b> Compile a AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>compileWithModeFlags:</B>(long)<I>modeFlags;</I> </tt><br>
+</pre></blockquote>
+<p>Compiles the receiver with the supplied mode flags, if it is not already compiled. Returns <tt>YES</tt> for success or if the script was already compiled, <tt>NO</tt> otherwise. Currently <tt>NDAppleScriptObject</tt> compiles scripts at initalization an will only be uncompiled if compilation failed.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>modeFlags</tt></td><td>Mode flags passed to OSACompile (see Apple OSA documentation).</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/componentInstance"></a>
+<h3><a name="componentInstance">componentInstance</a></h3>
+<b>Abstract:</b> Get the component instance.
+
+<blockquote><pre><tt>- (NDComponentInstance *)<B>componentInstance;</B> </tt><br>
+</pre></blockquote>
+<p>The <tt>NDComponentInstance</tt> represents the connection to the OSA component.
+</p>
+<b>Result:</b> A <tt>NDComponentInstance</tt>
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/data"></a>
+<h3><a name="data">data</a></h3>
+<b>Abstract:</b> returns the compiled script within a <tt>NSData</tt> instance.
+
+<blockquote><pre><tt>- (NSData *)<B>data;</B> </tt><br>
+</pre></blockquote>
+<p>the returned <tt>NSData</tt> instance contains a compiled script which can be
+passed to the <tt>initWithData:component:</tt> method.
+</p>
+<b>Result:</b> Returns an <tt>NSData</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/error"></a>
+<h3><a name="error">error</a></h3>
+<b>Abstract:</b> Get Apple Script Errors.
+
+<blockquote><pre><tt>- (NSDictionary *)<B>error;</B> </tt><br>
+</pre></blockquote>
+<p>You can use <tt>error</tt> to get information about errors that occured durring execution or compilation. The returned error info dictionary may contain entries that use any combination of the following keys, including no entries at all. The dictionary returns all of the same keys as within the error dictionary returned with some of  Apples <tt>NSAppleScript</tt> methods.
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Constant</th><th>Description</th></tr></thead>
+<tr>
+<td align="center"><tt>NSAppleScriptErrorMessage</tt></td>
+<td>An <tt>NSString</tt> that supplies a detailed description of the error condition.</td>
+</tr>
+<tr>
+<td align="center"><tt>NSAppleScriptErrorNumber</tt></td>
+<td>An <tt>NSNumber</tt> that specifies the error number.</td>
+</tr>
+<tr>
+<td align="center"><tt>NSAppleScriptErrorAppName</tt></td>
+<td>An <tt>NSString</tt> that specifies the name of the application that generated the error.</td>
+</tr>
+<tr>
+<td align="center"><tt>NSAppleScriptErrorBriefMessage</tt></td>
+<td>An <tt>NSString</tt> that provides a brief description of the error.</td>
+</tr>
+<tr>
+<td align="center"><tt>NSAppleScriptErrorRange</tt></td>
+<td>An <tt>NSValue</tt> that specifies a range.</td>
+</tr>
+<tr>
+<td align="center"><tt>NDAppleScriptOffendingObject</tt></td>
+<td>An <tt>NSAppleEventDescriptor</tt> that specifies an offending object.</td>
+</tr>
+<tr>
+<td align="center"><tt>NDAppleScriptPartialResult</tt></td>
+<td>An object that represent a partial result</td>
+</tr>
+</table>
+</blockquote></blockquote>
+</p>
+<b>Result:</b> A <tt>NSDictionary</tt>  containing error information
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/execute"></a>
+<h3><a name="execute">execute</a></h3>
+<b>Abstract:</b> executes the script.
+
+<blockquote><pre><tt>- (BOOL)<B>execute;</B> </tt><br>
+</pre></blockquote>
+<p>executes the script by calling it run handler.
+</p>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeAndReturnError:"></a>
+<h3><a name="executeAndReturnError:">executeAndReturnError:</a></h3>
+<b>Abstract:</b> Execute an AppleScript.
+
+<blockquote><pre><tt>- (NSAppleEventDescriptor *)<B>executeAndReturnError:</B>(NSDictionary **)<I>errorInfo;</I> </tt><br>
+</pre></blockquote>
+<p>This method is for interface compatability with Apples <tt>NSAppleScript</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>errorInfo</tt></td><td>On return contains a <tt>NSDictionary</tt> contain errror information.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> on success.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeAppleEvent:error:"></a>
+<h3><a name="executeAppleEvent:error:">executeAppleEvent:error:</a></h3>
+<b>Abstract:</b> Execute an AppleScript.
+
+<blockquote><pre><tt>- (NSAppleEventDescriptor *)<B>executeAppleEvent:</B>(NSAppleEventDescriptor *)<I>event</I> <B>error:</B>(NSDictionary **)<I>errorInfo;</I> </tt><br>
+</pre></blockquote>
+<p>This method is for interface compatability with Apples <tt>NSAppleScript</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>event</tt></td><td>an <tt>NSAppleEventDescriptor</tt> containing the apple event.</td><tr>
+<tr><td align = "center"><tt>errorInfo</tt></td><td>On return contains a <tt>NSDictionary</tt> contain errror information.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the result <tt>NSAppleEventDescriptor</tt> on success, <tt>nil</tt> otherwise.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeEvent:"></a>
+<h3><a name="executeEvent:">executeEvent:</a></h3>
+<b>Abstract:</b> execute an AppleEvent.
+
+<blockquote><pre><tt>- (BOOL)<B>executeEvent:</B>(NSAppleEventDescriptor *)<I>event;</I> </tt><br>
+</pre></blockquote>
+<p>sends an AppleEvent to the script.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>event</tt></td><td>an <tt>NSAppleEventDescriptor</tt> containing the apple event.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeOpen"></a>
+<h3><a name="executeOpen">executeOpen</a></h3>
+<b>Abstract:</b> sends an open event.
+
+<blockquote><pre><tt>- (BOOL)<B>executeOpen:</B>(NSArray *)<I>parameters;</I> </tt><br>
+</pre></blockquote>
+<p>executes the script by calling it open handler passing an alias list creaed from parameters.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>parameters</tt></td><td>an <tt>NSArray</tt> containing paths (<tt>NSString</tt>) or <tt>NSURL</tt>&rsquo;s which is
+converted into an alias list.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeSubroutineNamed:arguments:..."></a>
+<h3><a name="executeSubroutineNamed:arguments:...">executeSubroutineNamed:arguments:...</a></h3>
+<b>Abstract:</b> execute an AppleScript function.
+
+<blockquote><pre><tt>- (BOOL)<B>executeSubroutineNamed:</B>(NSString *)<I>name</I> <B>arguments:</B>(id)firstObject, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p>Executs the AppleScript subroutine <tt><i>name</i></tt> passing the objects starting with <tt><i>firstObject</i></tt> as positional arguments after being converted to <tt>NSAppleEventDescriptor</tt>s with the method <tt>-[NSAppleEventDescriptor descriptorWithObject:]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>name</tt></td><td>The function name, this is case insensitive.</td><tr>
+<tr><td align = "center"><tt>firstObject</tt></td><td>The first object of a list of arguments terminated with <tt>nil</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeSubroutineNamed:argumentsArray:"></a>
+<h3><a name="executeSubroutineNamed:argumentsArray:">executeSubroutineNamed:argumentsArray:</a></h3>
+<b>Abstract:</b> execute an AppleScript function.
+
+<blockquote><pre><tt>- (BOOL)<B>executeSubroutineNamed:</B>(NSString *)<I>name</I> <B>argumentsArray:</B>(NSArray *)<I>array;</I> </tt><br>
+</pre></blockquote>
+<p>Executs the AppleScript subroutine <tt><i>name</i></tt> passing the objects within <tt>array</tt> as positional arguments after being converted to <tt>NSAppleEventDescriptor</tt>s with the method <tt>-[NSAppleEventDescriptor descriptorWithObject:]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>name</tt></td><td>The function name, this is case insensitive.</td><tr>
+<tr><td align = "center"><tt>array</tt></td><td>An array of arguments.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executeSubroutineNamed:labelsAndArguments:"></a>
+<h3><a name="executeSubroutineNamed:labelsAndArguments:">executeSubroutineNamed:labelsAndArguments:</a></h3>
+<b>Abstract:</b> execute an AppleScript function.
+
+<blockquote><pre><tt>- (BOOL)<B>executeSubroutineNamed:</B>(NSString *)<I>name</I> <B>labelsAndArguments:</B>(AEKeyword)label, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>executeSubroutineNamed:labelsAndArguments:</tt> executes an AppleScript subroutine with labeled arguments starting with the label <tt><i>label</i></tt>, if the keyword <tt>keyASPrepositionGiven</tt> is found the remaining arguments will be passed to the method <tt>userRecordDescriptorWithObjectAndKeys:arguments:</tt> and the result is given the keyword <tt>keyASUserRecordFields</tt>.</p>
+<p>For example to execute the AppleScript subroutine
+<blockquote>
+<pre><font color="#660000">foo</font> <font color="#000066">for</font> <font color="#660000"><i>arg1</i></font> <font color="#000066"><b>given</b></font> <font color="#005500">argument</font>:<font color="#660000"><i>arg2</i></font> </pre>
+</blockquote>
+you would do the following
+<blockquote>
+<pre>theSubroutine = [theAppleScript executeSubroutineNamed:&#64;"<font color="#660000">foo</font>"
+&#9;&#9;labelsAndArguments:<font color="#000066">keyASPrepositionFor</font>, <font color="#660000"><i>arg1</i></font>,
+&#9;&#9;<font color="#000066"><b>keyASPrepositionGiven</b></font>, <font color="#660000"><i>arg2</i></font>, &#64;"<font color="#005500">argument</font>", nil];</pre>
+</blockquote>
+which is equivalent to
+<blockquote>
+<pre>theSubroutine = [theAppleScript executeSubroutineNamed:&#64;"<font color="#660000">foo</font>"
+&#9;&#9;labelsAndArguments:<font color="#000066">keyASPrepositionFor</font>, <font color="#660000"><i>arg1</i></font>, <font color="#000066"><b>keyASUserRecordFields</b></font>,
+&#9;&#9;[NSAppleEventDescriptor userRecordDescriptorWithObjectAndKeys:<font color="#660000"><i>arg2</i></font>, &#64;"<font color="#005500">argument</font>", nil],
+&#9;&#9;(AEKeyword)0];</pre>
+</blockquote></p>
+<p>Possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>name</tt></td><td>The function name, this is case insensitive.</td><tr>
+<tr><td align = "center"><tt>label</tt></td><td>The first label of a list of labels and arguments, terminated with a 0 <tt>AEKeyword</tt> or <tt>nil</tt> if the end arguments follow the keyword <tt>keyASPrepositionGiven</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns <tt>YES</tt> if execution was successful.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/executionModeFlags"></a>
+<h3><a name="executionModeFlags">executionModeFlags</a></h3>
+<b>Abstract:</b> returns the execution mode flags.
+
+<blockquote><pre><tt>- (long)<B>executionModeFlags;</B> </tt><br>
+</pre></blockquote>
+<p>The flags are eqivelent to AESend flags.
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Flag</th><th>Description</th></tr></thead>
+<tr>
+<td align="center"><tt>kOSAModeNeverInteract</tt></td>
+<td>The server application should never interact with the user in response to any of the AppleEvents.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeCanInteract</tt></td>
+<td>The server application can interact with the user in response to any AppleEvents.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeAlwaysInteract</tt></td>
+<td>The server applcation can interact with the user.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeCantSwitchLayer</tt></td>
+<td>If both the client and the sever allow interaction, and if the client application is the active application on the local computer and is waiting for a reply (that is, it has set the <tt>kAEWAitReply</tt> flag), <tt>kOSAModeCantSwitchLayer</tt> brings the server directly to the forground. Otherwise the Notification Manager is used to request the user bring the server application to the foreground.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeDontReconnect</tt></td>
+<td>The AppleEvent Manager mus not automaticlly try to reconect if the receives a <tt>sessClosedErr</tt> result code from the PPC Toolbox.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeDoRecord</tt></td>
+<td>Prevents use of <tt>kAEDontRecord</tt> in <tt>sendMode</tt> parameter if <tt>AESend</tt> for the events sent when the script is executed.</td>
+</tr>
+</table>
+</blockquote></blockquote>
+<br><br>
+</p>
+<b>Result:</b> a long contains the execution mode flag bits.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithContentsOfFile:"></a>
+<h3><a name="initWithContentsOfFile:">initWithContentsOfFile:</a></h3>
+<b>Abstract:</b> Intialises receiver with a compiled AppleScipt file.
+
+<blockquote><pre><tt>- (id)<B>initWithContentsOfFile:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the receiver with the compiled AppleScipt file at the supplied path, the compiled AppleScipt can be in either the resource fork or the data fork. If the file is not complied and is instead a AppleScipt as text then use the <tt>initWithString:modeFlags:</tt> method instead obtaining the string with the method<tt>-[NSString initWithFile:]</tt>. 
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>The path for the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithContentsOfFile:component:"></a>
+<h3><a name="initWithContentsOfFile:component:">initWithContentsOfFile:component:</a></h3>
+<b>Abstract:</b> Intialises receiver with a compiled AppleScipt file.
+
+<blockquote><pre><tt>- (id)<B>initWithContentsOfFile:</B>(NSString *)<I>path</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the receiver with the compiled AppleScipt file at the supplied path and a <tt>NDComponentInstance</tt> as returned from the method <tt>+[NDComponentInstance findNextComponent]</tt>, the compiled AppleScipt can be in either the resource fork or the data fork. If the file is not complied and is instead a AppleScipt as text then use the <tt>initWithString:modeFlags:</tt> method instead obtaining the string with the method<tt>-[NSString initWithFile:]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>The path for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithContentsOfURL:"></a>
+<h3><a name="initWithContentsOfURL:">initWithContentsOfURL:</a></h3>
+<b>Abstract:</b> Intialises receiver with a compiled AppleScipt file.
+
+<blockquote><pre><tt>- (id)<B>initWithContentsOfURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the receiver with the compiled AppleScipt file at the supplied file url, the compiled AppleScipt can be in either the resource fork or the data fork. If the file is not complied and is instead a AppleScipt as text then use the <tt>initWithString:modeFlags:</tt> method instead obtaining the string with the method<tt>-[NSString initWithURL:]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>The file url for the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithContentsOfURL:component:"></a>
+<h3><a name="initWithContentsOfURL:component:">initWithContentsOfURL:component:</a></h3>
+<b>Abstract:</b> Intialises receiver with a compiled AppleScipt file.
+
+<blockquote><pre><tt>- (id)<B>initWithContentsOfURL:</B>(NSURL *)<I>URL</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the receiver with the compiled AppleScipt file at the supplied file url and a <tt>NDComponentInstance</tt> as returned from the method <tt>+[NDComponentInstance findNextComponent]</tt>, the compiled AppleScipt can be in either the resource fork or the data fork. If the file is not complied and is instead a AppleScipt as text then use the <tt>initWithString:modeFlags:</tt> method instead obtaining the string with the method<tt>-[NSString initWithURL:]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>The file url for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithContentsOfURL:error:"></a>
+<h3><a name="initWithContentsOfURL:error:">initWithContentsOfURL:error:</a></h3>
+<b>Abstract:</b> Initialize a <tt>NDAppleScriptObject</tt>.
+
+<blockquote><pre><tt>- (id)<B>initWithContentsOfURL:</B>(NSURL *)<I>url</I> <B>error:</B>(NSDictionary **)<I>errorInfo;</I> </tt><br>
+</pre></blockquote>
+<p>This method is for interface compatability with Apples <tt>NSAppleScript</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>url</tt></td><td>A file url for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>errorInfo</tt></td><td>On return contains a <tt>NSDictionary</tt> contain errror information.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initalized <tt>NDAppleScriptObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithData:"></a>
+<h3><a name="initWithData:">initWithData:</a></h3>
+<b>Abstract:</b> Intialises receiver with compiled AppleScipt data.
+
+<blockquote><pre><tt>- (id)<B>initWithData:</B>(NSData *)<I>data;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the with a <tt>NSData</tt> object containing the data for an compiled AppleScipt.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>data</tt></td><td>A <tt>NSData</tt> object containing the compiled AppleScipt.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+  
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithData:component:"></a>
+<h3><a name="initWithData:component:">initWithData:component:</a></h3>
+<b>Abstract:</b> Intialises receiver with compiled AppleScipt data.
+
+<blockquote><pre><tt>- (id)<B>initWithData:</B>(NSData *)<I>data</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>Initialize the with a <tt>NSData</tt> object containing the data for an compiled AppleScipt and a <tt>NDComponentInstance</tt> as returned from the method <tt>+[NDComponentInstance findNextComponent]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>data</tt></td><td>A <tt>NSData</tt> object containing the compiled AppleScipt.</td><tr>
+<tr><td align = "center"><tt>componentInstance</tt></td><td>The <tt>NDComponentInstance</tt> to use the AppleScipt with.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> An initialized <tt>NDAppleScriptObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithSource:"></a>
+<h3><a name="initWithSource:">initWithSource:</a></h3>
+<b>Abstract:</b> Initialize a <tt>NDAppleScriptObject</tt>.
+
+<blockquote><pre><tt>- (id)<B>initWithSource:</B>(NSString *)<I>source;</I> </tt><br>
+</pre></blockquote>
+<p>This method is for interface compatability with Apples <tt>NSAppleScript</tt>, it is equivelent to <tt>initWithString:</tt> but without compiling of the source.
+</p>
+<b>Result:</b> A <tt>NDAppleScriptObject</tt> object.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithString:"></a>
+<h3><a name="initWithString:">initWithString:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> compiled from passed string.
+
+<blockquote><pre><tt>- (id)<B>initWithString:</B>(NSString *)<I>string;</I> </tt><br>
+</pre></blockquote>
+<p>initWithString: with the default component and mode flags of <tt>kOSAModeCompileIntoContext</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithString:modeFlags:"></a>
+<h3><a name="initWithString:modeFlags:">initWithString:modeFlags:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> compiled from passed string.
+
+<blockquote><pre><tt>- (id)<B>initWithString:</B>(NSString *)<I>string</I> <B>modeFlags:</B>(long)<I>modeFlags;</I> </tt><br>
+</pre></blockquote>
+<p>initWithString:modeFlags: with the default component.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>string</tt></td><td>A string that contains the AppleScipt source to be compiled.</td><tr>
+<tr><td align = "center"><tt>modeFlags</tt></td><td>Mode flags passed to OSACompile (see Apple OSA documentation).</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/initWithString:modeFlags:component:"></a>
+<h3><a name="initWithString:modeFlags:component:">initWithString:modeFlags:component:</a></h3>
+<b>Abstract:</b> returns an <tt>NDAppleScriptObject</tt> compiled from passed string.
+
+<blockquote><pre><tt>- (id)<B>initWithString:</B>(NSString *)<I>string</I> <B>modeFlags:</B>(long)<I>modeFlags</I> <B>componentInstance:</B>(NDComponentInstance *)<I>componentInstance;</I> </tt><br>
+</pre></blockquote>
+<p>Initialzes the recieve by compiling the recieved source, if compilation failes then the error can be returned with the method <tt>error</tt> and the method <tt>isCompiled</tt> returns false.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url to the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns the <tt>NDAppleScriptObject</tt> instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/isCompiled"></a>
+<h3><a name="isCompiled">isCompiled</a></h3>
+<b>Abstract:</b> Is the AppleScript compiled.
+
+<blockquote><pre><tt>- (BOOL)<B>isCompiled;</B> </tt><br>
+</pre></blockquote>
+<p>Returns YES if the receiver is already compiled, NO otherwise.
+</p>
+<b>Result:</b> Returns <tt>YES</tt> if the receiver is compiled.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/respondsToEventClass:eventID:"></a>
+<h3><a name="respondsToEventClass:eventID:">respondsToEventClass:eventID:</a></h3>
+<b>Abstract:</b> Tests whether the script responds to an AppleEvent.
+
+<blockquote><pre><tt>- (BOOL)<B>respondsToEventClass:</B>(AEEventClass)<I>eventClass</I> <B>eventID:</B>(AEEventID)<I>eventID;</I> </tt><br>
+</pre></blockquote>
+<p>This method test whether the script responds to the passed event identifier.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>eventClass</tt></td><td>the event class.</td><tr>
+<tr><td align = "center"><tt>eventID</tt></td><td>the event identifier.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns true if the script reponds to the event identifier.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/respondsToSubroutine:"></a>
+<h3><a name="respondsToSubroutine:">respondsToSubroutine:</a></h3>
+<b>Abstract:</b> Tests whether the script responds to a subroutine call.
+
+<blockquote><pre><tt>- (BOOL)<B>respondsToSubroutine:</B>(NSString *)<I>name;</I> </tt><br>
+</pre></blockquote>
+<p>This method test whether the script inplements the subroutine <tt><i>name</i></tt>, subroutine names are case insensitive and so the string <tt><i>name</i></tt> is converted to lower case first.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>name</tt></td><td>The subroutine name.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> returns true if the script reponds to the subroutine call.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/resultAppleEventDescriptor"></a>
+<h3><a name="resultAppleEventDescriptor">resultAppleEventDescriptor</a></h3>
+<b>Abstract:</b> Returs the result as an AppleEvent type..
+
+<blockquote><pre><tt>- (NSAppleEventDescriptor *)<B>resultAppleEventDescriptor;</B> </tt><br>
+</pre></blockquote>
+<p>returns the result of the last script execution as an AppleEvent type within an <tt>NSAppleEventDescriptor</tt>.
+</p>
+<b>Result:</b> the <tt>NSAppleEventDescriptor</tt> contains the AppleEvent type result.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/resultAsString"></a>
+<h3><a name="resultAsString">resultAsString</a></h3>
+<b>Abstract:</b> returns the result as an OSA formated string.
+
+<blockquote><pre><tt>- (NSString *)<B>resultAsString;</B> </tt><br>
+</pre></blockquote>
+<p>returns the result as a string by calling OSA&rsquo;s <tt>OSADisplay</tt> function. The result is
+in the same format as seen in Script Editor&rsquo;s result window.
+</p>
+<b>Result:</b> the <tt>NSString</tt> result.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/resultData"></a>
+<h3><a name="resultData">resultData</a></h3>
+<b>Abstract:</b> Returs the result as an <tt>NSData</tt> instance.
+
+<blockquote><pre><tt>- (id)<B>resultData;</B> </tt><br>
+</pre></blockquote>
+<p>returns the raw bytes from the result AppleEvent type.
+</p>
+<b>Result:</b> the NSData instance.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/resultObject"></a>
+<h3><a name="resultObject">resultObject</a></h3>
+<b>Abstract:</b> Returs the result as an Objective-C object.
+
+<blockquote><pre><tt>- (id)<B>resultObject;</B> </tt><br>
+</pre></blockquote>
+<p>converts the AppleEvent type returned from the last script execution into an
+Objective-C object. The types currently supported are
+<blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>AppleScript Type</th><th>Objective-C Class</th></tr></thead>
+<tr><td align="center">list</td><td align="center"><tt>NSArray</tt></td></tr>
+<tr><td align="center">record</td><td align="center"><tt>NSDictionary</tt></td></tr>
+<tr><td align="center">alias</td><td align="center"><tt>NSURL</tt></td></tr>
+<tr><td align="center">string</td><td align="center"><tt>NSString</tt></td></tr>
+<tr><td align="center">real<br>integer<br>boolean</td><td align="center"><tt>NSNumber</tt></td></tr>
+<tr><td align="center">script</td><td align="center"><tt>NDAppleScriptObject</tt></td></tr>
+<tr><td align="center">anything else</td><td align="center"><tt>NSData</tt></td></tr>
+</table>
+</blockquote> 
+</p>
+<b>Result:</b> A subclass of <tt>NSObject</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/setExecutionModeFlags:"></a>
+<h3><a name="setExecutionModeFlags:">setExecutionModeFlags:</a></h3>
+<b>Abstract:</b> sets the execution mode flags.
+
+<blockquote><pre><tt>- (void)<B>setExecutionModeFlags:</B>(long)<I>modeFlags;</I> </tt><br>
+</pre></blockquote>
+<p>The flags are eqivelent to AESend flags.
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Flag</th><th>Description</th></tr></thead>
+<tr>
+<td align="center"><tt>kOSAModeNeverInteract</tt></td>
+<td>The server application should never interact with the user in response to any of the AppleEvents.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeCanInteract</tt></td>
+<td>The server application can interact with the user in response to any AppleEvents.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeAlwaysInteract</tt></td>
+<td>The server applcation can interact with the user.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeCantSwitchLayer</tt></td>
+<td>If both the client and the sever allow interaction, and if the client application is the active application on the local computer and is waiting for a reply (that is, it has set the <tt>kAEWAitReply</tt> flag), <tt>kOSAModeCantSwitchLayer</tt> brings the server directly to the forground. Otherwise the Notification Manager is used to request the user bring the server application to the foreground.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeDontReconnect</tt></td>
+<td>The AppleEvent Manager mus not automaticlly try to reconect if the receives a <tt>sessClosedErr</tt> result code from the PPC Toolbox.</td>
+</tr>
+<tr>
+<td align="center"><tt>kOSAModeDoRecord</tt></td>
+<td>Prevents use of <tt>kAEDontRecord</tt> in <tt>sendMode</tt> parameter if <tt>AESend</tt> for the events sent when the script is executed.</td>
+</tr>
+</table>
+</blockquote></blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>modeFlags</tt></td><td>a long containing the execution mode flag bits.</td><tr>
+</table>
+</blockquote>
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/source"></a>
+<h3><a name="source">source</a></h3>
+<b>Abstract:</b> Get the AppleScript source
+
+<blockquote><pre><tt>- (NSString *)<B>source;</B> </tt><br>
+</pre></blockquote>
+<p>Returns the source code of the receiver if it is available, nil otherwise. It is possible for an <tt>NDAppleScriptObject</tt> to be a script for which the source code is not available but is nonetheless executable.
+<br><br>
+</p>
+<b>Result:</b> A <tt>NSString</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToFile:"></a>
+<h3><a name="writeToFile:">writeToFile:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToFile:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>the compiled script is written to the <tt>'scpt'</tt> resource, id <tt>128</tt> of the resource fork of the file.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path for the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> return <tt>YES</tt> if writting succeeded.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToFile:Id:"></a>
+<h3><a name="writeToFile:Id:">writeToFile:Id:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToFile:</B>(NSString *)<I>path</I> <B>Id:</B>(short)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>the compiled script is written to the <tt>'scpt'</tt> resource, with the passed id of the resource fork of the file.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>The resource id for the compiled AppleScipt data.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> return <tt>YES</tt> if writting succeeded.
+
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToFile:inDataFork:atomically:"></a>
+<h3><a name="writeToFile:inDataFork:atomically:">writeToFile:inDataFork:atomically:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToFile:</B>(NSString *)<I>path</I> <B>inDataFork:</B>(BOOL)<I>inDataFork</I> <B>atomically:</B>(BOOL)<I>atomically;</I> </tt><br>
+</pre></blockquote>
+<p>if <tt><i>inDataFork</i></tt> is <tt>YES</tt> then the compiled script is written to the data fork of the file otherwise the compiled script is written to the <tt>'scpt'</tt> resource, id <tt>128</tt> of the resource fork of the file. If <tt><i>atomically</i></tt> is <tt>YES</tt> and <tt><i>inDataFork</i></tt> is <tt>YES</tt> then the receiver is written to a copy of the file which then replaces the original.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A path for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>inDataFork</tt></td><td><tt>YES</tt> to write the receiver to the data fork instead of the resource fork.</td><tr>
+<tr><td align = "center"><tt>atomically</tt></td><td>Write the file attomically.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> return <tt>YES</tt> if writting succeeded.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToURL:"></a>
+<h3><a name="writeToURL:">writeToURL:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>the compiled script is written to the <tt>'scpt'</tt> resource, id <tt>128</tt> of the resource fork of the file.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url for the compiled AppleScipt file.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> Returns <tt>YES</tt> if writting succeeded.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToURL:Id:"></a>
+<h3><a name="writeToURL:Id:">writeToURL:Id:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToURL:</B>(NSURL *)<I>URL</I> <B>Id:</B>(short)<I>ID;</I> </tt><br>
+</pre></blockquote>
+<p>the compiled script is written to the <tt>'scpt'</tt> resource, with the passed id of the resource fork of the file.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>ID</tt></td><td>The resource id for the compiled AppleScipt data.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> return <tt>YES</tt> if writting succeeded.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NDAppleScriptObject/writeToURL:inDataFork:atomically:"></a>
+<h3><a name="writeToURL:inDataFork:atomically:">writeToURL:inDataFork:atomically:</a></h3>
+<b>Abstract:</b> Writes the receiver as a complied AppleScript.
+
+<blockquote><pre><tt>- (BOOL)<B>writeToURL:</B>(NSURL *)<I>URL</I> <B>inDataFork:</B>(BOOL)<I>inDataFork</I> <B>atomically:</B>(BOOL)<I>atomically;</I> </tt><br>
+</pre></blockquote>
+<p>if <tt><i>inDataFork</i></tt> is <tt>YES</tt> then the compiled script is written to the data forke of the file otherwise the compiled script is written to the <tt>'scpt'</tt> resource, id <tt>128</tt> of the resource fork of the file. If <tt><i>atomically</i></tt> is <tt>YES</tt> and <tt><i>inDataFork</i></tt> is <tt>YES</tt> then the receiver is written to a copy of the file which then replaces the original.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url for the compiled AppleScipt file.</td><tr>
+<tr><td align = "center"><tt>inDataFork</tt></td><td><tt>YES</tt> to write the receiver to the data fork instead of the resource fork.</td><tr>
+<tr><td align = "center"><tt>atomically</tt></td><td>Write the file attomically.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> return <tt>YES</tt> if writting succeeded.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

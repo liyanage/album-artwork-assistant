@@ -1,0 +1,503 @@
+<html><head><title>Methods</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>Methods</h1></font><hr><br>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithSubroutineName:argumentsArray:"></a>
+<h3><a name="descriptorWithSubroutineName:argumentsArray:">descriptorWithSubroutineName:argumentsArray:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript subroutine with positional arguments.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>argumentsArray:</B>(NSArray *)<I>paramArray;</I> </tt><br>
+</pre></blockquote>
+<p><tt>descriptorWithSubroutineName:argumentsDescriptor:</tt> returns a <tt>NSAppleEventDescriptor</tt> to call a AppleScript subroutine with positional arguments. AppleScript routines are case insensitive so <tt><i>routineName</i></tt> is converted to all lower case.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>paramArray</tt></td><td>A <tt>NSArray</tt> of Objective-C class that are converted into <tt>NSAppleEventDescriptor</tt> using the function <tt>descriptorWithObject:</tt.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with positional arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithSubroutineName:argumentsListDescriptor:"></a>
+<h3><a name="descriptorWithSubroutineName:argumentsListDescriptor:">descriptorWithSubroutineName:argumentsListDescriptor:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling AppleScript routines.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>argumentsListDescriptor:</B>(NSAppleEventDescriptor *)<I>param;</I> </tt><br>
+</pre></blockquote>
+<p>AppleScript routines can be called by name, <tt>descriptorWithSubroutineName:argumentsDescriptor:</tt> returns a <tt>NSAppleEventDescriptor</tt> to do so. The <tt><i>routineName</i></tt> is the name of the routine to be called, AppleScript routines are case insensitive, <tt><i>routineName</i></tt> is converted to all lower case.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>param</tt></td><td>The parameters descriptors.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithSubroutineName:labels:argumentDescriptors:count:"></a>
+<h3><a name="descriptorWithSubroutineName:labels:argumentDescriptors:count:">descriptorWithSubroutineName:labels:argumentDescriptors:count:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labels:</B>(AEKeyword*)<I>labels</I> <B>argumentDescriptors:</B>(NSAppleEventDescriptor **)<I>params</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>descriptorWithSubroutineName:labels:argumentDescriptors:count:</tt> returns a <tt>NSAppleEventDescriptor</tt> to call a AppleScript subroutine with labeled arguments. AppleScript routines are case insensitive so <tt><i>routineName</i></tt> is converted to all lower case. If <tt>keyASUserRecordFields</tt> is used as a keyword then the <tt>NSAppleEventDescriptor</tt> should be a list descriptor alternating between keys and parameter begining with a key, as returned from one of the  <tt>userRecordDescriptorWith...</tt> methods.</p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+To find out the rules for use of the key words see the AppleScript language documentation.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>labels</tt></td><td>A c array of keyword labels.</td><tr>
+<tr><td align = "center"><tt>params</tt></td><td>A c array of <tt>NSAppleEventDescriptor</tt> for the parameters.</td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of keywords and parameters.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithSubroutineName:labels:argumentObjects:count:"></a>
+<h3><a name="descriptorWithSubroutineName:labels:argumentObjects:count:">descriptorWithSubroutineName:labels:argumentObjects:count:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labels:</B>(AEKeyword*)<I>labels</I> <B>argumentObjects:</B>(id *)<I>objects</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>descriptorWithSubroutineName:argumentsDescriptor:</tt> returns a <tt>NSAppleEventDescriptor</tt> to call a AppleScript subroutine with labeled arguments. AppleScript routines are case insensitive so <tt><i>routineName</i></tt> is converted to all lower case. <tt><i>paramArray</i></tt> is an array of objective-C types that are converted into <tt>NSAppleEventDescriptor</tt> using the function <tt>descriptorWithObject:</tt>.</p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>labels</tt></td><td>A c array of keywords</td><tr>
+<tr><td align = "center"><tt>objects</tt></td><td>A c array of Objective-C class that are converted into <tt>NSAppleEventDescriptor</tt> using the function <tt>descriptorWithObject:</tt.</td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of labels and objects</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithSubroutineName:labelsAndArguments:..."></a>
+<h3><a name="descriptorWithSubroutineName:labelsAndArguments:...">descriptorWithSubroutineName:labelsAndArguments:...</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labelsAndArguments:</B>(AEKeyword)keyWord, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>descriptorWithSubroutineName:labelsAndArguments:...</tt> returns a <tt>NSAppleEventDescriptor</tt> to call a AppleScript subroutine with labeled arguments. AppleScript routines are case insensitive so <tt><i>routineName</i></tt> is converted to all lower case. If <tt>keyASPrepositionGiven</tt> is used as a keyword then the arguments following it are passed to the method <tt>userRecordDescriptorWithObjectAndKeys:</tt>. and resulting descriptor is given the key <tt>keyASUserRecordFields</tt></p>
+<p>For example to get a subroutine descriptor to call the AppleScript subroutine
+<blockquote>
+<pre><font color="#660000">foo</font> <font color="#000066">for</font> <font color="#660000"><i>arg1</i></font> <font color="#000066"><b>given</b></font> <font color="#005500">argument</font>:<font color="#660000"><i>arg2</i></font> </pre>
+</blockquote>
+you would do the following
+<blockquote>
+<pre>theSubroutine = [NSAppleEventDescriptor descriptorWithSubroutineName:&#64;"<font color="#660000">foo</font>"
+&#9;&#9;labelsAndArguments:<font color="#000066">keyASPrepositionFor</font>, <font color="#660000"><i>arg1</i></font>,
+&#9;&#9;<font color="#000066"><b>keyASPrepositionGiven</b></font>, <font color="#660000"><i>arg2</i></font>, &#64;"<font color="#005500">argument</font>", nil];</pre>
+</blockquote>
+which is equivalent to
+<blockquote>
+<pre>theSubroutine = [NSAppleEventDescriptor descriptorWithSubroutineName:&#64;"<font color="#660000">foo</font>"
+&#9;&#9;labelsAndArguments:<font color="#000066">keyASPrepositionFor</font>, <font color="#660000"><i>arg1</i></font>, <font color="#000066"><b>keyASUserRecordFields</b></font>,
+&#9;&#9;[NSAppleEventDescriptor userRecordDescriptorWithObjectAndKeys:<font color="#660000"><i>arg2</i></font>, &#64;"<font color="#005500">argument</font>", nil],
+&#9;&#9;(AEKeyword)0];</pre>
+</blockquote></p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The subroutine name.</td><tr>
+<tr><td align = "center"><tt>keyWord</tt></td><td>The first label of a list of labels and objects terminated with a <tt>0</tt> keyword or a <tt>nil</tt> if the end arguments follow the keyword <tt>keyASPrepositionGiven</tt></td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithSubroutineName:argumentsArray:"></a>
+<h3><a name="initWithSubroutineName:argumentsArray:">initWithSubroutineName:argumentsArray:</a></h3>
+<b>Abstract:</b> Initialises a <tt>NSAppleEventDescriptor</tt> for calling AppleScript routines.
+
+<blockquote><pre><tt>- (id)<B>initWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>argumentsArray:</B>(NSArray *)<I>paramArray;</I> </tt><br>
+</pre></blockquote>
+<p>AppleScript routines can be called by name, <tt>initWithSubroutineName:argumentsDescriptor:</tt> returns a <tt>NSAppleEventDescriptor</tt> to do so. The <tt><i>routineName</i></tt> is the name of the routine to be called, AppleScript routines are case insensitive, <tt><i>routineName</i></tt> is converted to all lower case. <tt><i>paramArray</i></tt> is an array of objective-C types that can be converted into AppleScript types.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>paramArray</tt></td><td>The parameters.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with positional arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithSubroutineName:argumentsDescriptor:"></a>
+<h3><a name="initWithSubroutineName:argumentsDescriptor:">initWithSubroutineName:argumentsDescriptor:</a></h3>
+<b>Abstract:</b> Initialises a <tt>NSAppleEventDescriptor</tt> for calling AppleScript routines.
+
+<blockquote><pre><tt>- (id)<B>initWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>argumentsListDescriptor:</B>(NSAppleEventDescriptor *)<I>param;</I> </tt><br>
+</pre></blockquote>
+<p>AppleScript routines can be called by name, <tt>initWithSubroutineName:argumentsDescriptor:</tt> returns a <tt>NSAppleEventDescriptor</tt> to do so. The <tt><i>routineName</i></tt> is the name of the routine to be called, AppleScript routines are case insensitive, <tt><i>routineName</i></tt> is converted to all lower case.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>param</tt></td><td>The parameters descriptors.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with positional arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithSubroutineName:labels:argumentDescriptors:count:"></a>
+<h3><a name="initWithSubroutineName:labels:argumentDescriptors:count:">initWithSubroutineName:labels:argumentDescriptors:count:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>- (id)<B>initWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labels:</B>(AEKeyword*)<I>labels</I> <B>argumentDescriptors:</B>(NSAppleEventDescriptor **)<I>aParam</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>initWithSubroutineName:labels:argumentDescriptors:count:</tt> inirializes a <tt>NSAppleEventDescriptor</tt> with a AppleScript subroutine descriptors with labeled arguments. The keyword label <tt>keyASUserRecordFields</tt> must be for a list descriptor similar to that returned from the one of the  <tt>userRecordDescriptorWithXXX:</tt> methods.</p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>labels</tt></td><td>A c array of AEKeywords.</td><tr>
+<tr><td align = "center"><tt>param</tt></td><td>A c array of <tt>NSAppleEventDescriptors</tt></td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of keywords and <tt>NSAppleEventDescriptors</tt></td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labeled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithSubroutineName:labels:arguments:count:"></a>
+<h3><a name="initWithSubroutineName:labels:arguments:count:">initWithSubroutineName:labels:arguments:count:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>- (id)<B>initWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labels:</B>(AEKeyword*)<I>labels</I> <B>arguments:</B>(id *)<I>objects</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>initWithSubroutineName:labels:arguments:count:</tt> initializes a <tt>NSAppleEventDescriptor</tt> with a AppleScript subroutine descriptor with labeled arguments. If the the keyword <tt>keyASPrepositionGiven</tt> is used it should be the last label and have a argument of kind <tt>NSDictionary</tt> or <tt>NSAppleEventDescriptor</tt> as return from one of the <tt>userRecordDescriptorWithXXXX:</tt>.</p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>labels</tt></td><td>A c array of keywords</td><tr>
+<tr><td align = "center"><tt>objects</tt></td><td>A c array of objects that can be converted to <tt>NSAppleEventDescriptor</tt> with the method <tt>descriptorWithObject:</tt></td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of keywords and objects.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labeled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/initWithSubroutineName:labelsAndArguments:arguments:"></a>
+<h3><a name="initWithSubroutineName:labelsAndArguments:arguments:">initWithSubroutineName:labelsAndArguments:arguments:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for calling an AppleScript routine with labeled arguments.
+
+<blockquote><pre><tt>- (id)<B>initWithSubroutineName:</B>(NSString *)<I>routineName</I> <B>labelsAndArguments:</B>(AEKeyword)<I>label</I> <B>arguments:</B>(va_list)<I>argList;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>initWithSubroutineName:labelsAndArguments:arguments:</tt> initializes a <tt>NSAppleEventDescriptor</tt> with an AppleScript subroutine with labeled arguments, if the keyword <tt>keyASPrepositionGiven</tt> is found the remaining arguments will be passed to the method <tt>userRecordDescriptorWithObjectAndKeys:arguments:</tt> and the result is given the keyword <tt>keyASUserRecordFields</tt>.</p>
+<p>The possible keywords are;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Key Word</th><th>AppleScript key word</th></tr></thead>
+<tr><td align="center"><tt>keyASPrepositionAbout</tt></td><td align="center"><tt>about</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAbove</tt></td><td align="center"><tt>above</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAgainst</tt></td><td align="center"><tt>against</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionApartFrom</tt></td><td align="center"><tt>apart from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAround</tt></td><td align="center"><tt>around</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAsideFrom</tt></td><td align="center"><tt>aside from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionAt</tt></td><td align="center"><tt>at</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBelow</tt></td><td align="center"><tt>below</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeneath</tt></td><td align="center"><tt>beneath</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBeside</tt></td><td align="center"><tt>beside</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBetween</tt></td><td align="center"><tt>between</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionBy</tt></td><td align="center"><tt>by</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFor</tt></td><td align="center"><tt>for</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionFrom</tt></td><td align="center"><tt>from</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionGiven</tt></td><td align="center"><tt>given</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionIn</tt></td><td align="center"><tt>in</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInsteadOf</tt></td><td align="center"><tt>instead of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionInto</tt></td><td align="center"><tt>into</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOn</tt></td><td align="center"><tt>on</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOnto</tt></td><td align="center"><tt>onto</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOutOf</tt></td><td align="center"><tt>out of</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionOver</tt></td><td align="center"><tt>over</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionSince</tt></td><td align="center"><tt>since</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThrough</tt></td><td align="center"><tt>through</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionThru</tt></td><td align="center"><tt>thru</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionTo</tt></td><td align="center"><tt>to</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUnder</tt></td><td align="center"><tt>under</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionUntil</tt></td><td align="center"><tt>until</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWith</tt></td><td align="center"><tt>with</tt></td></tr>
+<tr><td align="center"><tt>keyASPrepositionWithout</tt></td><td align="center"><tt>without</tt></td></tr>
+<tr><td align="center"><tt>keyASUserRecordFields</tt></td><td align="center">key for a list descriptor of user record fields</td></tr>
+</table>
+</blockquote></blockquote></p>
+<p>To find out the rules for use of the key words see the AppleScript language documentation.</p>
+<p>See <tt>descriptorWithSubroutineName:labelsAndArguments:...</tt> for more details</p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>routineName</tt></td><td>The rountine name to be called.</td><tr>
+<tr><td align = "center"><tt>label</tt></td><td>The first keyword of a list of labels and objects.</td><tr>
+<tr><td align = "center"><tt>argList</tt></td><td>The argument list struct.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a subroutine with labeled arguments.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/openEventDescriptorWithTargetDescriptor:"></a>
+<h3><a name="openEventDescriptorWithTargetDescriptor:">openEventDescriptorWithTargetDescriptor:</a></h3>
+<b>Abstract:</b> Get a <tt>NSAppleEventDescriptor</tt> for an open event.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>openEventDescriptorWithTargetDescriptor:</B>(NSAppleEventDescriptor *)<I>targetDescriptor;</I> </tt><br>
+</pre></blockquote>
+<p>Creates a <tt>NSAppleEventDescriptor</tt> for an open application event, <tt>kAEOpenApplication</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>targetDescriptor</tt></td><td>an <tt>NSAppleEventDescriptor</tt> that identifies the target application for the Apple event.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing an open application event descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/openEventDescriptorWithTargetDescriptor:array:"></a>
+<h3><a name="openEventDescriptorWithTargetDescriptor:array:">openEventDescriptorWithTargetDescriptor:array:</a></h3>
+<b>Abstract:</b> Get a <tt>NSAppleEventDescriptor</tt> for an open event.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>openEventDescriptorWithTargetDescriptor:</B>(NSAppleEventDescriptor *)<I>targetDescriptor</I> <B>array:</B>(NSArray *)<I>array;</I> </tt><br>
+</pre></blockquote>
+<p>Creates a <tt>NSAppleEventDescriptor</tt> for an open document event, <tt>kAEOpenDocuments</tt>. The objects within <tt>array</tt> have to be <tt>NSString</tt> paths or file <tt>NSULR</tt>s, which are converted into <tt>typeAlias</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>targetDescriptor</tt></td><td>an <tt>NSAppleEventDescriptor</tt> that identifies the target application for the Apple event.</td><tr>
+<tr><td align = "center"><tt>array</tt></td><td>A <tt>NSArray</tt> of file url <tt>NSURL</tt>s and/or path <tt>NSString</tt>s.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing an open application event or an open documents event descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/quitEventDescriptorWithTargetDescriptor:"></a>
+<h3><a name="quitEventDescriptorWithTargetDescriptor:">quitEventDescriptorWithTargetDescriptor:</a></h3>
+<b>Abstract:</b> Get a <tt>NSAppleEventDescriptor</tt> for a quit event.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>quitEventDescriptorWithTargetDescriptor:</B>(NSAppleEventDescriptor *)<I>targetDescriptor;</I> </tt><br>
+</pre></blockquote>
+<p>Creates a <tt>NSAppleEventDescriptor</tt> for an quit event, <tt>kAEQuitApplication</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>targetDescriptor</tt></td><td>an <tt>NSAppleEventDescriptor</tt> that identifies the target application for the Apple event.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a quit event descriptor.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

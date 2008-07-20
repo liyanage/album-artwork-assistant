@@ -8,7 +8,7 @@
 
 #import "UpdateOperation.h"
 #import "GTMNSAppleScript+Handler.h"
-
+#import "NSObject+DDExtensions.h"
 
 @implementation UpdateOperation
 
@@ -49,9 +49,10 @@
 		}
 
 		NSArray *params = [NSArray arrayWithObjects:tracks, tempFilePath, nil];
-		NSArray *data = [NSArray arrayWithObjects:script, params, nil];
-
-		[self performSelectorOnMainThread:@selector(executeAppleScriptWithData:) withObject:data waitUntilDone:YES];
+		[[script dd_invokeOnMainThreadAndWaitUntilDone:YES] gtm_executePositionalHandler:@"embedArtwork" parameters:params error:&errorDict];
+		if (errorDict) {
+			@throw [NSException exceptionWithName:@"AppleScriptExecute" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
+		}
 
 		[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:&error];
 	}
@@ -65,22 +66,6 @@
 	}
 
 }
-
-
-- (void)executeAppleScriptWithData:(NSArray *)data {
-	NSAppleScript *script = [data objectAtIndex:0];
-	NSArray *params = [data objectAtIndex:1];
-	NSDictionary *errorDict = nil;
-	[script gtm_executePositionalHandler:@"embedArtwork" parameters:params error:&errorDict];
-	if (errorDict) {
-		@throw [NSException exceptionWithName:@"AppleScriptExecute" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
-	}
-		
-}
-
-
-
-
 
 
 

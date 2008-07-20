@@ -1,0 +1,948 @@
+<html><head><title>NSAppleEventDescriptor(NDConversion)</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>NSAppleEventDescriptor(NDConversion)</h1></font><hr><br>
+<h2>Abstract</h2>
+Category of <tt>NSAppleEventDescriptor</tt>.
+<h2>Discussion</h2>
+<p>Adds methods for converting between AppleEvent types and Objective-C types.</p>
+<p>The following type conversions are supported in 'either direction' or 'both directions';
+<blockquote>
+<table border="1"  width="90%">
+<thead><tr>
+<th width="40%">Objective-C Type</th>
+<th>Descriptor Type</th>
+</tr></thead>
+<tr>
+<td align="center"><tt>nil</tt></td>
+<td align="center"><tt>typeNull</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;BOOL&gt;</tt></td>
+<td align="center"><tt>typeBoolean</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;short int&gt;<br>NSNumber&lt;char&gt;</tt></td>
+<td align="center"><tt>typeSInt16<br>typeShortInteger<br>typeSMInt</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;int&gt;<br>NSNumber&lt;long int&gt;</tt></td>
+<td align="center"><tt>typeSInt32<br>typeLongInteger<br>typeInteger</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;float&gt;</tt></td>
+<td align="center"><tt>typeIEEE32BitFloatingPoint<br>typeShortFloat<br>typeSMFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;double&gt;</tt></td>
+<td align="center"><tt>typeIEEE64BitFloatingPoint<br>typeFloat<br>typeLongFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;long double&gt;</tt></td>
+<td align="center"><tt>type128BitFloatingPoint</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;unsigned char&gt;<br>NSNumber&lt;unsigned short int&gt;<br>NSNumber&lt;unsigned int&gt;<br>NSNumber&lt;unsigned long int&gt;</tt></td>
+<td align="center"><tt>typeUInt32</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;unsigned long long&gt;<br>NSNumber&lt;long long&gt;</tt></td>
+<td align="center">no 64 bit unsigned<br><tt>typeSInt64</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSValue&lt;NSRange&gt;</tt></td>
+<td align="center"><tt>typeOSAErrorRange</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSString</tt></td>
+<td align="center"><tt>typeText<br>kTXNUnicodeTextData<br>
+typeAlias</tt><br>see <tt>aliasListDescriptorWithArray:</tt> and <tt>aliasDescriptorWithString:</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSArray</tt></td>
+<td align="center"><tt>typeAEList<br>typeAEList&lt;typeAlias&gt;</tt><br>see <tt>aliasListDescriptorWithArray:</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSDictionary</tt></td>
+<td align="center"><tt>typeAERecord</tt><br>see <tt>descriptorWithDictionary:</tt><br>
+<tt>typeAEList</tt><br>see <tt>userRecordDescriptorWithDictionary:</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSURL</tt></td>
+<td align="center"><tt>typeAlias<br>typeFileURL</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NDAppleScriptObject</tt></td>
+<td align="center"><tt>cScript</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>short int</tt></td>
+<td align="center"><tt>typeShortInteger</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>int</tt></td>
+<td align="center"><tt>typeInteger</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>unsigned int<br></tt></td>
+<td align="center"><tt>typeMagnitude</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>long int</tt></td>
+<td align="center"><tt>typeLongInteger</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>float</tt></td>
+<td align="center"><tt>typeShortFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>double</tt></td>
+<td align="center"><tt>typeLongFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>BOOL</tt></td>
+<td align="center"><tt>typeBoolean<br>typeTrue<br>typeFalse</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>char*</tt></td>
+<td align="center"><tt>typeText</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>id*</tt></td>
+<td align="center"><tt>typeAEList<br>typeAERecord</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>va_list</tt></td>
+<td align="center"><tt>typeAEList<br>typeAERecord</tt></td>
+</tr>
+</table>
+</blockquote></p> 
+ <hr><br><h2>Methods</h2>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/aliasDescriptorWithFile:"></a>
+<h3><a name="aliasDescriptorWithFile:">aliasDescriptorWithFile:</a></h3>
+<b>Abstract:</b> Returns a alias descriptor.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>aliasDescriptorWithFile:</B>(id)<I>aFile;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a new alias descriptor from the supplied object which can be either a path <tt>NSString</tt> or a <tt>NSURL</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aFile</tt></td><td>A file object of type <tt>NSString</tt> or <tt>NSURL</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a alias descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/aliasDescriptorWithString:"></a>
+<h3><a name="aliasDescriptorWithString:">aliasDescriptorWithString:</a></h3>
+<b>Abstract:</b> Returns a alias descriptor.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>aliasDescriptorWithString:</B>(NSString *)<I>path;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a new alias descriptor from the supplied path<tt>NSString</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>path</tt></td><td>A file path.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a alias descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/aliasDescriptorWithURL:"></a>
+<h3><a name="aliasDescriptorWithURL:">aliasDescriptorWithURL:</a></h3>
+<b>Abstract:</b> Returns a alias descriptor.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>aliasDescriptorWithURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a new alias descriptor from the supplied file url <tt>NSURL</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A file url <tt>NSURL</tt> object.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a alias descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/aliasListDescriptorWithArray:"></a>
+<h3><a name="aliasListDescriptorWithArray:">aliasListDescriptorWithArray:</a></h3>
+<b>Abstract:</b> Returns an list descriptor of alias descriptors.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>aliasListDescriptorWithArray:</B>(NSArray *)<I>array;</I> </tt><br>
+</pre></blockquote>
+<p>Takes a <tt>NSArray</tt> or file url <tt>NSURL</tt>s and/or path <tt>NSString</tt>s and returns a list descriptor of alias descriptors for all of the files.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>array</tt></td><td>A <tt>NSArray</tt> of file url <tt>NSURL</tt>s and/or path <tt>NSString</tt>s.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a list descriptor of alias descriptors.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/arrayValue"></a>
+<h3><a name="arrayValue">arrayValue</a></h3>
+<b>Abstract:</b> Returns an <tt>NSArray</tt> for a list descriptor.
+
+<blockquote><pre><tt>- (NSArray *)<B>arrayValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSArray</tt> if the receviers contains list descriptor with each element convert to an appropriate object as determined by the method <tt>-[NSAppleEventDescriptor objectValue]</tt>. If the recevier does not contain a list descriptor then an <tt>NSArray</tt> filled with garbage is returned.
+</p>
+<b>Result:</b> A <tt>NSArray</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/currentProcessDescriptor"></a>
+<h3><a name="currentProcessDescriptor">currentProcessDescriptor</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> for the current process.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>currentProcessDescriptor;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a AppleEvent descriptor for the current process, ProcessSerialNumber { 0, kCurrentProcess }
+</p>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithArray:"></a>
+<h3><a name="descriptorWithArray:">descriptorWithArray:</a></h3>
+<b>Abstract:</b> Returns a list descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithArray:</B>(NSArray *)<I>array;</I> </tt><br>
+</pre></blockquote>
+<p><tt>descriptorWithArray:</tt> returns a list decriptor containing AppleEvent decriptors returned from the method <tt>descriptorWithObject:</tt> when passed each of <tt><i>array</i></tt>'s objects.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>array</tt></td><td>The array to create a <tt>NSAppleEventDescriptor</tt> from.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithCString:"></a>
+<h3><a name="descriptorWithCString:">descriptorWithCString:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a string the c string..
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithCString:</B>(const char *)<I>aString;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor of type <tt>typeText</tt> or <tt>typeChar</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aString</tt></td><td>A c string.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing plain text.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithDictionary:"></a>
+<h3><a name="descriptorWithDictionary:">descriptorWithDictionary:</a></h3>
+<b>Abstract:</b> Returns a record descriptor
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithDictionary:</B>(NSDictionary *)<I>aDictionary;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a record descriptor with one key value pair where the keyword is <tt>keyASUserRecordFields</tt> and the value is descriptor of the type typeAEList as returned from the method <tt>userRecordDescriptorWithDictionary:</tt>. This is how record types in AppleScript are represented using AppleEvents
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>aDictionary</tt></td><td>A dictionary where the key can be represented as case insensitive strings.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a record descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithDouble:"></a>
+<h3><a name="descriptorWithDouble:">descriptorWithDouble:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a double descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithDouble:</B>(double)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor of type <tt>typeLongFloat</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The double.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a double descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithFalseBoolean"></a>
+<h3><a name="descriptorWithFalseBoolean">descriptorWithFalseBoolean</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a false boolean descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithFalseBoolean;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</TT containing a descriptor of type <tt>typeFalse</tt>
+</p>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a false boolean descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithFloat:"></a>
+<h3><a name="descriptorWithFloat:">descriptorWithFloat:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a float descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithFloat:</B>(float)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor of type <tt>typeShortFloat</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The float.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a float descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithInt:"></a>
+<h3><a name="descriptorWithInt:">descriptorWithInt:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a integer descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithInt:</B>(int)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor of type <tt>typeInteger</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The int.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a int descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithLong:"></a>
+<h3><a name="descriptorWithLong:">descriptorWithLong:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a long integer descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithLong:</B>(long int)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</TT containing a descriptor of type <tt>typeLongInteger</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The long int.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a lon integer descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithNumber:"></a>
+<h3><a name="descriptorWithNumber:">descriptorWithNumber:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a number descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithNumber:</B>(NSNumber *)<I>number;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor for the value contained within number. The value is determined by object-C type returned frome the method <tt>-[NSNumber objCType]</tt> with the following mappings;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Objective-C Type</th><th>Descriptor Type</th></tr></thead>
+<tr><td align="center"><tt>float</tt></td><td align="center"><tt>typeIEEE32BitFloatingPoint</tt></td></tr>
+<tr><td align="center"><tt>double</tt></td><td align="center"><tt>typeIEEE64BitFloatingPoint</tt></td></tr>
+<tr><td align="center"><tt>long double</tt></td><td align="center"><tt>type128BitFloatingPoint</tt></td></tr>
+<tr><td align="center"><tt>unsigned char</tt></td><td align="center"><tt>typeUInt32</tt></td></tr>
+<tr><td align="center"><tt>char</tt></td><td align="center"><tt>typeSInt16</tt></td></tr>
+<tr><td align="center"><tt>unsigned short int</tt></td><td align="center"><tt>typeUInt32</tt></td></tr>
+<tr><td align="center"><tt>short int</tt></td><td align="center"><tt>typeSInt16</tt></td></tr>
+<tr><td align="center"><tt>unsigned int</tt></td><td align="center"><tt>typeUInt32</tt></td></tr>
+<tr><td align="center"><tt>int</tt></td><td align="center"><tt>typeSInt32</tt></td></tr>
+<tr><td align="center"><tt>unsigned long int</tt></td><td align="center"><tt>typeUInt32</tt></td></tr>
+<tr><td align="center"><tt>long int</tt></td><td align="center"><tt>typeSInt32</tt></td></tr>
+<tr><td align="center"><tt>unsigned long long</tt></td><td align="center"><tt>typeSInt64</tt></td></tr>
+<tr><td align="center"><tt>long long</tt></td><td align="center"><tt>typeSInt64</tt></td></tr>
+<tr><td align="center"><tt>BOOL</tt></td><td align="center"><tt>typeBoolean</tt></td></tr>
+</table>
+</blockquote></blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>number</tt></td><td>The <tt>NSNumber</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a number.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithObject:"></a>
+<h3><a name="descriptorWithObject:">descriptorWithObject:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt>.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithObject:</B>(id)<I>object;</I> </tt><br>
+</pre></blockquote>
+<p><p><tt>descriptorWithObject:</tt> will return the best descriptor for the given the object using one of the other <tt>-[NSAppleEventDescriptor descriptorWithXXXX:]</tt> methods. <tt>descriptorWithObject:</tt> works recursivly so if <tt><i>object</i></tt> is of type <tt>NSArray</tt> or <tt>NSDictionary</tt> then the objects contained within <tt><i>object</i></tt> will also be converted to descriptors using the this method.</p>
+<p>The following type classes are supported;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr>
+<th>Objective-C Class</th>
+<th>Descriptor Type</th>
+</tr></thead>
+<tr>
+<td align="center"><tt>nil</tt></td>
+<td align="center"><tt>typeNull</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;BOOL&gt;</tt></td>
+<td align="center"><tt>typeBoolean</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;short int&gt;<br>
+NSNumber&lt;char&gt;</tt></td>
+<td align="center"><tt>typeSInt16<br>
+typeShortInteger<br>
+typeSMInt</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;int&gt;<br>
+NSNumber&lt;long int&gt;</tt></td>
+<td align="center"><tt>typeSInt32<br>
+typeLongInteger<br>
+typeInteger</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;float&gt;</tt></td>
+<td align="center"><tt>typeIEEE32BitFloatingPoint<br>
+typeShortFloat<br>
+typeSMFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;double&gt;</tt></td>
+<td align="center"><tt>typeIEEE64BitFloatingPoint<br>
+typeFloat<br>
+typeLongFloat</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;long double&gt;</tt></td>
+<td align="center"><tt>type128BitFloatingPoint</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;unsigned char&gt;<br>
+NSNumber&lt;unsigned short int&gt;<br>
+NSNumber&lt;unsigned int&gt;<br>
+NSNumber&lt;unsigned long int&gt;</tt></td>
+<td align="center"><tt>typeUInt32</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSNumber&lt;unsigned long long&gt;<br>
+NSNumber&lt;long long&gt;</tt></td>
+<td align="center">no 64 bit unsigned<br>
+<tt>typeSInt64</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSValue&lt;NSRange&gt;</tt></td>
+<td align="center"><tt>typeOSAErrorRange</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSString</tt></td>
+<td align="center"><tt>typeText<br>
+kTXNUnicodeTextData<br></td>
+</tr>
+<tr>
+<td align="center"><tt>NSArray</tt></td>
+<td align="center"><tt>typeAEList</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSDictionary</tt></td>
+<td align="center"><tt>typeAERecord</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSURL</tt></td>
+<td align="center"><tt>typeAlias</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>NSAppleEventDescriptor</tt></td>
+<td align="center"><tt>[object typeCodeValue]</tt><br>returns <tt><i>object</i></tt> unmodified</td>
+</tr>
+<tr>
+<td align="center"><tt>NDAppleScriptObject</tt></td>
+<td align="center"><tt>cScript</tt></td>
+</tr>
+</table>
+</blockquote></blockquote></p>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>object</tt></td><td>An object that can be converted into a descriptor.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithObjectAndKeys:..."></a>
+<h3><a name="descriptorWithObjectAndKeys:...">descriptorWithObjectAndKeys:...</a></h3>
+<b>Abstract:</b> Returns a record descriptor
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithObjectAndKeys:</B>(id)object, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a record descriptor with one key value pair where the keyword is <tt>keyASUserRecordFields</tt> and the value is descriptor of the type typeAEList as returned from the method <tt>userRecordDescriptorWithObjectAndKeys:arguments:</tt>. This is how record types in AppleScript are represented using AppleEvents
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>object</tt></td><td>The first object is a list of object/key pairs terminated with <tt>nil</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a record descriptor.
+
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithObjectAndKeys:arguments:"></a>
+<h3><a name="descriptorWithObjectAndKeys:arguments:">descriptorWithObjectAndKeys:arguments:</a></h3>
+<b>Abstract:</b> Returns a record descriptor
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithObjectAndKeys:</B>(id)<I>object</I> <B>arguments:</B>(va_list)<I>argList;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a record descriptor with one key value pair where the keyword is <tt>keyASUserRecordFields</tt> and the value is descriptor of the type typeAEList as returned from the method <tt>userRecordDescriptorWithObjectAndKeys:arguments:</tt>. This is how record types in AppleScript are represented using AppleEvents
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>object</tt></td><td>The first object is a list of object/key pairs.</td><tr>
+<tr><td align = "center"><tt>argList</tt></td><td>The argument list.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a record descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithShort:"></a>
+<h3><a name="descriptorWithShort:">descriptorWithShort:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a short integer descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithShort:</B>(short int)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</TT containing a descriptor of type <tt>typeShortInteger</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The short int.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a short integer descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithTrueBoolean"></a>
+<h3><a name="descriptorWithTrueBoolean">descriptorWithTrueBoolean</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a true boolean descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithTrueBoolean;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</TT containing a descriptor of type <tt>typeTrue</tt>
+</p>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a true boolean descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithURL:"></a>
+<h3><a name="descriptorWithURL:">descriptorWithURL:</a></h3>
+<b>Abstract:</b> Returns a url descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithURL:</B>(NSURL *)<I>URL;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a new url descriptor from the supplied <tt>NSURL</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>URL</tt></td><td>A <tt>NSURL</tt> object.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a url descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithUnsignedInt:"></a>
+<h3><a name="descriptorWithUnsignedInt:">descriptorWithUnsignedInt:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a unsigned integer descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithUnsignedInt:</B>(unsigned int)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor of type <tt>typeMagnitude</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The unsigned int.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a unsigned integer descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/descriptorWithValue:"></a>
+<h3><a name="descriptorWithValue:">descriptorWithValue:</a></h3>
+<b>Abstract:</b> Returns a <tt>NSAppleEventDescriptor</tt> containing a value descriptor.
+
+<blockquote><pre><tt>+ (id)<B>descriptorWithValue:</B>(NSValue *)<I>value;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSAppleEventDescriptor</tt> containing a descriptor for the value contained within <tt><i>value</i></tt>. The value is determined by object-C type returned frome the method <tt>-[NSValue objCType]</tt> with the following mappings;
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Objective-C Type</th><th>Descriptor Type</th></tr></thead>
+<tr><td align="center"><tt>NSRange</tt></td><td align="center"><tt>typeRangeDescriptor</tt></td></tr>
+</table>
+</blockquote></blockquote>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>value</tt></td><td>The <tt>NSValue</tt></td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> containing a value.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/dictionaryValue"></a>
+<h3><a name="dictionaryValue">dictionaryValue</a></h3>
+<b>Abstract:</b> Returns an <tt>NSDictionary</tt> for a record descriptor.
+
+<blockquote><pre><tt>- (NSDictionary *)<B>dictionaryValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSDictionary</tt> if the receviers is a record descriptor with a list value for the key <tt>keyASUserRecordFields</tt>, this is how records from AppleScripts are represented. Each even numbered element of the list is converted in to an appropriate object as determined by the method <tt>-[NSAppleEventDescriptor objectValue]</tt> and each odd numbered element is used as the key and converted to a <tt>NSString</tt>. If the recevier is not a record descriptor that contains a list value for the key <tt>keyASUserRecordFields</tt> then the resut is undefined.
+</p>
+<b>Result:</b> A <tt>NSDictionary</tt> with keys all of type <tt>NSString</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/dictionaryValueFromRecordDescriptor"></a>
+<h3><a name="dictionaryValueFromRecordDescriptor">dictionaryValueFromRecordDescriptor</a></h3>
+<b>Abstract:</b> Returns an <tt>NSDictionary</tt> for a record descriptor.
+
+<blockquote><pre><tt>- (NSDictionary *)<B>dictionaryValueFromRecordDescriptor;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSDictionary</tt> if the receviers is a record descriptor with each element convert to an appropriate object as determined by the method <tt>-[NSAppleEventDescriptor objectValue]</tt> and the key converted to a <tt>NSNumbers</tt>. If the recevier does not contain a record descriptor then the resut is undefined.
+</p>
+<b>Result:</b> A <tt>NSDictionary</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/doubleValue"></a>
+<h3><a name="doubleValue">doubleValue</a></h3>
+<b>Abstract:</b> Returns a double value for the recevier.
+
+<blockquote><pre><tt>- (double)<B>doubleValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a double value if the recevier contains a double descriptor, otherwise it returns <tt>0</tt>.
+</p>
+<b>Result:</b> An double value.
+
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/floatValue"></a>
+<h3><a name="floatValue">floatValue</a></h3>
+<b>Abstract:</b> Returns a float value for the recevier.
+
+<blockquote><pre><tt>- (float)<B>floatValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a float value if the recevier contains a float descriptor, otherwise it returns <tt>0</tt>.
+</p>
+<b>Result:</b> An float value.
+
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/listDescriptorWithObjects:..."></a>
+<h3><a name="listDescriptorWithObjects:...">listDescriptorWithObjects:...</a></h3>
+<b>Abstract:</b> Returns a list descriptor.
+
+<blockquote><pre><tt>+ (id)<B>listDescriptorWithObjects:</B>(id)firstObject, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p><tt>descriptorWithArray:</tt> returns a list decriptor containing AppleEvent decriptors returned from the method <tt>descriptorWithObject:</tt> when passed each of object arguments.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>firstObject</tt></td><td>The argument list terminated with <tt>nil</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/listDescriptorWithObjects:arguments:"></a>
+<h3><a name="listDescriptorWithObjects:arguments:">listDescriptorWithObjects:arguments:</a></h3>
+<b>Abstract:</b> Returns a list descriptor.
+
+<blockquote><pre><tt>+ (id)<B>listDescriptorWithObjects:</B>(id)<I>object</I> <B>arguments:</B>(va_list)<I>argList;</I> </tt><br>
+</pre></blockquote>
+<p><tt>descriptorWithArray:</tt> returns a list decriptor containing AppleEvent decriptors returned from the method <tt>descriptorWithObject:</tt> when passed each of object arguments.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>firstObject</tt></td><td>The first object of the argument list.</td><tr>
+<tr><td align = "center"><tt>argList</tt></td><td>The argument list.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/numberValue"></a>
+<h3><a name="numberValue">numberValue</a></h3>
+<b>Abstract:</b> Returns a <tt>NSNumber</tt> object for the recevier.
+
+<blockquote><pre><tt>- (NSNumber *)<B>numberValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSNumber</tt> object for the recevier if it contains a any number type descriptor, otherwise it returns <tt>nil</tt>.
+</p>
+<b>Result:</b> An <tt>NSNumber</tt> object.
+
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/objectValue"></a>
+<h3><a name="objectValue">objectValue</a></h3>
+<b>Abstract:</b> Returns a object for the recevier.
+
+<blockquote><pre><tt>- (id)<B>objectValue;</B> </tt><br>
+</pre></blockquote>
+<p><p>Returns a subclass of <tt>NSObject</tt> by determining the type of the receviers descriptor and converting it into the appropriate instance of a Objective-C class.</p>
+<p>Descriptor types are mapped to classes in the following ways.
+<blockquote><blockquote>
+<table border="1"  width="90%">
+<thead><tr><th>Descriptor Type</th><th>Objective-C Class</th></tr></thead>
+<tr>
+<td align="center"><tt>typeNull</tt></td>
+<td align="center"><tt>NSNull</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>typeBoolean<br>
+typeShortInteger<br>
+typeSMInt<br>
+typeLongInteger<br>
+typeInteger<br>
+typeIEEE32BitFloatingPoint<br>
+typeShortFloat<br>
+typeSMFloat<br>
+typeIEEE64BitFloatingPoint<br>
+typeFloat<br>
+typeLongFloat<br>
+typeExtended<br>
+typeComp<br>
+typeMagnitude<br>
+typeTrue<br>
+typeFalse</tt></td>
+<td align="center"><tt>NSNumber</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>typeChar</tt></td>
+<td align="center"><tt>NSString</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>typeAEList</tt></td>
+<td align="center"><tt>NSArray</tt></td></tr>
+<tr>
+<td align="center"><tt>typeAERecord</tt></td>
+<td align="center"><tt>NSDictionary</tt></td>
+</tr>
+<tr>
+<td align="center"><tt><tt>typeAlias<br>
+typeFileURL</tt></td>
+<td align="center"><tt>NSULR</tt></td>
+</tr>
+<tr>
+<td align="center"><tt>cScript</tt></td>
+<td align="center"><tt>NDAppleScriptObject</tt> <i>if available.</i><br><tt>NSAppleEventDescriptor</tt> <i>otherwise.</i></td>
+</tr>
+<tr>
+<td align="center"><tt>cEventIdentifier</tt></td>
+<td align="center"><tt>NSNumber</tt></td>
+</tr>
+<tr>
+<td align="center">All Other Types</td>
+<td align="center"><tt>NSAppleEventDescriptor</tt></td>
+</tr>
+</table>
+</blockquote></blockquote></p>
+</p>
+<b>Result:</b> A subclass of <tt>NSObject</tt>
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/recordDescriptorWithDictionary:"></a>
+<h3><a name="recordDescriptorWithDictionary:">recordDescriptorWithDictionary:</a></h3>
+<b>Abstract:</b> Returns a record descriptor
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>recordDescriptorWithDictionary:</B>(NSDictionary *)<I>dictionary;</I> </tt><br>
+</pre></blockquote>
+<p>The dictionary keys must be <tt>NSNumber</tt>, preferable <tt>NSNumber&lt;unsigned long int&gt;</tt>, representing <tt>AEKeyword</tt>. The values are converted to <tt>NSAppleEventDescriptor</tt>'s with the method <tt>descriptorWithObject:</tt>. If you are after a record as typically used in apple scripts then see the method <tt>descriptorWithDictionary:</tt>
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>dictionary</tt></td><td>A dictionary where the keys are all <tt>NSNumber&lt;unsigned long int&gt;</tt></td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a record descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/recordDescriptorWithObjects:keywords:count:"></a>
+<h3><a name="recordDescriptorWithObjects:keywords:count:">recordDescriptorWithObjects:keywords:count:</a></h3>
+<b>Abstract:</b> Returns a record descriptor
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>recordDescriptorWithObjects:</B>(id *)<I>objects</I> <B>keywords:</B>(AEKeyword *)<I>keywords</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p>Returns a record descriptor with the supplied object and keys. The objects are converted into <tt>NSAppleEventDescriptor</tt> with the method <tt>descriptorWithObject:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>objects</tt></td><td>A pointer to an array of objects.</td><tr>
+<tr><td align = "center"><tt>keywords</tt></td><td>A pointer to an array of keywords</td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of objects and keywords.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a record descriptor.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/targetCreator"></a>
+<h3><a name="targetCreator">targetCreator</a></h3>
+<b>Abstract:</b> Returns the receviers target Creator.
+
+<blockquote><pre><tt>- (OSType)<B>targetCreator;</B> </tt><br>
+</pre></blockquote>
+<p>If the recevier is a AppleEvent that contains a target Creator, then this method will return it otherwise the result value is garbage.
+</p>
+<b>Result:</b> The target type creator.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/targetProcessSerialNumber"></a>
+<h3><a name="targetProcessSerialNumber">targetProcessSerialNumber</a></h3>
+<b>Abstract:</b> Returns the receviers target ProcessSerialNumber.
+
+<blockquote><pre><tt>- (ProcessSerialNumber)<B>targetProcessSerialNumber;</B> </tt><br>
+</pre></blockquote>
+<p>If the recevier is a AppleEvent that contains a target ProcessSerialNumber, then this method will return it otherwise the result undefined.
+</p>
+<b>Result:</b> The target ProcessSerialNumber.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/unsignedIntValue"></a>
+<h3><a name="unsignedIntValue">unsignedIntValue</a></h3>
+<b>Abstract:</b> Returns a unsigned int value for the recevier.
+
+<blockquote><pre><tt>- (unsigned int)<B>unsignedIntValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a unsigned int value if the recevier contains a unsigned integer descriptor, otherwise it returns <tt>0</tt>.
+</p>
+<b>Result:</b> An unsigned int value.
+
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/urlValue"></a>
+<h3><a name="urlValue">urlValue</a></h3>
+<b>Abstract:</b> Returns a <tt>NSURL</tt> for the recevier..
+
+<blockquote><pre><tt>- (NSURL *)<B>urlValue;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a file url <tt>NSURL</tt> for an alias descriptor. If the recevier does not contain an alias descriptor the <tt>nil</tt> is returned. Currently url descriptors are not handled.
+</p>
+<b>Result:</b> A <tt>NSURL</tt>.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/userRecordDescriptorWithDictionary:"></a>
+<h3><a name="userRecordDescriptorWithDictionary:">userRecordDescriptorWithDictionary:</a></h3>
+<b>Abstract:</b> Returns a user record descriptor.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>userRecordDescriptorWithDictionary:</B>(NSDictionary *)<I>dictionary;</I> </tt><br>
+</pre></blockquote>
+<p>Create a list descriptor that can be used as the value for the key <tt>keyASUserRecordFields</tt> in record descriptors of AppleEvents representing AppleScript subroutine calls, this is how records in AppleScripts represented. The objects are converted to <tt>NSAppleEventDescriptor</tt> using the method <tt>descriptorWithObject:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>dictionary</tt></td><td>A dictionay where the keys are all <tt>NSString</tt>s</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor representing a user record.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/userRecordDescriptorWithObjectAndKeys:..."></a>
+<h3><a name="userRecordDescriptorWithObjectAndKeys:...">userRecordDescriptorWithObjectAndKeys:...</a></h3>
+<b>Abstract:</b> Returns a user record.
+
+<blockquote><pre><tt>+ (id)<B>userRecordDescriptorWithObjectAndKeys:</B>(id)object, <I>...;</I> </tt><br>
+</pre></blockquote>
+<p>Create a list descriptor that can be used as the value for the key <tt>keyASUserRecordFields</tt> in record descriptors of AppleEvents representing AppleScript subroutine calls, this is how records in AppleScripts represented. The resulting descriptor is identical to the descriptor returned from the method <tt>listDescriptorWithObjects:...</tt> if the keys and object are swap around and all of the keys are of type <tt>NSString</tt>. <tt>userRecordDescriptorWithObjectAndKeys:...</tt> has the advantage over <tt>listDescriptorWithObjects:...</tt> in that the keys are converted to <tt>NSString</tt> using the method <tt>-[NSObject description]</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>object</tt></td><td>A list of object and keys terminated with a <tt>nil</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor representing a user record.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/userRecordDescriptorWithObjectAndKeys:arguments:"></a>
+<h3><a name="userRecordDescriptorWithObjectAndKeys:arguments:">userRecordDescriptorWithObjectAndKeys:arguments:</a></h3>
+<b>Abstract:</b> Returns a user record.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>userRecordDescriptorWithObjectAndKeys:</B>(id)<I>object</I> <B>arguments:</B>(va_list)<I>argList;</I> </tt><br>
+</pre></blockquote>
+<p>Create a list descriptor that can be used as the value for the key <tt>keyASUserRecordFields</tt> in record descriptors of AppleEvents representing AppleScript subroutine calls, this is how records in AppleScripts represented. The objects are converted to <tt>NSAppleEventDescriptor</tt> using the method <tt>descriptorWithObject:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>object</tt></td><td>The first object in a list of objects and keys.</td><tr>
+<tr><td align = "center"><tt>argList</tt></td><td>The arguments list.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor representing a user record.
+ 
+<hr>
+<a name="//apple_ref/occ/clm/NSAppleEventDescriptor/userRecordDescriptorWithObjects:keys:count:"></a>
+<h3><a name="userRecordDescriptorWithObjects:keys:count:">userRecordDescriptorWithObjects:keys:count:</a></h3>
+<b>Abstract:</b> Returns a user record.
+
+<blockquote><pre><tt>+ (NSAppleEventDescriptor *)<B>userRecordDescriptorWithObjects:</B>(id *)<I>objects</I> <B>keys:</B>(NSString **)<I>keys</I> <B>count:</B>(unsigned int)<I>count;</I> </tt><br>
+</pre></blockquote>
+<p>Create a list descriptor that can be used as the value for the key <tt>keyASUserRecordFields</tt> in record descriptors of AppleEvents representing AppleScript subroutine calls, this is how records in AppleScripts represented. The objects are converted to <tt>NSAppleEventDescriptor</tt> using the method <tt>descriptorWithObject:</tt>.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>objects</tt></td><td>A pointer to an array of objects.</td><tr>
+<tr><td align = "center"><tt>keys</tt></td><td>A pointer to an array of <tt>NSString</tt>s representing keys.</td><tr>
+<tr><td align = "center"><tt>count</tt></td><td>The number of objects and keys.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> for a list descriptor representing a user record.
+ 
+<hr>
+<a name="//apple_ref/occ/instm/NSAppleEventDescriptor/value"></a>
+<h3><a name="value">value</a></h3>
+<b>Abstract:</b> Returns a <tt>NSValue</tt> object for the recevier.
+
+<blockquote><pre><tt>- (NSValue *)<B>value;</B> </tt><br>
+</pre></blockquote>
+<p>Returns a <tt>NSValue</tt> object for the recevier if it contains a any value or number type descriptor, otherwise it returns <tt>nil</tt>. For most values <tt>value</tt> is identical to <tt>numberValue</tt>.
+</p>
+<b>Result:</b> An <tt>NSValue</tt> object.
+
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>

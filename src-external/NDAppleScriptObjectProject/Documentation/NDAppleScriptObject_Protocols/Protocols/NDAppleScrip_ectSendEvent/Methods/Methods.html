@@ -1,0 +1,27 @@
+<html><head><title>Methods</title></head><body bgcolor="#ffffff"><font face="Geneva,Arial,Helvtica"><h1>Methods</h1></font><hr><br>
+<a name="//apple_ref/occ/instm/NDAppleScriptObjectSendEvent/sendAppleEvent:sendMode:sendPriority:timeOutInTicks:idleProc:filterProc:"></a>
+<h3><a name="sendAppleEvent:sendMode:sendPriority:timeOutInTicks:idleProc:filterProc:">sendAppleEvent:sendMode:sendPriority:timeOutInTicks:idleProc:filterProc:</a></h3>
+<b>Abstract:</b> Passes an event to be executed by a AppleScript to the receiver
+
+<blockquote><pre><tt>- (NSAppleEventDescriptor *)<B>sendAppleEvent:</B>(NSAppleEventDescriptor *)<I>appleEventDescriptor</I> <B>sendMode:</B>(AESendMode)<I>sendMode</I> <B>sendPriority:</B>(AESendPriority)<I>sendPriority</I> <B>timeOutInTicks:</B>(long)<I>timeOutInTicks</I> <B>idleProc:</B>(AEIdleUPP)<I>idleProc</I> <B>filterProc:</B>(AEFilterUPP)<I>filterProc;</I> </tt><br>
+</pre></blockquote>
+<p>Called every time the AppleScript is about to send an AppleEvent. The method <tt>sendAppleEvent:sendMode:sendPriority:timeOutInTicks:idleProc:filterProc:</tt> can be used to intercept every AppleEvent that the AppleScript would send so that it can be modified or redirected. For example AppleEvent for GUI interaction like &ldquo;display dialog&rdquo; need to be sent within the main run loop and thread. The class <tt><a href="../../../../NDAppleScriptObject/index.html" target="_top">NDAppleScriptObject</a></tt> implements this protocol it&rsquo;s self and so you can pass this message onto your <tt><a href="../../../../NDAppleScriptObject/index.html" target="_top">NDAppleScriptObject</a></tt> object.
+</p>
+<h4>Parameters</h4>
+<blockquote>
+<table border = "1"  width = "90%">
+<thead><tr><th>Name</th><th>Description</th></tr></thead>
+<tr><td align = "center"><tt>appleEventDescriptor</tt></td><td>An <tt>NSAppleEventDescriptor</tt> containing the event to be sent.</td><tr>
+<tr><td align = "center"><tt>sendMode</tt></td><td>Specifies various options for how the server application should handle the Apple event. To obtain a value for this parameter, you add together constants to set bits that specify the reply mode, the interaction level, the application switch mode, the reconnection mode, and the return receipt mode. The constants are described in <tt>AESendMode</tt> .</td><tr>
+<tr><td align = "center"><tt>sendPriority</tt></td><td>A value that specifies the priority for processing the Apple event. You can specify normal or high priority, using the constants described in <tt>AESendMode</tt> .</td><tr>
+<tr><td align = "center"><tt>timeOutInTicks</tt></td><td>If the reply mode specified in the <tt>sendMode</tt> parameter is <tt>kAEWaitReply</tt>, or if a return receipt is requested, this parameter specifies the length of time (in ticks) that the client application is willing to wait for the reply or return receipt from the server application before timing out. Most applications should use the <tt>kAEDefaultTimeout</tt> constant, which tells the Apple Event Manager to provide an appropriate timeout duration. If the value of this parameter is <tt>kNoTimeOut</tt>, the Apple event never times out. These constants are described in &ldquo;Timeout Constants&rdquo; .</td><tr>
+<tr><td align = "center"><tt>idleProc</tt></td><td><p>A universal procedure pointer to a function that handles events (such as update, operating-system, activate, and null events) that your application receives while waiting for a reply. Your idle function can also perform other tasks (such as displaying a wristwatch or spinning beach ball cursor) while waiting for a reply or a return receipt.</p>
+<p>If your application specifies the kAEWaitReply flag in the <tt>sendMode</tt> parameter then it must provide an idle function&mdash;otherwise, you can pass a value of <tt>NULL</tt> for this parameter. For more information on the idle function, see <tt>AEIdleProcPtr</tt>.</p></td><tr>
+<tr><td align = "center"><tt>filterProc</tt></td><td>A universal procedure pointer to a function that determines which incoming Apple events should be received while the handler waits for a reply or a return receipt. If your application doesn&rsquo;t need to filter Apple events, you can pass a value of <tt>NULL</tt> for this parameter. If you do so, no application-oriented Apple events are processed while waiting. For more information on the filter function, see <tt>AEFilterProcPtr</tt>.</td><tr>
+</table>
+</blockquote>
+<b>Result:</b> A <tt>NSAppleEventDescriptor</tt> contain the result.
+ 
+<hr>
+<p><p>&#169; 2003 Nathan Day &#151; (Last Updated 4/26/2004)
+</p></body></html>
