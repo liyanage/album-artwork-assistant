@@ -23,25 +23,6 @@
 }
 
 
-- (NSString *)imageUID {
-	return [searchResult valueForKey:@"url"];
-}
-
-
-- (NSString *)imageRepresentationType {
-	return IKImageBrowserNSURLRepresentationType;
-}
-
-
-- (id)imageRepresentation {
-	return [NSURL URLWithString:[searchResult valueForKey:@"tbUrl"]];
-}
-
-
-- (NSString *)imageSubtitle {
-	return [NSString stringWithFormat:@"%@x%@", [searchResult valueForKey:@"width"], [searchResult valueForKey:@"height"]];
-}
-
 
 - (unsigned int)area {
 	return [[searchResult valueForKey:@"width"] intValue] * [[searchResult valueForKey:@"height"] intValue];
@@ -76,6 +57,27 @@
 	[sourceImageRep drawInRect:NSMakeRect(0, 0, 28, 28)];
 	[targetImage unlockFocus];
 	return targetImage;
+}
+
+#pragma mark IKImageBrowserItem protocol methods
+
+- (NSString *)imageUID {
+	return [searchResult valueForKey:@"url"];
+}
+
+
+- (NSString *)imageRepresentationType {
+	return IKImageBrowserNSURLRepresentationType;
+}
+
+
+- (id)imageRepresentation {
+	return [NSURL URLWithString:[searchResult valueForKey:@"tbUrl"]];
+}
+
+
+- (NSString *)imageSubtitle {
+	return [NSString stringWithFormat:@"%@x%@", [searchResult valueForKey:@"width"], [searchResult valueForKey:@"height"]];
 }
 
 

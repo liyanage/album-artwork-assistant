@@ -17,12 +17,13 @@
 @property(assign) NSData *imageData;
 
 - (id)initWithSearchResult:(NSDictionary *)searchResult;
+- (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem;
+- (NSString *)url;
+- (NSImage *)tinyImage;
+
 - (NSString *)imageUID;
 - (NSString *)imageRepresentationType;
 - (id)imageRepresentation;
 - (NSString *)imageSubtitle;
-- (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem;
-- (NSString *)url;
-- (NSImage *)tinyImage;
 
 @end

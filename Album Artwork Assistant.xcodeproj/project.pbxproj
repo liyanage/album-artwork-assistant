@@ -24,6 +24,7 @@
 		1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */; };
 		1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE40E30E04900DD28B0 /* iTunes.icns */; };
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
+		1B6B77370E3540D800EA2035 /* QuickLookImageBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */; };
 		1B7655AE0E27FCF6004A20AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7655AD0E27FCF6004A20AE /* AppDelegate.m */; };
 		1B7655FD0E281D59004A20AE /* fetch-selection-info.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		1B7656E80E28C648004A20AE /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7656E60E28C648004A20AE /* RegexKitLite.m */; };
@@ -74,6 +75,9 @@
 		1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Album Artwork Assistant.icns"; path = "extras/icon/Album Artwork Assistant.icns"; sourceTree = "<group>"; };
 		1B4CEBE40E30E04900DD28B0 /* iTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iTunes.icns; path = Resources/iTunes.icns; sourceTree = "<group>"; };
 		1B4CEBE90E30E5C000DD28B0 /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drawer.png; path = Resources/drawer.png; sourceTree = "<group>"; };
+		1B6B77210E353D5000EA2035 /* QuickLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLook.h; path = "src-external/QuickLook/QuickLook.h"; sourceTree = "<group>"; };
+		1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickLookImageBrowserView.m; path = src/QuickLookImageBrowserView.m; sourceTree = "<group>"; };
+		1B6B77360E3540D800EA2035 /* QuickLookImageBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLookImageBrowserView.h; path = src/QuickLookImageBrowserView.h; sourceTree = "<group>"; };
 		1B7655AC0E27FCF6004A20AE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/AppDelegate.h; sourceTree = "<group>"; };
 		1B7655AD0E27FCF6004A20AE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = src/AppDelegate.m; sourceTree = "<group>"; };
 		1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = "fetch-selection-info.applescript"; path = "src/fetch-selection-info.applescript"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
 				1B7657C90E28E229004A20AE /* RegexKitLite */,
 				1B7657C70E28E206004A20AE /* JSON */,
+				1B6B771F0E353D4300EA2035 /* QuickLook */,
 				1B7657C80E28E20E004A20AE /* GTM */,
 				1BAF14A50E328D6200A725F6 /* StatusDelegateProtocol.h */,
 				1B7655AC0E27FCF6004A20AE /* AppDelegate.h */,
@@ -176,6 +181,8 @@
 				1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */,
 				1B8CF7180E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.h */,
 				1B8CF7190E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m */,
+				1B6B77360E3540D800EA2035 /* QuickLookImageBrowserView.h */,
+				1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -206,6 +213,14 @@
 				8D1107320486CEB800E47090 /* Album Artwork Assistant.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1B6B771F0E353D4300EA2035 /* QuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B77210E353D5000EA2035 /* QuickLook.h */,
+			);
+			name = QuickLook;
 			sourceTree = "<group>";
 		};
 		1B7655FB0E281D38004A20AE /* AppleScript */ = {
@@ -423,6 +438,7 @@
 				1B8CF71A0E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m in Sources */,
 				1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */,
 				1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */,
+				1B6B77370E3540D800EA2035 /* QuickLookImageBrowserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
