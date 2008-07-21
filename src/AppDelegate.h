@@ -31,6 +31,7 @@
 @property(assign) NSString *busyMessage;
 @property(assign) NSMutableArray *queue;
 
+- (IBAction)showExampleAppleScript:(id)sender;
 - (IBAction)fetch:(id)sender;
 - (IBAction)setAlbumArtwork:(id)sender;
 - (IBAction)setAlbumTitle:(NSString *)albumTitle;

@@ -17,6 +17,17 @@
 
 # pragma mark IBActions
 
+- (IBAction)showExampleAppleScript:(id)sender {
+
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"Example AppleScript" ofType:nil];
+	[[NSWorkspace sharedWorkspace] openFile:path];
+
+	NSLog(@"show example applescript %@", path);
+
+}
+
+
+
 - (IBAction)fetch:(id)sender {
 	[self startBusy:@"Fetching Tracks from iTunes"];
 	if (![self fetchITunesTrackList]) return;

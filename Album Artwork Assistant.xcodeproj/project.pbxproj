@@ -21,6 +21,7 @@
 /* End PBXAppleScriptBuildPhase section */
 
 /* Begin PBXBuildFile section */
+		1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */; };
 		1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE40E30E04900DD28B0 /* iTunes.icns */; };
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
 		1B7655AE0E27FCF6004A20AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7655AD0E27FCF6004A20AE /* AppDelegate.m */; };
@@ -46,16 +47,31 @@
 		1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAA29D70E2ABB3000B05717 /* Quartz.framework */; };
 		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
 		1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */; };
+		1BAF16750E33F06B00A725F6 /* Album Artwork Assistant.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BAF16740E33F05B00A725F6 /* Album Artwork Assistant.scpt */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1BAF16630E33EE6800A725F6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "Example AppleScript";
+			dstSubfolderSpec = 7;
+			files = (
+				1BAF16750E33F06B00A725F6 /* Album Artwork Assistant.scpt in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Album Artwork Assistant.icns"; path = "extras/icon/Album Artwork Assistant.icns"; sourceTree = "<group>"; };
 		1B4CEBE40E30E04900DD28B0 /* iTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iTunes.icns; path = Resources/iTunes.icns; sourceTree = "<group>"; };
 		1B4CEBE90E30E5C000DD28B0 /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drawer.png; path = Resources/drawer.png; sourceTree = "<group>"; };
 		1B7655AC0E27FCF6004A20AE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +134,7 @@
 		1BAF161A0E33E16800A725F6 /* NSString+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NDCarbonUtilities.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.m"; sourceTree = "<group>"; };
 		1BAF161B0E33E16800A725F6 /* NDComponentInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDComponentInstance.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDComponentInstance.h"; sourceTree = "<group>"; };
 		1BAF161C0E33E16800A725F6 /* NSString+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NDCarbonUtilities.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.h"; sourceTree = "<group>"; };
+		1BAF16740E33F05B00A725F6 /* Album Artwork Assistant.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; name = "Album Artwork Assistant.scpt"; path = "extras/Album Artwork Assistant.scpt"; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -196,6 +213,7 @@
 			children = (
 				1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */,
 				1B8CF64B0E2BD9480084C323 /* embed-artwork.applescript */,
+				1BAF16740E33F05B00A725F6 /* Album Artwork Assistant.scpt */,
 			);
 			name = AppleScript;
 			sourceTree = "<group>";
@@ -306,6 +324,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */,
 				1B4CEBE90E30E5C000DD28B0 /* drawer.png */,
 				1B4CEBE40E30E04900DD28B0 /* iTunes.icns */,
 				1B8CF6CD0E2BFC320084C323 /* music-artwork.sdef */,
@@ -336,6 +355,7 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				1B7656070E281D61004A20AE /* AppleScript */,
+				1BAF16630E33EE6800A725F6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -374,6 +394,7 @@
 				1B8CF6CE0E2BFC320084C323 /* music-artwork.sdef in Resources */,
 				1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */,
 				1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */,
+				1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
