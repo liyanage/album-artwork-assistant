@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
-#import "Quartz/Quartz.h"
 #import "UpdateOperation.h"
 #import "StatusDelegateProtocol.h"
+#import "QuickLookImageBrowserView.h"
 
 #define DOUBLECLICK_ACTION_QUEUE 1
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
@@ -13,7 +13,7 @@
 	IBOutlet NSWindow *window;
 	IBOutlet NSDrawer *queueDrawer;
 	IBOutlet NSButton *processQueueButton;
-    IBOutlet IKImageBrowserView *imageBrowser;
+    IBOutlet QuickLookImageBrowserView *imageBrowser;
     IBOutlet NSArrayController *queueController;
 	NSArray *tracks;
 	NSString *albumTitle;
@@ -49,5 +49,7 @@
 - (void)processOneQueueEntry;
 - (NSArray *)searchSuggestions;
 - (void)cleanupString:(NSMutableString *)input;
+- (void)setupDefaults;
+- (void)setupNotifications;
 
 @end

@@ -272,15 +272,25 @@
 - (void)awakeFromNib {
 	images = [NSMutableArray array];
 	[self setQueue:[NSMutableArray array]];
-	
+
+	[self setupDefaults];
+	[self setupNotifications];
+}
+
+# pragma mark setup methods
+
+- (void)setupDefaults {
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction", nil];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+}
 
+
+
+- (void)setupNotifications {
 	// the AppleScript command object sends this notification
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetch:) name:@"fetchiTunesAlbums" object:nil];
 }
-
 
 
 # pragma mark NSResponder presentError delegate methods
