@@ -25,25 +25,20 @@
 
 	@try {
 
-		NSData *imageData = [imageItem imageData];
-
-		[statusDelegate startBusy:@"Writing temporary image file"];
-
-		NSString *tempFilePath = [NSString stringWithFormat:@"%@/music-artwork.tmp", NSTemporaryDirectory()];
-		NSError *error = nil;
-		[imageData writeToFile:tempFilePath options:0 error:&error];
-		if (error) {
-			NSString *reason = [NSString stringWithFormat:@"Unable to write temporary image file '%@': %@", tempFilePath, error];
-			@throw [NSException exceptionWithName:@"TempFile" reason:reason userInfo:nil];
+		NSURL *fileUrl = imageItem.fileUrl;
+		
+		if (!fileUrl) {
+			@throw [NSException exceptionWithName:@"TempFileWrite" reason:@"Unable to write temp file" userInfo:nil];
 		}
 		
+		NSString *tempFilePath = [fileUrl path];
+
 		[statusDelegate startBusy:[NSString stringWithFormat:@"Adding image to “%@”", [self albumTitle]]];
 
 		NSString *scptPath = [[NSBundle mainBundle] pathForResource:@"embed-artwork" ofType:@"scpt" inDirectory:@"Scripts"];
 		NSURL *scptUrl = [NSURL fileURLWithPath:scptPath];
 		NSDictionary *errorDict = nil;
 		NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL:scptUrl error:&errorDict];
-
 		if (errorDict) {
 			@throw [NSException exceptionWithName:@"AppleScriptLoad" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
 		}
@@ -53,8 +48,6 @@
 		if (errorDict) {
 			@throw [NSException exceptionWithName:@"AppleScriptExecute" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
 		}
-
-		[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:&error];
 	}
 	
 	@catch (NSException *e) {

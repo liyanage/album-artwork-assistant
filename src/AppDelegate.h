@@ -51,5 +51,8 @@
 - (void)cleanupString:(NSMutableString *)input;
 - (void)setupDefaults;
 - (void)setupNotifications;
+- (void)removeItemAtIndex:(int)index;
+- (NSData *)imageDataForItem:(GoogleImageItem *)item;
+- (void)removeCurrentItemAndWarn;
 
 @end

@@ -73,41 +73,27 @@
 
 
 - (void)quickLookSelectedItems:(int)itemIndex {
-
 	GoogleImageItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
 	[[self delegate] startBusy:@"Loading Image"];
 	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
 }
 
 
-// todo: decouple from delegate, centralize object removal
-// keep nsdata for image in googleimage object
-
 - (void)quickLookSelectedItems2:(NSString *)urlString {
-	NSURL *url = [NSURL URLWithString:urlString];
-	NSData *data = [NSData dataWithContentsOfURL:url];
+	int index = [[self selectionIndexes] firstIndex];
+	NSURL *fileUrl = [[self delegate] fileUrlForItemAtIndex:index];
+	
 	[[self delegate] clearBusy];
 
-	if (!data) {
-		NSLog(@"unable to load image from %@", url);
+	if (!fileUrl) {
+		NSLog(@"unable to get item file url for quicklook");
 		[[quickLookPanelClass sharedPreviewPanel] close];
-		int index = [[self selectionIndexes] firstIndex];
-		// formalize this
-		[[[self delegate] valueForKey:@"images"] removeObjectAtIndex:index];
-		[self reloadData];
 		return;
 	}
 
-	NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(), [urlString lastPathComponent]];
-
-	[data writeToFile:tempFilePath atomically:YES];
-	url = [NSURL fileURLWithPath:tempFilePath];
 	NSMutableArray* URLs = [NSMutableArray arrayWithCapacity:1];
-	
-	NSLog(@"ql url: %@", url);
-	[URLs addObject:url];
+	[URLs addObject:fileUrl];
 	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
-
 }
 
 

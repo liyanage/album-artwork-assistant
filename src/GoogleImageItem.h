@@ -12,9 +12,11 @@
 @interface GoogleImageItem : NSObject {
 	NSDictionary *searchResult;
 	NSData *imageData;
+	NSURL *fileUrl;
 }
 
 @property(assign) NSData *imageData;
+@property(assign) NSURL *fileUrl;
 
 - (id)initWithSearchResult:(NSDictionary *)searchResult;
 - (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem;
@@ -25,5 +27,6 @@
 - (NSString *)imageRepresentationType;
 - (id)imageRepresentation;
 - (NSString *)imageSubtitle;
+- (NSData *)dataError:(NSError **)error;
 
 @end

@@ -12,6 +12,7 @@
 @implementation GoogleImageItem
 
 @synthesize imageData;
+@synthesize fileUrl;
 
 
 - (id)initWithSearchResult:(NSDictionary *)sr {
@@ -79,6 +80,40 @@
 - (NSString *)imageSubtitle {
 	return [NSString stringWithFormat:@"%@x%@", [searchResult valueForKey:@"width"], [searchResult valueForKey:@"height"]];
 }
+
+
+
+- (NSData *)dataError:(NSError **)error {
+	NSData *data = self.imageData;
+	if (!data) {
+		data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self url]] options:0 error:error];
+		if (data) {
+			self.imageData = data;
+		} else {
+			NSLog(@"Unable to get load image data from url '%@', error: %@", [self url], error ? *error : nil);
+		}
+	}
+	return data;
+}
+
+
+- (NSURL *)fileUrl {
+	if (fileUrl) return fileUrl;
+	
+	NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(), [[self url] lastPathComponent]];
+	NSError *error;
+	NSData *data = [self dataError:&error];
+	if (!data) return nil;
+	if (![data writeToFile:tempFilePath atomically:YES]) {
+		NSLog(@"Unable to store image data to temp file '%@'", tempFilePath);
+		return nil;
+	}
+	[self setFileUrl:[NSURL fileURLWithPath:tempFilePath]];
+	return fileUrl;
+}
+
+
+
 
 
 
