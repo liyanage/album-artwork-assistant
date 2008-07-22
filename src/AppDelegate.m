@@ -164,23 +164,45 @@
 	GoogleImageItem *item = [images objectAtIndex:index];
 
 	[self startBusy:@"Downloading selected image"];
-	
-	NSError *error = nil;
-	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[item url]] options:0 error:&error];
+	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
-
-	if (error) {
-		[self displayErrorWithTitle:@"Image not available" message:@"This image is not available, please try a different one"];
-		NSLog(@"error for url '%@': %@", [item url], error);
-		[images removeObjectAtIndex:index];
-		[[imageBrowser dd_invokeOnMainThread] reloadData];
-		return nil;
-	}
-	[item setImageData:imageData];
+	if (!imageData) return nil;
 	UpdateOperation *uo = [[UpdateOperation alloc] initWithTracks:tracks imageItem:item statusDelegate:self];
 	return uo;
-
 }
+
+
+- (void)removeItemAtIndex:(int)index {
+	[images removeObjectAtIndex:index];
+	[[imageBrowser dd_invokeOnMainThread] reloadData];
+}
+
+
+- (NSData *)imageDataForItem:(GoogleImageItem *)item {
+	NSError *error;
+	NSData *imageData = [item dataError:&error];
+	if (!imageData) {
+		[self removeCurrentItemAndWarn];
+	}
+	return imageData;
+}
+
+
+- (NSURL *)fileUrlForItemAtIndex:(int)index {
+	GoogleImageItem *item = [images objectAtIndex:index];
+	NSURL *fileUrl = [item fileUrl];
+	if (!fileUrl) {
+		[self removeCurrentItemAndWarn];
+	}
+	return fileUrl;
+}
+
+- (void)removeCurrentItemAndWarn {
+	int index = [[imageBrowser selectionIndexes] firstIndex];
+	[self removeItemAtIndex:index];
+	[self displayErrorWithTitle:@"Image not available" message:@"This image is not available, please try a different one"];
+}
+
 
 
 
