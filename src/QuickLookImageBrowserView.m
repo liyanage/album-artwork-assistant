@@ -14,6 +14,7 @@
 #import "QuickLook.h"
 #import "GoogleImageItem.h"
 #import "StatusDelegateProtocol.h"
+#import "IKImageBrowserFileUrlDataSource.h"
 
 @implementation QuickLookImageBrowserView
 
@@ -28,6 +29,9 @@
 	}
 
 	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
+
+	[self setQuickLookPanelDelegate:self];
+
 //	NSLog(@"Quick Look loaded");
 }
 
@@ -62,10 +66,7 @@
 
 	NSMutableArray* URLs = [NSMutableArray array];
 	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
-	
-	// And then display the panel
-	[[quickLookPanelClass sharedPreviewPanel] makeKeyAndOrderFrontWithEffect:2];
-	
+
 	// Restore the focus to our window to demo the selection changing, scrolling 
 	// (left/right) and closing (space) functionality
 	[[self window] makeKeyWindow];
@@ -81,7 +82,7 @@
 
 - (void)quickLookSelectedItems2:(NSString *)urlString {
 	int index = [[self selectionIndexes] firstIndex];
-	NSURL *fileUrl = [[self delegate] fileUrlForItemAtIndex:index];
+	NSURL *fileUrl = [[self dataSource] fileUrlForItemAtIndex:index];
 	
 	[[self delegate] clearBusy];
 
@@ -94,19 +95,27 @@
 	NSMutableArray* URLs = [NSMutableArray arrayWithCapacity:1];
 	[URLs addObject:fileUrl];
 	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
+	[[quickLookPanelClass sharedPreviewPanel] makeKeyAndOrderFrontWithEffect:2];
+}
+
+ 
+- (void)setQuickLookPanelDelegate:(id)delegate {
+	if (!quickLookPanelClass) return;
+	[[[quickLookPanelClass sharedPreviewPanel] windowController] setDelegate:delegate];
 }
 
 
+#pragma mark QuickLook Panel delegate methods
 
+- (NSRect)previewPanel:(NSPanel*)panel frameForURL:(NSURL*)URL {
+	NSIndexSet *selected = [self selectionIndexes];
+	NSAssert([selected count] > 0, @"no items selected");
+	int index = [selected firstIndex];
 
-
-
-
-
-
-
-
-
+	NSRect itemFrame = [self convertRectToBase:[self itemFrameAtIndex:index]];
+	itemFrame.origin = [[self window] convertBaseToScreen:itemFrame.origin];
+	return itemFrame;
+}
 
 
 

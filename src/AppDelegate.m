@@ -33,7 +33,7 @@
 	if (![self fetchITunesTrackList]) return;
 	[self clearBusy];
 	if ([tracks count] < 1) {
-		[self displayErrorWithTitle:@"Nothing selected" message:@"Please select some file tracks in your iTunes Library’s main “Music” section"];
+		[self displayErrorWithTitle:@"Nothing appropriate selected in iTunes" message:@"Please select some file tracks in your iTunes Library’s main “Music” section"];
 		return;
 	}
 
@@ -118,7 +118,7 @@
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	NSString *baseUrl = @"http://ajax.googleapis.com/ajax/services/search/images";
 	[params setValue:albumTitle forKey:@"q"];
-	[params setValue:@"off" forKey:@"safe"];
+	[params setValue:@"moderate" forKey:@"safe"];
 	[params setValue:@"small|medium|large|xlarge" forKey:@"imgsz"];
 	[params setValue:@"1.0" forKey:@"v"];
 	[params setValue:@"large" forKey:@"rsz"];
@@ -303,7 +303,9 @@
 
 - (void)setupDefaults {
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction", nil];
+		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction",
+		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
+		nil];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
@@ -371,8 +373,6 @@
 		[self setAlbumArtwork:self];
 	}
 }
-
-
 
 
 @end

@@ -78,6 +78,7 @@
 		1B6B77210E353D5000EA2035 /* QuickLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLook.h; path = "src-external/QuickLook/QuickLook.h"; sourceTree = "<group>"; };
 		1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickLookImageBrowserView.m; path = src/QuickLookImageBrowserView.m; sourceTree = "<group>"; };
 		1B6B77360E3540D800EA2035 /* QuickLookImageBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLookImageBrowserView.h; path = src/QuickLookImageBrowserView.h; sourceTree = "<group>"; };
+		1B6B78D90E3708C900EA2035 /* IKImageBrowserFileUrlDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IKImageBrowserFileUrlDataSource.h; path = src/IKImageBrowserFileUrlDataSource.h; sourceTree = "<group>"; };
 		1B7655AC0E27FCF6004A20AE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/AppDelegate.h; sourceTree = "<group>"; };
 		1B7655AD0E27FCF6004A20AE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = src/AppDelegate.m; sourceTree = "<group>"; };
 		1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = "fetch-selection-info.applescript"; path = "src/fetch-selection-info.applescript"; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 				1B6B771F0E353D4300EA2035 /* QuickLook */,
 				1B7657C80E28E20E004A20AE /* GTM */,
 				1BAF14A50E328D6200A725F6 /* StatusDelegateProtocol.h */,
+				1B6B78D90E3708C900EA2035 /* IKImageBrowserFileUrlDataSource.h */,
 				1B7655AC0E27FCF6004A20AE /* AppDelegate.h */,
 				1B7655AD0E27FCF6004A20AE /* AppDelegate.m */,
 				1BAA29D10E2ABA3300B05717 /* GoogleImageItem.h */,
@@ -371,6 +373,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				1B7656070E281D61004A20AE /* AppleScript */,
 				1BAF16630E33EE6800A725F6 /* CopyFiles */,
+				1B6B78AB0E36965E00EA2035 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -414,6 +417,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B6B78AB0E36965E00EA2035 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "[ $BUILD_STYLE = Release ] || exit 0\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Info\" CFBundleVersion)\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PRODUCT_NAME\"*.zip\nzip -r \"$PRODUCT_NAME-$VERSION.zip\" \"$FULL_PRODUCT_NAME\"\nopen .\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {

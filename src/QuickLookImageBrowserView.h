@@ -18,6 +18,6 @@
 - (void)updateQuicklook;
 - (void)quickLookSelectedItems:(int)itemIndex;
 //- (int)selectedIndex;
-
+- (void)setQuickLookPanelDelegate:(id)delegate;
 
 @end
