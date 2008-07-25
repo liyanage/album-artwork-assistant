@@ -2,13 +2,14 @@
 #import "UpdateOperation.h"
 #import "StatusDelegateProtocol.h"
 #import "QuickLookImageBrowserView.h"
+#import "IKImageBrowserFileUrlDataSource.h"
 
 #define DOUBLECLICK_ACTION_QUEUE 1
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
 #define GOOGLE_IMAGE_RESULTS_PER_PAGE 8
 #define ERRORDOMAIN @"ch.entropy.album-artwork-assistant"
 
-@interface AppDelegate : NSObject <StatusDelegateProtocol> {
+@interface AppDelegate : NSObject <StatusDelegateProtocol, IKImageBrowserFileUrlDataSource> {
 	IBOutlet NSProgressIndicator *progressIndicator;
 	IBOutlet NSWindow *window;
 	IBOutlet NSDrawer *queueDrawer;
