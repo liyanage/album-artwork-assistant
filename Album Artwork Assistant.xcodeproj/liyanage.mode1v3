@@ -301,8 +301,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>36</integer>
-									<integer>35</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -346,7 +344,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AppDelegate.m</string>
+								<string>UpdateOperation.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -354,11 +352,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AppDelegate.m</string>
+										<string>UpdateOperation.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1BC849510E3C7BEC008432B0</string>
+										<string>1B77CB810E3C829E00465756</string>
 										<key>history</key>
 										<array>
 											<string>1B7655B10E27FD19004A20AE</string>
@@ -393,7 +391,6 @@
 											<string>1B6B78910E36949800EA2035</string>
 											<string>1B6B78920E36949800EA2035</string>
 											<string>1B6B78930E36949800EA2035</string>
-											<string>1B6B78940E36949800EA2035</string>
 											<string>1B6B789D0E36962D00EA2035</string>
 											<string>1B6B78E70E370EF000EA2035</string>
 											<string>1B857DE10E39B3C9002C7EDA</string>
@@ -403,6 +400,7 @@
 											<string>1B4976CE0E39CE6A00EA73AB</string>
 											<string>1BE5C9CC0E3A1D3B00334BA1</string>
 											<string>1B6489AD0E3A6EFF00EFB0D2</string>
+											<string>1BC8498E0E3C823F008432B0</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -505,9 +503,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>1BC8494A0E3B8C55008432B0</string>
+				<string>1B77CB7F0E3C825A00465756</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>1BC8494B0E3B8C55008432B0</string>
+				<string>1B77CB800E3C825A00465756</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -626,7 +624,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>238844908.30276701</real>
+	<real>238846553.23829401</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -641,8 +639,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1B7655990E27FAC8004A20AE</string>
 		<string>/Users/liyanage/svn/entropy/album-artwork-assistant/Album Artwork Assistant.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
