@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1BE5C9DA0E3A1DB900334BA1 /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				1BE5C9D90E3A1DB900334BA1 /* ShellScript */,
+			);
+			dependencies = (
+				1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */,
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXAppleScriptBuildPhase section */
 		1B7656070E281D61004A20AE /* AppleScript */ = {
 			isa = PBXAppleScriptBuildPhase;
@@ -54,6 +69,16 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = "Album Artwork Assistant";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1BAF16630E33EE6800A725F6 /* CopyFiles */ = {
@@ -373,7 +398,6 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				1B7656070E281D61004A20AE /* AppleScript */,
 				1BAF16630E33EE6800A725F6 /* CopyFiles */,
-				1B6B78AB0E36965E00EA2035 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -398,6 +422,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Album Artwork Assistant */,
+				1BE5C9DA0E3A1DB900334BA1 /* Distribution */,
 			);
 		};
 /* End PBXProject section */
@@ -419,7 +444,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B6B78AB0E36965E00EA2035 /* ShellScript */ = {
+		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,7 +455,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "[ $BUILD_STYLE = Release ] || exit 0\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Info\" CFBundleVersion)\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PRODUCT_NAME\"*.zip\nzip -r \"$PRODUCT_NAME-$VERSION.zip\" \"$FULL_PRODUCT_NAME\"\nopen .\n\n\n";
+			shellScript = "[ $BUILD_STYLE = Release ] || exit 0\nenv\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -r \"$PROJECT_NAME-$VERSION.zip\" \"$PROJECT_NAME.app\"\nopen .\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,6 +488,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Album Artwork Assistant */;
+			targetProxy = 1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -483,6 +516,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1BE5C9DB0E3A1DBA00334BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribution;
+			};
+			name = Debug;
+		};
+		1BE5C9DC0E3A1DBA00334BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribution;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -553,6 +607,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BE5C9DB0E3A1DBA00334BA1 /* Debug */,
+				1BE5C9DC0E3A1DBA00334BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Album Artwork Assistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
