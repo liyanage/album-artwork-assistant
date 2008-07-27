@@ -19,6 +19,8 @@
 
 
 
+
+
 //@property(assign) NSImage *albumImage;
 
 - (id)initWithTracks:(NSArray *)tracks imageItem:(GoogleImageItem *)imageItem statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
