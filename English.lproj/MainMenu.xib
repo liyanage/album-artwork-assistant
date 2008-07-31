@@ -3,14 +3,14 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">9E17</string>
-		<string key="IBDocument.InterfaceBuilderVersion">670</string>
+		<string key="IBDocument.InterfaceBuilderVersion">672</string>
 		<string key="IBDocument.AppKitVersion">949.33</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="371"/>
 			<integer value="585"/>
 			<integer value="29"/>
-			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -724,7 +724,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">13</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{151, 891}, {600, 556}}</string>
+				<string key="NSWindowRect">{{109, 194}, {600, 556}}</string>
 				<int key="NSWTFlags">1946157056</int>
 				<string key="NSWindowTitle">Album Artwork Assistant</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1559,8 +1559,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string key="NSFrameSize">{600, 556}</string>
 					<reference key="NSSuperview"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
-				<string key="NSMinSize">{0, 78}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSCustomObject" id="755631768">
@@ -1933,10 +1932,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSUserDefaultsController" id="50022290">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>imageBrowserZoom</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
@@ -4280,12 +4275,12 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{114, 461}, {600, 556}}</string>
+					<string>{{109, 194}, {600, 556}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{114, 461}, {600, 556}}</string>
+					<string>{{109, 194}, {600, 556}}</string>
 					<reference ref="9"/>
 					<string>{{33, 99}, {480, 360}}</string>
-					<reference ref="9"/>
+					<integer value="0"/>
 					<string>{3.40282e+38, 3.40282e+38}</string>
 					<string>{600, 450}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4313,7 +4308,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string>{{23, 794}, {245, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{825, 819}, {294, 321}}</string>
+					<string>{{825, 535}, {294, 321}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

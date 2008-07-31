@@ -127,7 +127,12 @@
 	for (int i = 0; i < GOOGLE_IMAGE_RESULT_PAGE_COUNT; i++) {
 		[params setValue:[NSNumber numberWithInt:i * GOOGLE_IMAGE_RESULTS_PER_PAGE] forKey:@"start"];
 		NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
-//		urlString = @"file://localhost/Users/liyanage/svn/entropy/music-artwork/test/testdata.json";
+#ifdef DEBUG_NONET
+		NSLog(@"using dummy json data");
+		urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.json";
+#else
+		NSLog(@"using network json data");
+#endif
 		//NSLog(@"url: %@", urlString);
 
 		NSURL *myUrl = [NSURL URLWithString:urlString];
@@ -363,6 +368,7 @@
 
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)aBrowser {
 	[self setIsImageSelected:[[aBrowser selectionIndexes] count] > 0];
+	[imageBrowser selectionChange];
 }
 
 
