@@ -37,9 +37,15 @@
 
 
 
+
+
 - (void)keyDown:(NSEvent *)event {	
-	if([[event charactersIgnoringModifiers] characterAtIndex:0] == ' ') {
+	NSString *chars = [event charactersIgnoringModifiers]; 
+	NSLog(@"chars: %@", chars);
+	if([chars characterAtIndex:0] == ' ') {
 		[self userDidPressSpaceInImageBrowserView:self];
+	} else if ([chars characterAtIndex:0] == ' ') {
+	
 	} else {
 		[super keyDown:event];
 	}
@@ -52,12 +58,12 @@
 	if([[quickLookPanelClass sharedPreviewPanel] isOpen])
 		[[quickLookPanelClass sharedPreviewPanel] closeWithEffect:2];
 	else {
-		[self updateQuicklook];
+		[self updateQuickLook];
 	}
 }
 
 
-- (void)updateQuicklook {
+- (void)updateQuickLook {
 	// Otherwise, set the current items
 	NSIndexSet *selected = [self selectionIndexes];
 	if (![selected count]) return;
@@ -119,8 +125,24 @@
 
 
 
+- (void)selectionChange {
+	if (!quickLookPanelClass) return;
+	if(![[quickLookPanelClass sharedPreviewPanel] isOpen]) return;
+
+	[self updateQuickLook];
+}
 
 
+- (void)closeQuickLook {
+	if (!quickLookPanelClass) return;
+	if(![[quickLookPanelClass sharedPreviewPanel] isOpen]) return;
+	[[quickLookPanelClass sharedPreviewPanel] closeWithEffect:2];
+}
+
+- (void)reloadData {
+	[self closeQuickLook];
+	[super reloadData];
+}
 
 
 @end

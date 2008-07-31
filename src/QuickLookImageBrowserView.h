@@ -15,9 +15,11 @@
 
 - (void)userDidPressSpaceInImageBrowserView:(id)aBrowser;
 - (void)setupQuickLook;
-- (void)updateQuicklook;
+- (void)updateQuickLook;
+- (void)closeQuickLook;
 - (void)quickLookSelectedItems:(int)itemIndex;
 //- (int)selectedIndex;
 - (void)setQuickLookPanelDelegate:(id)delegate;
+- (void)selectionChange;
 
 @end
