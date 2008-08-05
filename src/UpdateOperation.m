@@ -12,7 +12,7 @@
 
 @implementation UpdateOperation
 
-- (id)initWithTracks:(NSArray *)t imageItem:(GoogleImageItem *)ii statusDelegate:(id <StatusDelegateProtocol>)sd {
+- (id)initWithTracks:(NSArray *)t imageItem:(ImageSearchItem *)ii statusDelegate:(id <StatusDelegateProtocol>)sd {
 	self = [super init];
 	if (!self) return self;
 	tracks = t;

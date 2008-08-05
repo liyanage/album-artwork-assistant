@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<ItemSearchResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2005-10-05">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="curl/7.16.3 (powerpc-apple-darwin9.0) libcurl/7.16.3 OpenSSL/0.9.7l zlib/1.2.3"/>
+    </HTTPHeaders>
+    <RequestId>6ab3ce74-bc7f-476c-bfa4-3625a84f5f23</RequestId>
+    <Arguments>
+      <Argument Name="Operation" Value="ItemSearch"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="AssociateTag" Value="wwwentropych-20"/>
+      <Argument Name="Keywords" Value="The Common Station"/>
+      <Argument Name="AWSAccessKeyId" Value="0H7A2M1CNG984DR9NGR2"/>
+      <Argument Name="ResponseGroup" Value="Images"/>
+      <Argument Name="SearchIndex" Value="Music"/>
+    </Arguments>
+    <RequestProcessingTime>0.0591290000000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemSearchRequest>
+        <Condition>New</Condition>
+        <DeliveryMethod>Ship</DeliveryMethod>
+        <Keywords>The Common Station</Keywords>
+        <MerchantId>Amazon</MerchantId>
+        <ResponseGroup>Images</ResponseGroup>
+        <SearchIndex>Music</SearchIndex>
+      </ItemSearchRequest>
+    </Request>
+    <TotalResults>2</TotalResults>
+    <TotalPages>1</TotalPages>
+    <Item>
+      <ASIN>B000WTSXQ2</ASIN>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/41Khu97HbqL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>http://localhost/reference/reference.png</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://localhost/reference/reference.png</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>http://ecx.images-amazon.com/images/I/41Khu97HbqL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>http://ecx.images-amazon.com/images/I/41Khu97HbqL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <MediumImage>
+            <URL>http://ecx.images-amazon.com/images/I/41Khu97HbqL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>http://ecx.images-amazon.com/images/I/41Khu97HbqL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+    </Item>
+    <Item>
+      <ASIN>B00029J1YA</ASIN>
+      <SmallImage>
+        <URL>http://localhost/reference/reference.png</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>http://localhost/reference/reference.png</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/513XFZY31CL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>http://ecx.images-amazon.com/images/I/513XFZY31CL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>http://ecx.images-amazon.com/images/I/513XFZY31CL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <MediumImage>
+            <URL>http://ecx.images-amazon.com/images/I/513XFZY31CL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>http://ecx.images-amazon.com/images/I/513XFZY31CL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+    </Item>
+  </Items>
+</ItemSearchResponse>

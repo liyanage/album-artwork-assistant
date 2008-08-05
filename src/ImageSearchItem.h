@@ -7,19 +7,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ImageSearchItem.h"
 
-
-@interface GoogleImageItem : NSObject {
+@interface ImageSearchItem : NSObject {
 	NSDictionary *searchResult;
 	NSData *imageData;
 	NSURL *fileUrl;
+	NSString *source;
 }
 
 @property(assign) NSData *imageData;
 @property(assign) NSURL *fileUrl;
+@property(assign) NSString *source;
 
 - (id)initWithSearchResult:(NSDictionary *)searchResult;
-- (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem;
+- (NSComparisonResult)areaCompare:(ImageSearchItem *)anItem;
 - (NSString *)url;
 - (NSImage *)tinyImage;
 
