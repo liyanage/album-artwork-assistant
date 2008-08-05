@@ -44,6 +44,8 @@
 - (void)clearImages;
 - (IBAction)findImages:(id)sender;
 - (void)doFindImages:(id)sender;
+- (void)doFindImagesGoogle;
+- (void)doFindImagesAmazon;
 - (IBAction)processQueue:(id)sender;
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)aBrowser;
 - (UpdateOperation *)makeUpdateOperation;
@@ -53,7 +55,7 @@
 - (void)setupDefaults;
 - (void)setupNotifications;
 - (void)removeItemAtIndex:(int)index;
-- (NSData *)imageDataForItem:(GoogleImageItem *)item;
+- (NSData *)imageDataForItem:(ImageSearchItem *)item;
 - (void)removeCurrentItemAndWarn;
 
 @end

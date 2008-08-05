@@ -12,7 +12,7 @@
 
 #import "QuickLookImageBrowserView.h"
 #import "QuickLook.h"
-#import "GoogleImageItem.h"
+#import "ImageSearchItem.h"
 #import "StatusDelegateProtocol.h"
 #import "IKImageBrowserFileUrlDataSource.h"
 
@@ -80,7 +80,7 @@
 
 
 - (void)quickLookSelectedItems:(int)itemIndex {
-	GoogleImageItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
+	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
 	[[self delegate] startBusy:@"Loading Image"];
 	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
 }

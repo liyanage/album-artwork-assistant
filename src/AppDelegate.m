@@ -2,7 +2,7 @@
 #import "RegexKitLite.h"
 #import "GTMNSDictionary+URLArguments.h"
 #import "NSString+SBJSON.h"
-#import "GoogleImageItem.h"
+#import "ImageSearchItem.h"
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
 
@@ -62,7 +62,7 @@
 - (IBAction)findImages:(id)sender {
 	if ([albumTitle length] < 1) return;
 	[self clearImages];
-	[self startBusy:@"Searching Google Images"];
+	[self startBusy:@"Searching Amazon/Google"];
 	[self performSelector:@selector(doFindImages:) withObject:self afterDelay:0.1];
 }
 
@@ -104,7 +104,7 @@
 
 
 
-# pragma mark Google query
+# pragma mark Google/Amazon image search
 
 
 // Using the Google REST API
@@ -114,7 +114,16 @@
 // http://code.google.com/apis/ajaxsearch/signup.html
 //
 - (void)doFindImages:(id)sender {
+	[self doFindImagesAmazon];
+	[self doFindImagesGoogle];
 
+	[images sortUsingSelector:@selector(areaCompare:)];
+	[imageBrowser reloadData];
+	[self clearBusy];
+}
+
+
+- (void)doFindImagesGoogle {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	NSString *baseUrl = @"http://ajax.googleapis.com/ajax/services/search/images";
 	[params setValue:albumTitle forKey:@"q"];
@@ -128,10 +137,8 @@
 		[params setValue:[NSNumber numberWithInt:i * GOOGLE_IMAGE_RESULTS_PER_PAGE] forKey:@"start"];
 		NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
 #ifdef DEBUG_NONET
-		NSLog(@"using dummy json data");
-		urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.json";
-#else
-		NSLog(@"using network json data");
+		NSLog(@"using dummy google data");
+		urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.google.json";
 #endif
 		//NSLog(@"url: %@", urlString);
 
@@ -148,25 +155,84 @@
 		}
 
 		id imageData = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] JSONValue];
+//		NSLog(@"imagedata: %@", imageData);
 		
 		for (id item in [imageData valueForKeyPath:@"responseData.results"]) {
-			[images addObject:[[GoogleImageItem alloc] initWithSearchResult:item]];
+			id io = [[ImageSearchItem alloc] initWithSearchResult:item];
+			[io setSource:@"Google"];
+			[images addObject:io];
 		}
 	}
-
-	[images sortUsingSelector:@selector(areaCompare:)];
-	[imageBrowser reloadData];
-	[self clearBusy];
-
 }
 
+
+// http://docs.amazonwebservices.com/AWSECommerceService/2008-06-26/DG/
+- (void)doFindImagesAmazon {
+
+	NSString *baseUrl = @"http://ecs.amazonaws.com/onca/xml";
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setValue:albumTitle              forKey:@"Keywords"];
+	[params setValue:@"AWSECommerceService"  forKey:@"Service"];
+	[params setValue:@"ItemSearch"           forKey:@"Operation"];
+	[params setValue:@"0H7A2M1CNG984DR9NGR2" forKey:@"AWSAccessKeyId"];
+	[params setValue:@"wwwentropych-20"      forKey:@"AssociateTag"];
+	[params setValue:@"Music"                forKey:@"SearchIndex"];
+	[params setValue:@"Images"               forKey:@"ResponseGroup"];
+
+
+	NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
+
+#ifdef DEBUG_NONET
+	NSLog(@"using dummy amazon data");
+	urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.amazon.xml";
+#endif
+
+//	NSLog(@"amazon url: %@", urlString);
+
+	NSError *error = nil;
+	NSURL *myUrl = [NSURL URLWithString:urlString];
+    NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:myUrl
+            options:(NSXMLNodePreserveWhitespace)
+            error:&error];
+
+
+/*
+	NSURL *myUrl = [NSURL URLWithString:urlString];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
+	NSURLResponse *response = nil;
+	NSError *error = nil;
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+*/
+
+	if (error) {
+		[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
+		[self clearBusy];
+		return;
+	}
+	
+//		- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)arguments error:(NSError **)error
+//	NSLog(@"amazon web service xml: %@", xmlDoc);
+	NSString *xsltPath = [[NSBundle mainBundle] pathForResource:@"amazon2plist" ofType:@"xslt"];
+	NSURL *xsltUrl = [NSURL fileURLWithPath:xsltPath];
+	NSXMLDocument *plistDoc = [xmlDoc objectByApplyingXSLTAtURL:xsltUrl arguments:nil error:&error];
+//	NSLog(@"amazon plist after xslt: %@", [plistDoc description]);
+	id imageData = [[plistDoc description] propertyList];
+
+
+	for (id item in [imageData valueForKeyPath:@"results"]) {
+			id io = [[ImageSearchItem alloc] initWithSearchResult:item];
+			[io setSource:@"Amazon"];
+			[images addObject:io];
+	}
+
+}
 
 
 # pragma mark update operation manipulation
 
 - (UpdateOperation *)makeUpdateOperation {
 	int index = [[imageBrowser selectionIndexes] firstIndex];
-	GoogleImageItem *item = [images objectAtIndex:index];
+	ImageSearchItem *item = [images objectAtIndex:index];
 
 	[self startBusy:@"Downloading selected image"];
 	NSData *imageData = [self imageDataForItem:item];
@@ -183,7 +249,7 @@
 }
 
 
-- (NSData *)imageDataForItem:(GoogleImageItem *)item {
+- (NSData *)imageDataForItem:(ImageSearchItem *)item {
 	NSError *error;
 	NSData *imageData = [item dataError:&error];
 	if (!imageData) {
@@ -194,7 +260,7 @@
 
 
 - (NSURL *)fileUrlForItemAtIndex:(int)index {
-	GoogleImageItem *item = [images objectAtIndex:index];
+	ImageSearchItem *item = [images objectAtIndex:index];
 	NSURL *fileUrl = [item fileUrl];
 	if (!fileUrl) {
 		[self removeCurrentItemAndWarn];

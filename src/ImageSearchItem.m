@@ -6,13 +6,14 @@
 //  Copyright 2008 Marc Liyanage <http://www.entropy.ch>. All rights reserved.
 //
 
-#import "GoogleImageItem.h"
+#import "ImageSearchItem.h"
 #import <Quartz/Quartz.h>
 
-@implementation GoogleImageItem
+@implementation ImageSearchItem
 
 @synthesize imageData;
 @synthesize fileUrl;
+@synthesize source;
 
 
 - (id)initWithSearchResult:(NSDictionary *)sr {
@@ -30,7 +31,7 @@
 }
 
 
-- (NSComparisonResult)areaCompare:(GoogleImageItem *)anItem {
+- (NSComparisonResult)areaCompare:(ImageSearchItem *)anItem {
 	unsigned int a = [self area];
 	unsigned int b = [anItem area];
 	if (a == b) return NSOrderedSame;
@@ -78,7 +79,11 @@
 
 
 - (NSString *)imageSubtitle {
-	return [NSString stringWithFormat:@"%@x%@", [searchResult valueForKey:@"width"], [searchResult valueForKey:@"height"]];
+	return [NSString stringWithFormat:@"%@x%@ %@",
+		[searchResult valueForKey:@"width"],
+		[searchResult valueForKey:@"height"],
+		[self source]
+	];
 }
 
 

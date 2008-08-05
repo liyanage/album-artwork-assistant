@@ -7,13 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "GoogleImageItem.h"
+#import "ImageSearchItem.h"
 #import "StatusDelegateProtocol.h"
 
 @interface UpdateOperation : NSOperation {
 	id statusDelegate;
 	NSArray *tracks;
-	GoogleImageItem *imageItem;
+	ImageSearchItem *imageItem;
 	NSImage *albumImage;
 }
 
@@ -23,7 +23,7 @@
 
 //@property(assign) NSImage *albumImage;
 
-- (id)initWithTracks:(NSArray *)tracks imageItem:(GoogleImageItem *)imageItem statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
+- (id)initWithTracks:(NSArray *)tracks imageItem:(ImageSearchItem *)imageItem statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
 - (NSString *)albumTitle;
 - (NSImage *)tinyAlbumImage;
 
