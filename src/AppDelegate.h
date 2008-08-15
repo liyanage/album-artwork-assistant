@@ -3,6 +3,8 @@
 #import "StatusDelegateProtocol.h"
 #import "QuickLookImageBrowserView.h"
 #import "IKImageBrowserFileUrlDataSource.h"
+#import "DataStore.h"
+#import "ImageSearchItem.h"
 
 #define DOUBLECLICK_ACTION_QUEUE 1
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
@@ -24,6 +26,9 @@
 	BOOL isBusy;
 	NSString *busyMessage;
 	NSMutableArray *queue;
+	
+	DataStore *dataStore;
+
 }
 
 @property BOOL isBusy;
@@ -31,6 +36,7 @@
 @property BOOL isQueueProcessing;
 @property(assign) NSString *busyMessage;
 @property(assign) NSMutableArray *queue;
+@property(assign) DataStore *dataStore;
 
 - (IBAction)showExampleAppleScript:(id)sender;
 - (IBAction)fetch:(id)sender;
@@ -54,8 +60,11 @@
 - (void)cleanupString:(NSMutableString *)input;
 - (void)setupDefaults;
 - (void)setupNotifications;
-- (void)removeItemAtIndex:(int)index;
+- (id)makeTrackGroup;
+
 - (NSData *)imageDataForItem:(ImageSearchItem *)item;
+- (void)removeItemAtIndex:(int)index;
+- (ImageSearchItem *)selectedImage;
 - (void)removeCurrentItemAndWarn;
 
 @end
