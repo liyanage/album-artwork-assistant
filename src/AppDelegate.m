@@ -2,7 +2,6 @@
 #import "RegexKitLite.h"
 #import "GTMNSDictionary+URLArguments.h"
 #import "NSString+SBJSON.h"
-#import "ImageSearchItem.h"
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
 
@@ -13,6 +12,7 @@
 @synthesize isQueueProcessing;
 @synthesize busyMessage;
 @synthesize queue;
+@synthesize dataStore;
 
 
 # pragma mark IBActions
@@ -106,7 +106,6 @@
 
 # pragma mark Google/Amazon image search
 
-
 // Using the Google REST API
 // http://code.google.com/apis/ajaxsearch/documentation/#fonje
 // http://code.google.com/apis/ajaxsearch/documentation/reference.html#_fonje_image
@@ -195,27 +194,15 @@
             options:(NSXMLNodePreserveWhitespace)
             error:&error];
 
-
-/*
-	NSURL *myUrl = [NSURL URLWithString:urlString];
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
-	NSURLResponse *response = nil;
-	NSError *error = nil;
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-*/
-
 	if (error) {
 		[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
 		[self clearBusy];
 		return;
 	}
 	
-//		- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)arguments error:(NSError **)error
-//	NSLog(@"amazon web service xml: %@", xmlDoc);
 	NSString *xsltPath = [[NSBundle mainBundle] pathForResource:@"amazon2plist" ofType:@"xslt"];
 	NSURL *xsltUrl = [NSURL fileURLWithPath:xsltPath];
 	NSXMLDocument *plistDoc = [xmlDoc objectByApplyingXSLTAtURL:xsltUrl arguments:nil error:&error];
-//	NSLog(@"amazon plist after xslt: %@", [plistDoc description]);
 	id imageData = [[plistDoc description] propertyList];
 
 
@@ -231,9 +218,7 @@
 # pragma mark update operation manipulation
 
 - (UpdateOperation *)makeUpdateOperation {
-	int index = [[imageBrowser selectionIndexes] firstIndex];
-	ImageSearchItem *item = [images objectAtIndex:index];
-
+	ImageSearchItem *item = [self selectedImage];
 	[self startBusy:@"Downloading selected image"];
 	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
@@ -242,11 +227,18 @@
 	return uo;
 }
 
+- (ImageSearchItem *)selectedImage {
+	int index = [[imageBrowser selectionIndexes] firstIndex];
+	return [images objectAtIndex:index];
+}
+
+
 
 - (void)removeItemAtIndex:(int)index {
 	[images removeObjectAtIndex:index];
 	[[imageBrowser dd_invokeOnMainThread] reloadData];
 }
+
 
 
 - (NSData *)imageDataForItem:(ImageSearchItem *)item {
@@ -268,6 +260,7 @@
 	return fileUrl;
 }
 
+
 - (void)removeCurrentItemAndWarn {
 	int index = [[imageBrowser selectionIndexes] firstIndex];
 	[self removeItemAtIndex:index];
@@ -284,11 +277,55 @@
 	[self performSelectorInBackground:@selector(addToQueueBackground:) withObject:sender];
 }
 
+
+
 - (IBAction)addToQueueBackground:(id)sender {
 	UpdateOperation *uo = [self makeUpdateOperation];
+	id trackGroup = [self makeTrackGroup];
 	if (!uo) return;
 	[queueController addObject:uo];
 }
+
+
+
+- (id)makeTrackGroup {
+
+	ImageSearchItem *item = [self selectedImage];
+	[self startBusy:@"Downloading selected image"];
+	NSData *imageData = [self imageDataForItem:item];
+	[self clearBusy];
+	if (!imageData) return nil;
+
+	NSManagedObject *trackGroup = [NSEntityDescription
+		insertNewObjectForEntityForName:@"TrackGroup"
+		inManagedObjectContext:[dataStore managedObjectContext]];
+	//trackGroup = @"trackgroup title";
+	
+	[trackGroup setValue:[[tracks objectAtIndex:0] valueForKey:@"trackalbum"] forKey:@"title"];
+	[trackGroup setValue:imageData forKey:@"imageData"];
+
+	NSMutableSet *groupTracks = [trackGroup mutableSetValueForKey:@"tracks"];
+
+	for (id trackData in tracks) {
+		NSManagedObject *aTrack = [NSEntityDescription
+			insertNewObjectForEntityForName:@"Track"
+			inManagedObjectContext:[dataStore managedObjectContext]];
+
+		[aTrack setValue:[trackData valueForKey:@"id"] forKey:@"id"];
+		[aTrack setValue:[trackData valueForKey:@"name"] forKey:@"number"];
+		[aTrack setValue:[trackData valueForKey:@"number"] forKey:@"number"];
+		[aTrack setValue:[trackData valueForKey:@"album"] forKey:@"album"];
+		[aTrack setValue:[trackData valueForKey:@"artist"] forKey:@"artist"];
+		[aTrack setValue:[trackData valueForKey:@"containerid"] forKey:@"containerid"];
+
+		[groupTracks addObject:aTrack];
+	}
+	
+	NSLog(@"groupTracks: %@", groupTracks);
+	NSLog(@"trackgroup: %@", trackGroup);
+	return trackGroup;
+}
+
 
 
 
@@ -358,17 +395,20 @@
 
 
 
-
-
 # pragma mark NSNibAwaking protocol methods
 
 - (void)awakeFromNib {
 	images = [NSMutableArray array];
 	[self setQueue:[NSMutableArray array]];
 
+	[self setDataStore:[[DataStore alloc] init]];
+
 	[self setupDefaults];
 	[self setupNotifications];
+
+	NSLog(@"datastore %@", [dataStore persistentStoreCoordinator]);
 }
+
 
 # pragma mark setup methods
 
@@ -445,6 +485,17 @@
 		[self setAlbumArtwork:self];
 	}
 }
+
+
+#pragma mark application delegate methods
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    int reply = NSTerminateNow;
+	[dataStore cleanup];
+	dataStore = nil;
+	return reply;
+}
+
 
 
 @end
