@@ -33,7 +33,6 @@
 
 
 - (NSManagedObjectModel *)managedObjectModel {
-
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
@@ -43,9 +42,7 @@
 }
 
 
-
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-
     if (persistentStoreCoordinator != nil) {
         return persistentStoreCoordinator;
     }
