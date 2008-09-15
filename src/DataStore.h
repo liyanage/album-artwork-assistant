@@ -22,6 +22,10 @@
 - (NSString *)applicationName;
 - (void)cleanup;
 - (void)save;
+- (NSUInteger)countForEntityNamed:(NSString *)name;
+- (NSManagedObject *)firstEntityNamed:(NSString *)name;
+- (NSFetchRequest *)fetchRequestForEntityNamed:(NSString *)name;
+- (void)deleteObject:(NSManagedObject *)object;
 
 
 @end

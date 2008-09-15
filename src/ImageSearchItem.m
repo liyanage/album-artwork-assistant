@@ -20,7 +20,6 @@
 	self = [super init];
 	if (!self) return nil;
 	searchResult = sr;
-//	NSLog(@"init data: %@", sr);
 	return self;
 }
 

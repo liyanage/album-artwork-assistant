@@ -67,6 +67,7 @@
 		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
 		1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */; };
 		1BAF16750E33F06B00A725F6 /* Album Artwork Assistant.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BAF16740E33F05B00A725F6 /* Album Artwork Assistant.scpt */; };
+		1BBD59EE0E5A2749005F235C /* TrackGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD59ED0E5A2749005F235C /* TrackGroup.m */; };
 		1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */ = {isa = PBXBuildFile; fileRef = 1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -173,6 +174,8 @@
 		1BAF161B0E33E16800A725F6 /* NDComponentInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDComponentInstance.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDComponentInstance.h"; sourceTree = "<group>"; };
 		1BAF161C0E33E16800A725F6 /* NSString+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NDCarbonUtilities.h"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDCarbonUtilities.h"; sourceTree = "<group>"; };
 		1BAF16740E33F05B00A725F6 /* Album Artwork Assistant.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; name = "Album Artwork Assistant.scpt"; path = "extras/Album Artwork Assistant.scpt"; sourceTree = "<group>"; };
+		1BBD59EC0E5A2749005F235C /* TrackGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackGroup.h; path = src/TrackGroup.h; sourceTree = "<group>"; };
+		1BBD59ED0E5A2749005F235C /* TrackGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackGroup.m; path = src/TrackGroup.m; sourceTree = "<group>"; };
 		1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = amazon2plist.xslt; path = Resources/amazon2plist.xslt; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B7656EA0E28C793004A20AE /* libicucore.dylib */,
 				1B8CF61A0E2BD4FD0084C323 /* Carbon.framework */,
 				1BAA29D70E2ABB3000B05717 /* Quartz.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -256,6 +260,8 @@
 		1B0B40750E4C2D64006CAE99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1BBD59EC0E5A2749005F235C /* TrackGroup.h */,
+				1BBD59ED0E5A2749005F235C /* TrackGroup.m */,
 				1B0B40470E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel */,
 			);
 			name = Models;
@@ -369,7 +375,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				1B7656EA0E28C793004A20AE /* libicucore.dylib */,
 			);
 			name = "Music Artwork";
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				1B6B77370E3540D800EA2035 /* QuickLookImageBrowserView.m in Sources */,
 				1B01E8290E4AD810009E8310 /* DataStore.m in Sources */,
 				1B0B40480E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel in Sources */,
+				1BBD59EE0E5A2749005F235C /* TrackGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
