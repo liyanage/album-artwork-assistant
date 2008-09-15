@@ -18,14 +18,9 @@
 # pragma mark IBActions
 
 - (IBAction)showExampleAppleScript:(id)sender {
-
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Example AppleScript" ofType:nil];
 	[[NSWorkspace sharedWorkspace] openFile:path];
-
-	NSLog(@"show example applescript %@", path);
-
 }
-
 
 
 - (IBAction)fetch:(id)sender {
@@ -51,12 +46,12 @@
 	[self performSelectorInBackground:@selector(setAlbumArtworkBackground:) withObject:sender];
 }
 
+
 - (void)setAlbumArtworkBackground:(id)sender {
 	UpdateOperation *uo = [self makeUpdateOperation];
 	if (!uo) return;
 	[uo main];
 }
-
 
 
 - (IBAction)findImages:(id)sender {
@@ -97,7 +92,6 @@
 
 	NSArray *trackData = [[ds stringValue] propertyList];
 	NSAssert(trackData, @"Unable to parse iTunes track list AppleScript");
-//	NSLog(@"array: %@", trackData);
 	[self setValue:trackData forKey:@"tracks"];
 	return YES;
 }
@@ -223,9 +217,17 @@
 	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
 	if (!imageData) return nil;
-	UpdateOperation *uo = [[UpdateOperation alloc] initWithTracks:tracks imageItem:item statusDelegate:self];
+
+	UpdateOperation *uo = [[UpdateOperation alloc] initWithTracks:tracks imageData:imageData statusDelegate:self];
+	NSLog(@"tracksData: %@", tracks);
 	return uo;
 }
+
+
+- (UpdateOperation *)makeUpdateOperationForTrackGroup:(TrackGroup *)group {
+	return [[UpdateOperation alloc] initWithTracks:[group tracksData] imageData:[group imageData] statusDelegate:self];
+}
+
 
 - (ImageSearchItem *)selectedImage {
 	int index = [[imageBrowser selectionIndexes] firstIndex];
@@ -233,12 +235,10 @@
 }
 
 
-
 - (void)removeItemAtIndex:(int)index {
 	[images removeObjectAtIndex:index];
 	[[imageBrowser dd_invokeOnMainThread] reloadData];
 }
-
 
 
 - (NSData *)imageDataForItem:(ImageSearchItem *)item {
@@ -278,14 +278,9 @@
 }
 
 
-
 - (IBAction)addToQueueBackground:(id)sender {
-	UpdateOperation *uo = [self makeUpdateOperation];
-	id trackGroup = [self makeTrackGroup];
-	if (!uo) return;
-	[queueController addObject:uo];
+	[self makeTrackGroup];
 }
-
 
 
 - (id)makeTrackGroup {
@@ -299,7 +294,6 @@
 	NSManagedObject *trackGroup = [NSEntityDescription
 		insertNewObjectForEntityForName:@"TrackGroup"
 		inManagedObjectContext:[dataStore managedObjectContext]];
-	//trackGroup = @"trackgroup title";
 	
 	[trackGroup setValue:[[tracks objectAtIndex:0] valueForKey:@"trackalbum"] forKey:@"title"];
 	[trackGroup setValue:imageData forKey:@"imageData"];
@@ -311,21 +305,18 @@
 			insertNewObjectForEntityForName:@"Track"
 			inManagedObjectContext:[dataStore managedObjectContext]];
 
-		[aTrack setValue:[trackData valueForKey:@"id"] forKey:@"id"];
-		[aTrack setValue:[trackData valueForKey:@"name"] forKey:@"number"];
-		[aTrack setValue:[trackData valueForKey:@"number"] forKey:@"number"];
-		[aTrack setValue:[trackData valueForKey:@"album"] forKey:@"album"];
-		[aTrack setValue:[trackData valueForKey:@"artist"] forKey:@"artist"];
-		[aTrack setValue:[trackData valueForKey:@"containerid"] forKey:@"containerid"];
+		[aTrack setValue:[trackData valueForKey:@"trackid"] forKey:@"id"];
+		[aTrack setValue:[trackData valueForKey:@"trackname"] forKey:@"name"];
+		[aTrack setValue:[trackData valueForKey:@"tracknumber"] forKey:@"number"];
+		[aTrack setValue:[trackData valueForKey:@"trackalbum"] forKey:@"album"];
+		[aTrack setValue:[trackData valueForKey:@"trackartist"] forKey:@"artist"];
+		[aTrack setValue:[trackData valueForKey:@"trackcontainerid"] forKey:@"containerid"];
 
 		[groupTracks addObject:aTrack];
 	}
 	
-	NSLog(@"groupTracks: %@", groupTracks);
-	NSLog(@"trackgroup: %@", trackGroup);
 	return trackGroup;
 }
-
 
 
 
@@ -344,20 +335,34 @@
 
 
 - (void)processOneQueueEntry {
-	if (!([self isQueueProcessing] && [queue count] > 0)) {
+	if (!([self isQueueProcessing] && ![self isQueueEmpty])) {
 		[self setIsQueueProcessing:NO];
 		[self clearBusy];
 		[processQueueButton setState:NSOnState];
 		return;
 	}
 
-	[self setBusyMessage:@"Processing Queue 2"];
-	[[queue objectAtIndex:0] main];
-    [self willChangeValueForKey:@"queue"];
-	[queue removeObjectAtIndex:0];
-    [self didChangeValueForKey:@"queue"];
+	id trackGroup = [dataStore firstEntityNamed:@"TrackGroup"];
+	UpdateOperation *uo = [self makeUpdateOperationForTrackGroup:trackGroup];
+	[uo main];
+	if ([uo didComplete]) {
+		[dataStore deleteObject:trackGroup];
+	} else {
+		[self setIsQueueProcessing:NO];
+	}
 
 	[self performSelector:@selector(processOneQueueEntry) withObject:nil afterDelay:0.1];
+}
+
+
+
+- (NSUInteger)queueLength {
+	return [dataStore countForEntityNamed:@"TrackGroup"];
+}
+
+
+- (BOOL)isQueueEmpty {
+	return [self queueLength] < 1;
 }
 
 
@@ -400,26 +405,36 @@
 - (void)awakeFromNib {
 	images = [NSMutableArray array];
 	[self setQueue:[NSMutableArray array]];
-
 	[self setDataStore:[[DataStore alloc] init]];
 
 	[self setupDefaults];
 	[self setupNotifications];
 
-	NSLog(@"datastore %@", [dataStore persistentStoreCoordinator]);
+	// force a fetch to get the count
+	// http://theocacao.com/document.page/305
+	[groupsController fetchWithRequest:nil merge:NO error:nil];
+	if ([[groupsController arrangedObjects] count] > 0) {
+		[queueDrawer open];
+	}
+
+}
+
+
+- (IBAction)debug:(id)sender {
 }
 
 
 # pragma mark setup methods
 
 - (void)setupDefaults {
+	id sortDesc = [NSArchiver archivedDataWithRootObject:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES]]];
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction",
 		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
+		sortDesc, @"tracksSortDescriptors",
 		nil];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
-
 
 
 - (void)setupNotifications {
@@ -432,6 +447,7 @@
 
 - (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo {
 }
+
 
 # pragma mark StatusDelegateProtocol protocol methods
 
@@ -454,8 +470,6 @@
 }
 
 
-
-
 # pragma mark image browser IKImageBrowserDataSource protocol methods
 
 - (id)imageBrowser:(IKImageBrowserView *)aBrowser itemAtIndex:(NSUInteger)index {
@@ -465,8 +479,6 @@
 - (NSUInteger)numberOfItemsInImageBrowser:(IKImageBrowserView *)aBrowser {
 	return [images count];
 }
-
-
 
 
 
@@ -494,6 +506,12 @@
 	[dataStore cleanup];
 	dataStore = nil;
 	return reply;
+}
+
+#pragma mark tracks table view delegate methods
+
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex {
+	return NO;
 }
 
 

@@ -27,12 +27,8 @@
 		NSLog(@"Unable to load Quick Look");
 		return;
 	}
-
 	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
-
 	[self setQuickLookPanelDelegate:self];
-
-//	NSLog(@"Quick Look loaded");
 }
 
 
@@ -73,8 +69,6 @@
 	NSMutableArray* URLs = [NSMutableArray array];
 	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
 
-	// Restore the focus to our window to demo the selection changing, scrolling 
-	// (left/right) and closing (space) functionality
 	[[self window] makeKeyWindow];
 }
 

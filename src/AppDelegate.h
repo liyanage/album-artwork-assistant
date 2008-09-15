@@ -5,6 +5,7 @@
 #import "IKImageBrowserFileUrlDataSource.h"
 #import "DataStore.h"
 #import "ImageSearchItem.h"
+#import "TrackGroup.h"
 
 #define DOUBLECLICK_ACTION_QUEUE 1
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
@@ -18,6 +19,7 @@
 	IBOutlet NSButton *processQueueButton;
     IBOutlet QuickLookImageBrowserView *imageBrowser;
     IBOutlet NSArrayController *queueController;
+    IBOutlet NSArrayController *groupsController;
 	NSArray *tracks;
 	NSString *albumTitle;
 	NSMutableArray *images;
@@ -61,10 +63,14 @@
 - (void)setupDefaults;
 - (void)setupNotifications;
 - (id)makeTrackGroup;
+- (NSUInteger)queueLength;
+- (BOOL)isQueueEmpty;
 
 - (NSData *)imageDataForItem:(ImageSearchItem *)item;
 - (void)removeItemAtIndex:(int)index;
 - (ImageSearchItem *)selectedImage;
 - (void)removeCurrentItemAndWarn;
+
+- (IBAction)debug:(id)sender;
 
 @end

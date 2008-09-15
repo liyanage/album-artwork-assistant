@@ -14,17 +14,9 @@
 
 - (id)init {
 	if (!(self = [super init])) return nil;
-	NSLog(@"datastore init");
 	return self;
 }
 
-
-/**
-    Returns the support folder for the application, used to store the Core Data
-    store file.  This code uses a folder named "CoreDateTemplate" for
-    the content, either in the NSApplicationSupportDirectory location or (if the
-    former cannot be found), the system's temporary directory.
- */
 
 - (NSString *)applicationSupportFolder {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
@@ -39,11 +31,7 @@
 	return [info valueForKey:@"CFBundleName"];
 }
 
-/**
-    Creates, retains, and returns the managed object model for the application 
-    by merging all of the models found in the application bundle.
- */
- 
+
 - (NSManagedObjectModel *)managedObjectModel {
 
     if (managedObjectModel != nil) {
@@ -51,7 +39,6 @@
     }
 	
     managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
-//	NSLog(@"object model: %@", managedObjectModel);
     return managedObjectModel;
 }
 
@@ -123,6 +110,42 @@
     managedObjectModel = nil;
 }
 
+
+
+- (NSUInteger)countForEntityNamed:(NSString *)name {
+	NSFetchRequest *request = [self fetchRequestForEntityNamed:name];
+	id moc = [self managedObjectContext];
+	return [moc countForFetchRequest:request error:nil];
+}
+
+
+
+- (NSManagedObject *)firstEntityNamed:(NSString *)name {
+	NSFetchRequest *request = [self fetchRequestForEntityNamed:name];
+	[request setFetchLimit:1];
+	NSError *error = nil;
+	id moc = [self managedObjectContext];
+	NSArray *array = [moc executeFetchRequest:request error:&error];
+	if (!array) return nil;
+	if ([array count] < 1) return nil;
+	return [array objectAtIndex:0];
+}
+
+
+
+
+- (NSFetchRequest *)fetchRequestForEntityNamed:(NSString *)name {
+	id moc = [self managedObjectContext];
+	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:name inManagedObjectContext:moc];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	[request setEntity:entityDescription];
+	return request;
+}
+
+
+- (void)deleteObject:(NSManagedObject *)object {
+	[[self managedObjectContext] deleteObject:object];
+}
 
 
 @end

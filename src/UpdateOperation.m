@@ -12,12 +12,15 @@
 
 @implementation UpdateOperation
 
-- (id)initWithTracks:(NSArray *)t imageItem:(ImageSearchItem *)ii statusDelegate:(id <StatusDelegateProtocol>)sd {
+@synthesize fileUrl;
+
+- (id)initWithTracks:(NSArray *)t imageData:(NSData *)iData statusDelegate:(id <StatusDelegateProtocol>)sd {
 	self = [super init];
 	if (!self) return self;
 	tracks = t;
-	imageItem = ii;
+	imageData = iData;
 	statusDelegate = sd;
+	didComplete = NO;
 	return self;
 }
 
@@ -26,13 +29,11 @@
 
 	@try {
 
-		NSURL *fileUrl = imageItem.fileUrl;
-		
-		if (!fileUrl) {
+		if (!self.fileUrl) {
 			@throw [NSException exceptionWithName:@"TempFileWrite" reason:@"Unable to write temp file" userInfo:nil];
 		}
 		
-		NSString *tempFilePath = [fileUrl path];
+		NSString *tempFilePath = [self.fileUrl path];
 
 		[statusDelegate startBusy:[NSString stringWithFormat:@"Adding image to “%@”", [self albumTitle]]];
 
@@ -49,6 +50,9 @@
 		if (errorDict) {
 			@throw [NSException exceptionWithName:@"AppleScriptExecute" reason:[errorDict valueForKey:NSAppleScriptErrorBriefMessage] userInfo:nil];
 		}
+		
+		didComplete = YES;
+
 	}
 	
 	@catch (NSException *e) {
@@ -63,21 +67,35 @@
 
 
 
+- (BOOL)didComplete {
+	return didComplete;
+}
+
+
+
 - (NSString *)albumTitle {
 	return [[tracks objectAtIndex:0] valueForKey:@"trackalbum"];
 }
 
 
+- (NSURL *)fileUrl {
+	if (fileUrl) return fileUrl;
+	
+	NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(), @"album-artwork-assistant.tmp"];
 
-- (NSImage *)tinyAlbumImage {
-	if (albumImage) return albumImage;
-	return albumImage = [imageItem tinyImage];
+	if (![imageData writeToFile:tempFilePath atomically:YES]) {
+		NSLog(@"Unable to store image data to temp file '%@'", tempFilePath);
+		return nil;
+	}
+	[self setFileUrl:[NSURL fileURLWithPath:tempFilePath]];
+	return fileUrl;
 }
 
 
 
-- (NSString *)description {
-	return [NSString stringWithFormat:@"[UpdateOperation %@]", [imageItem url]];
-}
+
+
+
+
 
 @end

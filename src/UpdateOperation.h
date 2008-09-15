@@ -14,17 +14,16 @@
 	id statusDelegate;
 	NSArray *tracks;
 	ImageSearchItem *imageItem;
-	NSImage *albumImage;
+	NSData *imageData;
+	NSURL *fileUrl;
+	BOOL didComplete;
 }
 
+@property(assign) NSURL *fileUrl;
 
-
-
-
-//@property(assign) NSImage *albumImage;
-
-- (id)initWithTracks:(NSArray *)tracks imageItem:(ImageSearchItem *)imageItem statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
+- (id)initWithTracks:(NSArray *)tracks imageData:(NSData *)imageData statusDelegate:(id <StatusDelegateProtocol>)statusDelegate;
 - (NSString *)albumTitle;
-- (NSImage *)tinyAlbumImage;
+- (BOOL)didComplete;
+
 
 @end
