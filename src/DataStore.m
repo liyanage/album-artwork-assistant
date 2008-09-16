@@ -111,6 +111,7 @@
 
 - (NSUInteger)countForEntityNamed:(NSString *)name {
 	NSFetchRequest *request = [self fetchRequestForEntityNamed:name];
+	if (!request) return 0;
 	id moc = [self managedObjectContext];
 	return [moc countForFetchRequest:request error:nil];
 }
@@ -119,11 +120,15 @@
 
 - (NSManagedObject *)firstEntityNamed:(NSString *)name {
 	NSFetchRequest *request = [self fetchRequestForEntityNamed:name];
+	if (!request) return nil;
 	[request setFetchLimit:1];
-	NSError *error = nil;
 	id moc = [self managedObjectContext];
+	NSError *error = nil;
 	NSArray *array = [moc executeFetchRequest:request error:&error];
-	if (!array) return nil;
+	if (!array) {
+		NSLog(@"Unable to execute fetch request %@: %@", request, [error localizedDescription]);
+		return nil;
+	}
 	if ([array count] < 1) return nil;
 	return [array objectAtIndex:0];
 }
@@ -133,9 +138,13 @@
 
 - (NSFetchRequest *)fetchRequestForEntityNamed:(NSString *)name {
 	id moc = [self managedObjectContext];
-	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:name inManagedObjectContext:moc];
+	NSEntityDescription *ed = [NSEntityDescription entityForName:name inManagedObjectContext:moc];
+	if (!ed) {
+		NSLog(@"Unable to get entity description for entity named '%@'", ed);
+		return nil;
+	}
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-	[request setEntity:entityDescription];
+	[request setEntity:ed];
 	return request;
 }
 

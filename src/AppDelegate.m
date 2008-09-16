@@ -133,7 +133,6 @@
 		NSLog(@"using dummy google data");
 		urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.google.json";
 #endif
-		//NSLog(@"url: %@", urlString);
 
 		NSURL *myUrl = [NSURL URLWithString:urlString];
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
@@ -148,7 +147,6 @@
 		}
 
 		id imageData = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] JSONValue];
-//		NSLog(@"imagedata: %@", imageData);
 		
 		for (id item in [imageData valueForKeyPath:@"responseData.results"]) {
 			id io = [[ImageSearchItem alloc] initWithSearchResult:item];
@@ -179,8 +177,6 @@
 	NSLog(@"using dummy amazon data");
 	urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.amazon.xml";
 #endif
-
-//	NSLog(@"amazon url: %@", urlString);
 
 	NSError *error = nil;
 	NSURL *myUrl = [NSURL URLWithString:urlString];
@@ -219,7 +215,6 @@
 	if (!imageData) return nil;
 
 	UpdateOperation *uo = [[UpdateOperation alloc] initWithTracks:tracks imageData:imageData statusDelegate:self];
-	NSLog(@"tracksData: %@", tracks);
 	return uo;
 }
 
