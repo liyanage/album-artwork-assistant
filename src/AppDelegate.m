@@ -4,6 +4,10 @@
 #import "NSString+SBJSON.h"
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
+#import "GTMScriptRunner.h"
+
+#define ITUNES_APPLESCRIPT_TITLE @"Find with Album Artwork Assistant"
+#define ITUNES_APPLESCRIPT_NAME @"Find with Album Artwork Assistant.scpt"
 
 @implementation AppDelegate
 
@@ -16,11 +20,6 @@
 
 
 # pragma mark IBActions
-
-- (IBAction)showExampleAppleScript:(id)sender {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"Example AppleScript" ofType:nil];
-	[[NSWorkspace sharedWorkspace] openFile:path];
-}
 
 
 - (IBAction)fetch:(id)sender {
@@ -73,6 +72,89 @@
 - (void)clearImages {
 	[images removeAllObjects];
 }
+
+
+- (IBAction)installiTunesAppleScript:(id)sender {
+	
+	NSError *error = nil;
+	
+	if (![self canInstalliTunesAppleScript]) {
+		[self displayErrorWithTitle:@"Please quit iTunes and System Preferences" message:@"You need to quit iTunes and System Preferences to intall the iTunes AppleScript"];
+		return;
+	}
+
+	if (![self copyiTunesAppleScript:&error]) {
+		if (error) [window presentError:error];
+		[self displayErrorWithTitle:@"Unable to install iTunes AppleScript" message:@"Unable to copy the iTunes AppleScript to your Library > iTunes > Scripts folder"];
+		return;
+	}
+
+	if (![self createiTunesShortcut]) {
+		[self displayErrorWithTitle:@"Unable to configure keyboard shortcut" message:@"Unable to assign the keyboard shortcut for the iTunes AppleScript. You can try to assign it manually in System Preferences > Keyboard & Mouse > Keyboard Shortcuts. See the application Help documentation for mor information."];
+		return;
+	}
+
+}
+
+
+
+# pragma mark iTunes AppleScript installation
+
+- (BOOL)canInstalliTunesAppleScript {
+	NSArray *blockingAppIdentifiers = [NSArray arrayWithObjects:@"com.apple.iTunes", @"com.apple.systempreferences", nil];
+	for (id app in [[NSWorkspace sharedWorkspace] launchedApplications]) {
+		if ([blockingAppIdentifiers containsObject:[app valueForKey:@"NSApplicationBundleIdentifier"]]) return NO;
+	}
+	return YES;
+}
+
+
+- (BOOL)copyiTunesAppleScript:(NSError **)error {
+	
+	NSString *scriptDir = [[[NSHomeDirectory()
+        stringByAppendingPathComponent:@"Library"]
+        stringByAppendingPathComponent:@"iTunes"]
+        stringByAppendingPathComponent:@"Scripts"];
+	
+	NSFileManager *fm = [NSFileManager defaultManager];
+	if (![fm createDirectoryAtPath:scriptDir withIntermediateDirectories:YES attributes:nil error:error]) return NO;
+
+	NSString *source = [[[NSBundle mainBundle] pathForResource:@"Example AppleScript" ofType:nil] stringByAppendingPathComponent:ITUNES_APPLESCRIPT_NAME];
+	NSString *dest = [scriptDir stringByAppendingPathComponent:ITUNES_APPLESCRIPT_NAME];
+
+	if ([fm fileExistsAtPath:dest] && ![fm removeItemAtPath:dest error:error]) return NO;
+	if (![fm copyItemAtPath:source toPath:dest error:error]) return NO;
+
+	return YES;
+}
+
+
+
+- (BOOL)createiTunesShortcut {
+	NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+	[ud addSuiteNamed:@"com.apple.iTunes"];
+	NSDictionary *dict = [ud dictionaryForKey:@"NSUserKeyEquivalents"];
+	if (!(dict && [dict valueForKey:ITUNES_APPLESCRIPT_TITLE])) {
+		NSString *cmd = [NSString stringWithFormat:@"defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add '%@' '@$F'", ITUNES_APPLESCRIPT_TITLE];
+		NSString *result = [[GTMScriptRunner runner] run:cmd];
+		NSLog(@"executed command: %@, result: %@", cmd, result);
+		[ud synchronize];
+	}
+
+	ud = [[NSUserDefaults alloc] init];
+	[ud addSuiteNamed:@"com.apple.universalaccess"];
+	NSArray *list = [ud arrayForKey:@"com.apple.custommenu.apps"];
+	if (!(list && [list containsObject:@"com.apple.iTunes"])) {
+		NSString *cmd = @"defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add 'com.apple.iTunes'";
+		NSString *result = [[GTMScriptRunner runner] run:cmd];
+		NSLog(@"executed command: %@, result: %@", cmd, result);
+		[ud synchronize];
+	}
+
+	return YES;
+}
+
+
 
 
 
