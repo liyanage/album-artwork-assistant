@@ -9,7 +9,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface TrackGroup :  NSManagedObject  
+@interface TrackGroup : NSManagedObject  
 {
 	NSImage *tinyAlbumImage;
 }
@@ -27,6 +27,5 @@
 - (void)removeTracks:(NSSet *)value;
 - (NSImage *)tinyAlbumImage;
 - (NSArray *)tracksData;
-
 @end
 

@@ -12,8 +12,13 @@
 @implementation FetchiTunesAlbumsScriptCommand
 
 - (id)performDefaultImplementation {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"fetchiTunesAlbums" object:nil];
+	[self performSelector:@selector(postNotification) withObject:nil afterDelay:0.2];
 	return nil;
+}
+
+
+- (void)postNotification {
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"fetchiTunesAlbums" object:nil];
 }
 
 @end
