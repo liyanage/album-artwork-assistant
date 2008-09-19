@@ -39,6 +39,9 @@
 		1B01E8290E4AD810009E8310 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B01E8280E4AD810009E8310 /* DataStore.m */; };
 		1B0B40480E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B0B40470E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel */; };
 		1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */; };
+		1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
+		1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
+		1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1B48E73F0E8312F900AC5357 /* dsa_pub.pem */; };
 		1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE40E30E04900DD28B0 /* iTunes.icns */; };
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
 		1B59564B0E81AC75008B24A9 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B59564A0E81AC75008B24A9 /* readme.txt */; };
@@ -88,6 +91,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1B48E72C0E82BEAC00AC5357 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1BAF16630E33EE6800A725F6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +121,9 @@
 		1B01E8280E4AD810009E8310 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataStore.m; path = src/DataStore.m; sourceTree = "<group>"; };
 		1B0B40470E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = "Album Artwork Assistant.xcdatamodel"; path = "Models/Album Artwork Assistant.xcdatamodel"; sourceTree = "<group>"; };
 		1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Album Artwork Assistant.icns"; path = "extras/icon/Album Artwork Assistant.icns"; sourceTree = "<group>"; };
+		1B48E71E0E82BE5500AC5357 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "sparkle/With Garbage Collection/Sparkle.framework"; sourceTree = "<group>"; };
+		1B48E73F0E8312F900AC5357 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
+		1B48E7850E8326ED00AC5357 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		1B4CEBE40E30E04900DD28B0 /* iTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iTunes.icns; path = Resources/iTunes.icns; sourceTree = "<group>"; };
 		1B4CEBE90E30E5C000DD28B0 /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drawer.png; path = Resources/drawer.png; sourceTree = "<group>"; };
 		1B59564A0E81AC75008B24A9 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -200,6 +216,7 @@
 				1B7656EB0E28C793004A20AE /* libicucore.dylib in Frameworks */,
 				1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */,
 				1B8CF61B0E2BD4FD0084C323 /* Carbon.framework in Frameworks */,
+				1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +253,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B48E71E0E82BE5500AC5357 /* Sparkle.framework */,
 				1B7656EA0E28C793004A20AE /* libicucore.dylib */,
 				1B8CF61A0E2BD4FD0084C323 /* Carbon.framework */,
 				1BAA29D70E2ABB3000B05717 /* Quartz.framework */,
@@ -375,6 +393,7 @@
 		29B97314FDCFA39411CA2CEA /* Music Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				1B48E7850E8326ED00AC5357 /* appcast.xml */,
 				1B0B40750E4C2D64006CAE99 /* Models */,
 				1B7655FB0E281D38004A20AE /* AppleScript */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -399,6 +418,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B48E73F0E8312F900AC5357 /* dsa_pub.pem */,
 				1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */,
 				1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */,
 				1B4CEBE90E30E5C000DD28B0 /* drawer.png */,
@@ -433,6 +453,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				1B7656070E281D61004A20AE /* AppleScript */,
 				1BAF16630E33EE6800A725F6 /* CopyFiles */,
+				1B48E72C0E82BEAC00AC5357 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -476,6 +497,7 @@
 				1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */,
 				1BA571A80E48D020004D305E /* Credits.rtf in Resources */,
 				1B59564B0E81AC75008B24A9 /* readme.txt in Resources */,
+				1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,8 +514,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; exit 1; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -r \"$PROJECT_NAME-$VERSION.zip\" \"$PROJECT_NAME.app\"\nopen .\n\n\n";
+			shellPath = /bin/bash;
+			shellScript = "[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; exit 1; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -qr \"$PROJECT_NAME $VERSION.zip\" \"$PROJECT_NAME.app\"\n#open .\n\nSIZE=$(stat -f %z \"$PROJECT_NAME $VERSION.zip\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$PROJECT_NAME $VERSION.zip\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s 'Sparkle Private Key' 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-$VERSION</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"http://www2.entropy.ch/download/Album Artwork Assistant $VERSION.zip\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/appcast.xml\necho scp \"'/Users/liyanage/svn/entropy/album-artwork-assistant/build/Release/Album Artwork Assistant $VERSION.zip'\" www2.entropy.ch:download/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -582,6 +604,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
+					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -634,6 +657,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
+					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -655,6 +679,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
+					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
