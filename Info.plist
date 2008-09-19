@@ -18,8 +18,10 @@
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.5, © 2008 Marc Liyanage</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.5</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSMainNibFile</key>
@@ -28,5 +30,12 @@
 	<string>NSApplication</string>
 	<key>OSAScriptingDefinition</key>
 	<string>music-artwork.sdef</string>
+
+	<key>SUFeedURL</key>
+	<string>http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
+	<key>SUEnableSystemProfiling</key>
+	<true/>
 </dict>
 </plist>

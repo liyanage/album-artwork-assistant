@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss
+	xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	version="2.0">
+
+	<channel>
+		<title>Album Artwork Assistant’s Changelog</title>
+		<link>http://www.entropy.ch/software/macosx/album-artwork-asistant/appcast.xml</link>
+		<description>Most recent changes with links to updates.</description>
+		<language>en</language>
+
+		<item>
+			<title>Version 1.5</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.5</sparkle:releaseNotesLink>
+			<pubDate>Fri, 19 Sep 2008 02:14:33 +0200</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album Artwork Assistant 1.5.zip"
+				sparkle:version="1.5"
+				type="application/octet-stream"
+				length="2031558"
+				sparkle:dsaSignature="MCwCFG3XTAE/MvFSXelyXgxQs09Qq8dKAhQNVxKTFrVYKLooZ6Otz8WFCbjwAA=="
+			/>
+		</item>
+
+		<item>
+			<title>Version 1.4</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.4</sparkle:releaseNotesLink>
+			<pubDate>Fri, 19 Sep 2008 02:05:27 +0200</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album Artwork Assistant 1.4.zip"
+				sparkle:version="1.4"
+				type="application/octet-stream"
+				length="2031553"
+				sparkle:dsaSignature="MCwCFH+TH8bttjDDkxwKGIjXCPGzraCxAhRjLB4EBxFcAXllfg6nagJdxsyHFg=="
+			/>
+		</item>
+
+		<item>
+			<title>Version 1.3</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.2</sparkle:releaseNotesLink>
+			<pubDate>Fri, 18 Sep 2008 12:34:56 +0100</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album Artwork Assistant 1.3.zip"
+				sparkle:version="1.3"
+				type="application/octet-stream"
+				length="2031516"
+				sparkle:dsaSignature="MCwCFHJCyqJsDcqwxs6RF+9Tep4b2JEqAhQZgbn+PVGLr7yWCH2LwYylcCwwlA=="
+			/>
+		</item>
+
+		<item>
+			<title>Version 1.2</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.2</sparkle:releaseNotesLink>
+			<pubDate>Fri, 18 Sep 2008 12:34:56 +0100</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album%20Artwork%20Assistant%201.2.zip"
+				sparkle:version="1.2"
+				length="1623481"
+				type="application/octet-stream"
+				sparkle:dsaSignature="MCwCFGXOaQvla11zoEc6MnZaOtV5FKfWAhROnQznvUgPziDnlOEqChCZqYhu7w=="
+			/>
+		</item>
+
+	</channel>
+</rss>
