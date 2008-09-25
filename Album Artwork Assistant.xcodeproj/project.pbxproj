@@ -57,6 +57,7 @@
 		1B7657D80E28E255004A20AE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */; };
 		1B7657D90E28E255004A20AE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D50E28E255004A20AE /* SBJSON.m */; };
 		1B7657DA0E28E255004A20AE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D70E28E255004A20AE /* NSString+SBJSON.m */; };
+		1B7B84780E8C3D200048A3B8 /* Album Artwork Assistant Help in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B84750E8C3D200048A3B8 /* Album Artwork Assistant Help */; };
 		1B8CF5C00E2BBD800084C323 /* UpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */; };
 		1B8CF5FD0E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5F90E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m */; };
 		1B8CF5FE0E2BD4030084C323 /* GTMNSAppleScript+Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5FA0E2BD4030084C323 /* GTMNSAppleScript+Handler.m */; };
@@ -79,6 +80,17 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		1B5654F40E86FD4300E59DF9 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.llvmgcc42;
+			fileType = sourcecode.c;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
@@ -155,6 +167,7 @@
 		1B7657D50E28E255004A20AE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = "src-external/json-framework-read-only/Source/SBJSON.m"; sourceTree = "<group>"; };
 		1B7657D60E28E255004A20AE /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.h"; sourceTree = "<group>"; };
 		1B7657D70E28E255004A20AE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.m"; sourceTree = "<group>"; };
+		1B7B84750E8C3D200048A3B8 /* Album Artwork Assistant Help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Album Artwork Assistant Help"; path = "Resources/Album Artwork Assistant Help"; sourceTree = "<group>"; };
 		1B8CF5BE0E2BBD800084C323 /* UpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateOperation.h; path = src/UpdateOperation.h; sourceTree = "<group>"; };
 		1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateOperation.m; path = src/UpdateOperation.m; sourceTree = "<group>"; };
 		1B8CF5F90E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSAppleEventDescriptor+Handler.m"; path = "src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMNSAppleEventDescriptor+Handler.m"; sourceTree = "<group>"; };
@@ -418,6 +431,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B7B84750E8C3D200048A3B8 /* Album Artwork Assistant Help */,
 				1B48E73F0E8312F900AC5357 /* dsa_pub.pem */,
 				1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */,
 				1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */,
@@ -454,8 +468,10 @@
 				1B7656070E281D61004A20AE /* AppleScript */,
 				1BAF16630E33EE6800A725F6 /* CopyFiles */,
 				1B48E72C0E82BEAC00AC5357 /* CopyFiles */,
+				1B7B84980E8C42480048A3B8 /* ShellScript */,
 			);
 			buildRules = (
+				1B5654F40E86FD4300E59DF9 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -498,12 +514,26 @@
 				1BA571A80E48D020004D305E /* Credits.rtf in Resources */,
 				1B59564B0E81AC75008B24A9 /* readme.txt in Resources */,
 				1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */,
+				1B7B84780E8C3D200048A3B8 /* Album Artwork Assistant Help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B7B84980E8C42480048A3B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/Album\\ Artwork\\ Assistant\\ Help";
+		};
 		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,7 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; exit 1; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -qr \"$PROJECT_NAME $VERSION.zip\" \"$PROJECT_NAME.app\"\n#open .\n\nSIZE=$(stat -f %z \"$PROJECT_NAME $VERSION.zip\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$PROJECT_NAME $VERSION.zip\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s 'Sparkle Private Key' 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-$VERSION</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"http://www2.entropy.ch/download/Album Artwork Assistant $VERSION.zip\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/appcast.xml\necho scp \"'/Users/liyanage/svn/entropy/album-artwork-assistant/build/Release/Album Artwork Assistant $VERSION.zip'\" www2.entropy.ch:download/\n";
+			shellScript = "\nset -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://www2.entropy.ch/download/\"\nRELEASENOTES_URL=\"http://www.entropy.ch/software/macosx/album-artwork-asistant/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -qr \"$ARCHIVE_FILENAME\" \"$PROJECT_NAME.app\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$HOME/svn/entropy/album-artwork-assistant/build/Release/$ARCHIVE_FILENAME'\" www2.entropy.ch:download/\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/appcast.xml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

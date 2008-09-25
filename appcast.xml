@@ -13,13 +13,13 @@
 		<item>
 			<title>Version 1.5</title>
 			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.5</sparkle:releaseNotesLink>
-			<pubDate>Fri, 19 Sep 2008 02:14:33 +0200</pubDate>
+			<pubDate>Fri, 19 Sep 2008 18:19:44 +0200</pubDate>
 			<enclosure
 				url="http://www2.entropy.ch/download/Album Artwork Assistant 1.5.zip"
 				sparkle:version="1.5"
 				type="application/octet-stream"
-				length="2031558"
-				sparkle:dsaSignature="MCwCFG3XTAE/MvFSXelyXgxQs09Qq8dKAhQNVxKTFrVYKLooZ6Otz8WFCbjwAA=="
+				length="2032056"
+				sparkle:dsaSignature="MCwCFFEGFn6YLxujlrRNqwq2fqCim/a3AhQ3DplUllDWtf9mmRIq/1j23gXxrg=="
 			/>
 		</item>
 

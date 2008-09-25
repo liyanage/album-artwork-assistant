@@ -27,7 +27,7 @@
 	if (![self fetchITunesTrackList]) return;
 	[self clearBusy];
 	if ([tracks count] < 1) {
-		[self displayErrorWithTitle:@"Nothing appropriate selected in iTunes" message:@"Please select some file tracks in your iTunes Library’s main “Music” section"];
+		[self displayErrorWithTitle:@"Nothing appropriate selected in iTunes" message:@"Please select tracks in your iTunes Library’s main “Music” section. They must be file tracks and have an album name."];
 		return;
 	}
 
@@ -93,6 +93,8 @@
 		[self displayErrorWithTitle:@"Unable to configure keyboard shortcut" message:@"Unable to assign the keyboard shortcut for the iTunes AppleScript. You can try to assign it manually in System Preferences > Keyboard & Mouse > Keyboard Shortcuts. See the application Help documentation for mor information."];
 		return;
 	}
+
+	[self displayErrorWithTitle:@"iTunes AppleScript installed" message:@"The AppleScript was installed successfully. You’ll find it in iTunes’ script menu."];
 
 }
 
