@@ -1,6 +1,6 @@
 
 
-Album Artwork Assistant is a free Mac OS X application that searches for album cover artwork on Google Images and Amazon and embeds the image data in the music files.
+Album Artwork Assistant embeds album cover artwork from Google Images and Amazon into your iTunes music files.
 
 It integrates closely with iTunes, for getting the currently selected album track data as well as for embedding the images in the tracks.
 

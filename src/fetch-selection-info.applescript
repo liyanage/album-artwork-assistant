@@ -8,7 +8,8 @@ tell application "iTunes"
 			set myalbum to album of myTrack
 			set isMusicPlaylist to (special kind of container of myTrack = Music)
 			if myalbum = "" then
-				display dialog "Skipping track without an album name: " & name of myTrack
+				1 + 1
+				--display dialog "Skipping track without an album name: " & name of myTrack
 			else
 				if myalbum is not in myAlbums and isMusicPlaylist then
 					set end of myAlbums to myalbum
