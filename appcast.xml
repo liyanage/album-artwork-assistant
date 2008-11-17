@@ -10,6 +10,20 @@
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
 
+
+		<item>
+			<title>Version 1.6</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/release-notes.html#version-1.6</sparkle:releaseNotesLink>
+			<pubDate>Mon, 17 Nov 2008 02:02:31 +0100</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album Artwork Assistant 1.6.zip"
+				sparkle:version="1.6"
+				type="application/octet-stream"
+				length="2029205"
+				sparkle:dsaSignature="MC0CFQCOydT1ImnA/xb9FmZppwPxGkhgdwIUfAEwUsb1rtL1X0gQiG8MaHL+Zo4="
+			/>
+		</item>
+
 		<item>
 			<title>Version 1.5</title>
 			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-asistant/#version-1.5</sparkle:releaseNotesLink>

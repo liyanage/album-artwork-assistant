@@ -79,7 +79,7 @@
 	NSError *error = nil;
 	
 	if (![self canInstalliTunesAppleScript]) {
-		[self displayErrorWithTitle:@"Please quit iTunes and System Preferences" message:@"You need to quit iTunes and System Preferences to intall the iTunes AppleScript"];
+		[self displayErrorWithTitle:@"Please quit iTunes and System Preferences" message:@"You need to quit iTunes and System Preferences to install the iTunes AppleScript"];
 		return;
 	}
 
