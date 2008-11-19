@@ -1,21 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Album Artwork Assistant Help</title>
+    <meta name="robots" content="anchors" />
+    <meta name="template" content="2box" />
+    <meta name="pagetype" content="access" />
+    <meta name="AppleTitle" content="Album Artwork Assistant Help" />
+    <link rel="stylesheet" type="text/css" href="help.css" />
+  </head>
+  <body id="apple-pd">
+    <h1>Album Artwork Assistant Help</h1>
+    <p>
+      <a href="http://www.entropy.ch/software/macosx/album-artwork-assistant/">Visit the application’s web page</a>
+      <span class="separator">|</span>
+      <a href="release-notes.html">Release Notes</a>
+    </p>
+    <div id="onlinehelp">
 
-    <head>
-        <title>Album Artwork Assistant Help</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="robots" content="anchors"/>
-        <meta name="template" content="2box"/>
-        <meta name="pagetype" content="access"/>
-		<meta name="AppleTitle" content="Album Artwork Assistant Help" />
-    </head>
+<a name="quickstart" id="quickstart"><!--empty a element filler, workaround for browser issues with self-closing tags.--></a> 
+<h2>Quick Start</h2>
 
-    <body id="apple-pd">
+<p>In iTunes, select a single track from an album whose artwork you wish to add:</p>
 
-		<h1>Album Artwork Assistant Help</h1>
-		
-		<a href="http://www.entropy.ch/software/macosx/album-artwork-assistant/">Help is available online</a>
+<img class="screenshot" src="itunes-single-track.png" alt="iTunes track selection" />
 
-    </body>
+<p>Switch to Album Artwork Assistant and hit the Get Albums button (or press ⌘-Shift-F):</p>
+
+<img class="screenshot" src="get-albums-button.png" alt="Get Albums button" />
+
+<p>The program selects all tracks that share the album title with the track you selected in iTunes.
+It shows these tracks in the upper part of its window. These are the tracks that will be modified and if
+that’s not what you want, you need to fix the album titles in iTunes and click Get Albums again before proceeding.</p>
+
+<img class="screenshot" src="selected-track-list.png" alt="Selected track list" />
+
+<p>The lower part of the window shows possible artwork matches found on the Internet on <a href="http://images.google.com/">Google image search</a> and <a href="http://amazon.com">amazon.com</a>. If nothing useful shows up, change the search text and hit the Return key to try again, until you find a good match.</p>
+
+<img class="screenshot" src="search-result-thumbnails.png" alt="Search results thumbnails" />
+
+<p>Click the image you want as album cover and click the Add Immediately button. The application will tell
+iTunes to embed the image into the music tracks.</p>
+
+<img class="screenshot" src="itunes-artwork-display.png" alt="iTunes artwork display" />
+
+<p>That’s it. If you copy these music tracks to your iPod or iPhone, the artwork will display.</p>
+
+
+<a name="tips" id="tips"><!--empty a element filler, workaround for browser issues with self-closing tags.--></a> 
+<h2>Advanced Tips</h2>
+
+<p>Now that you know the basics, here are some power user tricks.</p>
+
+<h3>The Queue</h3>
+<p>Click “Add to Queue” instead of “Add Immediately” to add the current album to the queue:</p>
+
+<img class="screenshot" src="queue-list.png" alt="Queue list" />
+
+<p>You can quit and restart the application and it will preserve the queue contents. Click the “Process Queue” button at the bottom of the queue drawer to let it embed all collected images.</p>
+
+<h3>Setting the same Artwork for Multiple Albums</h3>
+
+<p>Sometimes you may want to assign the same image to multiple albums, for example to
+multiple-disc CD sets. To do that, select one track from each album in iTunes. Holding
+down the Command key lets you select multiple tracks.</p>
+
+<img class="screenshot" src="multiple-track-select.png" alt="multiple tracks selected in iTunes" />
+
+<p>The remaining steps are the same. Back in Album Artwork Assistant, click the Get Albums button,
+check the selected tracks and pick an image.</p>
+
+<h3>Double-click Images</h3>
+
+<p>Double-clicking an image in the search result performs the Add Immediately
+or Add to Queue action. You can choose between the two in the application preferences.</p>
+
+<h3>QuickLook!</h3>
+
+<p>Sometimes it’s hard to tell from the thumbnail if it’s the right image. QuickLook to the
+rescue! Select the image and hit the space bar to show the full resolution image in
+a QuickLook panel.</p>
+
+<img class="screenshot" src="quicklook.png" alt="QuickLook panel" />
+
+<h3>iTunes Keyboard Shortcut</h3>
+
+<p>The program lets you install an AppleScript with a keyboard shortcut into iTunes:</p>
+
+<img class="screenshot" src="install-applescript-command.png" alt="Install AppleScript menu command" />
+
+<p>The script ends up in iTunes’ script menu and its keyboard shortcut is ⌘-Shift-F,
+the same as in Album Artwork Assistant. Makes it easy to remember :-)</p>
+
+<img class="screenshot" src="itunes-script-menu.png" alt="iTunes script menu" />
+
+
+<h3>Alternate Search String</h3>
+
+<p>The application searches for images using the album title. Sometimes this
+title is a generic word and the search returns too many unrelated images. In these cases, the little
+popup in the search field offers an alternate text that includes the artist of the first track:</p>
+
+<img class="screenshot" src="search-popup.png" alt="Alternate search string" />
+
+<p>This should provide more relevant search results.</p>
+
+
+<a name="support" id="support"><!--empty a element filler, workaround for browser issues with self-closing tags.--></a> 
+<h2>FAQ</h2>
+
+<p>Here are answers to some frequently asked questions:</p>
+<!--
+
+<div class="faq_question"></div>
+<div class="faq_answer"></div>
+
+-->
+
+</div>
+  </body>
 </html>

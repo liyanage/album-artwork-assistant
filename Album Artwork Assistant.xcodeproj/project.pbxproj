@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		1B73941D0ED215E20011B0E8 /* Update Help Docs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1B7394230ED216140011B0E8 /* Build configuration list for PBXAggregateTarget "Update Help Docs" */;
+			buildPhases = (
+				1B73941C0ED215E20011B0E8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Update Help Docs";
+			productName = "Update Help Docs";
+		};
 		1BE5C9DA0E3A1DB900334BA1 /* Distribution */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
@@ -14,6 +25,7 @@
 				1BE5C9D90E3A1DB900334BA1 /* ShellScript */,
 			);
 			dependencies = (
+				1B7394220ED215F40011B0E8 /* PBXTargetDependency */,
 				1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */,
 			);
 			name = Distribution;
@@ -93,6 +105,13 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		1B7394210ED215F40011B0E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B73941D0ED215E20011B0E8;
+			remoteInfo = "Update Help Docs";
+		};
 		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -495,6 +514,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* Album Artwork Assistant */,
 				1BE5C9DA0E3A1DB900334BA1 /* Distribution */,
+				1B73941D0ED215E20011B0E8 /* Update Help Docs */,
 			);
 		};
 /* End PBXProject section */
@@ -521,6 +541,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B73941C0ED215E20011B0E8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WD=$PWD\ncd \"$WD/Resources/Album Artwork Assistant Help\" && sh update-help.sh\n";
+			showEnvVarsInLog = 0;
+		};
 		1B7B84980E8C42480048A3B8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,6 +567,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/Album\\ Artwork\\ Assistant\\ Help";
+			showEnvVarsInLog = 0;
 		};
 		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -545,7 +580,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\nset -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://www2.entropy.ch/download\"\nRELEASENOTES_URL=\"http://www.entropy.ch/software/macosx/album-artwork-asistant/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -qr \"$ARCHIVE_FILENAME\" \"$PROJECT_NAME.app\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$HOME/svn/entropy/album-artwork-assistant/build/Release/$ARCHIVE_FILENAME'\" www2.entropy.ch:download/\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/appcast.xml\n";
+			shellScript = "\nset -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://www2.entropy.ch/download\"\nRELEASENOTES_URL=\"http://www.entropy.ch/software/macosx/album-artwork-asistant/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\n\nWD=$PWD\n\ncd \"$WD/Resources/Album Artwork Assistant Help\" && sh update-help.sh\n\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nzip -qr \"$ARCHIVE_FILENAME\" \"$PROJECT_NAME.app\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\nSRCDIRPATH=\"$BUILT_PRODUCTS_DIR/album-artwork-assistant-src\"\nrm -rf \"$SRCDIRPATH\"*\nsvn export svn+ssh://www.entropy.ch/Users/liyanage/documents/svnroot/trunk/album-artwork-assistant \"$SRCDIRPATH\"\nzip -qr \"$SRCDIRPATH.zip\" \"$SRCDIRPATH\"\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$HOME/svn/entropy/album-artwork-assistant/build/Release/$ARCHIVE_FILENAME'\" www2.entropy.ch:download/\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/appcast.xml\necho scp \"'$WD/Resources/Album Artwork Assistant Help/release-notes.html'\" www.entropy.ch:web/software/macosx/album-artwork-assistant/release-notes.html\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -583,6 +619,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1B7394220ED215F40011B0E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B73941D0ED215E20011B0E8 /* Update Help Docs */;
+			targetProxy = 1B7394210ED215F40011B0E8 /* PBXContainerItemProxy */;
+		};
 		1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Album Artwork Assistant */;
@@ -610,6 +651,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1B73941E0ED215E30011B0E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Update Help Docs";
+			};
+			name = Debug;
+		};
+		1B73941F0ED215E30011B0E8 /* Debug no net */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update Help Docs";
+			};
+			name = "Debug no net";
+		};
+		1B7394200ED215E30011B0E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Update Help Docs";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1B77CBEC0E3CE52900465756 /* Debug no net */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -751,6 +820,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1B7394230ED216140011B0E8 /* Build configuration list for PBXAggregateTarget "Update Help Docs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B73941E0ED215E30011B0E8 /* Debug */,
+				1B73941F0ED215E30011B0E8 /* Debug no net */,
+				1B7394200ED215E30011B0E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

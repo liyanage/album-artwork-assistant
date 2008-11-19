@@ -1,0 +1,37 @@
+
+body {
+	font-size: 12px;
+	font-family: sans-serif;
+	margin: 20px 50px 50px 50px;
+}
+
+div#onlinehelp {
+	margin: 30px 0 0 0;
+	padding: 0 20px 20px 20px;
+	border: 1px solid #bbc;
+	background-color: #efefff;
+}
+
+img.screenshot {
+	border:  1px solid #aaa;
+}
+
+h1 {
+	border: 1px solid #aab;
+	border-style: none none solid none;
+}
+
+h2 {
+	margin-top: 30px;
+	border: 1px solid #aab;
+	border-style: none none solid none;
+}
+
+h3 {
+	border: 1px dotted #aab;
+	border-style: none none dotted none;
+}
+
+.separator {
+	color: #aaa;
+}
