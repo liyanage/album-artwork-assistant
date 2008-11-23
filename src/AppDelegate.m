@@ -358,7 +358,11 @@
 
 
 - (IBAction)addToQueueBackground:(id)sender {
-	[self makeTrackGroup];
+	id trackGroup = [self makeTrackGroup];
+	if (!trackGroup) return;
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"queueAddSwitchesToItunes"]) {
+		[[NSWorkspace sharedWorkspace] launchApplication:@"iTunes"];
+	}
 }
 
 
@@ -509,6 +513,7 @@
 	id sortDesc = [NSArchiver archivedDataWithRootObject:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES]]];
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction",
+		[NSNumber numberWithBool:YES], @"queueAddSwitchesToItunes",
 		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
 		sortDesc, @"tracksSortDescriptors",
 		nil];
