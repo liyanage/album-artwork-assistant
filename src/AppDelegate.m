@@ -90,7 +90,7 @@
 	}
 
 	if (![self createiTunesShortcut]) {
-		[self displayErrorWithTitle:@"Unable to configure keyboard shortcut" message:@"Unable to assign the keyboard shortcut for the iTunes AppleScript. You can try to assign it manually in System Preferences > Keyboard & Mouse > Keyboard Shortcuts. See the application Help documentation for mor information."];
+		[self displayErrorWithTitle:@"Unable to configure keyboard shortcut" message:@"Unable to assign the keyboard shortcut for the iTunes AppleScript. You can try to assign it manually in System Preferences > Keyboard & Mouse > Keyboard Shortcuts. See the application Help documentation for more information."];
 		return;
 	}
 
@@ -196,6 +196,8 @@
 
 	[images sortUsingSelector:@selector(areaCompare:)];
 	[imageBrowser reloadData];
+	NSPoint top = NSMakePoint(0, [imageBrowser bounds].size.height);
+	[imageBrowser scrollPoint:top];
 	[self clearBusy];
 }
 

@@ -30,7 +30,6 @@
 	NSMutableArray *queue;
 	
 	DataStore *dataStore;
-
 }
 
 @property BOOL isBusy;
