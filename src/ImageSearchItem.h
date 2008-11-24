@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "ImageSearchItem.h"
 
+#define HTTP_SUCCESS 200
+
 @interface ImageSearchItem : NSObject {
 	NSDictionary *searchResult;
 	NSData *imageData;
