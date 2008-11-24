@@ -258,12 +258,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
-				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
-				1B7657C90E28E229004A20AE /* RegexKitLite */,
-				1B7657C70E28E206004A20AE /* JSON */,
-				1B6B771F0E353D4300EA2035 /* QuickLook */,
-				1B7657C80E28E20E004A20AE /* GTM */,
 				1BAF14A50E328D6200A725F6 /* StatusDelegateProtocol.h */,
 				1B6B78D90E3708C900EA2035 /* IKImageBrowserFileUrlDataSource.h */,
 				1B7655AC0E27FCF6004A20AE /* AppDelegate.h */,
@@ -389,6 +383,19 @@
 			name = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		1BA106770EDA9E3200233FF0 /* External Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
+				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
+				1B7657C90E28E229004A20AE /* RegexKitLite */,
+				1B7657C70E28E206004A20AE /* JSON */,
+				1B6B771F0E353D4300EA2035 /* QuickLook */,
+				1B7657C80E28E20E004A20AE /* GTM */,
+			);
+			name = "External Sources";
+			sourceTree = "<group>";
+		};
 		1BAF15B50E33D8A900A725F6 /* DDFoundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +436,7 @@
 				1B0B40750E4C2D64006CAE99 /* Models */,
 				1B7655FB0E281D38004A20AE /* AppleScript */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				1BA106770EDA9E3200233FF0 /* External Sources */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,

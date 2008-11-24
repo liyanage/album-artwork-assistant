@@ -516,6 +516,7 @@
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction",
 		[NSNumber numberWithBool:YES], @"queueAddSwitchesToItunes",
+		[NSNumber numberWithInt:5], @"imageDownloadTimeoutSeconds",
 		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
 		sortDesc, @"tracksSortDescriptors",
 		nil];
