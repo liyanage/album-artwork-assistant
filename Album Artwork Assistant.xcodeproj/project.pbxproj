@@ -156,7 +156,6 @@
 		1B14A1300EDCAB0700E0591A /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B14A18C0EDCBA7600E0591A /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = Resources/German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1B14A1940EDCC5AC00E0591A /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = Resources/German.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1B14A2210EDD4DBE00E0591A /* appcast.debug.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = appcast.debug.xml; path = test/appcast.debug.xml; sourceTree = "<group>"; };
 		1B48E71E0E82BE5500AC5357 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "sparkle/With Garbage Collection/Sparkle.framework"; sourceTree = "<group>"; };
 		1B48E73F0E8312F900AC5357 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		1B48E7850E8326ED00AC5357 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
@@ -437,7 +436,6 @@
 		29B97314FDCFA39411CA2CEA /* Music Artwork */ = {
 			isa = PBXGroup;
 			children = (
-				1B14A2210EDD4DBE00E0591A /* appcast.debug.xml */,
 				1B48E7850E8326ED00AC5357 /* appcast.xml */,
 				1B0B40750E4C2D64006CAE99 /* Models */,
 				1B7655FB0E281D38004A20AE /* AppleScript */,
