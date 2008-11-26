@@ -1,0 +1,46 @@
+﻿
+"no_itunes_selection_title" = "Keine passende iTunes Auswahl";
+
+"no_itunes_selection" = "Bitte wählen Sie einen oder mehrere Titel im Abschnitt „Musik“ Ihrer iTunes Bibliothek aus. Die Titel müssen sich auf ihrem Computer befinden und sie müssen einen Album-Namen haben.";
+
+"fetching_itunes_tracks" = "Hole iTunes Auswahl";
+
+"searching_internet" = "Suchen bei Amazon/Google";
+
+"quit_blocking_apps_title" = "Bitte beenden Sie iTunes und die Systemeinstellungen";
+
+"quit_blocking_apps" = "Bitte beenden Sie die Programme iTunes und Systemeinstellungen, falls diese aktiv sind.";
+
+"cant_install_applescript_title" = "Kann iTunes AppleScript nicht installieren";
+
+"cant_install_applescript" = "Das iTunes AppleScript konnte nicht in Ihren Library > iTunes > Scripts Ordner kopiert werden";
+
+"cant_configure_shortcut_title" = "Kann Tastaturbefehl nicht konfigurieren";
+
+"cant_configure_shortcut" = "Der Tastaturbefehl für das iTunes AppleScript konnte nicht konfiguriert werden. Sie können ihn manuell konfigurieren unter Systemsteuerung > Tastatur & Maus > Tastaturkurzbefehle.";
+
+"script_installation_confirmation_title" = "iTunes AppleScript installiert";
+
+"script_installation_confirmation" = "Das iTunes AppleScript wurde erfolgreich installiert. Sie finden es im Script Menu in iTunes.";
+
+"cant_get_itunes_tracks" = "Die aktuelle iTunes Auswahl konnte nicht ermittelt werden";
+
+"cant_parse_itunes_tracks" = "Die aktuelle iTunes Auswahl konnte nicht verarbeitet werden";
+
+"downloading_image" = "Ausgewähltes Bild wird geladen";
+
+"image_unavailable_title" = "Bild nicht verfügbar";
+
+"image_unavailable" = "Dieses Bild ist nicht verfügbar, bitte wählen Sie ein anderes aus.";
+
+"processing_queue" = "Liste verarbeiten";
+
+"adding_image_to_%@" = "Bild zuweisen an “%@”";
+
+"cant_set_artwork" = "Konnte Bild nicht zuweisen";
+
+"cant_write_tempfile" = "Temporäre Datei konnte nicht geschrieben werden";
+
+"loading_image" = "Bild wird geladen";
+
+

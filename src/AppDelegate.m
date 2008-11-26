@@ -23,11 +23,11 @@
 
 
 - (IBAction)fetch:(id)sender {
-	[self startBusy:@"Fetching Tracks from iTunes"];
+	[self startBusy:NSLocalizedString(@"fetching_itunes_tracks", "")];
 	if (![self fetchITunesTrackList]) return;
 	[self clearBusy];
 	if ([tracks count] < 1) {
-		[self displayErrorWithTitle:@"Nothing appropriate selected in iTunes" message:@"Please select tracks in your iTunes Library’s main “Music” section. They must be file tracks and have an album name."];
+		[self displayErrorWithTitle:NSLocalizedString(@"no_itunes_selection_title", "") message:NSLocalizedString(@"no_itunes_selection", "")];
 		return;
 	}
 
@@ -56,7 +56,7 @@
 - (IBAction)findImages:(id)sender {
 	if ([albumTitle length] < 1) return;
 	[self clearImages];
-	[self startBusy:@"Searching Amazon/Google"];
+	[self startBusy:NSLocalizedString(@"searching_internet", "")];
 	[self performSelector:@selector(doFindImages:) withObject:self afterDelay:0.1];
 }
 
@@ -79,23 +79,28 @@
 	NSError *error = nil;
 	
 	if (![self canInstalliTunesAppleScript]) {
-		[self displayErrorWithTitle:@"Please quit iTunes and System Preferences" message:@"You need to quit iTunes and System Preferences to install the iTunes AppleScript"];
+		[self displayErrorWithTitle:NSLocalizedString(@"quit_blocking_apps_title", "") message:NSLocalizedString(@"quit_blocking_apps", "")];
 		return;
 	}
 
 	if (![self copyiTunesAppleScript:&error]) {
 		if (error) [window presentError:error];
-		[self displayErrorWithTitle:@"Unable to install iTunes AppleScript" message:@"Unable to copy the iTunes AppleScript to your Library > iTunes > Scripts folder"];
+		[self displayErrorWithTitle:NSLocalizedString(@"cant_install_applescript_title", "") message:NSLocalizedString(@"cant_install_applescript", "")];
 		return;
 	}
 
 	if (![self createiTunesShortcut]) {
-		[self displayErrorWithTitle:@"Unable to configure keyboard shortcut" message:@"Unable to assign the keyboard shortcut for the iTunes AppleScript. You can try to assign it manually in System Preferences > Keyboard & Mouse > Keyboard Shortcuts. See the application Help documentation for more information."];
+		[self displayErrorWithTitle:NSLocalizedString(@"cant_configure_shortcut_title", "") message:NSLocalizedString(@"cant_configure_shortcut", "")];
 		return;
 	}
 
-	[self displayErrorWithTitle:@"iTunes AppleScript installed" message:@"The AppleScript was installed successfully. You’ll find it in iTunes’ script menu."];
+	[self displayErrorWithTitle:NSLocalizedString(@"script_installation_confirmation_title", "") message:NSLocalizedString(@"script_installation_confirmation", "")];
 
+}
+
+
+- (IBAction)openApplicationWebsite:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.entropy.ch/software/macosx/album-artwork-assistant/"]];
 }
 
 
@@ -171,11 +176,11 @@
 	NSAppleEventDescriptor *ds = [script executeAndReturnError:&errorDict];
 
 	if (errorDict) {
-		return [self displayErrorWithTitle:@"Error getting selected tracks from iTunes" message:[errorDict valueForKey:NSAppleScriptErrorBriefMessage]];
+		return [self displayErrorWithTitle:NSLocalizedString(@"cant_get_itunes_tracks", "") message:[errorDict valueForKey:NSAppleScriptErrorBriefMessage]];
 	}
 
 	NSArray *trackData = [[ds stringValue] propertyList];
-	NSAssert(trackData, @"Unable to parse iTunes track list AppleScript");
+	NSAssert(trackData, NSLocalizedString(@"cant_parse_itunes_tracks", ""));
 	[self setValue:trackData forKey:@"tracks"];
 	return YES;
 }
@@ -295,7 +300,7 @@
 
 - (UpdateOperation *)makeUpdateOperation {
 	ImageSearchItem *item = [self selectedImage];
-	[self startBusy:@"Downloading selected image"];
+	[self startBusy:NSLocalizedString(@"downloading_image", "")];
 	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
 	if (!imageData) return nil;
@@ -345,7 +350,7 @@
 - (void)removeCurrentItemAndWarn {
 	int index = [[imageBrowser selectionIndexes] firstIndex];
 	[self removeItemAtIndex:index];
-	[self displayErrorWithTitle:@"Image not available" message:@"This image is not available, please try a different one"];
+	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", "") message:NSLocalizedString(@"image_unavailable", "")];
 }
 
 
@@ -371,7 +376,7 @@
 - (id)makeTrackGroup {
 
 	ImageSearchItem *item = [self selectedImage];
-	[self startBusy:@"Downloading selected image"];
+	[self startBusy:NSLocalizedString(@"downloading_image", "")];
 	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
 	if (!imageData) return nil;
@@ -414,7 +419,7 @@
 	}
 
 	[self setIsQueueProcessing:YES];
-	[self setBusyMessage:@"Processing Queue"];
+	[self setBusyMessage:NSLocalizedString(@"processing_queue", "")];
 	[self performSelector:@selector(processOneQueueEntry) withObject:nil afterDelay:0.1];
 }
 

@@ -30,12 +30,12 @@
 	@try {
 
 		if (!self.fileUrl) {
-			@throw [NSException exceptionWithName:@"TempFileWrite" reason:@"Unable to write temp file" userInfo:nil];
+			@throw [NSException exceptionWithName:@"TempFileWrite" reason:NSLocalizedString(@"cant_write_tempfile", "") userInfo:nil];
 		}
 		
 		NSString *tempFilePath = [self.fileUrl path];
 
-		[statusDelegate startBusy:[NSString stringWithFormat:@"Adding image to “%@”", [self albumTitle]]];
+		[statusDelegate startBusy:[NSString stringWithFormat:NSLocalizedString(@"adding_image_to_%@", ""), [self albumTitle]]];
 
 		NSString *scptPath = [[NSBundle mainBundle] pathForResource:@"embed-artwork" ofType:@"scpt" inDirectory:@"Scripts"];
 		NSURL *scptUrl = [NSURL fileURLWithPath:scptPath];
@@ -56,7 +56,7 @@
 	}
 	
 	@catch (NSException *e) {
-		[statusDelegate displayErrorWithTitle:@"Unable to set album artwork" message:[e reason]];
+		[statusDelegate displayErrorWithTitle:NSLocalizedString(@"cant_set_artwork", "") message:[e reason]];
 	}
 	
 	@finally {

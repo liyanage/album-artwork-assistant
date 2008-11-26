@@ -96,12 +96,8 @@
 			cachePolicy:NSURLRequestUseProtocolCachePolicy
 			timeoutInterval:timeout];
 		NSURLResponse *response;
-		NSLog(@"1 timeout: %f, time %@", timeout, [NSDate date]);
 		data = [NSURLConnection sendSynchronousRequest:req returningResponse: &response error:error];
-		NSLog(@"1 timeout: %f, time %@", timeout, [NSDate date]);
 		NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-		//data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self url]] options:0 error:error];
-		//NSLog(@"timeout: %f, %@, %d", timeout, data, [httpResponse statusCode]);
 		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
 			self.imageData = data;
 		} else {

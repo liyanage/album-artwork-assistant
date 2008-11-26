@@ -37,7 +37,7 @@
 
 - (void)keyDown:(NSEvent *)event {	
 	NSString *chars = [event charactersIgnoringModifiers]; 
-	NSLog(@"chars: %@", chars);
+//	NSLog(@"chars: %@", chars);
 	if([chars characterAtIndex:0] == ' ') {
 		[self userDidPressSpaceInImageBrowserView:self];
 	} else if ([chars characterAtIndex:0] == ' ') {
@@ -75,7 +75,7 @@
 
 - (void)quickLookSelectedItems:(int)itemIndex {
 	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
-	[[self delegate] startBusy:@"Loading Image"];
+	[[self delegate] startBusy:NSLocalizedString(@"loading_image", "")];
 	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
 }
 
