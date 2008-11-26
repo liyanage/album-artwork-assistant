@@ -35,7 +35,7 @@
 	<key>CFBundleHelpBookName</key>
 	<string>Album Artwork Assistant Help</string>
 	<key>SUFeedURL</key>
-	<string>http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml</string>
+	<string>${SU_FEED_URL}</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUEnableSystemProfiling</key>
