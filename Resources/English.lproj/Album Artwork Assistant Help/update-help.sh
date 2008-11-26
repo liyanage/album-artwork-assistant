@@ -12,7 +12,5 @@ curl $WEBSITE | xsltproc 2>/dev/null -o "$OUTFILE" --nonet --stringparam website
 IMAGES=$(xsltproc --nonet --stringparam website $WEBSITE extract-images.xslt "$OUTFILE" 2>/dev/null)
 
 for i in $IMAGES; do
-
-curl -O $i
-
+	curl -O $i
 done
