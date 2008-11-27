@@ -604,7 +604,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/Album\\ Artwork\\ Assistant\\ Help";
+			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/English.lproj/Album\\ Artwork\\ Assistant\\ Help\n/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/German.lproj/Album\\ Artwork\\ Assistant\\ Help";
 			showEnvVarsInLog = 0;
 		};
 		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
