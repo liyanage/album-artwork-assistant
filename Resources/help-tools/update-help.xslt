@@ -9,6 +9,7 @@
 <xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" version="1.0" encoding="utf-8" indent="yes"/>
 
 <xsl:param name="website"/>
+<xsl:param name="lang"/>
 
 <xsl:template match="/*">
 
@@ -22,7 +23,7 @@
         <meta name="pagetype" content="access"/>
 		<meta name="AppleTitle" content="Album Artwork Assistant Help" />
 		
-		<link rel='stylesheet' type='text/css' href='help.css'/>
+		<link rel='stylesheet' type='text/css' href='../../help.css'/>
 
     </head>
 
@@ -32,7 +33,7 @@
 		
 	<p><a href="{$website}">Visit the application’s web page</a> <span class='separator'>|</span> <a href='release-notes.html'>Release Notes</a></p>
 
-	<xsl:copy-of select="//*[@id='onlinehelp']"/>
+	<xsl:copy-of select="//*[@id='onlinehelp']/*[@id=concat('onlinehelp_', $lang)]"/>
 
 	</body>
 
