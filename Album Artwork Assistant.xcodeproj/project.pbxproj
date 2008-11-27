@@ -54,6 +54,7 @@
 		1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A1320EDCAB1000E0591A /* Localizable.strings */; };
 		1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2830EDE125500E0591A /* Album Artwork Assistant Help */; };
 		1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2B80EDE13D100E0591A /* release-notes.html */; };
+		1B14A3070EDE8FFF00E0591A /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A3040EDE8FFA00E0591A /* help.css */; };
 		1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
 		1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
 		1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1B48E73F0E8312F900AC5357 /* dsa_pub.pem */; };
@@ -158,6 +159,11 @@
 		1B14A18C0EDCBA7600E0591A /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = Resources/German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1B14A1940EDCC5AC00E0591A /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = Resources/German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B14A2B80EDE13D100E0591A /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "Resources/release-notes.html"; sourceTree = "<group>"; };
+		1B14A2CA0EDE83FC00E0591A /* German */ = {isa = PBXFileReference; lastKnownFileType = folder; name = German; path = "Resources/German.lproj/Album Artwork Assistant Help"; sourceTree = "<group>"; };
+		1B14A3030EDE8FFA00E0591A /* extract-images.xslt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.xml; path = "extract-images.xslt"; sourceTree = "<group>"; };
+		1B14A3040EDE8FFA00E0591A /* help.css */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
+		1B14A3050EDE8FFA00E0591A /* update-help.sh */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.script.sh; path = "update-help.sh"; sourceTree = "<group>"; };
+		1B14A3060EDE8FFA00E0591A /* update-help.xslt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.xml; path = "update-help.xslt"; sourceTree = "<group>"; };
 		1B48E71E0E82BE5500AC5357 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "sparkle/With Garbage Collection/Sparkle.framework"; sourceTree = "<group>"; };
 		1B48E73F0E8312F900AC5357 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		1B48E7850E8326ED00AC5357 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
@@ -322,6 +328,18 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		1B14A3020EDE8FFA00E0591A /* help-tools */ = {
+			isa = PBXGroup;
+			children = (
+				1B14A3030EDE8FFA00E0591A /* extract-images.xslt */,
+				1B14A3040EDE8FFA00E0591A /* help.css */,
+				1B14A3050EDE8FFA00E0591A /* update-help.sh */,
+				1B14A3060EDE8FFA00E0591A /* update-help.xslt */,
+			);
+			name = "help-tools";
+			path = "Resources/help-tools";
+			sourceTree = "<group>";
+		};
 		1B6B771F0E353D4300EA2035 /* QuickLook */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +482,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B14A3020EDE8FFA00E0591A /* help-tools */,
 				1B14A2B80EDE13D100E0591A /* release-notes.html */,
 				1B14A1320EDCAB1000E0591A /* Localizable.strings */,
 				1B14A2830EDE125500E0591A /* Album Artwork Assistant Help */,
@@ -553,6 +572,7 @@
 				1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */,
 				1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */,
 				1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */,
+				1B14A3070EDE8FFF00E0591A /* help.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,7 +590,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "WD=$PWD\ncd \"$WD/Resources/English.lproj/Album Artwork Assistant Help\" && sh update-help.sh en\ncd \"$WD/Resources/German.lproj/Album Artwork Assistant Help\" && sh update-help.sh de\n";
+			shellScript = "WD=$PWD\n\nsh Resources/help-tools/update-help.sh en \"$WD/Resources/English.lproj/Album Artwork Assistant Help\"\nsh Resources/help-tools/update-help.sh de \"$WD/Resources/German.lproj/Album Artwork Assistant Help\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1B7B84980E8C42480048A3B8 /* ShellScript */ = {
@@ -671,6 +691,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1B7B84750E8C3D200048A3B8 /* English */,
+				1B14A2CA0EDE83FC00E0591A /* German */,
 			);
 			name = "Album Artwork Assistant Help";
 			sourceTree = "<group>";
