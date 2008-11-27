@@ -31,10 +31,12 @@
 
 	<h1>Album Artwork Assistant Help</h1>
 		
-	<p><a href="{$website}">Visit the application’s web page</a> <span class='separator'>|</span> <a href='release-notes.html'>Release Notes</a></p>
+	<p><a href="{$website}">Website</a> <span class='separator'>|</span> <a href='../../release-notes.html'>Release Notes</a></p>
 
-	<xsl:copy-of select="//*[@id='onlinehelp']/*[@id=concat('onlinehelp_', $lang)]"/>
-
+	<div id='onlinehelp'>
+		<xsl:copy-of select="//*[@id='onlinehelp']/*[@id=concat('onlinehelp_', $lang)]/node()"/>
+	</div>
+	
 	</body>
 
 </html>
