@@ -73,6 +73,8 @@
 		1B7657D80E28E255004A20AE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */; };
 		1B7657D90E28E255004A20AE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D50E28E255004A20AE /* SBJSON.m */; };
 		1B7657DA0E28E255004A20AE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D70E28E255004A20AE /* NSString+SBJSON.m */; };
+		1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */; };
+		1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDF00EEDC5FD007CAD18 /* larger.tif */; };
 		1B8CF5C00E2BBD800084C323 /* UpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */; };
 		1B8CF5FD0E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5F90E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m */; };
 		1B8CF5FE0E2BD4030084C323 /* GTMNSAppleScript+Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5FA0E2BD4030084C323 /* GTMNSAppleScript+Handler.m */; };
@@ -199,6 +201,8 @@
 		1B7657D60E28E255004A20AE /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.h"; sourceTree = "<group>"; };
 		1B7657D70E28E255004A20AE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.m"; sourceTree = "<group>"; };
 		1B7B84750E8C3D200048A3B8 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = "Resources/English.lproj/Album Artwork Assistant Help"; sourceTree = "<group>"; };
+		1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = smaller.tif; path = Resources/smaller.tif; sourceTree = "<group>"; };
+		1B87CDF00EEDC5FD007CAD18 /* larger.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = larger.tif; path = Resources/larger.tif; sourceTree = "<group>"; };
 		1B8CF5BE0E2BBD800084C323 /* UpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateOperation.h; path = src/UpdateOperation.h; sourceTree = "<group>"; };
 		1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateOperation.m; path = src/UpdateOperation.m; sourceTree = "<group>"; };
 		1B8CF5F90E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSAppleEventDescriptor+Handler.m"; path = "src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMNSAppleEventDescriptor+Handler.m"; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */,
+				1B87CDF00EEDC5FD007CAD18 /* larger.tif */,
 				1B14A3020EDE8FFA00E0591A /* help-tools */,
 				1B14A2B80EDE13D100E0591A /* release-notes.html */,
 				1B14A1320EDCAB1000E0591A /* Localizable.strings */,
@@ -573,6 +579,8 @@
 				1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */,
 				1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */,
 				1B14A3070EDE8FFF00E0591A /* help.css in Resources */,
+				1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */,
+				1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
