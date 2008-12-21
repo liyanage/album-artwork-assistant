@@ -1,3 +1,4 @@
+
 #import "AppDelegate.h"
 #import "RegexKitLite.h"
 #import "GTMNSDictionary+URLArguments.h"
@@ -14,7 +15,7 @@
 @synthesize isBusy;
 @synthesize isImageSelected;
 @synthesize isQueueProcessing;
-@synthesize busyMessage;
+@synthesize statusMessage;
 @synthesize queue;
 @synthesize dataStore;
 
@@ -23,6 +24,7 @@
 
 
 - (IBAction)fetch:(id)sender {
+	[self switchToMainTab];
 	[self startBusy:NSLocalizedString(@"fetching_itunes_tracks", "")];
 	if (![self fetchITunesTrackList]) return;
 	[self clearBusy];
@@ -30,12 +32,12 @@
 		[self displayErrorWithTitle:NSLocalizedString(@"no_itunes_selection_title", "") message:NSLocalizedString(@"no_itunes_selection", "")];
 		return;
 	}
-
 	[self prepareAlbumTrackName];
 }
 
 
 - (IBAction)setAlbumTitle:(NSString *)newTitle {
+	[self switchToMainTab];
 	albumTitle = newTitle;
 	[self findImages:self];
 }
@@ -47,7 +49,21 @@
 
 
 - (void)setAlbumArtworkBackground:(id)sender {
-	UpdateOperation *uo = [self makeUpdateOperation];
+
+	NSData *imageData;
+	if ([sender isKindOfClass:[NSMenuItem class]]) {
+		NSMenuItem *item = sender;
+		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
+		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
+		imageData = [io dataError:nil];
+	} else {
+		ImageSearchItem *item = [self selectedImage];
+		[self startBusy:NSLocalizedString(@"downloading_image", "")];
+		imageData = [self imageDataForItem:item];
+		[self clearBusy];
+	}
+	if (!imageData) return;
+	UpdateOperation *uo = [self makeUpdateOperationForImageData:imageData];
 	if (!uo) return;
 	[uo main];
 }
@@ -102,7 +118,6 @@
 - (IBAction)openApplicationWebsite:(id)sender {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.entropy.ch/software/macosx/album-artwork-assistant/"]];
 }
-
 
 
 # pragma mark iTunes AppleScript installation
@@ -187,7 +202,12 @@
 
 
 
-# pragma mark Google/Amazon image search
+# pragma mark Google/Amazon image and web search
+
+- (void)doWebSearch:(id)sender {
+	
+}
+
 
 // Using the Google REST API
 // http://code.google.com/apis/ajaxsearch/documentation/#fonje
@@ -298,13 +318,8 @@
 
 # pragma mark update operation manipulation
 
-- (UpdateOperation *)makeUpdateOperation {
-	ImageSearchItem *item = [self selectedImage];
-	[self startBusy:NSLocalizedString(@"downloading_image", "")];
-	NSData *imageData = [self imageDataForItem:item];
-	[self clearBusy];
+- (UpdateOperation *)makeUpdateOperationForImageData:(NSData *)imageData {
 	if (!imageData) return nil;
-
 	UpdateOperation *uo = [[UpdateOperation alloc] initWithTracks:tracks imageData:imageData statusDelegate:self];
 	return uo;
 }
@@ -365,7 +380,17 @@
 
 
 - (IBAction)addToQueueBackground:(id)sender {
-	id trackGroup = [self makeTrackGroup];
+	id trackGroup;
+	if ([sender isKindOfClass:[NSMenuItem class]]) {
+		NSMenuItem *item = sender;
+		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
+		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
+		NSData *data = [io dataError:nil];
+		if (!data) return;
+		trackGroup = [self makeTrackGroupWithImageData:data];
+	} else {
+		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:[self selectedImage]]];	
+	}
 	if (!trackGroup) return;
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"queueAddSwitchesToItunes"]) {
 		[[NSWorkspace sharedWorkspace] launchApplication:@"iTunes"];
@@ -373,11 +398,8 @@
 }
 
 
-- (id)makeTrackGroup {
-
-	ImageSearchItem *item = [self selectedImage];
+- (id)makeTrackGroupWithImageData:(NSData *)imageData {
 	[self startBusy:NSLocalizedString(@"downloading_image", "")];
-	NSData *imageData = [self imageDataForItem:item];
 	[self clearBusy];
 	if (!imageData) return nil;
 
@@ -419,7 +441,7 @@
 	}
 
 	[self setIsQueueProcessing:YES];
-	[self setBusyMessage:NSLocalizedString(@"processing_queue", "")];
+	[self setStatusMessage:NSLocalizedString(@"processing_queue", "")];
 	[self performSelector:@selector(processOneQueueEntry) withObject:nil afterDelay:0.1];
 }
 
@@ -545,12 +567,12 @@
 
 - (void)startBusy:(NSString *)message {
 	[self setIsBusy:YES];
-	[self setBusyMessage:message];
+	[self setStatusMessage:message];
 }
 
 - (void)clearBusy {
 	[self setIsBusy:NO];
-	[self setBusyMessage:@""];
+	[self setStatusMessage:@""];
 }
 
 
@@ -605,6 +627,83 @@
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex {
 	return NO;
 }
+
+
+#pragma tab view management and delegate methods
+
+- (void)switchToMainTab {
+	[tabView selectTabViewItemWithIdentifier:@"imageSearch"];
+}
+
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+
+	if (!(albumTitle && [albumTitle length] > 0)) return;
+
+	if ([[tabViewItem identifier] isEqualToString:@"imageSearch"]) {
+	} else {
+		
+		NSMutableString *queryString = [[albumTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] mutableCopy];
+		[queryString replaceOccurrencesOfRegex:@"&" withString:@"%26"];
+		NSURLRequest *searchRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/search?ie=UTF-8&q=%@", queryString]]];
+//		NSLog(@"searchRequest: %@", searchRequest);
+		[[webView mainFrame] loadRequest:searchRequest];
+	}
+
+}
+
+
+#pragma mark WebView UIDelegate delegate methods
+
+- (void)webView:(WebView *)sender mouseDidMoveOverElement:(NSDictionary *)elementInformation modifierFlags:(NSUInteger)modifierFlags {
+
+//	NSLog(@"ui delegate element: %@", elementInformation);
+
+	DOMNode *node = [elementInformation valueForKey:@"WebElementDOMNode"];
+	if (highlightedElement) {
+		if ([highlightedElement isSameNode:node]) return;
+		[highlightedElement setAttribute:@"style" value:highlightedElementOriginalStyle];
+		highlightedElement = highlightedElementOriginalStyle = nil;
+		[self setStatusMessage:@""];
+	}
+	if (!node) return;
+	if (!([node nodeType] == 1 && [[node nodeName] isEqualToString:@"IMG"])) return;
+//	NSLog(@"node %d: %@, highlighted: %@ ", [node nodeType], node, highlightedElement);
+	DOMHTMLElement *img = (DOMHTMLElement *)node;
+	highlightedElement = img;
+	highlightedElementOriginalStyle = [img getAttribute:@"style"];
+	NSString *highlightStyle = @"outline: red solid 2px; opacity: 0.5;";
+	if (highlightedElementOriginalStyle && [highlightedElementOriginalStyle length] > 0) {
+		[img setAttribute:@"style" value:[NSString stringWithFormat:@"%@; %@", highlightedElementOriginalStyle, highlightStyle]];
+	} else {
+		[img setAttribute:@"style" value:highlightStyle];
+	}
+	[self setStatusMessage:NSLocalizedString(@"webview_image_hover", "")];
+	
+}
+
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {
+
+	NSURL *imageUrl = [element valueForKey:@"WebElementImageURL"];
+	if (!imageUrl) return defaultMenuItems;
+
+//	NSMutableArray *items = [[defaultMenuItems mutableCopy] autorelease];
+	NSMutableArray *items = [NSMutableArray array];
+	NSMenuItem *item;
+
+	item = [addToQueueMenuItem copy];
+	[item setRepresentedObject:[imageUrl absoluteString]];
+	[items insertObject:item atIndex:0];
+
+	item = [addImmediatelyMenuItem copy];
+	[item setRepresentedObject:[imageUrl absoluteString]];
+	[items insertObject:item atIndex:0];
+
+	return items;
+}
+
+
+
 
 
 

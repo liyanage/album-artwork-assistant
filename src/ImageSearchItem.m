@@ -33,8 +33,7 @@
 - (NSComparisonResult)areaCompare:(ImageSearchItem *)anItem {
 	unsigned int a = [self area];
 	unsigned int b = [anItem area];
-	if (a == b) return NSOrderedSame;
-	return b < a ? NSOrderedAscending : NSOrderedDescending;
+	return a == b ? NSOrderedSame : b < a ? NSOrderedAscending : NSOrderedDescending;
 }
 
 
@@ -87,6 +86,8 @@
 
 
 
+#pragma mark data loader methods
+
 - (NSData *)dataError:(NSError **)error {
 	NSData *data = self.imageData;
 	if (!data) {
@@ -101,7 +102,7 @@
 		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
 			self.imageData = data;
 		} else {
-			NSLog(@"Unable to get load image data from url '%@', error: %@", [self url], error ? *error : nil);
+			NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
 			data = nil;
 		}
 	}

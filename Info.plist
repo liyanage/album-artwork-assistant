@@ -19,9 +19,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0, © 2008 Marc Liyanage</string>
+	<string>${PRODUCT_VERSION}, © 2008-2009 Marc Liyanage</string>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>${PRODUCT_VERSION}</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSMainNibFile</key>
