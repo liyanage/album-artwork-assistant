@@ -464,6 +464,7 @@
 		29B97314FDCFA39411CA2CEA /* Music Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				1B59564A0E81AC75008B24A9 /* readme.txt */,
 				1B48E7850E8326ED00AC5357 /* appcast.xml */,
 				1B0B40750E4C2D64006CAE99 /* Models */,
 				1B7655FB0E281D38004A20AE /* AppleScript */,
@@ -473,7 +474,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				1B59564A0E81AC75008B24A9 /* readme.txt */,
 			);
 			name = "Music Artwork";
 			sourceTree = "<group>";
