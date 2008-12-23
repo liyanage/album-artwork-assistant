@@ -46,11 +46,12 @@
 @property(assign) NSMutableArray *queue;
 @property(assign) DataStore *dataStore;
 
+- (IBAction)removeSelectedTrackGroups:(id)sender;
 - (IBAction)installiTunesAppleScript:(id)sender;
 - (BOOL)canInstalliTunesAppleScript;
 - (BOOL)copyiTunesAppleScript:(NSError **)error;
 - (BOOL)createiTunesShortcut;
-
+- (BOOL)isImageSelectedAndImageBrowserTabActive;
 - (IBAction)fetch:(id)sender;
 - (IBAction)setAlbumArtwork:(id)sender;
 - (IBAction)setAlbumTitle:(NSString *)albumTitle;
