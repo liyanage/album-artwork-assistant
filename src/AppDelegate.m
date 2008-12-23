@@ -392,6 +392,7 @@
 		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:[self selectedImage]]];	
 	}
 	if (!trackGroup) return;
+	[dataStore save];
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"queueAddSwitchesToItunes"]) {
 		[[NSWorkspace sharedWorkspace] launchApplication:@"iTunes"];
 	}
@@ -459,6 +460,7 @@
 	[uo main];
 	if ([uo didComplete]) {
 		[dataStore deleteObject:trackGroup];
+		[dataStore save];
 	} else {
 		[self setIsQueueProcessing:NO];
 	}
@@ -466,6 +468,11 @@
 	[self performSelector:@selector(processOneQueueEntry) withObject:nil afterDelay:0.1];
 }
 
+
+- (IBAction)removeSelectedTrackGroups:(id)sender {
+	[groupsController remove:sender];
+	[dataStore save];
+}
 
 
 - (NSUInteger)queueLength {
@@ -615,12 +622,14 @@
 
 #pragma mark application delegate methods
 
+/*
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     int reply = NSTerminateNow;
 	[dataStore cleanup];
 	dataStore = nil;
 	return reply;
 }
+*/
 
 #pragma mark tracks table view delegate methods
 
@@ -639,17 +648,26 @@
 
 	if (!(albumTitle && [albumTitle length] > 0)) return;
 
-	if ([[tabViewItem identifier] isEqualToString:@"imageSearch"]) {
-	} else {
-		
+	if ([[tabViewItem identifier] isEqualToString:@"webSearch"]) {
 		NSMutableString *queryString = [[albumTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] mutableCopy];
 		[queryString replaceOccurrencesOfRegex:@"&" withString:@"%26"];
-		NSURLRequest *searchRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/search?ie=UTF-8&q=%@", queryString]]];
+		NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/search?ie=UTF-8&q=%@", queryString]];
+#ifdef DEBUG_NONET
+		url = [NSURL URLWithString:@"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/Resources/English.lproj/Album%20Artwork%20Assistant%20Help/Album%20Artwork%20Assistant%20Help.html"];
+#endif
+		NSURLRequest *searchRequest = [NSURLRequest requestWithURL:url];
 //		NSLog(@"searchRequest: %@", searchRequest);
 		[[webView mainFrame] loadRequest:searchRequest];
+	} else {
 	}
 
 }
+
+
+- (BOOL)isImageSelectedAndImageBrowserTabActive {
+	return [[[tabView selectedTabViewItem] identifier] isEqualToString:@"imageSearch"] && [self isImageSelected];
+}
+
 
 
 #pragma mark WebView UIDelegate delegate methods

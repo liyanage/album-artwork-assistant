@@ -73,7 +73,6 @@
 		1B7657D80E28E255004A20AE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */; };
 		1B7657D90E28E255004A20AE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D50E28E255004A20AE /* SBJSON.m */; };
 		1B7657DA0E28E255004A20AE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D70E28E255004A20AE /* NSString+SBJSON.m */; };
-		1B7A2FAF0EFB08030061E910 /* google.ico in Resources */ = {isa = PBXBuildFile; fileRef = 1B7A2FAE0EFB08030061E910 /* google.ico */; };
 		1B7A2FF90EFC6FC00061E910 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A2FF80EFC6FC00061E910 /* WebKit.framework */; };
 		1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */; };
 		1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDF00EEDC5FD007CAD18 /* larger.tif */; };
@@ -202,7 +201,6 @@
 		1B7657D50E28E255004A20AE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = "src-external/json-framework-read-only/Source/SBJSON.m"; sourceTree = "<group>"; };
 		1B7657D60E28E255004A20AE /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.h"; sourceTree = "<group>"; };
 		1B7657D70E28E255004A20AE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.m"; sourceTree = "<group>"; };
-		1B7A2FAE0EFB08030061E910 /* google.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = google.ico; sourceTree = "<group>"; };
 		1B7A2FF80EFC6FC00061E910 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1B7B84750E8C3D200048A3B8 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = "Resources/English.lproj/Album Artwork Assistant Help"; sourceTree = "<group>"; };
 		1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = smaller.tif; path = Resources/smaller.tif; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1B7A2FAE0EFB08030061E910 /* google.ico */,
 				1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */,
 				1B87CDF00EEDC5FD007CAD18 /* larger.tif */,
 				1B14A3020EDE8FFA00E0591A /* help-tools */,
@@ -588,7 +585,6 @@
 				1B14A3070EDE8FFF00E0591A /* help.css in Resources */,
 				1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */,
 				1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */,
-				1B7A2FAF0EFB08030061E910 /* google.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
