@@ -1,8 +1,4 @@
 
+http://devworld.apple.com/DOCUMENTATION/DeveloperTools/Conceptual/IB_UserGuide/LocalizingNibFiles/chapter_10_section_3.html
 
-Album Artwork Assistant embeds album cover artwork from Google Images and Amazon into your iTunes music files.
-
-It integrates closely with iTunes, for getting the currently selected album track data as well as for embedding the images in the tracks.
-
-Because embedding is a lengthy process, the application features a queue that lets the user search for the artwork for many albums and then process them all together without supervision.
-
+ibtool --previous-file Resources.r422/English.lproj/MainMenu.xib --incremental-file Resources.r422/German.lproj/MainMenu.xib --localize-incremental --write Resources/German.lproj/MainMenu.xib Resources/English.lproj/MainMenu.xib
