@@ -1,0 +1,38 @@
+/* Title of alert window when we had a crash: */
+"WANT_TO_SEND_CRASH_TITLE" = "Möchten Sie einen Fehlerbericht senden?";
+
+/* Message for alert window when we had a crash: */
+"WANT_TO_SEND_CRASH" = "Die Applikation %@ wurde vor kurzem unerwartet beendet. Sie können uns helfen die Applikation zu verbessern, indem Sie uns den Fehlerbericht des Systems senden. Möchten Sie den Fehlerbericht senden?";
+
+/* Name of OK button in alert window: */
+"WANT_TO_SEND_CRASH_SEND" = "Senden";
+
+/* Name of Cancel button in alert window: */
+"WANT_TO_SEND_CRASH_DONT_SEND" = "Nicht senden";
+
+/* Name of "Later" button in alert window: */
+"WANT_TO_SEND_CRASH_SEND_LATER" = "Später senden";
+
+/* URL of CGI script which we'll send the log to: */
+"CRASH_REPORT_CGI_URL" = "http://www.entropy.ch/feedbackform.php";
+
+/* Title of error window: */
+"COULDNT_SEND_CRASH_REPORT_ERROR" = "Fehlerbericht konnte nicht übertragen werden";
+
+/* Title of error window for feedback messages: */
+"COULDNT_SEND_FEEDBACK_ERROR" = "Ihre Mitteilung konnte nicht übertragen werden.";
+
+/* OK button of error window: */
+"COULDNT_SEND_CRASH_REPORT_ERROR_OK" = "OK";
+
+/* Text for feedback messages: */
+"FEEDBACK_MESSAGE_TEXT" = "Hallo, hier ist meine Mitteilung:\n\n\t...\n\n-- %%LONGUSERNAME\n\nAntworten Sie mir auf %%EMAILADDRESS";
+
+/* String to substitute if we can't determine user's e-mail address: */
+"MISSING_EMAIL_ADDRESS" = "<Ihre E-Mail Adresse hier>";
+
+/* Text at the top of the window for feedback messages: */
+"FEEDBACK_EXPLANATION_TEXT" = "Schreiben Sie Ihre Mitteilung in das untenstehende Feld. Falls Sie einen Fehler melden, beschreiben Sie Ihr System bitte so genau wie möglich, insbesondere bezüglich Betriebssystem-Version und Schritte um das Problem zu reproduzieren. Stellen Sie sicher, dass Ihre gültige E-Mail Adresse dabei ist.";
+
+/* Name of "Crash Log" tab for feedback messages: */
+"SYSTEM_INFO_TAB_NAME" = "Systembeschreibung";

@@ -6,6 +6,7 @@
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
 #import "GTMScriptRunner.h"
+#import "UKCrashReporter.h"
 
 #define ITUNES_APPLESCRIPT_TITLE @"Find with Album Artwork Assistant"
 #define ITUNES_APPLESCRIPT_NAME @"Find with Album Artwork Assistant.scpt"
@@ -281,6 +282,11 @@
 	[params setValue:@"Music"                forKey:@"SearchIndex"];
 	[params setValue:@"Images"               forKey:@"ResponseGroup"];
 
+	if ([albumTitle isEqualToString:@"__crash__"]) {
+		NSLog(@"forced crash");
+		char *x = nil;
+		NSLog(@"foo %d", *x);
+	}
 
 	NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
 
@@ -630,6 +636,11 @@
 	return reply;
 }
 */
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	UKCrashReporterCheckForCrash();
+}
+
 
 #pragma mark tracks table view delegate methods
 

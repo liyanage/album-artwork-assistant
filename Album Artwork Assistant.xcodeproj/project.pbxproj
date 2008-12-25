@@ -62,6 +62,13 @@
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
 		1B59564B0E81AC75008B24A9 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B59564A0E81AC75008B24A9 /* readme.txt */; };
 		1B5956820E81B653008B24A9 /* GTMScriptRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5956800E81B653008B24A9 /* GTMScriptRunner.m */; };
+		1B5AC7D50F04424C00D2E9D5 /* UKCrashReporter Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B5AC7CC0F04424C00D2E9D5 /* UKCrashReporter Readme.txt */; };
+		1B5AC7D60F04424C00D2E9D5 /* UKCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AC7CE0F04424C00D2E9D5 /* UKCrashReporter.m */; };
+		1B5AC7D90F04424C00D2E9D5 /* UKNibOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AC7D20F04424C00D2E9D5 /* UKNibOwner.m */; };
+		1B5AC7DA0F04424C00D2E9D5 /* UKSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AC7D40F04424C00D2E9D5 /* UKSystemInfo.m */; };
+		1B5AC7DF0F0442C100D2E9D5 /* UKCrashReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B5AC7DE0F0442C100D2E9D5 /* UKCrashReporter.xib */; };
+		1B5AC7E20F0442E400D2E9D5 /* UKCrashReporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B5AC7E10F0442E400D2E9D5 /* UKCrashReporter.strings */; };
+		1B5AC8090F04487500D2E9D5 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5AC8080F04487500D2E9D5 /* AddressBook.framework */; };
 		1B6B77370E3540D800EA2035 /* QuickLookImageBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */; };
 		1B7655AE0E27FCF6004A20AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7655AD0E27FCF6004A20AE /* AppDelegate.m */; };
 		1B7655FD0E281D59004A20AE /* fetch-selection-info.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
@@ -175,6 +182,18 @@
 		1B59564A0E81AC75008B24A9 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		1B5956800E81B653008B24A9 /* GTMScriptRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMScriptRunner.m; path = "src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMScriptRunner.m"; sourceTree = "<group>"; };
 		1B5956810E81B653008B24A9 /* GTMScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMScriptRunner.h; path = "src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMScriptRunner.h"; sourceTree = "<group>"; };
+		1B5AC7CC0F04424C00D2E9D5 /* UKCrashReporter Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UKCrashReporter Readme.txt"; sourceTree = "<group>"; };
+		1B5AC7CD0F04424C00D2E9D5 /* UKCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKCrashReporter.h; sourceTree = "<group>"; };
+		1B5AC7CE0F04424C00D2E9D5 /* UKCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKCrashReporter.m; sourceTree = "<group>"; };
+		1B5AC7D00F04424C00D2E9D5 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/UKCrashReporter.strings; sourceTree = "<group>"; };
+		1B5AC7D10F04424C00D2E9D5 /* UKNibOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKNibOwner.h; sourceTree = "<group>"; };
+		1B5AC7D20F04424C00D2E9D5 /* UKNibOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKNibOwner.m; sourceTree = "<group>"; };
+		1B5AC7D30F04424C00D2E9D5 /* UKSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSystemInfo.h; sourceTree = "<group>"; };
+		1B5AC7D40F04424C00D2E9D5 /* UKSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSystemInfo.m; sourceTree = "<group>"; };
+		1B5AC7DC0F04429B00D2E9D5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/UKCrashReporter.xib; sourceTree = "<group>"; };
+		1B5AC7E00F0442CD00D2E9D5 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/UKCrashReporter.xib; sourceTree = "<group>"; };
+		1B5AC7E30F0442EC00D2E9D5 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/UKCrashReporter.strings; sourceTree = "<group>"; };
+		1B5AC8080F04487500D2E9D5 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1B6B77210E353D5000EA2035 /* QuickLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLook.h; path = "src-external/QuickLook/QuickLook.h"; sourceTree = "<group>"; };
 		1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickLookImageBrowserView.m; path = src/QuickLookImageBrowserView.m; sourceTree = "<group>"; };
 		1B6B77360E3540D800EA2035 /* QuickLookImageBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickLookImageBrowserView.h; path = src/QuickLookImageBrowserView.h; sourceTree = "<group>"; };
@@ -268,6 +287,7 @@
 				1B8CF61B0E2BD4FD0084C323 /* Carbon.framework in Frameworks */,
 				1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */,
 				1B7A2FF90EFC6FC00061E910 /* WebKit.framework in Frameworks */,
+				1B5AC8090F04487500D2E9D5 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +368,23 @@
 			path = "Resources/help-tools";
 			sourceTree = "<group>";
 		};
+		1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */ = {
+			isa = PBXGroup;
+			children = (
+				1B5AC7DE0F0442C100D2E9D5 /* UKCrashReporter.xib */,
+				1B5AC7CC0F04424C00D2E9D5 /* UKCrashReporter Readme.txt */,
+				1B5AC7CD0F04424C00D2E9D5 /* UKCrashReporter.h */,
+				1B5AC7CE0F04424C00D2E9D5 /* UKCrashReporter.m */,
+				1B5AC7E10F0442E400D2E9D5 /* UKCrashReporter.strings */,
+				1B5AC7D10F04424C00D2E9D5 /* UKNibOwner.h */,
+				1B5AC7D20F04424C00D2E9D5 /* UKNibOwner.m */,
+				1B5AC7D30F04424C00D2E9D5 /* UKSystemInfo.h */,
+				1B5AC7D40F04424C00D2E9D5 /* UKSystemInfo.m */,
+			);
+			name = UKCrashReporter;
+			path = "src-external/UKCrashReporter";
+			sourceTree = "<group>";
+		};
 		1B6B771F0E353D4300EA2035 /* QuickLook */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +455,7 @@
 		1BA106770EDA9E3200233FF0 /* External Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */,
 				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
 				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
 				1B7657C90E28E229004A20AE /* RegexKitLite */,
@@ -474,6 +512,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				1B5AC8080F04487500D2E9D5 /* AddressBook.framework */,
 			);
 			name = "Music Artwork";
 			sourceTree = "<group>";
@@ -585,6 +624,9 @@
 				1B14A3070EDE8FFF00E0591A /* help.css in Resources */,
 				1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */,
 				1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */,
+				1B5AC7D50F04424C00D2E9D5 /* UKCrashReporter Readme.txt in Resources */,
+				1B5AC7E20F0442E400D2E9D5 /* UKCrashReporter.strings in Resources */,
+				1B5AC7DF0F0442C100D2E9D5 /* UKCrashReporter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +705,9 @@
 				1B0B40480E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel in Sources */,
 				1BBD59EE0E5A2749005F235C /* TrackGroup.m in Sources */,
 				1B5956820E81B653008B24A9 /* GTMScriptRunner.m in Sources */,
+				1B5AC7D60F04424C00D2E9D5 /* UKCrashReporter.m in Sources */,
+				1B5AC7D90F04424C00D2E9D5 /* UKNibOwner.m in Sources */,
+				1B5AC7DA0F04424C00D2E9D5 /* UKSystemInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +751,24 @@
 				1B14A2CA0EDE83FC00E0591A /* German */,
 			);
 			name = "Album Artwork Assistant Help";
+			sourceTree = "<group>";
+		};
+		1B5AC7DE0F0442C100D2E9D5 /* UKCrashReporter.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B5AC7DC0F04429B00D2E9D5 /* English */,
+				1B5AC7E00F0442CD00D2E9D5 /* German */,
+			);
+			name = UKCrashReporter.xib;
+			sourceTree = "<group>";
+		};
+		1B5AC7E10F0442E400D2E9D5 /* UKCrashReporter.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B5AC7D00F04424C00D2E9D5 /* English */,
+				1B5AC7E30F0442EC00D2E9D5 /* German */,
+			);
+			name = UKCrashReporter.strings;
 			sourceTree = "<group>";
 		};
 		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
