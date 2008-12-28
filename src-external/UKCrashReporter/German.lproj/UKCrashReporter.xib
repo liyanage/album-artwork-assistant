@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="5"/>
+			<integer value="20"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -151,8 +151,8 @@ eiB2ZXJ1cnNhY2h0ZS4</string>
 																		<object class="NSTextStorage" key="NSTextStorage">
 																			<object class="NSMutableString" key="NSString">
 																				<bytes key="NS.bytes">SGFsbG8sIG1laW4gTmFtZSBpc3QgJSVMT05HVVNFUk5BTUUhCgpEZXIgRmVobGVyIHRyYXQgYXVmLCBh
-bHMgaWNoIGdlcmFkZSBmb2xnZW5kZXMgbWFjaHRlOgoKLi4uCgpNZWluZSBFLU1haWwgQWRyZXNzZSBp
-c3QgJSVFTUFJTEFERFJFU1MsIGZhbGxzIGVzIFLDvGNrZnJhZ2VuIGdpYnQuA</bytes>
+bHMgaWNoIGZvbGdlbmRlIFNjaHJpdHRlIGR1cmNoZsO8aHJ0ZToKCi4uLgoKTWVpbmUgRS1NYWlsIEFk
+cmVzc2UgaXN0ICUlRU1BSUxBRERSRVNTLCBmYWxscyBlcyBSw7xja2ZyYWdlbiBnaWJ0Lg</bytes>
 																			</object>
 																			<object class="NSMutableArray" key="NSAttributes">
 																				<bool key="EncodedWithXMLCoder">YES</bool>
@@ -318,7 +318,7 @@ c3QgJSVFTUFJTEFERFJFU1MsIGZhbGxzIGVzIFLDvGNrZnJhZ2VuIGdpYnQuA</bytes>
 																				</object>
 																			</object>
 																			<object class="NSMutableData" key="NSAttributeInfo">
-																				<bytes key="NS.bytes">YQABAUIAA</bytes>
+																				<bytes key="NS.bytes">ZwABAUIAA</bytes>
 																			</object>
 																			<nil key="NSDelegate"/>
 																		</object>

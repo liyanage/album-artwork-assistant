@@ -89,6 +89,7 @@
 #pragma mark data loader methods
 
 - (NSData *)dataError:(NSError **)error {
+
 	NSData *data = self.imageData;
 	if (!data) {
 		NSTimeInterval timeout = [[NSUserDefaults standardUserDefaults] floatForKey:@"imageDownloadTimeoutSeconds"];
@@ -102,6 +103,9 @@
 		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
 			self.imageData = data;
 		} else {
+			if (error && *error) {
+				NSLog(@"*** Unable to load image data from url '%@', error: %p, class %@", [self url], *error, [*error class]);
+			}
 			NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
 			data = nil;
 		}
@@ -114,7 +118,7 @@
 	if (fileUrl) return fileUrl;
 	
 	NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(), [[self url] lastPathComponent]];
-	NSError *error;
+	NSError *error = nil;
 	NSData *data = [self dataError:&error];
 	if (!data) return nil;
 	if (![data writeToFile:tempFilePath atomically:YES]) {
