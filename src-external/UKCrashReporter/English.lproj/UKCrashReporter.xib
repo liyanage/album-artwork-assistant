@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="5"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -143,16 +143,15 @@ YW5kIGZpeCB0aGlzIGNyYXNoLg</string>
 																		<string>WebURLsWithTitlesPboardType</string>
 																	</object>
 																</object>
-																<string key="NSFrameSize">{495, 150}</string>
+																<string key="NSFrameSize">{495, 120}</string>
 																<reference key="NSSuperview" ref="699372611"/>
 																<object class="NSTextContainer" key="NSTextContainer" id="877726822">
 																	<object class="NSLayoutManager" key="NSLayoutManager">
 																		<object class="NSTextStorage" key="NSTextStorage">
 																			<object class="NSMutableString" key="NSString">
 																				<bytes key="NS.bytes">SGksIEknbSAlJUxPTkdVU0VSTkFNRSEKCkkgd2FzIGRvaW5nIHRoZSBmb2xsb3dpbmcgYXQgdGhlIHRp
-bWUgb2YgdGhlIGNyYXNoOgoKLSBTdGVwIE9uZQotIFN0ZXAgVHdvCi0gLi4uCgpNeSBFLU1haWwgYWRk
-cmVzcyBpcyAlJUVNQUlMQUREUkVTUywgaW4gY2FzZSB5b3Ugd2FudCB0byBnZXQgYmFjayB0byBtZS4K
-A</bytes>
+bWUgb2YgdGhlIGNyYXNoOgoKLi4uCgpNeSBFLU1haWwgYWRkcmVzcyBpcyAlJUVNQUlMQUREUkVTUywg
+aW4gY2FzZSB5b3Ugd2FudCB0byBnZXQgYmFjayB0byBtZS4KA</bytes>
 																			</object>
 																			<object class="NSDictionary" key="NSAttributes">
 																				<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1062,8 +1061,8 @@ PT09PT0</bytes>
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="5"/>
-					<string>{{66, 199}, {592, 562}}</string>
-					<string>{{66, 199}, {592, 562}}</string>
+					<string>{{81, 198}, {592, 562}}</string>
+					<string>{{81, 198}, {592, 562}}</string>
 					<reference ref="5"/>
 					<reference ref="5"/>
 					<string>{592, 350}</string>

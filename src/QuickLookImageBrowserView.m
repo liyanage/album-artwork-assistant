@@ -75,7 +75,7 @@
 
 - (void)quickLookSelectedItems:(int)itemIndex {
 	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
-	[[self delegate] startBusy:NSLocalizedString(@"loading_image", "")];
+	[[self delegate] startBusy:NSLocalizedString(@"loading_image", @"")];
 	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
 }
 

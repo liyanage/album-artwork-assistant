@@ -50,7 +50,7 @@
     NSFileManager *fileManager;
     NSString *applicationSupportFolder = nil;
     NSURL *url;
-    NSError *error;
+    NSError *error = nil;
     
     fileManager = [NSFileManager defaultManager];
     applicationSupportFolder = [self applicationSupportFolder];
@@ -96,7 +96,7 @@
 
 
 - (void)cleanup {
-	NSError *error;
+	NSError *error = nil;
 	[self save];
     if (managedObjectContext != nil && [managedObjectContext hasChanges]) {
         [managedObjectContext commitEditing];

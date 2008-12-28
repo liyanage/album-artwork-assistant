@@ -26,11 +26,11 @@
 
 - (IBAction)fetch:(id)sender {
 	[self switchToMainTab];
-	[self startBusy:NSLocalizedString(@"fetching_itunes_tracks", "")];
+	[self startBusy:NSLocalizedString(@"fetching_itunes_tracks", @"")];
 	if (![self fetchITunesTrackList]) return;
 	[self clearBusy];
 	if ([tracks count] < 1) {
-		[self displayErrorWithTitle:NSLocalizedString(@"no_itunes_selection_title", "") message:NSLocalizedString(@"no_itunes_selection", "")];
+		[self displayErrorWithTitle:NSLocalizedString(@"no_itunes_selection_title", @"") message:NSLocalizedString(@"no_itunes_selection", @"")];
 		return;
 	}
 	[self prepareAlbumTrackName];
@@ -59,7 +59,7 @@
 		imageData = [io dataError:nil];
 	} else {
 		ImageSearchItem *item = [self selectedImage];
-		[self startBusy:NSLocalizedString(@"downloading_image", "")];
+		[self startBusy:NSLocalizedString(@"downloading_image", @"")];
 		imageData = [self imageDataForItem:item];
 		[self clearBusy];
 	}
@@ -73,7 +73,7 @@
 - (IBAction)findImages:(id)sender {
 	if ([albumTitle length] < 1) return;
 	[self clearImages];
-	[self startBusy:NSLocalizedString(@"searching_internet", "")];
+	[self startBusy:NSLocalizedString(@"searching_internet", @"")];
 	[self performSelector:@selector(doFindImages:) withObject:self afterDelay:0.1];
 }
 
@@ -96,22 +96,22 @@
 	NSError *error = nil;
 	
 	if (![self canInstalliTunesAppleScript]) {
-		[self displayErrorWithTitle:NSLocalizedString(@"quit_blocking_apps_title", "") message:NSLocalizedString(@"quit_blocking_apps", "")];
+		[self displayErrorWithTitle:NSLocalizedString(@"quit_blocking_apps_title", @"") message:NSLocalizedString(@"quit_blocking_apps", @"")];
 		return;
 	}
 
 	if (![self copyiTunesAppleScript:&error]) {
 		if (error) [window presentError:error];
-		[self displayErrorWithTitle:NSLocalizedString(@"cant_install_applescript_title", "") message:NSLocalizedString(@"cant_install_applescript", "")];
+		[self displayErrorWithTitle:NSLocalizedString(@"cant_install_applescript_title", @"") message:NSLocalizedString(@"cant_install_applescript", @"")];
 		return;
 	}
 
 	if (![self createiTunesShortcut]) {
-		[self displayErrorWithTitle:NSLocalizedString(@"cant_configure_shortcut_title", "") message:NSLocalizedString(@"cant_configure_shortcut", "")];
+		[self displayErrorWithTitle:NSLocalizedString(@"cant_configure_shortcut_title", @"") message:NSLocalizedString(@"cant_configure_shortcut", @"")];
 		return;
 	}
 
-	[self displayErrorWithTitle:NSLocalizedString(@"script_installation_confirmation_title", "") message:NSLocalizedString(@"script_installation_confirmation", "")];
+	[self displayErrorWithTitle:NSLocalizedString(@"script_installation_confirmation_title", @"") message:NSLocalizedString(@"script_installation_confirmation", @"")];
 
 }
 
@@ -192,11 +192,11 @@
 	NSAppleEventDescriptor *ds = [script executeAndReturnError:&errorDict];
 
 	if (errorDict) {
-		return [self displayErrorWithTitle:NSLocalizedString(@"cant_get_itunes_tracks", "") message:[errorDict valueForKey:NSAppleScriptErrorBriefMessage]];
+		return [self displayErrorWithTitle:NSLocalizedString(@"cant_get_itunes_tracks", @"") message:[errorDict valueForKey:NSAppleScriptErrorBriefMessage]];
 	}
 
 	NSArray *trackData = [[ds stringValue] propertyList];
-	NSAssert(trackData, NSLocalizedString(@"cant_parse_itunes_tracks", ""));
+	NSAssert(trackData, NSLocalizedString(@"cant_parse_itunes_tracks", @""));
 	[self setValue:trackData forKey:@"tracks"];
 	return YES;
 }
@@ -283,9 +283,14 @@
 	[params setValue:@"Images"               forKey:@"ResponseGroup"];
 
 	if ([albumTitle isEqualToString:@"__crash__"]) {
-		NSLog(@"forced crash");
+		NSLog(@"forcing crash...");
 		char *x = nil;
 		NSLog(@"foo %d", *x);
+	}
+
+	if ([albumTitle isEqualToString:@"__assert__"]) {
+		NSLog(@"forcing assertion failure...");
+		NSAssert(0, @"forced assert");
 	}
 
 	NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
@@ -349,7 +354,7 @@
 
 
 - (NSData *)imageDataForItem:(ImageSearchItem *)item {
-	NSError *error;
+	NSError *error = nil;
 	NSData *imageData = [item dataError:&error];
 	if (!imageData) {
 		[self removeCurrentItemAndWarn];
@@ -371,7 +376,7 @@
 - (void)removeCurrentItemAndWarn {
 	int index = [[imageBrowser selectionIndexes] firstIndex];
 	[self removeItemAtIndex:index];
-	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", "") message:NSLocalizedString(@"image_unavailable", "")];
+	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", @"") message:NSLocalizedString(@"image_unavailable", @"")];
 }
 
 
@@ -406,7 +411,7 @@
 
 
 - (id)makeTrackGroupWithImageData:(NSData *)imageData {
-	[self startBusy:NSLocalizedString(@"downloading_image", "")];
+	[self startBusy:NSLocalizedString(@"downloading_image", @"")];
 	[self clearBusy];
 	if (!imageData) return nil;
 
@@ -448,7 +453,7 @@
 	}
 
 	[self setIsQueueProcessing:YES];
-	[self setStatusMessage:NSLocalizedString(@"processing_queue", "")];
+	[self setStatusMessage:NSLocalizedString(@"processing_queue", @"")];
 	[self performSelector:@selector(processOneQueueEntry) withObject:nil afterDelay:0.1];
 }
 
@@ -706,7 +711,7 @@
 	} else {
 		[img setAttribute:@"style" value:highlightStyle];
 	}
-	[self setStatusMessage:NSLocalizedString(@"webview_image_hover", "")];
+	[self setStatusMessage:NSLocalizedString(@"webview_image_hover", @"")];
 	
 }
 
