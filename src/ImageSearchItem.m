@@ -97,16 +97,18 @@
 			requestWithURL:[NSURL URLWithString:[self url]]
 			cachePolicy:NSURLRequestUseProtocolCachePolicy
 			timeoutInterval:timeout];
-		NSURLResponse *response;
-		data = [NSURLConnection sendSynchronousRequest:req returningResponse: &response error:error];
+		NSURLResponse *response = nil;
+		data = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:error];
 		NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
 			self.imageData = data;
 		} else {
 			if (error && *error) {
-				NSLog(@"*** Unable to load image data from url '%@', error: %p, class %@", [self url], *error, [*error class]);
+				NSLog(@"*** Unable to load image data from url '%@', error: %p, class %@, code", [self url], *error, [*error class], [*error code]);
 			}
-			NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
+			//todo: remove temporary test
+			//NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
+			NSLog(@"Unable to load image data from url '%@', error: %p", [self url], error ? *error : nil);
 			data = nil;
 		}
 	}
