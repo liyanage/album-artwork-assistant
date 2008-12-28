@@ -253,7 +253,9 @@
 		NSError *error = nil;
 		NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 		if (error) {
-			[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
+			//todo: remove temporary test
+			NSLog(@"dofindimagesgoogle error: %p, class %@, code %d", error, [error class], [error code]);
+			//[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
 			[self clearBusy];
 			return;
 		}
@@ -644,6 +646,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	UKCrashReporterCheckForCrash();
+
+	
+	
 }
 
 

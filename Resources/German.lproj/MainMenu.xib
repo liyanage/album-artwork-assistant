@@ -565,7 +565,7 @@
 				<string key="NSName">_NSMainMenu</string>
 			</object>
 			<object class="NSWindowTemplate" id="972006081">
-				<int key="NSWindowStyleMask">13</int>
+				<int key="NSWindowStyleMask">4109</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{127, 166}, {600, 596}}</string>
 				<int key="NSWTFlags">1948778496</int>
@@ -1648,7 +1648,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
-				<string key="NSMinSize">{600, 638}</string>
+				<string key="NSMinSize">{600, 637}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSCustomObject" id="755631768">
@@ -5108,8 +5108,8 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string>{{475, 832}, {234, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{265, 131}, {600, 596}}</string>
-					<string>{{265, 131}, {600, 596}}</string>
+					<string>{{265, 72}, {600, 596}}</string>
+					<string>{{265, 72}, {600, 596}}</string>
 					<reference ref="9"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<reference ref="9"/>
