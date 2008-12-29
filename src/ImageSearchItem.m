@@ -38,7 +38,8 @@
 
 
 - (NSString *)description {
-	return [searchResult valueForKey:@"url"];
+	return [NSString stringWithFormat:@"%@ %@", [super description], [searchResult valueForKey:@"url"]];
+//	return [searchResult valueForKey:@"url"];
 }
 
 
@@ -66,6 +67,30 @@
 }
 
 
+
+- (NSString *)imageRepresentationType {
+	return IKImageBrowserNSDataRepresentationType;
+}
+
+
+- (id)imageRepresentation {
+	return [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[searchResult valueForKey:@"tbUrl"]]];
+}
+
+
+/*
+- (NSString *)imageRepresentationType {
+	return IKImageBrowserNSImageRepresentationType;
+}
+
+
+- (id)imageRepresentation {
+	return [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[searchResult valueForKey:@"tbUrl"]]];
+}
+*/
+
+
+/*
 - (NSString *)imageRepresentationType {
 	return IKImageBrowserNSURLRepresentationType;
 }
@@ -74,7 +99,7 @@
 - (id)imageRepresentation {
 	return [NSURL URLWithString:[searchResult valueForKey:@"tbUrl"]];
 }
-
+*/
 
 - (NSString *)imageSubtitle {
 	return [NSString stringWithFormat:@"%@x%@ %@",
@@ -103,12 +128,7 @@
 		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
 			self.imageData = data;
 		} else {
-			if (error && *error) {
-				NSLog(@"*** Unable to load image data from url '%@', error: %p, class %@, code", [self url], *error, [*error class], [*error code]);
-			}
-			//todo: remove temporary test
-			//NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
-			NSLog(@"Unable to load image data from url '%@', error: %p", [self url], error ? *error : nil);
+			NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
 			data = nil;
 		}
 	}

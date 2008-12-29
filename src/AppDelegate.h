@@ -85,5 +85,6 @@
 - (void)removeCurrentItemAndWarn;
 
 - (IBAction)debug:(id)sender;
+- (void)logProcessSize;
 
 @end

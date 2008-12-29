@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="371"/>
 			<integer value="29"/>
-			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -578,7 +578,7 @@
 					<bool key="NSToolbarPrefersToBeShown">YES</bool>
 					<bool key="NSToolbarShowsBaselineSeparator">YES</bool>
 					<bool key="NSToolbarAllowsUserCustomization">YES</bool>
-					<bool key="NSToolbarAutosavesConfiguration">NO</bool>
+					<bool key="NSToolbarAutosavesConfiguration">YES</bool>
 					<int key="NSToolbarDisplayMode">1</int>
 					<int key="NSToolbarSizeMode">1</int>
 					<object class="NSMutableDictionary" key="NSToolbarIBIdentifiedItems">
@@ -1156,7 +1156,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 								<object class="NSTabViewItem" id="891320869">
 									<string key="NSIdentifier">imageSearch</string>
 									<object class="NSView" key="NSView" id="978153839">
-										<nil key="NSNextResponder"/>
+										<reference key="NSNextResponder" ref="1000807022"/>
 										<int key="NSvFlags">256</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1472,6 +1472,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 											</object>
 										</object>
 										<string key="NSFrame">{{10, 33}, {554, 269}}</string>
+										<reference key="NSSuperview" ref="1000807022"/>
 									</object>
 									<string key="NSLabel">Image Search</string>
 									<reference key="NSColor" ref="36452356"/>
@@ -1480,7 +1481,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 								<object class="NSTabViewItem" id="799362232">
 									<string key="NSIdentifier">webSearch</string>
 									<object class="NSView" key="NSView" id="123651130">
-										<reference key="NSNextResponder" ref="1000807022"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1613,21 +1614,20 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 											</object>
 										</object>
 										<string key="NSFrame">{{10, 33}, {554, 269}}</string>
-										<reference key="NSSuperview" ref="1000807022"/>
 									</object>
 									<string key="NSLabel">Web Search</string>
 									<reference key="NSColor" ref="36452356"/>
 									<reference key="NSTabView" ref="1000807022"/>
 								</object>
 							</object>
-							<reference key="NSSelectedTabViewItem" ref="799362232"/>
+							<reference key="NSSelectedTabViewItem" ref="891320869"/>
 							<reference key="NSFont" ref="167534249"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<reference ref="123651130"/>
+								<reference ref="978153839"/>
 							</object>
 						</object>
 						<object class="NSProgressIndicator" id="263365573">
@@ -5104,8 +5104,8 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string>{{475, 832}, {234, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{232, 48}, {600, 596}}</string>
-					<string>{{232, 48}, {600, 596}}</string>
+					<string>{{175, 114}, {600, 596}}</string>
+					<string>{{175, 114}, {600, 596}}</string>
 					<reference ref="9"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<reference ref="9"/>
