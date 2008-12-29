@@ -140,6 +140,7 @@
 }
 
 
+
 # pragma mark iTunes AppleScript installation
 
 - (BOOL)canInstalliTunesAppleScript {
