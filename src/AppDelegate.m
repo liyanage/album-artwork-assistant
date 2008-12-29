@@ -8,6 +8,8 @@
 #import "GTMScriptRunner.h"
 #import "UKCrashReporter.h"
 
+#include <mach/task.h>
+
 #define ITUNES_APPLESCRIPT_TITLE @"Find with Album Artwork Assistant"
 #define ITUNES_APPLESCRIPT_NAME @"Find with Album Artwork Assistant.scpt"
 
@@ -88,6 +90,23 @@
 
 - (void)clearImages {
 	[images removeAllObjects];
+
+	// if we don't do this, file descriptors from HTTP connections pile up
+	// and crash the application sooner or later
+	[[NSGarbageCollector defaultCollector] collectExhaustively];
+
+	[self logProcessSize];
+
+}
+
+// http://miknight.blogspot.com/2005/11/resident-set-size-in-mac-os-x.html
+- (void)logProcessSize {
+	struct task_basic_info t_info;
+    mach_msg_type_number_t t_info_count = TASK_BASIC_INFO_COUNT;
+    task_t task = MACH_PORT_NULL;
+	task_for_pid(current_task(), getpid(), &task);
+    task_info(task, TASK_BASIC_INFO, (task_info_t)&t_info, &t_info_count);
+	NSLog(@"Process size: resident: %dmb, virtual %dmb", t_info.resident_size / (1024*1024), t_info.virtual_size / (1024*1024*2));
 }
 
 
@@ -253,9 +272,7 @@
 		NSError *error = nil;
 		NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 		if (error) {
-			//todo: remove temporary test
-			NSLog(@"dofindimagesgoogle error: %p, class %@, code %d", error, [error class], [error code]);
-			//[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
+			[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
 			[self clearBusy];
 			return;
 		}
@@ -318,7 +335,6 @@
 	NSURL *xsltUrl = [NSURL fileURLWithPath:xsltPath];
 	NSXMLDocument *plistDoc = [xmlDoc objectByApplyingXSLTAtURL:xsltUrl arguments:nil error:&error];
 	id imageData = [[plistDoc description] propertyList];
-
 
 	for (id item in [imageData valueForKeyPath:@"results"]) {
 			id io = [[ImageSearchItem alloc] initWithSearchResult:item];
@@ -646,9 +662,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	UKCrashReporterCheckForCrash();
-
-	
-	
+/*
+	struct rlimit limit;
+	getrlimit(RLIMIT_NOFILE, &limit);
+	NSLog(@"RLIMIT_NOFILE: %d", limit.rlim_cur);
+*/	
 }
 
 
@@ -743,6 +761,21 @@
 
 
 
+// redirect popups to the same web view
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request {
+	return webView;
+}
+
+
+// instead of closing, return to the previous history location which was probably the opener
+- (void)webViewClose:(WebView *)sender {
+	[webView goBack];
+}
+
+
+// don't allow javascript to resize our window
+- (void)webView:(WebView *)sender setFrame:(NSRect)frame {
+}
 
 
 
