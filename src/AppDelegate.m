@@ -54,8 +54,9 @@
 - (void)setAlbumArtworkBackground:(id)sender {
 
 	NSData *imageData;
-	if ([sender isKindOfClass:[NSMenuItem class]]) {
+	if ([sender isKindOfClass:[NSMenuItem class]] && [(NSMenuItem *)sender representedObject]) {
 		NSMenuItem *item = sender;
+		NSAssert([item representedObject], @"representedObject not nil");
 		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
 		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
 		imageData = [io dataError:nil];
@@ -393,7 +394,10 @@
 
 
 - (void)removeCurrentItemAndWarn {
-	int index = [[imageBrowser selectionIndexes] firstIndex];
+	NSIndexSet *sel = [imageBrowser selectionIndexes];
+	NSAssert(sel, @"imageBrowser selectionIndexes not nil");
+	NSUInteger index = [sel firstIndex];
+	NSAssert(index > 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range");
 	[self removeItemAtIndex:index];
 	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", @"") message:NSLocalizedString(@"image_unavailable", @"")];
 }
@@ -411,7 +415,7 @@
 
 - (IBAction)addToQueueBackground:(id)sender {
 	id trackGroup;
-	if ([sender isKindOfClass:[NSMenuItem class]]) {
+	if ([sender isKindOfClass:[NSMenuItem class]] && [(NSMenuItem *)sender representedObject]) {
 		NSMenuItem *item = sender;
 		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
 		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
@@ -422,7 +426,7 @@
 		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:[self selectedImage]]];	
 	}
 	if (!trackGroup) return;
-	[dataStore save];
+	[[dataStore dd_invokeOnMainThread] save];
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"queueAddSwitchesToItunes"]) {
 		[[NSWorkspace sharedWorkspace] launchApplication:@"iTunes"];
 	}
@@ -749,12 +753,18 @@
 	NSMutableArray *items = [NSMutableArray array];
 	NSMenuItem *item;
 
+	NSString *absoluteUrl = [imageUrl absoluteString];
+	if (!absoluteUrl) {
+		NSLog(@"absoluteString is nil for url %@", imageUrl);
+		return defaultMenuItems;
+	}
+	
 	item = [addToQueueMenuItem copy];
-	[item setRepresentedObject:[imageUrl absoluteString]];
+	[item setRepresentedObject:absoluteUrl];
 	[items insertObject:item atIndex:0];
 
 	item = [addImmediatelyMenuItem copy];
-	[item setRepresentedObject:[imageUrl absoluteString]];
+	[item setRepresentedObject:absoluteUrl];
 	[items insertObject:item atIndex:0];
 
 	return items;
