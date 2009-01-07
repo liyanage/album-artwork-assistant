@@ -583,6 +583,7 @@
 	id sortDesc = [NSArchiver archivedDataWithRootObject:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES]]];
 	NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:DOUBLECLICK_ACTION_QUEUE], @"doubleClickAction",
+		[NSNumber numberWithBool:YES], @"terminateWithItunes",
 		[NSNumber numberWithBool:YES], @"queueAddSwitchesToItunes",
 		[NSNumber numberWithInt:5], @"imageDownloadTimeoutSeconds",
 		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
@@ -595,7 +596,22 @@
 - (void)setupNotifications {
 	// the AppleScript command object sends this notification
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetch:) name:@"fetchiTunesAlbums" object:nil];
+
+	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(applicationDidQuit:) name:NSWorkspaceDidTerminateApplicationNotification object:nil];
 }
+
+
+- (void)applicationDidQuit:(NSNotification *)notification {
+	NSLog(@"app did quit: %@", notification);
+
+	if (![[[notification userInfo] valueForKey:@"NSApplicationBundleIdentifier"] isEqualToString:@"com.apple.iTunes"]) return;
+	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"terminateWithItunes"]) return;
+
+	NSLog(@"itunes quit, so we're quitting...");
+
+	[[NSApplication sharedApplication] terminate:self];
+}
+
 
 
 # pragma mark NSResponder presentError delegate methods
