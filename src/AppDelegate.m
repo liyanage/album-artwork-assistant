@@ -398,7 +398,7 @@
 	NSIndexSet *sel = [imageBrowser selectionIndexes];
 	NSAssert(sel, @"imageBrowser selectionIndexes not nil");
 	NSUInteger index = [sel firstIndex];
-	NSAssert(index >= 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range");
+	NSAssert2(index >= 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range (0 <= %d < %d) ", index, IMAGE_BROWSER_MAX_ITEMS);
 	[self removeItemAtIndex:index];
 	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", @"") message:NSLocalizedString(@"image_unavailable", @"")];
 }

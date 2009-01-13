@@ -12,7 +12,7 @@
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
 #define GOOGLE_IMAGE_RESULTS_PER_PAGE 8
 #define ERRORDOMAIN @"ch.entropy.album-artwork-assistant"
-#define IMAGE_BROWSER_MAX_ITEMS 16
+#define IMAGE_BROWSER_MAX_ITEMS 100
 
 @interface AppDelegate : NSObject <StatusDelegateProtocol, IKImageBrowserFileUrlDataSource> {
 	IBOutlet NSProgressIndicator *progressIndicator;
