@@ -48,6 +48,7 @@
 
 - (IBAction)setAlbumArtwork:(id)sender {
 	[self performSelectorInBackground:@selector(setAlbumArtworkBackground:) withObject:sender];
+//	[self setAlbumArtworkBackground:sender];
 }
 
 
@@ -397,7 +398,7 @@
 	NSIndexSet *sel = [imageBrowser selectionIndexes];
 	NSAssert(sel, @"imageBrowser selectionIndexes not nil");
 	NSUInteger index = [sel firstIndex];
-	NSAssert(index > 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range");
+	NSAssert(index >= 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range");
 	[self removeItemAtIndex:index];
 	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", @"") message:NSLocalizedString(@"image_unavailable", @"")];
 }
@@ -410,6 +411,7 @@
 - (IBAction)addToQueue:(id)sender {
 	[queueDrawer open];
 	[self performSelectorInBackground:@selector(addToQueueBackground:) withObject:sender];
+//	[self addToQueueBackground:sender];
 }
 
 
@@ -662,6 +664,17 @@
 
 
 - (void)imageBrowser:(IKImageBrowserView *)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index {
+
+//	NSLog(@"image browser selected index: index: %d", [[imageBrowser selectionIndexes] firstIndex]);
+
+//	NSIndexSet *set = [NSIndexSet indexSetWithIndex:index];
+//	NSLog(@"doubleclick before: index: %@, %@, %d", set, [imageBrowser selectionIndexes], [[imageBrowser selectionIndexes] firstIndex]);
+//	[imageBrowser setSelectionIndexes:set byExtendingSelection:NO];
+	
+//	NSLog(@"doubleclick after: index: %@, %@, index imageBrowser %d, index parameter: %d", set, [imageBrowser selectionIndexes], [[imageBrowser selectionIndexes] firstIndex], index);
+
+//	return;
+
 	if ([[NSUserDefaults standardUserDefaults] integerForKey:@"doubleClickAction"] == DOUBLECLICK_ACTION_QUEUE) {
 		[self addToQueue:self];
 	} else {
