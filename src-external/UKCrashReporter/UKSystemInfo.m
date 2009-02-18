@@ -13,8 +13,7 @@
 
 unsigned	UKPhysicalRAMSize()
 {
-	long		ramSize;
-	
+	SInt32		ramSize;
 	if( Gestalt( gestaltPhysicalRAMSizeInMegabytes, &ramSize ) == noErr )
 		return ramSize;
 	else
@@ -31,9 +30,9 @@ NSString*	UKSystemVersionString()
 }
 
 
-void	UKGetSystemVersionComponents( long* outMajor, long* outMinor, long* outBugfix )
+void	UKGetSystemVersionComponents( SInt32* outMajor, SInt32* outMinor, SInt32* outBugfix )
 {
-	long		sysVersion = UKSystemVersion();
+	SInt32		sysVersion = UKSystemVersion();
 	if( sysVersion >= MAC_OS_X_VERSION_10_4 )
 	{
 		Gestalt( gestaltSystemVersionMajor, outMajor );

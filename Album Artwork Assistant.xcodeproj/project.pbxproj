@@ -55,6 +55,7 @@
 		1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2830EDE125500E0591A /* Album Artwork Assistant Help */; };
 		1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2B80EDE13D100E0591A /* release-notes.html */; };
 		1B14A3070EDE8FFF00E0591A /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A3040EDE8FFA00E0591A /* help.css */; };
+		1B37BF010F4C2ECD005A5BAB /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */; };
 		1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
 		1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
 		1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1B48E73F0E8312F900AC5357 /* dsa_pub.pem */; };
@@ -92,7 +93,6 @@
 		1B8CF64C0E2BD9480084C323 /* embed-artwork.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 1B8CF64B0E2BD9480084C323 /* embed-artwork.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		1B8CF6CE0E2BFC320084C323 /* music-artwork.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1B8CF6CD0E2BFC320084C323 /* music-artwork.sdef */; };
 		1B8CF71A0E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF7190E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m */; };
-		1BA571A80E48D020004D305E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BA571A70E48D020004D305E /* Credits.rtf */; };
 		1BAA29D30E2ABA3300B05717 /* ImageSearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA29D20E2ABA3300B05717 /* ImageSearchItem.m */; };
 		1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAA29D70E2ABB3000B05717 /* Quartz.framework */; };
 		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
@@ -174,6 +174,7 @@
 		1B14A3040EDE8FFA00E0591A /* help.css */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		1B14A3050EDE8FFA00E0591A /* update-help.sh */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.script.sh; path = "update-help.sh"; sourceTree = "<group>"; };
 		1B14A3060EDE8FFA00E0591A /* update-help.xslt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.xml; path = "update-help.xslt"; sourceTree = "<group>"; };
+		1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; name = Credits.rtfd; path = Resources/Credits.rtfd; sourceTree = "<group>"; };
 		1B48E71E0E82BE5500AC5357 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "sparkle/With Garbage Collection/Sparkle.framework"; sourceTree = "<group>"; };
 		1B48E73F0E8312F900AC5357 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		1B48E7850E8326ED00AC5357 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
@@ -239,7 +240,6 @@
 		1B8CF6CD0E2BFC320084C323 /* music-artwork.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; name = "music-artwork.sdef"; path = "src/music-artwork.sdef"; sourceTree = "<group>"; };
 		1B8CF7180E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchiTunesAlbumsScriptCommand.h; path = src/FetchiTunesAlbumsScriptCommand.h; sourceTree = "<group>"; };
 		1B8CF7190E2C04CA0084C323 /* FetchiTunesAlbumsScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchiTunesAlbumsScriptCommand.m; path = src/FetchiTunesAlbumsScriptCommand.m; sourceTree = "<group>"; };
-		1BA571A70E48D020004D305E /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = "<group>"; };
 		1BAA29D10E2ABA3300B05717 /* ImageSearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearchItem.h; path = src/ImageSearchItem.h; sourceTree = "<group>"; };
 		1BAA29D20E2ABA3300B05717 /* ImageSearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSearchItem.m; path = src/ImageSearchItem.m; sourceTree = "<group>"; };
 		1BAA29D70E2ABB3000B05717 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
@@ -529,6 +529,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */,
 				1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */,
 				1B87CDF00EEDC5FD007CAD18 /* larger.tif */,
 				1B14A3020EDE8FFA00E0591A /* help-tools */,
@@ -544,7 +545,6 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				1BA571A70E48D020004D305E /* Credits.rtf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -615,7 +615,6 @@
 				1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */,
 				1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */,
 				1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */,
-				1BA571A80E48D020004D305E /* Credits.rtf in Resources */,
 				1B59564B0E81AC75008B24A9 /* readme.txt in Resources */,
 				1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */,
 				1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */,
@@ -627,6 +626,7 @@
 				1B5AC7D50F04424C00D2E9D5 /* UKCrashReporter Readme.txt in Resources */,
 				1B5AC7E20F0442E400D2E9D5 /* UKCrashReporter.strings in Resources */,
 				1B5AC7DF0F0442C100D2E9D5 /* UKCrashReporter.xib in Resources */,
+				1B37BF010F4C2ECD005A5BAB /* Credits.rtfd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +814,7 @@
 		1B77CBEC0E3CE52900465756 /* Debug no net */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -928,7 +928,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -948,7 +948,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
