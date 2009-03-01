@@ -18,6 +18,17 @@
 			name = "Update Help Docs";
 			productName = "Update Help Docs";
 		};
+		1BB91D270F5A2084002EA033 /* Build JSON */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1BB91D320F5A208F002EA033 /* Build configuration list for PBXAggregateTarget "Build JSON" */;
+			buildPhases = (
+				1BB91D260F5A2084002EA033 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Build JSON";
+			productName = "Build JSON";
+		};
 		1BE5C9DA0E3A1DB900334BA1 /* Distribution */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
@@ -124,6 +135,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1B73941D0ED215E20011B0E8;
 			remoteInfo = "Update Help Docs";
+		};
+		1BB91D350F5A20AA002EA033 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BB91D270F5A2084002EA033 /* Build JSON */;
+			remoteInfo = "Build JSON";
 		};
 		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -577,6 +595,7 @@
 				1B5654F40E86FD4300E59DF9 /* PBXBuildRule */,
 			);
 			dependencies = (
+				1BB91D360F5A20AA002EA033 /* PBXTargetDependency */,
 			);
 			name = "Album Artwork Assistant";
 			productInstallPath = "$(HOME)/Applications";
@@ -599,6 +618,7 @@
 				8D1107260486CEB800E47090 /* Album Artwork Assistant */,
 				1BE5C9DA0E3A1DB900334BA1 /* Distribution */,
 				1B73941D0ED215E20011B0E8 /* Update Help Docs */,
+				1BB91D270F5A2084002EA033 /* Build JSON */,
 			);
 		};
 /* End PBXProject section */
@@ -661,6 +681,19 @@
 			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/English.lproj/Album\\ Artwork\\ Assistant\\ Help\n/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/German.lproj/Album\\ Artwork\\ Assistant\\ Help";
 			showEnvVarsInLog = 0;
 		};
+		1BB91D260F5A2084002EA033 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "JSONDIR=src-external/json-framework-read-only\n[ -e $JSONDIR ] || svn co http://json-framework.googlecode.com/svn/trunk $JSONDIR";
+		};
 		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -718,6 +751,11 @@
 			isa = PBXTargetDependency;
 			target = 1B73941D0ED215E20011B0E8 /* Update Help Docs */;
 			targetProxy = 1B7394210ED215F40011B0E8 /* PBXContainerItemProxy */;
+		};
+		1BB91D360F5A20AA002EA033 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BB91D270F5A2084002EA033 /* Build JSON */;
+			targetProxy = 1BB91D350F5A20AA002EA033 /* PBXContainerItemProxy */;
 		};
 		1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -863,6 +901,34 @@
 			};
 			name = "Debug no net";
 		};
+		1BB91D280F5A2085002EA033 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build JSON";
+			};
+			name = Debug;
+		};
+		1BB91D290F5A2085002EA033 /* Debug no net */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Build JSON";
+			};
+			name = "Debug no net";
+		};
+		1BB91D2A0F5A2085002EA033 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build JSON";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1BE5C9DB0E3A1DBA00334BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -971,6 +1037,16 @@
 				1B73941E0ED215E30011B0E8 /* Debug */,
 				1B73941F0ED215E30011B0E8 /* Debug no net */,
 				1B7394200ED215E30011B0E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BB91D320F5A208F002EA033 /* Build configuration list for PBXAggregateTarget "Build JSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BB91D280F5A2085002EA033 /* Debug */,
+				1BB91D290F5A2085002EA033 /* Debug no net */,
+				1BB91D2A0F5A2085002EA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
