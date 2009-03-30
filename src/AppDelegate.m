@@ -63,6 +63,7 @@
 		imageData = [io dataError:nil];
 	} else {
 		ImageSearchItem *item = [self selectedImage];
+		if (!item) return;
 		[self startBusy:NSLocalizedString(@"downloading_image", @"")];
 		imageData = [self imageDataForItem:item];
 		[self clearBusy];
@@ -92,14 +93,12 @@
 
 - (void)clearImages {
 	[images removeAllObjects];
-
 	// if we don't do this, file descriptors from HTTP connections pile up
 	// and crash the application sooner or later
 	[[NSGarbageCollector defaultCollector] collectExhaustively];
-
 	[self logProcessSize];
-
 }
+
 
 // http://miknight.blogspot.com/2005/11/resident-set-size-in-mac-os-x.html
 - (void)logProcessSize {
@@ -363,7 +362,12 @@
 
 
 - (ImageSearchItem *)selectedImage {
-	int index = [[imageBrowser selectionIndexes] firstIndex];
+	NSUInteger index = [self selectedImageIndex];
+	NSUInteger count = [images count];
+	if (index > count - 1) {
+		NSLog(@"[[imageBrowser selectionIndexes] firstIndex] is %d but image count is only %d", index, count);
+		return nil;
+	}
 	return [images objectAtIndex:index];
 }
 
@@ -395,14 +399,18 @@
 
 
 - (void)removeCurrentItemAndWarn {
-	NSIndexSet *sel = [imageBrowser selectionIndexes];
-	NSAssert(sel, @"imageBrowser selectionIndexes not nil");
-	NSUInteger index = [sel firstIndex];
+	NSUInteger index = [self selectedImageIndex];
 	NSAssert2(index >= 0 && index < IMAGE_BROWSER_MAX_ITEMS, @"selectionIndexes firstIndex in valid range (0 <= %d < %d) ", index, IMAGE_BROWSER_MAX_ITEMS);
 	[self removeItemAtIndex:index];
 	[self displayErrorWithTitle:NSLocalizedString(@"image_unavailable_title", @"") message:NSLocalizedString(@"image_unavailable", @"")];
 }
 
+
+- (NSUInteger)selectedImageIndex {
+	NSIndexSet *sel = [[imageBrowser dd_invokeOnMainThread] selectionIndexes];
+	NSUInteger index = [[sel dd_invokeOnMainThread] firstIndex];
+	return index;
+}
 
 
 
@@ -425,7 +433,9 @@
 		if (!data) return;
 		trackGroup = [self makeTrackGroupWithImageData:data];
 	} else {
-		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:[self selectedImage]]];	
+		ImageSearchItem *item = [self selectedImage];
+		if (!item) return;
+		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:item]];
 	}
 	if (!trackGroup) return;
 	[[dataStore dd_invokeOnMainThread] save];

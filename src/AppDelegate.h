@@ -83,6 +83,7 @@
 - (NSData *)imageDataForItem:(ImageSearchItem *)item;
 - (void)removeItemAtIndex:(int)index;
 - (ImageSearchItem *)selectedImage;
+- (NSUInteger)selectedImageIndex;
 - (void)removeCurrentItemAndWarn;
 
 - (IBAction)debug:(id)sender;
