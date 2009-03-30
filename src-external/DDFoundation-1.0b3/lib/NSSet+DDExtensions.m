@@ -22,30 +22,6 @@
  * SOFTWARE.
  */
 
-#import "NSString+DDExtensions.h"
+#import "NSSet+DDExtensions.h"
 
-NSString * DDMimeTypeForExtension(NSString * extension)
-{
-    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,
-                                                            (CFStringRef) extension, NULL);
-    
-    CFStringRef cfMime = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
-    CFRelease(uti);
-    
-    if (cfMime == NULL)
-        return @"application/octet-stream";
-    
-    NSString * mime = [NSString stringWithString: (NSString *) cfMime];
-    CFRelease(cfMime);
-    
-    return mime;
-}
 
-@implementation NSString (DDExtensions)
-
-- (NSString *) dd_pathMimeType;
-{
-    return DDMimeTypeForExtension([self pathExtension]);
-}
-
-@end

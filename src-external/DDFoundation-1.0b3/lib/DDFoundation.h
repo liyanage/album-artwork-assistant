@@ -22,13 +22,16 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "DDInvocationGrabber.h"
+#import "DDObserverDispatcher.h"
+#import "DDRunLoopPoker.h"
+#import "DDRunLoopCondition.h"
+#import "DDSequenceComparator.h"
+#import "DDTemporaryDirectory.h"
 
-
-NSString * DDMimeTypeForExtension(NSString * extension);
-
-@interface NSString (DDExtensions)
-
-- (NSString *) dd_pathMimeType;
-
-@end
+#import "NSArray+DDExtensions.h"
+#import "NSSet+DDExtensions.h"
+#import "NSData+DDExtensions.h"
+#import "NSObject+DDExtensions.h"
+#import "NSString+DDExtensions.h"
+#import "NSSortDescriptor+DDExtensions.h"

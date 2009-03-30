@@ -33,6 +33,18 @@
 		55CA87310D4551AF004492E9 /* DDTemporaryFileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA87090D455141004492E9 /* DDTemporaryFileTest.m */; };
 		55CA87320D4551AF004492E9 /* NSString+DDExtensionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA870B0D455141004492E9 /* NSString+DDExtensionsTest.m */; };
 		55EA07380DDE5E610087B37B /* NSObject+DDExtensionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA07370DDE5E610087B37B /* NSObject+DDExtensionsTest.m */; };
+		55EA25D30E852DBE0051E267 /* DDRunLoopCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EA25CB0E852DBE0051E267 /* DDRunLoopCondition.h */; };
+		55EA25D40E852DBE0051E267 /* DDRunLoopCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA25CC0E852DBE0051E267 /* DDRunLoopCondition.m */; };
+		55EA25D50E852DBE0051E267 /* DDRunLoopPoker.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EA25CD0E852DBE0051E267 /* DDRunLoopPoker.h */; };
+		55EA25D60E852DBE0051E267 /* DDRunLoopPoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA25CE0E852DBE0051E267 /* DDRunLoopPoker.m */; };
+		55EA25D70E852DBE0051E267 /* NSSet+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EA25CF0E852DBE0051E267 /* NSSet+DDExtensions.h */; };
+		55EA25D80E852DBE0051E267 /* NSSet+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA25D00E852DBE0051E267 /* NSSet+DDExtensions.m */; };
+		55EA25D90E852DBE0051E267 /* NSSortDescriptor+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EA25D10E852DBE0051E267 /* NSSortDescriptor+DDExtensions.h */; };
+		55EA25DA0E852DBE0051E267 /* NSSortDescriptor+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA25D20E852DBE0051E267 /* NSSortDescriptor+DDExtensions.m */; };
+		55EA25E50E852E760051E267 /* DDRunLoopPokerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA25E40E852E760051E267 /* DDRunLoopPokerTest.m */; };
+		55EF2AA10E17021900B465BE /* NSArray+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EF2A9F0E17021900B465BE /* NSArray+DDExtensions.h */; };
+		55EF2AA20E17021900B465BE /* NSArray+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EF2AA00E17021900B465BE /* NSArray+DDExtensions.m */; };
+		55EF2AA90E17039500B465BE /* DDFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EF2AA80E17039500B465BE /* DDFoundation.h */; };
 		55F7D4C90DDAA4BC00FD433C /* NSObject+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55F7D4C70DDAA4BC00FD433C /* NSObject+DDExtensions.h */; };
 		55F7D4CA0DDAA4BC00FD433C /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7D4C80DDAA4BC00FD433C /* NSObject+DDExtensions.m */; };
 		55F7D4CF0DDAA4F000FD433C /* DDInvocationGrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 55F7D4CD0DDAA4F000FD433C /* DDInvocationGrabber.h */; };
@@ -87,6 +99,19 @@
 		55CA870B0D455141004492E9 /* NSString+DDExtensionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDExtensionsTest.m"; sourceTree = "<group>"; };
 		55EA07360DDE5E610087B37B /* NSObject+DDExtensionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDExtensionsTest.h"; sourceTree = "<group>"; };
 		55EA07370DDE5E610087B37B /* NSObject+DDExtensionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDExtensionsTest.m"; sourceTree = "<group>"; };
+		55EA25CB0E852DBE0051E267 /* DDRunLoopCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRunLoopCondition.h; sourceTree = "<group>"; };
+		55EA25CC0E852DBE0051E267 /* DDRunLoopCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRunLoopCondition.m; sourceTree = "<group>"; };
+		55EA25CD0E852DBE0051E267 /* DDRunLoopPoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRunLoopPoker.h; sourceTree = "<group>"; };
+		55EA25CE0E852DBE0051E267 /* DDRunLoopPoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRunLoopPoker.m; sourceTree = "<group>"; };
+		55EA25CF0E852DBE0051E267 /* NSSet+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+DDExtensions.h"; sourceTree = "<group>"; };
+		55EA25D00E852DBE0051E267 /* NSSet+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+DDExtensions.m"; sourceTree = "<group>"; };
+		55EA25D10E852DBE0051E267 /* NSSortDescriptor+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSortDescriptor+DDExtensions.h"; sourceTree = "<group>"; };
+		55EA25D20E852DBE0051E267 /* NSSortDescriptor+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSortDescriptor+DDExtensions.m"; sourceTree = "<group>"; };
+		55EA25E30E852E760051E267 /* DDRunLoopPokerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRunLoopPokerTest.h; sourceTree = "<group>"; };
+		55EA25E40E852E760051E267 /* DDRunLoopPokerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRunLoopPokerTest.m; sourceTree = "<group>"; };
+		55EF2A9F0E17021900B465BE /* NSArray+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+DDExtensions.h"; sourceTree = "<group>"; };
+		55EF2AA00E17021900B465BE /* NSArray+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DDExtensions.m"; sourceTree = "<group>"; };
+		55EF2AA80E17039500B465BE /* DDFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFoundation.h; sourceTree = "<group>"; };
 		55F7D4C70DDAA4BC00FD433C /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDExtensions.h"; sourceTree = "<group>"; };
 		55F7D4C80DDAA4BC00FD433C /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDExtensions.m"; sourceTree = "<group>"; };
 		55F7D4CD0DDAA4F000FD433C /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDInvocationGrabber.h; sourceTree = "<group>"; };
@@ -150,22 +175,33 @@
 		08FB77AEFE84172EC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				55F7D4CD0DDAA4F000FD433C /* DDInvocationGrabber.h */,
+				55F7D4CE0DDAA4F000FD433C /* DDInvocationGrabber.m */,
+				555D37230D48F512001A5533 /* DDObserverDispatcher.h */,
+				555D37240D48F512001A5533 /* DDObserverDispatcher.m */,
+				55EA25CB0E852DBE0051E267 /* DDRunLoopCondition.h */,
+				55EA25CC0E852DBE0051E267 /* DDRunLoopCondition.m */,
+				55EA25CD0E852DBE0051E267 /* DDRunLoopPoker.h */,
+				55EA25CE0E852DBE0051E267 /* DDRunLoopPoker.m */,
+				55BC33300D52E80C0030033C /* DDSequenceComparator.h */,
+				55BC33310D52E80C0030033C /* DDSequenceComparator.m */,
 				55CA85890D454F3F004492E9 /* DDTemporaryDirectory.h */,
 				55CA858A0D454F3F004492E9 /* DDTemporaryDirectory.m */,
 				55CA858B0D454F3F004492E9 /* DDTemporaryFile.h */,
 				55CA858C0D454F3F004492E9 /* DDTemporaryFile.m */,
-				555D37230D48F512001A5533 /* DDObserverDispatcher.h */,
-				555D37240D48F512001A5533 /* DDObserverDispatcher.m */,
-				55BC33300D52E80C0030033C /* DDSequenceComparator.h */,
-				55BC33310D52E80C0030033C /* DDSequenceComparator.m */,
-				55F7D4CD0DDAA4F000FD433C /* DDInvocationGrabber.h */,
-				55F7D4CE0DDAA4F000FD433C /* DDInvocationGrabber.m */,
+				55EF2A9F0E17021900B465BE /* NSArray+DDExtensions.h */,
+				55EF2AA00E17021900B465BE /* NSArray+DDExtensions.m */,
 				55CA858D0D454F3F004492E9 /* NSData+DDExtensions.h */,
 				55CA858E0D454F3F004492E9 /* NSData+DDExtensions.m */,
-				55CA858F0D454F3F004492E9 /* NSString+DDExtensions.h */,
-				55CA85900D454F3F004492E9 /* NSString+DDExtensions.m */,
 				55F7D4C70DDAA4BC00FD433C /* NSObject+DDExtensions.h */,
 				55F7D4C80DDAA4BC00FD433C /* NSObject+DDExtensions.m */,
+				55CA858F0D454F3F004492E9 /* NSString+DDExtensions.h */,
+				55CA85900D454F3F004492E9 /* NSString+DDExtensions.m */,
+				55EA25CF0E852DBE0051E267 /* NSSet+DDExtensions.h */,
+				55EA25D00E852DBE0051E267 /* NSSet+DDExtensions.m */,
+				55EA25D10E852DBE0051E267 /* NSSortDescriptor+DDExtensions.h */,
+				55EA25D20E852DBE0051E267 /* NSSortDescriptor+DDExtensions.m */,
+				55EF2AA80E17039500B465BE /* DDFoundation.h */,
 			);
 			name = Source;
 			path = lib;
@@ -220,6 +256,8 @@
 				55CA87090D455141004492E9 /* DDTemporaryFileTest.m */,
 				555D37290D48F687001A5533 /* DDObserverDispatcherTest.h */,
 				555D372A0D48F687001A5533 /* DDObserverDispatcherTest.m */,
+				55EA25E30E852E760051E267 /* DDRunLoopPokerTest.h */,
+				55EA25E40E852E760051E267 /* DDRunLoopPokerTest.m */,
 				55BC33360D52EA490030033C /* DDSequenceComparatorTest.h */,
 				55BC33370D52EA490030033C /* DDSequenceComparatorTest.m */,
 				55F7D4DE0DDAA88B00FD433C /* DDInvocationGrabberTest.h */,
@@ -265,6 +303,12 @@
 				55BC33320D52E80C0030033C /* DDSequenceComparator.h in Headers */,
 				55F7D4C90DDAA4BC00FD433C /* NSObject+DDExtensions.h in Headers */,
 				55F7D4CF0DDAA4F000FD433C /* DDInvocationGrabber.h in Headers */,
+				55EF2AA10E17021900B465BE /* NSArray+DDExtensions.h in Headers */,
+				55EF2AA90E17039500B465BE /* DDFoundation.h in Headers */,
+				55EA25D30E852DBE0051E267 /* DDRunLoopCondition.h in Headers */,
+				55EA25D50E852DBE0051E267 /* DDRunLoopPoker.h in Headers */,
+				55EA25D70E852DBE0051E267 /* NSSet+DDExtensions.h in Headers */,
+				55EA25D90E852DBE0051E267 /* NSSortDescriptor+DDExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +412,7 @@
 				55BC33380D52EA490030033C /* DDSequenceComparatorTest.m in Sources */,
 				55F7D4E00DDAA88B00FD433C /* DDInvocationGrabberTest.m in Sources */,
 				55EA07380DDE5E610087B37B /* NSObject+DDExtensionsTest.m in Sources */,
+				55EA25E50E852E760051E267 /* DDRunLoopPokerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +429,11 @@
 				55BC33330D52E80C0030033C /* DDSequenceComparator.m in Sources */,
 				55F7D4CA0DDAA4BC00FD433C /* NSObject+DDExtensions.m in Sources */,
 				55F7D4D00DDAA4F000FD433C /* DDInvocationGrabber.m in Sources */,
+				55EF2AA20E17021900B465BE /* NSArray+DDExtensions.m in Sources */,
+				55EA25D40E852DBE0051E267 /* DDRunLoopCondition.m in Sources */,
+				55EA25D60E852DBE0051E267 /* DDRunLoopPoker.m in Sources */,
+				55EA25D80E852DBE0051E267 /* NSSet+DDExtensions.m in Sources */,
+				55EA25DA0E852DBE0051E267 /* NSSortDescriptor+DDExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +483,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 			};
 			name = Debug;
 		};
@@ -447,6 +502,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 			};
 			name = Release;
 		};

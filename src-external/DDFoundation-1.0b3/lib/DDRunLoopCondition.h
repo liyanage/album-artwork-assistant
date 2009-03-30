@@ -22,27 +22,27 @@
  * SOFTWARE.
  */
 
-#import "NSString+DDExtensionsTest.h"
-#import "NSString+DDExtensions.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSString_DDExtensionsTest
+@class DDRunLoopPoker;
 
-- (void) testMimeTypeForExtensionFunction;
+@interface DDRunLoopCondition : NSObject
 {
-    STAssertEqualObjects(DDMimeTypeForExtension(@"png"), @"image/png", nil);
-    STAssertEqualObjects(DDMimeTypeForExtension(@"zip"), @"application/zip", nil);
-    STAssertEqualObjects(DDMimeTypeForExtension(@"txt"), @"text/plain", nil);
-    STAssertEqualObjects(DDMimeTypeForExtension(@".unknown"), @"application/octet-stream", nil);
-    STAssertEqualObjects(DDMimeTypeForExtension(@""), @"application/octet-stream", nil);
+    DDRunLoopPoker * _poker;
+    int _condition;
 }
 
-- (void) testPathMimeTypeCategory;
-{
-    STAssertEqualObjects([@"foo.png" dd_pathMimeType], @"image/png", nil);
-    STAssertEqualObjects([@"foo.zip" dd_pathMimeType], @"application/zip", nil);
-    STAssertEqualObjects([@"foo.txt" dd_pathMimeType], @"text/plain", nil);
-    STAssertEqualObjects([@"foo.unknown" dd_pathMimeType], @"application/octet-stream", nil);
-    STAssertEqualObjects([@"foo" dd_pathMimeType], @"application/octet-stream", nil);
-}
+- (id)initWithCondition:(int)condition onRunLoop:(NSRunLoop *)runLoop;
+- (id)initWithCondition:(int)condition;
+
+- (void)dispose;
+
+- (int)condition;
+- (void)setCondition:(int)condition;
+
+- (void)waitForCondition:(int)condition;
+- (BOOL)waitForCondition:(int)condition beforeDate:(NSDate *)endDate;
+
+- (void)signalWithCondition:(int)condition;
 
 @end

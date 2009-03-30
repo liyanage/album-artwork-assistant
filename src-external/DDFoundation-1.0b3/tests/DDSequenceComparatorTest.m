@@ -67,7 +67,7 @@ static DDSequenceComparator * newComparator(NSArray * sourceArray, NSString * so
     DDSequenceComparator * comparator = newComparator(_S_, _SK_, _F_, _FK_); \
     size_t i = 0;\
     NSNumber * comparisonValue;\
-    while (comparisonValue = [comparator nextObject])\
+    while ((comparisonValue = [comparator nextObject]))\
     {\
         NSComparisonResult actualResult = [comparisonValue intValue];\
         STAssertEquals(actualResult, _R_[i], [NSString stringWithFormat: @"i = %d", i]);\

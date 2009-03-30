@@ -216,7 +216,7 @@ defaultDispatchOption: (DDObserverDispatchOption) dispatchOption;
     {
         NSEnumerator * e = [_keyPathsByObject keyEnumerator];
         NSArray * objectWrapper;
-        while (objectWrapper = [e nextObject])
+        while ((objectWrapper = [e nextObject]))
         {
             NSMutableDictionary * keyPaths = [_keyPathsByObject objectForKey: objectWrapper];
             [self removeObserverForAllKeyPaths: keyPaths ofObjectWrapper: objectWrapper];
@@ -285,7 +285,7 @@ defaultDispatchOption: (DDObserverDispatchOption) dispatchOption;
     NSObject * object = [objectWrapper objectAtIndex: 0];
     NSEnumerator * e = [keyPaths keyEnumerator];
     NSString * keyPath;
-    while (keyPath = [e nextObject])
+    while ((keyPath = [e nextObject]))
     {
         [object removeObserver: self forKeyPath: keyPath];
     }

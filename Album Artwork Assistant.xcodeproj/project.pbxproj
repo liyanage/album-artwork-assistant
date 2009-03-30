@@ -262,10 +262,10 @@
 		1BAA29D20E2ABA3300B05717 /* ImageSearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSearchItem.m; path = src/ImageSearchItem.m; sourceTree = "<group>"; };
 		1BAA29D70E2ABB3000B05717 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		1BAF14A50E328D6200A725F6 /* StatusDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusDelegateProtocol.h; path = src/StatusDelegateProtocol.h; sourceTree = "<group>"; };
-		1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "src-external/DDFoundation-1.0b1/lib/DDInvocationGrabber.m"; sourceTree = "<group>"; };
-		1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "src-external/DDFoundation-1.0b1/lib/NSObject+DDExtensions.m"; sourceTree = "<group>"; };
-		1BAF15C50E33D8EF00A725F6 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "src-external/DDFoundation-1.0b1/lib/DDInvocationGrabber.h"; sourceTree = "<group>"; };
-		1BAF15C60E33D8EF00A725F6 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "src-external/DDFoundation-1.0b1/lib/NSObject+DDExtensions.h"; sourceTree = "<group>"; };
+		1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "src-external/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = "<group>"; };
+		1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "src-external/DDFoundation-1.0b3/lib/NSObject+DDExtensions.m"; sourceTree = "<group>"; };
+		1BAF15C50E33D8EF00A725F6 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "src-external/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = "<group>"; };
+		1BAF15C60E33D8EF00A725F6 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "src-external/DDFoundation-1.0b3/lib/NSObject+DDExtensions.h"; sourceTree = "<group>"; };
 		1BAF160E0E33E16800A725F6 /* NSString+NDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NDUtilities.m"; path = "src-external/NDAppleScriptObjectProject/Classes/NSString+NDUtilities.m"; sourceTree = "<group>"; };
 		1BAF160F0E33E16800A725F6 /* NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDAppleScriptObject.m; path = "src-external/NDAppleScriptObjectProject/Classes/NDAppleScriptObject.m"; sourceTree = "<group>"; };
 		1BAF16100E33E16800A725F6 /* NDResourceFork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDResourceFork.h; path = "src-external/NDAppleScriptObjectProject/Classes/NDResourceFork.h"; sourceTree = "<group>"; };
@@ -863,7 +863,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.3;
+				PRODUCT_VERSION = 2.4;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1004,7 +1004,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.3;
+				PRODUCT_VERSION = 2.4;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://127.0.0.1/album-artwork-assistant/appcast.debug.xml";
@@ -1021,7 +1021,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.3;
+				PRODUCT_VERSION = 2.4;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml";
