@@ -218,7 +218,7 @@
 
 	NSArray *trackData = [[ds stringValue] propertyList];
 	NSAssert(trackData, NSLocalizedString(@"cant_parse_itunes_tracks", @""));
-	[self setValue:trackData forKey:@"tracks"];
+	[self setValue:[trackData mutableCopy] forKey:@"tracks"];
 	return YES;
 }
 
@@ -407,11 +407,23 @@
 
 
 - (NSUInteger)selectedImageIndex {
-	NSIndexSet *sel = [[imageBrowser dd_invokeOnMainThread] selectionIndexes];
-	NSUInteger index = [[sel dd_invokeOnMainThread] firstIndex];
+	NSIndexSet *sel = [[imageBrowser dd_invokeOnMainThreadAndWaitUntilDone:YES] selectionIndexes];
+	NSUInteger index = [[sel dd_invokeOnMainThreadAndWaitUntilDone:YES] firstIndex];
+	NSLog(@"selected index: %d, sel: %@, imgbrowser: %@", index, sel, imageBrowser);
 	return index;
 }
 
+# pragma mark track list manipulation
+
+// enable delete: menu command only when something is selected in the album track list
+- (BOOL)validateMenuItem:(NSMenuItem *)item {
+	if ([item action] != @selector(delete:)) return YES;
+	return [albumTracksController selectionIndex] != NSNotFound;
+}
+
+- (IBAction)delete:(id)sender {
+	[albumTracksController remove:sender];
+}
 
 
 # pragma mark queue manipulation
@@ -476,7 +488,6 @@
 	
 	return trackGroup;
 }
-
 
 
 - (IBAction)processQueue:(id)sender {
@@ -716,10 +727,11 @@
 
 #pragma mark tracks table view delegate methods
 
+/*
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex {
 	return NO;
 }
-
+*/
 
 #pragma tab view management and delegate methods
 

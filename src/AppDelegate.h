@@ -22,13 +22,14 @@
     IBOutlet QuickLookImageBrowserView *imageBrowser;
     IBOutlet NSArrayController *queueController;
     IBOutlet NSArrayController *groupsController;
+    IBOutlet NSArrayController *albumTracksController;
     IBOutlet NSTabView *tabView;
     IBOutlet WebView *webView;
     IBOutlet NSMenuItem *addImmediatelyMenuItem;
     IBOutlet NSMenuItem *addToQueueMenuItem;
 	DOMHTMLElement *highlightedElement;
 	NSString *highlightedElementOriginalStyle;
-	NSArray *tracks;
+	NSMutableArray *tracks;
 	NSString *albumTitle;
 	NSMutableArray *images;
 	BOOL isImageSelected;
