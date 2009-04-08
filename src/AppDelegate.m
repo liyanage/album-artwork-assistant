@@ -419,6 +419,7 @@
 - (BOOL)validateMenuItem:(NSMenuItem *)item {
 	if ([item action] != @selector(delete:)) return YES;
 	return [albumTracksController selectionIndex] != NSNotFound;
+	
 }
 
 - (IBAction)delete:(id)sender {
