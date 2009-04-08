@@ -8,8 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
-			<integer value="57"/>
+			<integer value="371"/>
 			<integer value="761"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -918,7 +917,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="667789116"/>
 												</object>
 												<object class="NSTableColumn" id="594145216">
@@ -944,7 +942,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="667789116"/>
 												</object>
 												<object class="NSTableColumn" id="261226541">
@@ -973,7 +970,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="667789116"/>
 												</object>
 											</object>
@@ -1506,6 +1502,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 														<string>NeXT Rich Text Format v1.0 pasteboard type</string>
 														<string>NeXT TIFF v4.0 pasteboard type</string>
 														<string>WebURLsWithTitlesPboardType</string>
+														<string>public.png</string>
 														<string>public.url</string>
 														<string>public.url-name</string>
 													</object>
@@ -1673,6 +1670,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string>@count</string>
 				</object>
 				<string key="NSObjectClassName">NSDictionary</string>
+				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSPreservesSelection">YES</bool>
 				<bool key="NSSelectsInsertedObjects">YES</bool>
@@ -2298,10 +2296,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSUserDefaultsController" id="50022290">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>terminateWithItunes</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSArrayController" id="879413207">
@@ -3525,6 +3519,14 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					</object>
 					<int key="connectionID">1239</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">albumTracksController</string>
+						<reference key="source" ref="23951538"/>
+						<reference key="destination" ref="72398234"/>
+					</object>
+					<int key="connectionID">1240</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3963,6 +3965,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 						<int key="objectID">484</int>
 						<reference key="object" ref="72398234"/>
 						<reference key="parent" ref="1049"/>
+						<string key="objectName">Album Tracks</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">493</int>
@@ -5120,7 +5123,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{759, 472}, {201, 183}}</string>
+					<string>{{709, 351}, {201, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{187, 434}, {243, 243}}</string>
@@ -5171,8 +5174,8 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string>{{475, 832}, {234, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{254, 69}, {600, 596}}</string>
-					<string>{{254, 69}, {600, 596}}</string>
+					<string>{{518, 60}, {600, 596}}</string>
+					<string>{{518, 60}, {600, 596}}</string>
 					<reference ref="9"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<reference ref="9"/>
@@ -5294,7 +5297,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1239</int>
+			<int key="maxID">1240</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5343,6 +5346,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addImmediatelyMenuItem</string>
 							<string>addToQueueMenuItem</string>
+							<string>albumTracksController</string>
 							<string>groupsController</string>
 							<string>imageBrowser</string>
 							<string>processQueueButton</string>
@@ -5357,6 +5361,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
+							<string>NSArrayController</string>
 							<string>NSArrayController</string>
 							<string>QuickLookImageBrowserView</string>
 							<string>NSButton</string>
@@ -5408,7 +5413,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<string key="className">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">src-external/DDFoundation-1.0b1/lib/NSObject+DDExtensions.h</string>
+						<string key="minorKey">src-external/DDFoundation/tip/NSObject+DDExtensions.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
