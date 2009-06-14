@@ -12,6 +12,19 @@
 
 
 		<item>
+			<title>Version 2.4</title>
+			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-assistant/release-notes.html#version-2.4</sparkle:releaseNotesLink>
+			<pubDate>Sun, 14 Jun 2009 23:05:00 +0200</pubDate>
+			<enclosure
+				url="http://www2.entropy.ch/download/Album Artwork Assistant 2.4.zip"
+				sparkle:version="2.4"
+				type="application/octet-stream"
+				length="3767934"
+				sparkle:dsaSignature="MC0CFQCOyR0imS/h/2PbIDBQOO8ATHfPLQIUaTBsPqCh5nyE3fufy60rJzRQWnU="
+			/>
+		</item>
+
+		<item>
 			<title>Version 2.3</title>
 			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-assistant/release-notes.html#version-2.3</sparkle:releaseNotesLink>
 			<pubDate>Tue, 13 Jan 2009 01:38:57 +0100</pubDate>
