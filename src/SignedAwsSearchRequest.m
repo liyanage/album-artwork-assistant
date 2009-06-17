@@ -1,33 +1,19 @@
 //
 //  SignedAwsSearchRequest.m
 //
-//  Class to encapsulate the generation of a signed Amazon AWS search request URL.
-//  Amazon started to require signed AWS requests in 2009. See these documents for
-//  details about the signing mechanism:
-//
-//  http://docs.amazonwebservices.com/AWSECommerceService/latest/DG/index.html?RequestAuthenticationArticle.html
-//  http://docs.amazonwebservices.com/AWSECommerceService/2008-06-26/DG/
-//
-//  Created as part of the Album Artwork Assistant Mac OS X application
-//
-//  Created by Marc Liyanage on 15.06.09.
-//  Copyright 2009 Marc Liyanage <http://www.entropy.ch>.
-// 
-//  You are free to use this class if you give credit somewhere
-//  in your application or documentation.
-//
 
 #import "SignedAwsSearchRequest.h"
 #import "GTMNSString+URLArguments.h"
 #import "GTMNSData+zlib.h"
 #import "GTMBase64.h"
+#import "hmac_sha2.h"
 
 NSInteger stringByteSort(NSString *a, NSString *b, void *context);
 
 @implementation SignedAwsSearchRequest
 
 @synthesize accessKeyId, secretAccessKey;
-@synthesize awsHost, awsPath;
+@synthesize awsHost, awsPath, associateTag;
 
 - (id)initWithAccessKeyId:(NSString *)id secretAccessKey:(NSString *)key {
 	if (self = [super init]) {
@@ -35,6 +21,7 @@ NSInteger stringByteSort(NSString *a, NSString *b, void *context);
 		self.secretAccessKey = key;
 		self.awsHost = @"ecs.amazonaws.com";
 		self.awsPath = @"/onca/xml";
+		self.associateTag = @"";
 	}
 	return self;
 }
@@ -45,55 +32,76 @@ NSInteger stringByteSort(NSString *a, NSString *b, void *context);
 	[secretAccessKey release];
 	[awsHost release];
 	[awsPath release];
+	[associateTag release];
 	[super dealloc];
 }
 
 
-- (NSString *)searchUrlforKeywordsString:(NSString *)keywords {
-	NSMutableDictionary *params = [NSMutableDictionary dictionary];
-	[params setValue:keywords                forKey:@"Keywords"];
-	[params setValue:@"AWSECommerceService"  forKey:@"Service"];
-	[params setValue:@"ItemSearch"           forKey:@"Operation"];
-	[params setValue:self.accessKeyId        forKey:@"AWSAccessKeyId"];
-	[params setValue:@"wwwentropych-20"      forKey:@"AssociateTag"];
-	[params setValue:@"Music"                forKey:@"SearchIndex"];
-	[params setValue:@"Images"               forKey:@"ResponseGroup"];
-	[params setValue:@""                     forKey:@"DummyEmpty"];
+- (NSString *)searchUrlForParameterDictionary:(NSDictionary *)inParams {
+	NSMutableDictionary *params = [self preparedParameterDictionaryForInput:inParams];
+	NSString *queryString = [self queryStringForParameterDictionary:params];
+	NSString *signatureInput = [self signatureInputForQueryString:queryString];
+	NSString *signature = [self hmacStringForString:signatureInput];
+	NSString *escapedSignature = [signature gtm_stringByEscapingForURLArgument];
 
-	NSDateFormatter *outputFormatter = [[[NSDateFormatter alloc] init] autorelease];
-	outputFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
-	outputFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-	NSString *timestamp = [outputFormatter stringFromDate:[NSDate date]];
-	[params setValue:timestamp forKey:@"Timestamp"];
-	
+	return [NSString stringWithFormat:@"http://%@%@?%@&Signature=%@", self.awsHost, self.awsPath, queryString, escapedSignature];
+}
+
+
+- (NSString *)signatureInputForQueryString:(NSString *)queryString {
+	NSMutableString *si = [NSMutableString string];
+	[si appendString:@"GET\n"];
+	[si appendString:self.awsHost];
+	[si appendString:@"\n"];
+	[si appendString:self.awsPath];
+	[si appendString:@"\n"];
+	[si appendString:queryString];
+	return si;
+}
+
+
+- (NSString *)queryStringForParameterDictionary:(NSDictionary *)params {
 	NSArray *paramNames = [[params allKeys] sortedArrayUsingFunction:stringByteSort context:nil];
-	NSMutableString *urlString = [NSMutableString string];
+	NSMutableString *queryString = [NSMutableString string];
 	int i, n = [paramNames count];
 	for (i = 0; i < n; i++) {
 		NSString *paramName = [paramNames objectAtIndex:i];
-		[urlString appendFormat:@"%@=%@", paramName, [[params objectForKey:paramName] gtm_stringByEscapingForURLArgument]];
-		if (i < n - 1) [urlString appendString:@"&"];
+		[queryString appendFormat:@"%@=%@", paramName, [[params objectForKey:paramName] gtm_stringByEscapingForURLArgument]];
+		if (i < n - 1) [queryString appendString:@"&"];
 	}
+	return queryString;
+}
 
-	NSMutableString *signatureInput = [NSMutableString string];
-	[signatureInput appendString:@"GET\n"];
-	[signatureInput appendString:self.awsHost];
-	[signatureInput appendString:@"\n"];
-	[signatureInput appendString:self.awsPath];
-	[signatureInput appendString:@"\n"];
-	[signatureInput appendString:urlString];
 
+- (NSString *)utcTimestamp {
+	NSDateFormatter *outputFormatter = [[[NSDateFormatter alloc] init] autorelease];
+	outputFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+	outputFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	return [outputFormatter stringFromDate:[NSDate date]];
+}
+
+
+- (NSString *)hmacStringForString:(NSString *)signatureInput {
 	unsigned char *signatureInputBytes = (unsigned char *)[signatureInput UTF8String];
-	
-	unsigned char mac[SHA256_DIGEST_SIZE + 1];
-	bzero(mac, SHA256_DIGEST_SIZE + 1);
 
-	hmac_sha256((unsigned char *)[self.secretAccessKey UTF8String], [self.secretAccessKey length], signatureInputBytes, [signatureInput length], mac, SHA256_DIGEST_SIZE);
-	mac[SHA256_DIGEST_SIZE] = 0;
-	
-	NSString *signature = [GTMBase64 stringByEncodingBytes:mac length:SHA256_DIGEST_SIZE];
-	NSString *escapedSignature = [signature gtm_stringByEscapingForURLArgument];
-	return [NSString stringWithFormat:@"http://%@%@?%@&Signature=%@", self.awsHost, self.awsPath, urlString, escapedSignature];
+	unsigned char mac[SHA256_DIGEST_SIZE];
+	bzero(mac, SHA256_DIGEST_SIZE);
+
+	unsigned char *keyBytes = (unsigned char *)[self.secretAccessKey UTF8String];
+	int keyLength = [self.secretAccessKey length];
+	hmac_sha256(keyBytes, keyLength, signatureInputBytes, [signatureInput length], mac, SHA256_DIGEST_SIZE);
+
+	return [GTMBase64 stringByEncodingBytes:mac length:SHA256_DIGEST_SIZE];
+}
+
+
+- (NSMutableDictionary *)preparedParameterDictionaryForInput:(NSDictionary *)inParams {
+	NSMutableDictionary *params = [[inParams mutableCopy] autorelease];
+	[params setValue:@"AWSECommerceService"  forKey:@"Service"];
+	[params setValue:self.accessKeyId        forKey:@"AWSAccessKeyId"];
+	[params setValue:self.associateTag       forKey:@"AssociateTag"];
+	[params setValue:[self utcTimestamp]     forKey:@"Timestamp"];
+	return params;
 }
 
 

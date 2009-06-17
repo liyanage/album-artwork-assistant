@@ -19,10 +19,19 @@
 	NSString *secretKey = [SignedAwsSearchRequest decodeKey:keyBytes length:AMAZON_AWS_SECRET_KEY_LENGTH];
     SignedAwsSearchRequest *req = [[[SignedAwsSearchRequest alloc] initWithAccessKeyId:@"0H7A2M1CNG984DR9NGR2" secretAccessKey:secretKey] autorelease];
 
+	req.associateTag = @"wwwentropych-20";
+
 	STAssertNotNil(req, @"not nil");
 	STAssertEqualObjects(req.accessKeyId, @"0H7A2M1CNG984DR9NGR2", @"property value match");
 	STAssertEqualObjects(req.awsHost, @"ecs.amazonaws.com", @"property value match");
-	NSString *urlString = [req searchUrlforKeywordsString:@"amélie"];
+
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setValue:@"ItemSearch"           forKey:@"Operation"];
+	[params setValue:@"Music"                forKey:@"SearchIndex"];
+	[params setValue:@"Images"               forKey:@"ResponseGroup"];
+	[params setValue:@"amélie"               forKey:@"Keywords"];
+	
+	NSString *urlString = [req searchUrlForParameterDictionary:params];
 	STAssertNotNil(urlString, @"search url not nil");
 //	NSLog(@"request URL: %@", urlString);
 
