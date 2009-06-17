@@ -7,8 +7,8 @@
 #import "NSObject+DDExtensions.h"
 #import "GTMScriptRunner.h"
 #import "UKCrashReporter.h"
-
-#include <mach/task.h>
+#import "amazon_aws_secret_key.h"
+#import "mach/task.h"
 
 #define ITUNES_APPLESCRIPT_TITLE @"Find with Album Artwork Assistant"
 #define ITUNES_APPLESCRIPT_NAME @"Find with Album Artwork Assistant.scpt"

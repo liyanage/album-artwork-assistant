@@ -107,6 +107,7 @@
 		1B8236C90FE85F7400ABE180 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8236C70FE85F7400ABE180 /* GTMNSData+zlib.m */; };
 		1B8236CA0FE85F7400ABE180 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8236C70FE85F7400ABE180 /* GTMNSData+zlib.m */; };
 		1B8236F20FE8676500ABE180 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8236F10FE8676500ABE180 /* libz.dylib */; };
+		1B8237350FE86B3700ABE180 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8236F10FE8676500ABE180 /* libz.dylib */; };
 		1B87CDF10EEDC5FD007CAD18 /* smaller.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDEF0EEDC5FD007CAD18 /* smaller.tif */; };
 		1B87CDF20EEDC5FD007CAD18 /* larger.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B87CDF00EEDC5FD007CAD18 /* larger.tif */; };
 		1B8CF5C00E2BBD800084C323 /* UpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF5BF0E2BBD800084C323 /* UpdateOperation.m */; };
@@ -375,6 +376,7 @@
 				1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */,
 				1B7A2FF90EFC6FC00061E910 /* WebKit.framework in Frameworks */,
 				1B5AC8090F04487500D2E9D5 /* AddressBook.framework in Frameworks */,
+				1B8237350FE86B3700ABE180 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,7 +1044,7 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.4;
+				PRODUCT_VERSION = 2.5;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1287,7 +1289,7 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.4;
+				PRODUCT_VERSION = 2.5;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://127.0.0.1/album-artwork-assistant/appcast.debug.xml";
@@ -1305,7 +1307,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.4;
+				PRODUCT_VERSION = 2.5;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml";
