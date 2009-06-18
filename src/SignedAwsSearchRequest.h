@@ -12,7 +12,6 @@
 //
 //  Created as part of the Album Artwork Assistant Mac OS X application
 //
-//  Created by Marc Liyanage on 15.06.09.
 //  Copyright 2009 Marc Liyanage <http://www.entropy.ch>.
 // 
 //  You are free to use this class if you give credit somewhere
