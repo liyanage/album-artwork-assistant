@@ -8,6 +8,7 @@
 #import "GTMScriptRunner.h"
 #import "UKCrashReporter.h"
 #import "amazon_aws_secret_key.h"
+#import "SignedAwsSearchRequest.h"
 #import "mach/task.h"
 
 #define ITUNES_APPLESCRIPT_TITLE @"Find with Album Artwork Assistant"
@@ -293,16 +294,6 @@
 // http://docs.amazonwebservices.com/AWSECommerceService/2008-06-26/DG/
 - (void)doFindImagesAmazon {
 
-	NSString *baseUrl = @"http://ecs.amazonaws.com/onca/xml";
-	NSMutableDictionary *params = [NSMutableDictionary dictionary];
-	[params setValue:albumTitle              forKey:@"Keywords"];
-	[params setValue:@"AWSECommerceService"  forKey:@"Service"];
-	[params setValue:@"ItemSearch"           forKey:@"Operation"];
-	[params setValue:@"0H7A2M1CNG984DR9NGR2" forKey:@"AWSAccessKeyId"];
-	[params setValue:@"wwwentropych-20"      forKey:@"AssociateTag"];
-	[params setValue:@"Music"                forKey:@"SearchIndex"];
-	[params setValue:@"Images"               forKey:@"ResponseGroup"];
-
 	if ([albumTitle isEqualToString:@"__crash__"]) {
 		NSLog(@"forcing crash...");
 		char *x = nil;
@@ -314,7 +305,18 @@
 		NSAssert(0, @"forced assert");
 	}
 
-	NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
+	char keyBytes[] = AMAZON_AWS_SECRET_KEY_BYTES;
+	NSString *secretKey = [SignedAwsSearchRequest decodeKey:keyBytes length:AMAZON_AWS_SECRET_KEY_LENGTH];
+    SignedAwsSearchRequest *req = [[[SignedAwsSearchRequest alloc] initWithAccessKeyId:@"0H7A2M1CNG984DR9NGR2" secretAccessKey:secretKey] autorelease];
+	req.associateTag = @"wwwentropych-20";
+
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setValue:@"ItemSearch"           forKey:@"Operation"];
+	[params setValue:@"Music"                forKey:@"SearchIndex"];
+	[params setValue:@"Images"               forKey:@"ResponseGroup"];
+	[params setValue:albumTitle              forKey:@"Keywords"];
+	
+	NSString *urlString = [req searchUrlForParameterDictionary:params];
 
 #ifdef DEBUG_NONET
 	NSLog(@"using dummy amazon data");
@@ -392,7 +394,7 @@
 	ImageSearchItem *item = [images objectAtIndex:index];
 	NSURL *fileUrl = [item fileUrl];
 	if (!fileUrl) {
-		[self removeCurrentItemAndWarn];
+		[[self dd_invokeOnMainThreadAndWaitUntilDone:YES] removeCurrentItemAndWarn];
 	}
 	return fileUrl;
 }
@@ -409,7 +411,7 @@
 - (NSUInteger)selectedImageIndex {
 	NSIndexSet *sel = [[imageBrowser dd_invokeOnMainThreadAndWaitUntilDone:YES] selectionIndexes];
 	NSUInteger index = [[sel dd_invokeOnMainThreadAndWaitUntilDone:YES] firstIndex];
-	NSLog(@"selected index: %d, sel: %@, imgbrowser: %@", index, sel, imageBrowser);
+//	NSLog(@"selected index: %d, sel: %@, imgbrowser: %@", index, sel, imageBrowser);
 	return index;
 }
 
@@ -686,17 +688,6 @@
 
 
 - (void)imageBrowser:(IKImageBrowserView *)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index {
-
-//	NSLog(@"image browser selected index: index: %d", [[imageBrowser selectionIndexes] firstIndex]);
-
-//	NSIndexSet *set = [NSIndexSet indexSetWithIndex:index];
-//	NSLog(@"doubleclick before: index: %@, %@, %d", set, [imageBrowser selectionIndexes], [[imageBrowser selectionIndexes] firstIndex]);
-//	[imageBrowser setSelectionIndexes:set byExtendingSelection:NO];
-	
-//	NSLog(@"doubleclick after: index: %@, %@, index imageBrowser %d, index parameter: %d", set, [imageBrowser selectionIndexes], [[imageBrowser selectionIndexes] firstIndex], index);
-
-//	return;
-
 	if ([[NSUserDefaults standardUserDefaults] integerForKey:@"doubleClickAction"] == DOUBLECLICK_ACTION_QUEUE) {
 		[self addToQueue:self];
 	} else {
