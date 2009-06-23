@@ -59,7 +59,9 @@
 - (IBAction)setAlbumTitle:(NSString *)albumTitle;
 - (void)setAlbumArtworkBackground:(id)sender;
 - (IBAction)addToQueue:(id)sender;
-- (IBAction)addToQueueBackground:(id)sender;
+- (void)loadQueueItemImageData:(ImageSearchItem *)item;
+- (void)queueItemImageDataLoaded:(NSData *)data;
+- (void)queueItemImageDataLoadFailed:(ImageSearchItem *)item;
 - (BOOL)fetchITunesTrackList;
 - (void)prepareAlbumTrackName;
 - (void)clearImages;

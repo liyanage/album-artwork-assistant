@@ -3,7 +3,7 @@
 //  Album Artwork Assistant
 //
 //  Created by Marc Liyanage on 19.07.08.
-//  Copyright 2008 Marc Liyanage <http://www.entropy.ch>. All rights reserved.
+//  Copyright 2008-2009 Liyanage <http://www.entropy.ch>. All rights reserved.
 //
 
 @protocol StatusDelegateProtocol

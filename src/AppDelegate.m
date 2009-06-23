@@ -54,7 +54,7 @@
 
 
 - (void)setAlbumArtworkBackground:(id)sender {
-
+// TODO: move stuff to main thread, like queued version
 	NSData *imageData;
 	if ([sender isKindOfClass:[NSMenuItem class]] && [(NSMenuItem *)sender representedObject]) {
 		NSMenuItem *item = sender;
@@ -384,7 +384,9 @@
 	NSError *error = nil;
 	NSData *imageData = [item dataError:&error];
 	if (!imageData) {
-		[self removeCurrentItemAndWarn];
+		// TODO: once setAlbumArtworkBackground stuff is moved to main thread
+		// move this call to the default thread
+		[[self dd_invokeOnMainThreadAndWaitUntilDone:YES] removeCurrentItemAndWarn];
 	}
 	return imageData;
 }
@@ -433,35 +435,54 @@
 
 - (IBAction)addToQueue:(id)sender {
 	[queueDrawer open];
-	[self performSelectorInBackground:@selector(addToQueueBackground:) withObject:sender];
-//	[self addToQueueBackground:sender];
-}
+	[self startBusy:NSLocalizedString(@"downloading_image", @"")];
 
-
-- (IBAction)addToQueueBackground:(id)sender {
-	id trackGroup;
+	ImageSearchItem *searchItem = nil;
 	if ([sender isKindOfClass:[NSMenuItem class]] && [(NSMenuItem *)sender representedObject]) {
 		NSMenuItem *item = sender;
 		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
-		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
-		NSData *data = [io dataError:nil];
-		if (!data) return;
-		trackGroup = [self makeTrackGroupWithImageData:data];
+		searchItem = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
+		searchItem.source = @"WebView";
 	} else {
-		ImageSearchItem *item = [self selectedImage];
-		if (!item) return;
-		trackGroup = [self makeTrackGroupWithImageData:[self imageDataForItem:item]];
+		searchItem = [self selectedImage];
+		if (!searchItem) return;
 	}
-	if (!trackGroup) return;
-	[[dataStore dd_invokeOnMainThread] save];
+	
+	[self performSelectorInBackground:@selector(loadQueueItemImageData:) withObject:searchItem];
+}
+
+
+- (void)loadQueueItemImageData:(ImageSearchItem *)item {
+	NSData *data = [item dataError:nil];
+	if (data) {
+		[[self dd_invokeOnMainThread] queueItemImageDataLoaded:data];	
+	} else {
+		[[self dd_invokeOnMainThread] queueItemImageDataLoadFailed:item];	
+	}
+}
+
+
+- (void)queueItemImageDataLoaded:(NSData *)data {
+	[self clearBusy];
+	id trackGroup = [self makeTrackGroupWithImageData:data];
+	NSAssert(trackGroup, @"trackgroup not nil");
+	[dataStore save];
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"queueAddSwitchesToItunes"]) {
 		[[NSWorkspace sharedWorkspace] launchApplication:@"iTunes"];
 	}
 }
 
 
+- (void)queueItemImageDataLoadFailed:(ImageSearchItem *)item {
+	[self clearBusy];
+	if (![item.source isEqualToString:@"WebView"]) {
+		[self removeCurrentItemAndWarn];
+	}
+	NSLog(@"data load for item %@ failed", item);
+}
+
+
 - (id)makeTrackGroupWithImageData:(NSData *)imageData {
-	[self startBusy:NSLocalizedString(@"downloading_image", @"")];
 	[self clearBusy];
 	if (!imageData) return nil;
 
