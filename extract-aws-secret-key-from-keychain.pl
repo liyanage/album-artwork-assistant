@@ -13,7 +13,9 @@ my $gzipped = qx(echo -n $key | gzip -n --best -c);
 
 my @values = map {ord($_)} split(//, $gzipped);
 
-die "CONFIGURATION_BUILD_DIR invalid" unless ($ENV{CONFIGURATION_BUILD_DIR} and -d $ENV{CONFIGURATION_BUILD_DIR});
+my $builddir = $ENV{CONFIGURATION_BUILD_DIR} || '';
+
+die "CONFIGURATION_BUILD_DIR '$builddir' invalid" unless (-d $builddir);
 die "Unable to mkdir output dir" if (system(qq(mkdir -p "$ENV{CONFIGURATION_BUILD_DIR}/include")) >> 8);
 
 my $file = IO::File->new(">$ENV{CONFIGURATION_BUILD_DIR}/include/amazon_aws_secret_key.h");

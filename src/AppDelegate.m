@@ -48,32 +48,43 @@
 
 
 - (IBAction)setAlbumArtwork:(id)sender {
-	[self performSelectorInBackground:@selector(setAlbumArtworkBackground:) withObject:sender];
-//	[self setAlbumArtworkBackground:sender];
-}
+	ImageSearchItem *searchItem = nil;
 
-
-- (void)setAlbumArtworkBackground:(id)sender {
-// TODO: move stuff to main thread, like queued version
-	NSData *imageData;
 	if ([sender isKindOfClass:[NSMenuItem class]] && [(NSMenuItem *)sender representedObject]) {
 		NSMenuItem *item = sender;
 		NSAssert([item representedObject], @"representedObject not nil");
 		NSDictionary *searchResult = [NSDictionary dictionaryWithObject:[item representedObject] forKey:@"url"];
-		id io = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
-		imageData = [io dataError:nil];
+		searchItem = [[ImageSearchItem alloc] initWithSearchResult:searchResult];
+		searchItem.source = @"WebView";
 	} else {
-		ImageSearchItem *item = [self selectedImage];
-		if (!item) return;
-		[self startBusy:NSLocalizedString(@"downloading_image", @"")];
-		imageData = [self imageDataForItem:item];
-		[self clearBusy];
+		searchItem = [self selectedImage];
 	}
-	if (!imageData) return;
-	UpdateOperation *uo = [self makeUpdateOperationForImageData:imageData];
+	
+	if (!searchItem) return;
+
+	[self startBusy:NSLocalizedString(@"downloading_image", @"")];
+	[self performSelectorInBackground:@selector(loadImmediateItemImageData:) withObject:searchItem];
+}
+
+
+- (void)loadImmediateItemImageData:(ImageSearchItem *)item {
+	NSData *data = [item dataError:nil];
+	if (data) {
+		[[self dd_invokeOnMainThread] immediateItemImageDataLoaded:data];	
+	} else {
+		[[self dd_invokeOnMainThread] itemImageDataLoadFailed:item];	
+	}
+}
+
+
+- (void)immediateItemImageDataLoaded:(NSData *)data {
+	[self clearBusy];
+	UpdateOperation *uo = [self makeUpdateOperationForImageData:data];
 	if (!uo) return;
 	[uo main];
 }
+
+
 
 
 - (IBAction)findImages:(id)sender {
@@ -113,7 +124,6 @@
 
 
 - (IBAction)installiTunesAppleScript:(id)sender {
-	
 	NSError *error = nil;
 	
 	if (![self canInstalliTunesAppleScript]) {
@@ -133,7 +143,6 @@
 	}
 
 	[self displayErrorWithTitle:NSLocalizedString(@"script_installation_confirmation_title", @"") message:NSLocalizedString(@"script_installation_confirmation", @"")];
-
 }
 
 
@@ -380,18 +389,6 @@
 }
 
 
-- (NSData *)imageDataForItem:(ImageSearchItem *)item {
-	NSError *error = nil;
-	NSData *imageData = [item dataError:&error];
-	if (!imageData) {
-		// TODO: once setAlbumArtworkBackground stuff is moved to main thread
-		// move this call to the default thread
-		[[self dd_invokeOnMainThreadAndWaitUntilDone:YES] removeCurrentItemAndWarn];
-	}
-	return imageData;
-}
-
-
 - (NSURL *)fileUrlForItemAtIndex:(int)index {
 	ImageSearchItem *item = [images objectAtIndex:index];
 	NSURL *fileUrl = [item fileUrl];
@@ -417,14 +414,15 @@
 	return index;
 }
 
+
 # pragma mark track list manipulation
 
 // enable delete: menu command only when something is selected in the album track list
 - (BOOL)validateMenuItem:(NSMenuItem *)item {
 	if ([item action] != @selector(delete:)) return YES;
 	return [albumTracksController selectionIndex] != NSNotFound;
-	
 }
+
 
 - (IBAction)delete:(id)sender {
 	[albumTracksController remove:sender];
@@ -457,7 +455,7 @@
 	if (data) {
 		[[self dd_invokeOnMainThread] queueItemImageDataLoaded:data];	
 	} else {
-		[[self dd_invokeOnMainThread] queueItemImageDataLoadFailed:item];	
+		[[self dd_invokeOnMainThread] itemImageDataLoadFailed:item];	
 	}
 }
 
@@ -473,7 +471,7 @@
 }
 
 
-- (void)queueItemImageDataLoadFailed:(ImageSearchItem *)item {
+- (void)itemImageDataLoadFailed:(ImageSearchItem *)item {
 	[self clearBusy];
 	if (![item.source isEqualToString:@"WebView"]) {
 		[self removeCurrentItemAndWarn];

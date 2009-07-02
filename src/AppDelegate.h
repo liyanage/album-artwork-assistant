@@ -57,11 +57,17 @@
 - (IBAction)fetch:(id)sender;
 - (IBAction)setAlbumArtwork:(id)sender;
 - (IBAction)setAlbumTitle:(NSString *)albumTitle;
-- (void)setAlbumArtworkBackground:(id)sender;
 - (IBAction)addToQueue:(id)sender;
+
 - (void)loadQueueItemImageData:(ImageSearchItem *)item;
 - (void)queueItemImageDataLoaded:(NSData *)data;
-- (void)queueItemImageDataLoadFailed:(ImageSearchItem *)item;
+
+- (void)loadImmediateItemImageData:(ImageSearchItem *)item;
+- (void)immediateItemImageDataLoaded:(NSData *)data;
+
+- (void)itemImageDataLoadFailed:(ImageSearchItem *)item;
+
+
 - (BOOL)fetchITunesTrackList;
 - (void)prepareAlbumTrackName;
 - (void)clearImages;
@@ -83,7 +89,6 @@
 - (BOOL)isQueueEmpty;
 - (void)switchToMainTab;
 
-- (NSData *)imageDataForItem:(ImageSearchItem *)item;
 - (void)removeItemAtIndex:(int)index;
 - (ImageSearchItem *)selectedImage;
 - (NSUInteger)selectedImageIndex;
