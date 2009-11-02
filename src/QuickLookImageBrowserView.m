@@ -16,6 +16,8 @@
 #import "StatusDelegateProtocol.h"
 #import "IKImageBrowserFileUrlDataSource.h"
 
+
+
 @implementation QuickLookImageBrowserView
 
 - (void)awakeFromNib {
@@ -23,12 +25,19 @@
 }
 
 - (void)setupQuickLook {
-	if(![[NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/QuickLookUI.framework"] load]) {
-		NSLog(@"Unable to load Quick Look");
+//	NSString *quickLookPrivateFrameworkPath = @"/System/Library/PrivateFrameworks/QuickLookUI.framework";
+//	if([[NSBundle bundleWithPath:quickLookPrivateFrameworkPath] load]) {
+//		NSLog(@"Loaded Quick Look from private framework %@", quickLookPrivateFrameworkPath);
+//	}
+
+	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
+	if (!quickLookPanelClass) {
+		NSLog(@"Unable to load Quick Look, requires Mac OS 10.6");
 		return;
 	}
-	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
+	
 	[self setQuickLookPanelDelegate:self];
+	[[quickLookPanelClass sharedPreviewPanel] setDataSource:self];
 }
 
 
@@ -85,7 +94,6 @@
 	NSURL *fileUrl = [[self dataSource] fileUrlForItemAtIndex:index];
 	
 	[[self delegate] clearBusy];
-
 	if (!fileUrl) {
 		NSLog(@"unable to get item file url for quicklook");
 		[[quickLookPanelClass sharedPreviewPanel] close];

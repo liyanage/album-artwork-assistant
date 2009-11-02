@@ -274,7 +274,7 @@
 		NSString *urlString = [NSString stringWithFormat:@"%@?%@", baseUrl, [params gtm_httpArgumentsString]];
 #ifdef DEBUG_NONET
 		NSLog(@"using dummy google data");
-		urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.google.json";
+		urlString = @"file://localhost/Users/liyanage/git/album-artwork-assistant/test/testdata.google.json";
 #endif
 
 		NSURL *myUrl = [NSURL URLWithString:urlString];
@@ -329,7 +329,7 @@
 
 #ifdef DEBUG_NONET
 	NSLog(@"using dummy amazon data");
-	urlString = @"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/test/testdata.amazon.xml";
+	urlString = @"file://localhost/Users/liyanage/git/album-artwork-assistant/test/testdata.amazon.xml";
 #endif
 
 	NSError *error = nil;
@@ -759,7 +759,7 @@
 		[queryString replaceOccurrencesOfRegex:@"&" withString:@"%26"];
 		NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/search?ie=UTF-8&q=%@", queryString]];
 #ifdef DEBUG_NONET
-		url = [NSURL URLWithString:@"file://localhost/Users/liyanage/svn/entropy/album-artwork-assistant/Resources/English.lproj/Album%20Artwork%20Assistant%20Help/Album%20Artwork%20Assistant%20Help.html"];
+		url = [NSURL URLWithString:@"file://localhost/Users/liyanage/git/album-artwork-assistant/Resources/English.lproj/Album%20Artwork%20Assistant%20Help/Album%20Artwork%20Assistant%20Help.html"];
 #endif
 		NSURLRequest *searchRequest = [NSURLRequest requestWithURL:url];
 //		NSLog(@"searchRequest: %@", searchRequest);

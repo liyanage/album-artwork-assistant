@@ -145,7 +145,7 @@
 /* Begin PBXBuildRule section */
 		1B5654F40E86FD4300E59DF9 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.gcc.4_2;
+			compilerSpec = com.apple.compilers.llvm.clang.1_0;
 			fileType = sourcecode.c;
 			isEditable = 1;
 			outputFiles = (
@@ -803,7 +803,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/English.lproj/Album\\ Artwork\\ Assistant\\ Help\n/Developer/Applications/Utilities/Help\\ Indexer.app/Contents/MacOS/Help\\ Indexer Resources/German.lproj/Album\\ Artwork\\ Assistant\\ Help";
+			shellScript = "for LANG in English German; do\n\thiutil -C -f Resources/$LANG.lproj/Album\\ Artwork\\ Assistant\\ Help/Album\\ Artwork\\ Assistant\\ Help.helpindex Resources/$LANG.lproj/Album\\ Artwork\\ Assistant\\ Help\ndone\n";
 			showEnvVarsInLog = 0;
 		};
 		1B8F60600FE6F30D00FF3891 /* ShellScript */ = {

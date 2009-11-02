@@ -38,12 +38,12 @@
         <Width Units="pixels">75</Width>
       </SmallImage>
       <MediumImage>
-        <URL>http://localhost/reference/reference.png</URL>
+        <URL>http://localhost/PoweredByMacOSX.gif</URL>
         <Height Units="pixels">160</Height>
         <Width Units="pixels">160</Width>
       </MediumImage>
       <LargeImage>
-        <URL>http://localhost/reference/reference.png</URL>
+        <URL>http://localhost/PoweredByMacOSX.gif</URL>
         <Height Units="pixels">500</Height>
         <Width Units="pixels">500</Width>
       </LargeImage>
@@ -75,12 +75,12 @@
     <Item>
       <ASIN>B00029J1YA</ASIN>
       <SmallImage>
-        <URL>http://localhost/reference/reference.png</URL>
+        <URL>http://localhost/PoweredByMacOSX.gif</URL>
         <Height Units="pixels">75</Height>
         <Width Units="pixels">75</Width>
       </SmallImage>
       <MediumImage>
-        <URL>http://localhost/reference/reference.png</URL>
+        <URL>http://localhost/PoweredByMacOSX.gif</URL>
         <Height Units="pixels">160</Height>
         <Width Units="pixels">160</Width>
       </MediumImage>
