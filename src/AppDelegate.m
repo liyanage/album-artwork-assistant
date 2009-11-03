@@ -119,7 +119,7 @@
     task_t task = MACH_PORT_NULL;
 	task_for_pid(current_task(), getpid(), &task);
     task_info(task, TASK_BASIC_INFO, (task_info_t)&t_info, &t_info_count);
-	NSLog(@"Process size: resident: %dmb, virtual %dmb", t_info.resident_size / (1024*1024), t_info.virtual_size / (1024*1024*2));
+	//	NSLog(@"Process size: resident: %dmb, virtual %dmb", t_info.resident_size / (1024*1024), t_info.virtual_size / (1024*1024*2));
 }
 
 
@@ -500,10 +500,10 @@
 
 		[aTrack setValue:[trackData valueForKey:@"trackid"] forKey:@"id"];
 		[aTrack setValue:[trackData valueForKey:@"trackname"] forKey:@"name"];
-		[aTrack setValue:[trackData valueForKey:@"tracknumber"] forKey:@"number"];
+		[aTrack setValue:[trackData valueForKey:@"trackNumber"] forKey:@"number"];
 		[aTrack setValue:[trackData valueForKey:@"trackalbum"] forKey:@"album"];
 		[aTrack setValue:[trackData valueForKey:@"trackartist"] forKey:@"artist"];
-		[aTrack setValue:[trackData valueForKey:@"trackcontainerid"] forKey:@"containerid"];
+		[aTrack setValue:[trackData valueForKey:@"trackContainerId"] forKey:@"containerid"];
 
 		[groupTracks addObject:aTrack];
 	}
@@ -647,12 +647,12 @@
 
 
 - (void)applicationDidQuit:(NSNotification *)notification {
-	NSLog(@"app did quit: %@", notification);
+	//	NSLog(@"app did quit: %@", notification);
 
 	if (![[[notification userInfo] valueForKey:@"NSApplicationBundleIdentifier"] isEqualToString:@"com.apple.iTunes"]) return;
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"terminateWithItunes"]) return;
 
-	NSLog(@"itunes quit, so we're quitting...");
+	//	NSLog(@"itunes quit, so we're quitting...");
 
 	[[NSApplication sharedApplication] terminate:self];
 }
@@ -786,7 +786,8 @@
 	if (highlightedElement) {
 		if ([highlightedElement isSameNode:node]) return;
 		[highlightedElement setAttribute:@"style" value:highlightedElementOriginalStyle];
-		highlightedElement = highlightedElementOriginalStyle = nil;
+		highlightedElement = nil;
+		highlightedElementOriginalStyle = nil;
 		[self setStatusMessage:@""];
 	}
 	if (!node) return;
