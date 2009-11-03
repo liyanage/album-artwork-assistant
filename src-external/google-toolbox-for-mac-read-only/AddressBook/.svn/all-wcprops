@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/166/trunk/AddressBook
+END
+GTMABAddressBook.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/166/trunk/AddressBook/GTMABAddressBook.h
+END
+GTMABAddressBook.strings
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/122/trunk/AddressBook/GTMABAddressBook.strings
+END
+GTMABAddressBook.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/142/trunk/AddressBook/GTMABAddressBook.m
+END
+GTMABAddressBookTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/122/trunk/AddressBook/GTMABAddressBookTest.m
+END

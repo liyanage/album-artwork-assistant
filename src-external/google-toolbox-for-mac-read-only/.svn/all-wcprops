@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/241/trunk
+END
+UnitTest-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/5/trunk/UnitTest-Info.plist
+END
+BuildingAndUsing.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/28/trunk/BuildingAndUsing.txt
+END
+ReleaseNotes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/236/trunk/ReleaseNotes.txt
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/5/trunk/COPYING
+END
+GTM-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/5/trunk/GTM-Info.plist
+END
+GTMDefines.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/179/trunk/GTMDefines.h
+END
+GTM_Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/42/trunk/GTM_Prefix.pch
+END
+GTMiPhone-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/28/trunk/GTMiPhone-Info.plist
+END
