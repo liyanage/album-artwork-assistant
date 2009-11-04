@@ -18,6 +18,7 @@
 
 
 
+
 @implementation QuickLookImageBrowserView
 
 - (void)awakeFromNib {
@@ -25,23 +26,34 @@
 }
 
 - (void)setupQuickLook {
-//	NSString *quickLookPrivateFrameworkPath = @"/System/Library/PrivateFrameworks/QuickLookUI.framework";
-//	if([[NSBundle bundleWithPath:quickLookPrivateFrameworkPath] load]) {
-//		NSLog(@"Loaded Quick Look from private framework %@", quickLookPrivateFrameworkPath);
-//	}
-
-	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
-	if (!quickLookPanelClass) {
-		NSLog(@"Unable to load Quick Look, requires Mac OS 10.6");
+	if(![[NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/QuickLookUI.framework"] load]) {
+		NSLog(@"Unable to load Quick Look");
 		return;
 	}
-	
+
+	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
 	[self setQuickLookPanelDelegate:self];
-	[[quickLookPanelClass sharedPreviewPanel] setDataSource:self];
 }
 
 
-
+//- (void)setupQuickLook {
+////	NSString *quickLookPrivateFrameworkPath = @"/System/Library/PrivateFrameworks/QuickLookUI.framework";
+////	if([[NSBundle bundleWithPath:quickLookPrivateFrameworkPath] load]) {
+////		NSLog(@"Loaded Quick Look from private framework %@", quickLookPrivateFrameworkPath);
+////	}
+//
+//	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
+//	if (!quickLookPanelClass) {
+//		NSLog(@"Unable to load Quick Look, requires Mac OS 10.6");
+//		return;
+//	}
+//	
+//	[self setQuickLookPanelDelegate:self];
+//	[[quickLookPanelClass sharedPreviewPanel] setDataSource:self];
+//}
+//
+//
+//
 
 
 - (void)keyDown:(NSEvent *)event {	

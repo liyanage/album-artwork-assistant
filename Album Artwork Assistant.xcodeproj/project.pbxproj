@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1B7394230ED216140011B0E8 /* Build configuration list for PBXAggregateTarget "Update Help Docs" */;
 			buildPhases = (
-				1B73941C0ED215E20011B0E8 /* ShellScript */,
+				1B73941C0ED215E20011B0E8 /* Run Script Update Help Docs From Website */,
 			);
 			dependencies = (
 			);
@@ -44,7 +44,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
 			buildPhases = (
-				1BE5C9D90E3A1DB900334BA1 /* ShellScript */,
+				1BE5C9D90E3A1DB900334BA1 /* Run Script Prepare Distribution */,
 			);
 			dependencies = (
 				1B7394220ED215F40011B0E8 /* PBXTargetDependency */,
@@ -84,7 +84,6 @@
 		1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1B48E73F0E8312F900AC5357 /* dsa_pub.pem */; };
 		1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE40E30E04900DD28B0 /* iTunes.icns */; };
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
-		1B59564B0E81AC75008B24A9 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B59564A0E81AC75008B24A9 /* readme.txt */; };
 		1B5956820E81B653008B24A9 /* GTMScriptRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5956800E81B653008B24A9 /* GTMScriptRunner.m */; };
 		1B5AC7D50F04424C00D2E9D5 /* UKCrashReporter Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B5AC7CC0F04424C00D2E9D5 /* UKCrashReporter Readme.txt */; };
 		1B5AC7D60F04424C00D2E9D5 /* UKCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AC7CE0F04424C00D2E9D5 /* UKCrashReporter.m */; };
@@ -247,7 +246,6 @@
 		1B48E7850E8326ED00AC5357 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		1B4CEBE40E30E04900DD28B0 /* iTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iTunes.icns; path = Resources/iTunes.icns; sourceTree = "<group>"; };
 		1B4CEBE90E30E5C000DD28B0 /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drawer.png; path = Resources/drawer.png; sourceTree = "<group>"; };
-		1B59564A0E81AC75008B24A9 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		1B5956800E81B653008B24A9 /* GTMScriptRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMScriptRunner.m; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMScriptRunner.m"; sourceTree = "<group>"; };
 		1B5956810E81B653008B24A9 /* GTMScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMScriptRunner.h; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMScriptRunner.h"; sourceTree = "<group>"; };
 		1B5AC7CC0F04424C00D2E9D5 /* UKCrashReporter Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UKCrashReporter Readme.txt"; sourceTree = "<group>"; };
@@ -346,6 +344,8 @@
 		1BAF16740E33F05B00A725F6 /* Find with Album Artwork Assistant.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; name = "Find with Album Artwork Assistant.scpt"; path = "extras/Find with Album Artwork Assistant.scpt"; sourceTree = "<group>"; };
 		1BBD59EC0E5A2749005F235C /* TrackGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackGroup.h; path = src/TrackGroup.h; sourceTree = "<group>"; };
 		1BBD59ED0E5A2749005F235C /* TrackGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackGroup.m; path = src/TrackGroup.m; sourceTree = "<group>"; };
+		1BC5A21610A128B400561411 /* package-distribution.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "package-distribution.sh"; sourceTree = "<group>"; };
+		1BC5A22710A12E2800561411 /* notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
 		1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = amazon2plist.xslt; path = Resources/amazon2plist.xslt; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; explicitFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -613,7 +613,7 @@
 		29B97314FDCFA39411CA2CEA /* Music Artwork */ = {
 			isa = PBXGroup;
 			children = (
-				1B59564A0E81AC75008B24A9 /* readme.txt */,
+				1BC5A22710A12E2800561411 /* notes.txt */,
 				1B48E7850E8326ED00AC5357 /* appcast.xml */,
 				1B0B40750E4C2D64006CAE99 /* Models */,
 				1B7655FB0E281D38004A20AE /* AppleScript */,
@@ -626,6 +626,7 @@
 				1B5AC8080F04487500D2E9D5 /* AddressBook.framework */,
 				1B8F60630FE6F30D00FF3891 /* TestSignedAwsSearchRequest-Info.plist */,
 				1B8236F10FE8676500ABE180 /* libz.dylib */,
+				1BC5A21610A128B400561411 /* package-distribution.sh */,
 			);
 			name = "Music Artwork";
 			sourceTree = "<group>";
@@ -760,7 +761,6 @@
 				1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */,
 				1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */,
 				1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */,
-				1B59564B0E81AC75008B24A9 /* readme.txt in Resources */,
 				1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */,
 				1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */,
 				1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */,
@@ -778,18 +778,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B73941C0ED215E20011B0E8 /* ShellScript */ = {
+		1B73941C0ED215E20011B0E8 /* Run Script Update Help Docs From Website */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script Update Help Docs From Website";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "WD=$PWD\n\nsh Resources/help-tools/update-help.sh en \"$WD/Resources/English.lproj/Album Artwork Assistant Help\"\nsh Resources/help-tools/update-help.sh de \"$WD/Resources/German.lproj/Album Artwork Assistant Help\"\n";
+			shellScript = "WD=$PWD\nexit\n\nsh Resources/help-tools/update-help.sh en \"$WD/Resources/English.lproj/Album Artwork Assistant Help\"\nsh Resources/help-tools/update-help.sh de \"$WD/Resources/German.lproj/Album Artwork Assistant Help\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1B7B84980E8C42480048A3B8 /* ShellScript */ = {
@@ -845,19 +846,19 @@
 			shellPath = /bin/sh;
 			shellScript = "JSONDIR=src-external/json-framework-read-only\n[ -e $JSONDIR ] || svn co http://json-framework.googlecode.com/svn/trunk $JSONDIR";
 		};
-		1BE5C9D90E3A1DB900334BA1 /* ShellScript */ = {
+		1BE5C9D90E3A1DB900334BA1 /* Run Script Prepare Distribution */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script Prepare Distribution";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\nset -o errexit\n\nWD=$PWD\nPRODUCT_SHORTNAME=album-artwork-assistant\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://www2.entropy.ch/download\"\nRELEASENOTES_URL=\"http://www.entropy.ch/software/macosx/$PRODUCT_SHORTNAME/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nARCHIVE_FILENAME_UNVERSIONED=\"$PROJECT_NAME.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\n\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\n#zip -qr \"$ARCHIVE_FILENAME\" \"$PROJECT_NAME.app\"\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\n#SIGNATURE=$(\n#\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n#\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file(\"-\")->findvalue(q(//string[preceding-sibling::key[1] = \"NOTE\"]))') \\\n#\t| openssl enc -base64\n#)\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$WD/build/Release/$ARCHIVE_FILENAME'\" www2.entropy.ch:download/\necho scp \"'$WD/build/Release/$ARCHIVE_FILENAME'\" \"\\\"www2.entropy.ch:'download/$ARCHIVE_FILENAME_UNVERSIONED'\\\"\"\n\necho scp \"'$WD/Resources/release-notes.html'\" www.entropy.ch:web/software/macosx/$PRODUCT_SHORTNAME/release-notes.html\necho scp \"'$WD/appcast.xml'\" www.entropy.ch:web/software/macosx/$PRODUCT_SHORTNAME/appcast.xml\n\necho git commit -a -m \"'version $VERSION'\"\necho git tag -a \"'v$VERSION'\" -m \"'version $VERSION'\"\necho git push --all\necho git push --tags\necho git push --all github\necho git push --tags github\necho\necho git archive --format=zip --prefix=\"'$PRODUCT_SHORTNAME-src/'\" HEAD \\> \"'$BUILT_PRODUCTS_DIR/$PRODUCT_SHORTNAME-src.zip'\"\necho scp \"'$BUILT_PRODUCTS_DIR/$PRODUCT_SHORTNAME-src.zip'\" www2.entropy.ch:download/\n";
-			showEnvVarsInLog = 0;
+			shellScript = "bash package-distribution.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
