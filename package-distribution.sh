@@ -18,16 +18,10 @@ KEYCHAIN_PRIVKEY_NAME="Sparkle Private Key 1"
 
 cd "$BUILT_PRODUCTS_DIR"
 rm -f "$PROJECT_NAME"*.zip
-#zip -qr "$ARCHIVE_FILENAME" "$PROJECT_NAME.app"
 ditto -ck --keepParent "$PROJECT_NAME.app" "$ARCHIVE_FILENAME"
 
 SIZE=$(stat -f %z "$ARCHIVE_FILENAME")
 PUBDATE=$(date +"%a, %d %b %G %T %z")
-#SIGNATURE=$(
-#	openssl dgst -sha1 -binary < "$ARCHIVE_FILENAME" \
-#	| openssl dgst -dss1 -sign <(security find-generic-password -g -s "$KEYCHAIN_PRIVKEY_NAME" 2>&1 1>/dev/null | perl -pe '($_) = /"(.+)"/; s/\\012/\n/g' | perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file("-")->findvalue(q(//string[preceding-sibling::key[1] = "NOTE"]))') \
-#	| openssl enc -base64
-#)
 SIGNATURE=$(
 	openssl dgst -sha1 -binary < "$ARCHIVE_FILENAME" \
 	| openssl dgst -dss1 -sign <(security find-generic-password -g -s "$KEYCHAIN_PRIVKEY_NAME" 2>&1 1>/dev/null | perl -pe '($_) = /"(.+)"/; s/\\012/\n/g') \
@@ -64,6 +58,5 @@ echo git push --tags
 echo git push --all github
 echo git push --tags github
 echo
-#echo git archive --format=zip --prefix="'$PRODUCT_SHORTNAME-src/'" HEAD \> "'$BUILT_PRODUCTS_DIR/$PRODUCT_SHORTNAME-src.zip'"
-#echo scp "'$BUILT_PRODUCTS_DIR/$PRODUCT_SHORTNAME-src.zip'" www2.entropy.ch:download/
+
 open "$BUILT_PRODUCTS_DIR"
