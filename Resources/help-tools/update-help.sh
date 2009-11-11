@@ -8,6 +8,8 @@ WD=$PWD
 WEBSITE=http://www.entropy.ch/software/macosx/album-artwork-assistant/
 OUTFILE="Album Artwork Assistant Help.html"
 
+echo outfile: "$OUTDIR/$OUTFILE"
+
 curl -s $WEBSITE | xsltproc 2>/dev/null \
 	-o "$OUTDIR/$OUTFILE" \
 	--nonet \

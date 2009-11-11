@@ -23,10 +23,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1147"/>
-			<integer value="202"/>
-			<integer value="372"/>
+			<integer value="455"/>
 			<integer value="574"/>
+			<integer value="202"/>
+			<integer value="1147"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -928,7 +928,6 @@
 									</object>
 									<string key="NSFrame">{{1, 17}, {558, 95}}</string>
 									<reference key="NSSuperview" ref="588744995"/>
-									<reference key="NSNextKeyView" ref="667789116"/>
 									<reference key="NSDocView" ref="667789116"/>
 									<reference key="NSBGColor" ref="454243042"/>
 									<int key="NScvFlags">4</int>
@@ -961,7 +960,6 @@
 									</object>
 									<string key="NSFrame">{{1, 0}, {558, 17}}</string>
 									<reference key="NSSuperview" ref="588744995"/>
-									<reference key="NSNextKeyView" ref="30704579"/>
 									<reference key="NSDocView" ref="30704579"/>
 									<reference key="NSBGColor" ref="454243042"/>
 									<int key="NScvFlags">4</int>
@@ -970,7 +968,6 @@
 							</object>
 							<string key="NSFrame">{{20, 463}, {560, 113}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSNextKeyView" ref="151851327"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="289684852"/>
 							<reference key="NSHScroller" ref="214320940"/>
@@ -1274,7 +1271,6 @@
 														</object>
 														<string key="NSFrame">{{1, 1}, {538, 305}}</string>
 														<reference key="NSSuperview" ref="368562777"/>
-														<reference key="NSNextKeyView" ref="510157696"/>
 														<reference key="NSDocView" ref="510157696"/>
 														<reference key="NSBGColor" ref="36452356"/>
 														<int key="NScvFlags">6</int>
@@ -1302,7 +1298,6 @@
 												</object>
 												<string key="NSFrame">{{7, 38}, {540, 307}}</string>
 												<reference key="NSSuperview" ref="978153839"/>
-												<reference key="NSNextKeyView" ref="481937059"/>
 												<int key="NSsFlags">562</int>
 												<reference key="NSVScroller" ref="499901735"/>
 												<reference key="NSHScroller" ref="751036365"/>
@@ -1634,6 +1629,9 @@
 					<string>images.url</string>
 					<string>url</string>
 					<string>@count</string>
+					<string>track_number</string>
+					<string>track_name</string>
+					<string>track_album</string>
 				</object>
 				<string key="NSObjectClassName">NSDictionary</string>
 				<bool key="NSEditable">YES</bool>
@@ -2498,54 +2496,6 @@
 						<reference key="destination" ref="632727374"/>
 					</object>
 					<int key="connectionID">449</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.trackalbum</string>
-						<reference key="source" ref="261226541"/>
-						<reference key="destination" ref="72398234"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="261226541"/>
-							<reference key="NSDestination" ref="72398234"/>
-							<string key="NSLabel">value: arrangedObjects.trackalbum</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.trackalbum</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">499</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.trackname</string>
-						<reference key="source" ref="594145216"/>
-						<reference key="destination" ref="72398234"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="594145216"/>
-							<reference key="NSDestination" ref="72398234"/>
-							<string key="NSLabel">value: arrangedObjects.trackname</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.trackname</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">500</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.tracknumber</string>
-						<reference key="source" ref="470723608"/>
-						<reference key="destination" ref="72398234"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="470723608"/>
-							<reference key="NSDestination" ref="72398234"/>
-							<string key="NSLabel">value: arrangedObjects.tracknumber</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.tracknumber</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">501</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -3498,6 +3448,66 @@
 						<reference key="destination" ref="72398234"/>
 					</object>
 					<int key="connectionID">1243</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.track_number</string>
+						<reference key="source" ref="470723608"/>
+						<reference key="destination" ref="72398234"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="470723608"/>
+							<reference key="NSDestination" ref="72398234"/>
+							<string key="NSLabel">value: arrangedObjects.track_number</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.track_number</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEditable</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1244</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.track_name</string>
+						<reference key="source" ref="594145216"/>
+						<reference key="destination" ref="72398234"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="594145216"/>
+							<reference key="NSDestination" ref="72398234"/>
+							<string key="NSLabel">value: arrangedObjects.track_name</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.track_name</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEditable</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1245</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.track_album</string>
+						<reference key="source" ref="261226541"/>
+						<reference key="destination" ref="72398234"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="261226541"/>
+							<reference key="NSDestination" ref="72398234"/>
+							<string key="NSLabel">value: arrangedObjects.track_album</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.track_album</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEditable</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1246</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -5085,7 +5095,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{544, 770}, {151, 183}}</string>
+					<string>{{525, 770}, {151, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{187, 434}, {243, 243}}</string>
@@ -5125,7 +5135,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{289, 953}, {481, 20}}</string>
+					<string>{{270, 953}, {481, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>
@@ -5136,9 +5146,9 @@
 					<string>{{475, 832}, {234, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{210, 63}, {600, 596}}</string>
+					<string>{{184, 76}, {600, 596}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{210, 63}, {600, 596}}</string>
+					<string>{{184, 76}, {600, 596}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<integer value="1"/>
@@ -5255,7 +5265,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1243</int>
+			<int key="maxID">1246</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5374,7 +5384,7 @@
 					<string key="className">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMNSAppleEventDescriptor+Foundation.h</string>
+						<string key="minorKey">src-external/google-toolbox-for-mac-read-only/Foundation/GTMNSAppleEventDescriptor+Foundation.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -5409,7 +5419,7 @@
 					<string key="className">NSString</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">src-external/google-toolbox-for-mac-1-5-1/Foundation/GTMNSString+URLArguments.h</string>
+						<string key="minorKey">src-external/google-toolbox-for-mac-read-only/Foundation/GTMNSString+URLArguments.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

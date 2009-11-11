@@ -488,7 +488,7 @@
 		insertNewObjectForEntityForName:@"TrackGroup"
 		inManagedObjectContext:[dataStore managedObjectContext]];
 	
-	[trackGroup setValue:[[tracks objectAtIndex:0] valueForKey:@"trackalbum"] forKey:@"title"];
+	[trackGroup setValue:[[tracks objectAtIndex:0] valueForKey:@"track_album"] forKey:@"title"];
 	[trackGroup setValue:imageData forKey:@"imageData"];
 
 	NSMutableSet *groupTracks = [trackGroup mutableSetValueForKey:@"tracks"];
@@ -497,13 +497,13 @@
 		NSManagedObject *aTrack = [NSEntityDescription
 			insertNewObjectForEntityForName:@"Track"
 			inManagedObjectContext:[dataStore managedObjectContext]];
-
-		[aTrack setValue:[trackData valueForKey:@"trackid"] forKey:@"id"];
-		[aTrack setValue:[trackData valueForKey:@"trackname"] forKey:@"name"];
-		[aTrack setValue:[trackData valueForKey:@"trackNumber"] forKey:@"number"];
-		[aTrack setValue:[trackData valueForKey:@"trackalbum"] forKey:@"album"];
-		[aTrack setValue:[trackData valueForKey:@"trackartist"] forKey:@"artist"];
-		[aTrack setValue:[trackData valueForKey:@"trackContainerId"] forKey:@"containerid"];
+		NSLog(@"trackdata %@", trackData);
+		[aTrack setValue:[trackData valueForKey:@"track_id"] forKey:@"id"];
+		[aTrack setValue:[trackData valueForKey:@"track_name"] forKey:@"name"];
+		[aTrack setValue:[trackData valueForKey:@"track_number"] forKey:@"number"];
+		[aTrack setValue:[trackData valueForKey:@"track_album"] forKey:@"album"];
+		[aTrack setValue:[trackData valueForKey:@"track_artist"] forKey:@"artist"];
+		[aTrack setValue:[trackData valueForKey:@"track_containerid"] forKey:@"containerid"];
 
 		[groupTracks addObject:aTrack];
 	}
@@ -571,11 +571,11 @@
 	NSMutableArray *searchSuggestions = [NSMutableArray array];
 	if (!tracks) return searchSuggestions;
 
-	NSMutableString *firstAlbumTitle = [NSMutableString stringWithString:[[tracks objectAtIndex:0] valueForKey:@"trackalbum"]];
+	NSMutableString *firstAlbumTitle = [NSMutableString stringWithString:[[tracks objectAtIndex:0] valueForKey:@"track_album"]];
 	[self cleanupString:firstAlbumTitle];
 	[searchSuggestions addObject:firstAlbumTitle];
 
-	NSString *firstArtist = [[tracks objectAtIndex:0] valueForKey:@"trackartist"];	NSMutableString *artist = [NSMutableString stringWithString:firstArtist];
+	NSString *firstArtist = [[tracks objectAtIndex:0] valueForKey:@"track_artist"];	NSMutableString *artist = [NSMutableString stringWithString:firstArtist];
 	[self cleanupString:artist];
 	[artist insertString:@" " atIndex:0];
 	[artist insertString:firstAlbumTitle atIndex:0];

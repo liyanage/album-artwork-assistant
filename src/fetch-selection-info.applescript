@@ -27,7 +27,7 @@ tell application "iTunes"
 							set trackNumber to 1
 						end if
 						-- tracklocation:myPosixPath, 
-						set trackData to {trackid:id of myAlbumTrack as number, trackartist:trackartist, trackalbum:myalbum, trackname:name of myAlbumTrack, trackNumber:track number of myAlbumTrack, trackContainerId:containerId}
+						set trackData to {track_id:id of myAlbumTrack as number, track_artist:trackartist, track_album:myalbum, track_name:name of myAlbumTrack, track_number:track number of myAlbumTrack, track_containerid:containerId}
 						set end of myTracks to trackData
 					end repeat
 				end if

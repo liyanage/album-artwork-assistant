@@ -34,9 +34,9 @@
 	NSMutableArray *tracks = [NSMutableArray array];
 	for (id track in self.tracks) {
 		id trackData = [NSMutableDictionary dictionary];
-		[trackData setValue:[track valueForKey:@"id"] forKey:@"trackid"];
-		[trackData setValue:[track valueForKey:@"containerid"] forKey:@"trackcontainerid"];
-		[trackData setValue:[track valueForKey:@"album"] forKey:@"trackalbum"];
+		[trackData setValue:[track valueForKey:@"id"] forKey:@"track_id"];
+		[trackData setValue:[track valueForKey:@"containerid"] forKey:@"track_containerid"];
+		[trackData setValue:[track valueForKey:@"album"] forKey:@"track_album"];
 		[tracks addObject:trackData];
 	}
 	return tracks;

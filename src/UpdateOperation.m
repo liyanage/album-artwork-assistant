@@ -74,7 +74,7 @@
 
 
 - (NSString *)albumTitle {
-	return [[tracks objectAtIndex:0] valueForKey:@"trackalbum"];
+	return [[tracks objectAtIndex:0] valueForKey:@"track_album"];
 }
 
 
