@@ -1,4 +1,4 @@
-
+﻿
 tell application "iTunes"
 	set myTracks to {}
 	set myAlbums to {}
@@ -6,7 +6,8 @@ tell application "iTunes"
 		if class of myTrack = file track then
 			set mycontainer to container of myTrack
 			set myalbum to album of myTrack
-			set isMusicPlaylist to (special kind of container of myTrack = Music)
+			--			set isMusicPlaylist to (special kind of container of myTrack = Music)
+			set isMusicPlaylist to true
 			if myalbum = "" then
 				1 + 1
 				--display dialog "Skipping track without an album name: " & name of myTrack
@@ -40,4 +41,5 @@ tell application "System Events"
 	set myPlist to make new property list item with properties {value:myTracks, kind:list}
 end tell
 return text of myPlist
+
 

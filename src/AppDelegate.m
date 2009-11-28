@@ -283,7 +283,7 @@
 		NSURLResponse *response = nil;
 		NSError *error = nil;
 		NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-		if (error) {
+		if (!data) {
 			[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
 			[self clearBusy];
 			return;
@@ -338,7 +338,7 @@
             options:(NSXMLNodePreserveWhitespace)
             error:&error];
 
-	if (error) {
+	if (!xmlDoc) {
 		[window presentError:error modalForWindow:window delegate:self didPresentSelector:@selector(didPresentErrorWithRecovery:contextInfo:) contextInfo:nil];
 		[self clearBusy];
 		return;

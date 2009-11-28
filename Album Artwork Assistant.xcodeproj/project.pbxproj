@@ -266,7 +266,7 @@
 		1B6B78D90E3708C900EA2035 /* IKImageBrowserFileUrlDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IKImageBrowserFileUrlDataSource.h; path = src/IKImageBrowserFileUrlDataSource.h; sourceTree = "<group>"; };
 		1B7655AC0E27FCF6004A20AE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/AppDelegate.h; sourceTree = "<group>"; };
 		1B7655AD0E27FCF6004A20AE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = src/AppDelegate.m; sourceTree = "<group>"; };
-		1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = "fetch-selection-info.applescript"; path = "src/fetch-selection-info.applescript"; sourceTree = "<group>"; };
+		1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; lineEnding = 0; name = "fetch-selection-info.applescript"; path = "src/fetch-selection-info.applescript"; sourceTree = "<group>"; };
 		1B7656E60E28C648004A20AE /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = "src-external/RegexKitLite-2.0/RegexKitLite.m"; sourceTree = "<group>"; };
 		1B7656E70E28C648004A20AE /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = "src-external/RegexKitLite-2.0/RegexKitLite.h"; sourceTree = "<group>"; };
 		1B7656EA0E28C793004A20AE /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -1045,7 +1045,7 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.7;
+				PRODUCT_VERSION = 2.8;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1290,7 +1290,7 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.7;
+				PRODUCT_VERSION = 2.8;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://127.0.0.1/album-artwork-assistant/appcast.debug.xml";
@@ -1308,7 +1308,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				PREBINDING = NO;
-				PRODUCT_VERSION = 2.7;
+				PRODUCT_VERSION = 2.8;
 				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml";
