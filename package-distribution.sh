@@ -7,18 +7,18 @@ PRODUCT_SHORTNAME=album-artwork-assistant
 
 [ $BUILD_STYLE = Release ] || { echo Distribution target requires "'Release'" build style; false; }
 
-VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info" CFBundleVersion)
+VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Contents/Info" CFBundleVersion)
 DOWNLOAD_BASE_URL="http://www2.entropy.ch/download"
 RELEASENOTES_URL="http://www.entropy.ch/software/macosx/$PRODUCT_SHORTNAME/release-notes.html#version-$VERSION"
 
-ARCHIVE_FILENAME="$PROJECT_NAME $VERSION.zip"
-ARCHIVE_FILENAME_UNVERSIONED="$PROJECT_NAME.zip"
+ARCHIVE_FILENAME="$PRODUCT_NAME $VERSION.zip"
+ARCHIVE_FILENAME_UNVERSIONED="$PRODUCT_NAME.zip"
 DOWNLOAD_URL="$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME"
 KEYCHAIN_PRIVKEY_NAME="Sparkle Private Key 1"
 
 cd "$BUILT_PRODUCTS_DIR"
-rm -f "$PROJECT_NAME"*.zip
-ditto -ck --keepParent "$PROJECT_NAME.app" "$ARCHIVE_FILENAME"
+rm -f "$PRODUCT_NAME"*.zip
+ditto -ck --keepParent "$PRODUCT_NAME.app" "$ARCHIVE_FILENAME"
 
 SIZE=$(stat -f %z "$ARCHIVE_FILENAME")
 PUBDATE=$(date +"%a, %d %b %G %T %z")

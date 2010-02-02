@@ -8,7 +8,14 @@
 #import "TrackGroup.h"
 #import <WebKit/WebKit.h>
 
-#define DOUBLECLICK_ACTION_QUEUE 1
+enum {
+	DOUBLECLICK_ACTION_SET_IMMEDIATELY = 0,
+	DOUBLECLICK_ACTION_QUEUE           = 1
+};
+
+//#define DOUBLECLICK_ACTION_SET_IMMEDIATELY 0
+//#define DOUBLECLICK_ACTION_QUEUE 1
+
 #define GOOGLE_IMAGE_RESULT_PAGE_COUNT 2
 #define GOOGLE_IMAGE_RESULTS_PER_PAGE 8
 #define ERRORDOMAIN @"ch.entropy.album-artwork-assistant"

@@ -118,14 +118,16 @@
 	NSData *data = self.imageData;
 	if (!data) {
 		NSTimeInterval timeout = [[NSUserDefaults standardUserDefaults] floatForKey:@"imageDownloadTimeoutSeconds"];
+		NSURL *imageURL = [NSURL URLWithString:[self url]];
+		
 		NSURLRequest *req = [NSURLRequest
-			requestWithURL:[NSURL URLWithString:[self url]]
+			requestWithURL:imageURL
 			cachePolicy:NSURLRequestUseProtocolCachePolicy
 			timeoutInterval:timeout];
 		NSURLResponse *response = nil;
 		data = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:error];
 		NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-		if ([httpResponse statusCode] == HTTP_SUCCESS && data) {
+		if (data && ([imageURL isFileURL] || [httpResponse statusCode] == HTTP_SUCCESS)) {
 			self.imageData = data;
 		} else {
 			NSLog(@"Unable to load image data from url '%@', error: %@", [self url], error ? *error : nil);
