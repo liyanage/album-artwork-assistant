@@ -7,9 +7,9 @@
 
 "searching_internet" = "Suchen bei Amazon/Google";
 
-"quit_blocking_apps_title" = "Bitte beenden Sie iTunes und die Systemeinstellungen";
+"quit_blocking_apps_title" = "Das iTunes AppleScript konnte nicht installiert werden weil iTunes oder Systemeinstellungen geöffnet sind.";
 
-"quit_blocking_apps" = "Bitte beenden Sie die Programme iTunes und Systemeinstellungen, falls diese aktiv sind.";
+"quit_blocking_apps" = "Bitte beenden Sie die Programme iTunes und Systemeinstellungen, falls diese geöffnet sind, und wiederholen Sie die iTunes AppleScript installation.";
 
 "cant_install_applescript_title" = "Kann iTunes AppleScript nicht installieren";
 
