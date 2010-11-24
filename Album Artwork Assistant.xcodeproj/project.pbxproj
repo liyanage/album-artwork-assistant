@@ -29,17 +29,6 @@
 			name = AmazonAwsSecretKeyFromKeychain;
 			productName = AmazonAwsSecretKeyFromKeychain;
 		};
-		1BB91D270F5A2084002EA033 /* Build JSON */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 1BB91D320F5A208F002EA033 /* Build configuration list for PBXAggregateTarget "Build JSON" */;
-			buildPhases = (
-				1BB91D260F5A2084002EA033 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "Build JSON";
-			productName = "Build JSON";
-		};
 		1BE5C9DA0E3A1DB900334BA1 /* Distribution */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
@@ -71,16 +60,18 @@
 
 /* Begin PBXBuildFile section */
 		1B01E8290E4AD810009E8310 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B01E8280E4AD810009E8310 /* DataStore.m */; };
+		1B04F3F6129C8D35007DCCE1 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B153C50129B9B570081958A /* JSON.framework */; };
 		1B0B40480E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B0B40470E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel */; };
 		1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */; };
 		1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A1320EDCAB1000E0591A /* Localizable.strings */; };
 		1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2830EDE125500E0591A /* Album Artwork Assistant Help */; };
 		1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2B80EDE13D100E0591A /* release-notes.html */; };
 		1B14A3070EDE8FFF00E0591A /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A3040EDE8FFA00E0591A /* help.css */; };
+		1B153C5D129B9BA80081958A /* JSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B153C50129B9B570081958A /* JSON.framework */; };
 		1B1CA3D910A0A865008479B4 /* GTMDebugThreadValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CA3D810A0A865008479B4 /* GTMDebugThreadValidation.m */; };
 		1B37BF010F4C2ECD005A5BAB /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */; };
 		1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
-		1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
+		1B48E72A0E82BE8700AC5357 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
 		1B48E7400E8312F900AC5357 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1B48E73F0E8312F900AC5357 /* dsa_pub.pem */; };
 		1B4CEBE50E30E04900DD28B0 /* iTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE40E30E04900DD28B0 /* iTunes.icns */; };
 		1B4CEBEA0E30E5C000DD28B0 /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CEBE90E30E5C000DD28B0 /* drawer.png */; };
@@ -99,9 +90,6 @@
 		1B7656EB0E28C793004A20AE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7656EA0E28C793004A20AE /* libicucore.dylib */; };
 		1B7657500E28D239004A20AE /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B76574E0E28D239004A20AE /* GTMNSDictionary+URLArguments.m */; };
 		1B7657760E28D744004A20AE /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657750E28D744004A20AE /* GTMNSString+URLArguments.m */; };
-		1B7657D80E28E255004A20AE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */; };
-		1B7657D90E28E255004A20AE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D50E28E255004A20AE /* SBJSON.m */; };
-		1B7657DA0E28E255004A20AE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657D70E28E255004A20AE /* NSString+SBJSON.m */; };
 		1B7A2FF90EFC6FC00061E910 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A2FF80EFC6FC00061E910 /* WebKit.framework */; };
 		1B8236C90FE85F7400ABE180 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8236C70FE85F7400ABE180 /* GTMNSData+zlib.m */; };
 		1B8236CA0FE85F7400ABE180 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8236C70FE85F7400ABE180 /* GTMNSData+zlib.m */; };
@@ -132,7 +120,7 @@
 		1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAA29D70E2ABB3000B05717 /* Quartz.framework */; };
 		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
 		1BAF15C80E33D8EF00A725F6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C40E33D8EF00A725F6 /* NSObject+DDExtensions.m */; };
-		1BAF16750E33F06B00A725F6 /* Find with Album Artwork Assistant.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BAF16740E33F05B00A725F6 /* Find with Album Artwork Assistant.scpt */; };
+		1BAF16750E33F06B00A725F6 /* Find with Album Artwork Assistant.scpt in Embed iTunes AppleScript */ = {isa = PBXBuildFile; fileRef = 1BAF16740E33F05B00A725F6 /* Find with Album Artwork Assistant.scpt */; };
 		1BBD59EE0E5A2749005F235C /* TrackGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD59ED0E5A2749005F235C /* TrackGroup.m */; };
 		1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */ = {isa = PBXBuildFile; fileRef = 1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -161,6 +149,34 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		1B153C4F129B9B570081958A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D229810C96121600276605;
+			remoteInfo = JSON;
+		};
+		1B153C51129B9B570081958A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D2298D0C96122A00276605;
+			remoteInfo = Tests;
+		};
+		1B153C53129B9B570081958A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
+			remoteInfo = libjson;
+		};
+		1B153C55129B9B570081958A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
+			remoteInfo = libjsontests;
+		};
 		1B7394210ED215F40011B0E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -182,12 +198,12 @@
 			remoteGlobalIDString = 1B8F60BD0FE6F99E00FF3891;
 			remoteInfo = AmazonAwsSecretKeyFromKeychain;
 		};
-		1BB91D350F5A20AA002EA033 /* PBXContainerItemProxy */ = {
+		1BC63666129B9D640007E4E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 1BB91D270F5A2084002EA033;
-			remoteInfo = "Build JSON";
+			remoteGlobalIDString = 53D229800C96121600276605;
+			remoteInfo = JSON;
 		};
 		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -199,24 +215,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1B48E72C0E82BEAC00AC5357 /* CopyFiles */ = {
+		1B48E72C0E82BEAC00AC5357 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1B48E72A0E82BE8700AC5357 /* Sparkle.framework in CopyFiles */,
+				1B153C5D129B9BA80081958A /* JSON.framework in Embed Frameworks */,
+				1B48E72A0E82BE8700AC5357 /* Sparkle.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1BAF16630E33EE6800A725F6 /* CopyFiles */ = {
+		1BAF16630E33EE6800A725F6 /* Embed iTunes AppleScript */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "Example AppleScript";
 			dstSubfolderSpec = 7;
 			files = (
-				1BAF16750E33F06B00A725F6 /* Find with Album Artwork Assistant.scpt in CopyFiles */,
+				1BAF16750E33F06B00A725F6 /* Find with Album Artwork Assistant.scpt in Embed iTunes AppleScript */,
 			);
+			name = "Embed iTunes AppleScript";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -238,6 +257,7 @@
 		1B14A3040EDE8FFA00E0591A /* help.css */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		1B14A3050EDE8FFA00E0591A /* update-help.sh */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.script.sh; path = "update-help.sh"; sourceTree = "<group>"; };
 		1B14A3060EDE8FFA00E0591A /* update-help.xslt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.xml; path = "update-help.xslt"; sourceTree = "<group>"; };
+		1B153C44129B9B570081958A /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = "src-external/json-framework/JSON.xcodeproj"; sourceTree = "<group>"; };
 		1B1CA3D710A0A865008479B4 /* GTMDebugThreadValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDebugThreadValidation.h; path = "src-external/google-toolbox-for-mac-read-only/DebugUtils/GTMDebugThreadValidation.h"; sourceTree = "<group>"; };
 		1B1CA3D810A0A865008479B4 /* GTMDebugThreadValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMDebugThreadValidation.m; path = "src-external/google-toolbox-for-mac-read-only/DebugUtils/GTMDebugThreadValidation.m"; sourceTree = "<group>"; };
 		1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; name = Credits.rtfd; path = Resources/Credits.rtfd; sourceTree = "<group>"; };
@@ -277,13 +297,6 @@
 		1B76575B0E28D28E004A20AE /* GTMMethodCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = "src-external/google-toolbox-for-mac-read-only/DebugUtils/GTMMethodCheck.h"; sourceTree = "<group>"; };
 		1B7657740E28D744004A20AE /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
 		1B7657750E28D744004A20AE /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
-		1B7657D10E28E255004A20AE /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJSON.h; path = "src-external/json-framework-read-only/Source/SBJSON.h"; sourceTree = "<group>"; };
-		1B7657D20E28E255004A20AE /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = "src-external/json-framework-read-only/Source/JSON.h"; sourceTree = "<group>"; };
-		1B7657D30E28E255004A20AE /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "src-external/json-framework-read-only/Source/NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "src-external/json-framework-read-only/Source/NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		1B7657D50E28E255004A20AE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = "src-external/json-framework-read-only/Source/SBJSON.m"; sourceTree = "<group>"; };
-		1B7657D60E28E255004A20AE /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.h"; sourceTree = "<group>"; };
-		1B7657D70E28E255004A20AE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "src-external/json-framework-read-only/Source/NSString+SBJSON.m"; sourceTree = "<group>"; };
 		1B7A2FF80EFC6FC00061E910 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1B7B84750E8C3D200048A3B8 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = "Resources/English.lproj/Album Artwork Assistant Help"; sourceTree = "<group>"; };
 		1B8236C70FE85F7400ABE180 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
@@ -369,6 +382,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B04F3F6129C8D35007DCCE1 /* JSON.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1B7656EB0E28C793004A20AE /* libicucore.dylib in Frameworks */,
 				1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */,
@@ -462,6 +476,17 @@
 			path = "Resources/help-tools";
 			sourceTree = "<group>";
 		};
+		1B153C45129B9B570081958A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B153C50129B9B570081958A /* JSON.framework */,
+				1B153C52129B9B570081958A /* Tests.octest */,
+				1B153C54129B9B570081958A /* libjson.a */,
+				1B153C56129B9B570081958A /* libjsontests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,20 +520,6 @@
 				1BAF16740E33F05B00A725F6 /* Find with Album Artwork Assistant.scpt */,
 			);
 			name = AppleScript;
-			sourceTree = "<group>";
-		};
-		1B7657C70E28E206004A20AE /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				1B7657D20E28E255004A20AE /* JSON.h */,
-				1B7657D30E28E255004A20AE /* NSObject+SBJSON.h */,
-				1B7657D40E28E255004A20AE /* NSObject+SBJSON.m */,
-				1B7657D10E28E255004A20AE /* SBJSON.h */,
-				1B7657D50E28E255004A20AE /* SBJSON.m */,
-				1B7657D60E28E255004A20AE /* NSString+SBJSON.h */,
-				1B7657D70E28E255004A20AE /* NSString+SBJSON.m */,
-			);
-			name = JSON;
 			sourceTree = "<group>";
 		};
 		1B7657C80E28E20E004A20AE /* GTM */ = {
@@ -565,12 +576,12 @@
 		1BA106770EDA9E3200233FF0 /* External Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1B153C44129B9B570081958A /* JSON.xcodeproj */,
 				1B8F61860FE7772A00FF3891 /* hmac */,
 				1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */,
 				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
 				1BAF15B50E33D8A900A725F6 /* DDFoundation */,
 				1B7657C90E28E229004A20AE /* RegexKitLite */,
-				1B7657C70E28E206004A20AE /* JSON */,
 				1B6B771F0E353D4300EA2035 /* QuickLook */,
 				1B7657C80E28E20E004A20AE /* GTM */,
 			);
@@ -704,15 +715,15 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				1B7656070E281D61004A20AE /* AppleScript */,
-				1BAF16630E33EE6800A725F6 /* CopyFiles */,
-				1B48E72C0E82BEAC00AC5357 /* CopyFiles */,
+				1BAF16630E33EE6800A725F6 /* Embed iTunes AppleScript */,
+				1B48E72C0E82BEAC00AC5357 /* Embed Frameworks */,
 			);
 			buildRules = (
 				1B5654F40E86FD4300E59DF9 /* PBXBuildRule */,
 			);
 			dependencies = (
-				1BB91D360F5A20AA002EA033 /* PBXTargetDependency */,
 				1B8F611F0FE6FC2D00FF3891 /* PBXTargetDependency */,
+				1BC63667129B9D640007E4E0 /* PBXTargetDependency */,
 			);
 			name = "Album Artwork Assistant";
 			productInstallPath = "$(HOME)/Applications";
@@ -737,17 +748,53 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Music Artwork */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1B153C45129B9B570081958A /* Products */;
+					ProjectRef = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Album Artwork Assistant */,
 				1BE5C9DA0E3A1DB900334BA1 /* Distribution */,
 				1B73941D0ED215E20011B0E8 /* Update Help Docs */,
-				1BB91D270F5A2084002EA033 /* Build JSON */,
 				1B8F60610FE6F30D00FF3891 /* TestSignedAwsSearchRequest */,
 				1B8F60BD0FE6F99E00FF3891 /* AmazonAwsSecretKeyFromKeychain */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1B153C50129B9B570081958A /* JSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSON.framework;
+			remoteRef = 1B153C4F129B9B570081958A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B153C52129B9B570081958A /* Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.octest;
+			remoteRef = 1B153C51129B9B570081958A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B153C54129B9B570081958A /* libjson.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjson.a;
+			remoteRef = 1B153C53129B9B570081958A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B153C56129B9B570081958A /* libjsontests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = libjsontests.octest;
+			remoteRef = 1B153C55129B9B570081958A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1B8F605D0FE6F30D00FF3891 /* Resources */ = {
@@ -840,19 +887,6 @@
 			shellPath = /bin/sh;
 			shellScript = "perl extract-aws-secret-key-from-keychain.pl\n";
 		};
-		1BB91D260F5A2084002EA033 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "JSONDIR=src-external/json-framework-read-only\n[ -e $JSONDIR ] || svn co http://json-framework.googlecode.com/svn/trunk $JSONDIR";
-		};
 		1BE5C9D90E3A1DB900334BA1 /* Run Script Prepare Distribution */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -893,9 +927,6 @@
 				1B7656E80E28C648004A20AE /* RegexKitLite.m in Sources */,
 				1B7657500E28D239004A20AE /* GTMNSDictionary+URLArguments.m in Sources */,
 				1B7657760E28D744004A20AE /* GTMNSString+URLArguments.m in Sources */,
-				1B7657D80E28E255004A20AE /* NSObject+SBJSON.m in Sources */,
-				1B7657D90E28E255004A20AE /* SBJSON.m in Sources */,
-				1B7657DA0E28E255004A20AE /* NSString+SBJSON.m in Sources */,
 				1BAA29D30E2ABA3300B05717 /* ImageSearchItem.m in Sources */,
 				1B8CF5C00E2BBD800084C323 /* UpdateOperation.m in Sources */,
 				1B8CF5FD0E2BD4030084C323 /* GTMNSAppleEventDescriptor+Handler.m in Sources */,
@@ -940,10 +971,10 @@
 			target = 1B8F60BD0FE6F99E00FF3891 /* AmazonAwsSecretKeyFromKeychain */;
 			targetProxy = 1B8F611E0FE6FC2D00FF3891 /* PBXContainerItemProxy */;
 		};
-		1BB91D360F5A20AA002EA033 /* PBXTargetDependency */ = {
+		1BC63667129B9D640007E4E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1BB91D270F5A2084002EA033 /* Build JSON */;
-			targetProxy = 1BB91D350F5A20AA002EA033 /* PBXContainerItemProxy */;
+			name = JSON;
+			targetProxy = 1BC63666129B9D640007E4E0 /* PBXContainerItemProxy */;
 		};
 		1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1061,12 +1092,11 @@
 		1B77CBED0E3CE52900465756 /* Debug no net */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
 					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
+					"\"$(SRCROOT)/src-external/json-framework/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1193,34 +1223,6 @@
 			};
 			name = Release;
 		};
-		1BB91D280F5A2085002EA033 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Build JSON";
-			};
-			name = Debug;
-		};
-		1BB91D290F5A2085002EA033 /* Debug no net */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "Build JSON";
-			};
-			name = "Debug no net";
-		};
-		1BB91D2A0F5A2085002EA033 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = "Build JSON";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		1BE5C9DB0E3A1DBA00334BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1245,12 +1247,11 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
 					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
+					"\"$(SRCROOT)/src-external/json-framework/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1266,12 +1267,11 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/lib/JSON_2.0.1\"",
 					"\"$(SRCROOT)/sparkle/With Garbage Collection\"",
+					"\"$(SRCROOT)/src-external/json-framework/build/Debug\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1317,7 +1317,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1353,16 +1352,6 @@
 				1B8F60BE0FE6F9A000FF3891 /* Debug */,
 				1B8F60BF0FE6F9A000FF3891 /* Debug no net */,
 				1B8F60C00FE6F9A000FF3891 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BB91D320F5A208F002EA033 /* Build configuration list for PBXAggregateTarget "Build JSON" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BB91D280F5A2085002EA033 /* Debug */,
-				1BB91D290F5A2085002EA033 /* Debug no net */,
-				1BB91D2A0F5A2085002EA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
