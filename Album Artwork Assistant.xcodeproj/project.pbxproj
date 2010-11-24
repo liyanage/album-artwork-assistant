@@ -86,7 +86,6 @@
 		1B6B77370E3540D800EA2035 /* QuickLookImageBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B77350E3540D800EA2035 /* QuickLookImageBrowserView.m */; };
 		1B7655AE0E27FCF6004A20AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7655AD0E27FCF6004A20AE /* AppDelegate.m */; };
 		1B7655FD0E281D59004A20AE /* fetch-selection-info.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 1B7655FA0E281D32004A20AE /* fetch-selection-info.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
-		1B7656E80E28C648004A20AE /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7656E60E28C648004A20AE /* RegexKitLite.m */; };
 		1B7656EB0E28C793004A20AE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7656EA0E28C793004A20AE /* libicucore.dylib */; };
 		1B7657500E28D239004A20AE /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B76574E0E28D239004A20AE /* GTMNSDictionary+URLArguments.m */; };
 		1B7657760E28D744004A20AE /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7657750E28D744004A20AE /* GTMNSString+URLArguments.m */; };
@@ -123,6 +122,7 @@
 		1BAF16750E33F06B00A725F6 /* Find with Album Artwork Assistant.scpt in Embed iTunes AppleScript */ = {isa = PBXBuildFile; fileRef = 1BAF16740E33F05B00A725F6 /* Find with Album Artwork Assistant.scpt */; };
 		1BBD59EE0E5A2749005F235C /* TrackGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD59ED0E5A2749005F235C /* TrackGroup.m */; };
 		1BD13CAF0E46E457005DD669 /* amazon2plist.xslt in Resources */ = {isa = PBXBuildFile; fileRef = 1BD13CAE0E46E457005DD669 /* amazon2plist.xslt */; };
+		1BD22FE3129CDD63008E87DA /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7656E60E28C648004A20AE /* RegexKitLite.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -130,14 +130,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
-		1B5654F40E86FD4300E59DF9 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.llvm.clang.1_0;
-			fileType = sourcecode.c;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
 		1B8F61AF0FE77AE900FF3891 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.gcc.4_2;
@@ -719,7 +711,6 @@
 				1B48E72C0E82BEAC00AC5357 /* Embed Frameworks */,
 			);
 			buildRules = (
-				1B5654F40E86FD4300E59DF9 /* PBXBuildRule */,
 			);
 			dependencies = (
 				1B8F611F0FE6FC2D00FF3891 /* PBXTargetDependency */,
@@ -924,7 +915,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				1B7655AE0E27FCF6004A20AE /* AppDelegate.m in Sources */,
-				1B7656E80E28C648004A20AE /* RegexKitLite.m in Sources */,
 				1B7657500E28D239004A20AE /* GTMNSDictionary+URLArguments.m in Sources */,
 				1B7657760E28D744004A20AE /* GTMNSString+URLArguments.m in Sources */,
 				1BAA29D30E2ABA3300B05717 /* ImageSearchItem.m in Sources */,
@@ -950,6 +940,7 @@
 				1B8F622B0FE7BCF200FF3891 /* GTMBase64.m in Sources */,
 				1B8236CA0FE85F7400ABE180 /* GTMNSData+zlib.m in Sources */,
 				1B1CA3D910A0A865008479B4 /* GTMDebugThreadValidation.m in Sources */,
+				1BD22FE3129CDD63008E87DA /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,6 +1070,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG_NONET;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
@@ -1106,6 +1098,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 			};
 			name = "Debug no net";
@@ -1260,6 +1253,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 			};
 			name = Debug;
@@ -1278,6 +1272,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 			};
 			name = Release;
@@ -1292,6 +1287,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1312,6 +1308,7 @@
 				CURRENT_PROJECT_VERSION = 2.9;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
