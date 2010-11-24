@@ -96,7 +96,7 @@ enum {
 - (BOOL)isQueueEmpty;
 - (void)switchToMainTab;
 
-- (void)removeItemAtIndex:(int)index;
+- (void)removeItemAtIndex:(NSInteger)index;
 - (ImageSearchItem *)selectedImage;
 - (NSUInteger)selectedImageIndex;
 - (void)removeCurrentItemAndWarn;

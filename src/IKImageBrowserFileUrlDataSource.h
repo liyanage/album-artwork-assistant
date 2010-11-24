@@ -11,7 +11,7 @@
 
 @protocol IKImageBrowserFileUrlDataSource
 
--(NSURL *)fileUrlForItemAtIndex:(int)index;
+-(NSURL *)fileUrlForItemAtIndex:(NSInteger)index;
 
 @end
 

@@ -84,7 +84,7 @@
 	// Otherwise, set the current items
 	NSIndexSet *selected = [self selectionIndexes];
 	if (![selected count]) return;
-	int index = [selected firstIndex];
+	NSInteger index = [selected firstIndex];
 	[self quickLookSelectedItems:index];
 
 	NSMutableArray* URLs = [NSMutableArray array];
@@ -94,7 +94,7 @@
 }
 
 
-- (void)quickLookSelectedItems:(int)itemIndex {
+- (void)quickLookSelectedItems:(NSInteger)itemIndex {
 	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
 	[[self delegate] startBusy:NSLocalizedString(@"loading_image", @"")];
 	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
@@ -102,7 +102,7 @@
 
 
 - (void)quickLookSelectedItems2:(NSString *)urlString {
-	int index = [[self selectionIndexes] firstIndex];
+	NSInteger index = [[self selectionIndexes] firstIndex];
 	NSURL *fileUrl = [[self dataSource] fileUrlForItemAtIndex:index];
 	
 	[[self delegate] clearBusy];
@@ -130,7 +130,7 @@
 - (NSRect)previewPanel:(NSPanel*)panel frameForURL:(NSURL*)URL {
 	NSIndexSet *selected = [self selectionIndexes];
 	NSAssert([selected count] > 0, @"no items selected");
-	int index = [selected firstIndex];
+	NSInteger index = [selected firstIndex];
 
 	NSRect itemFrame = [self convertRectToBase:[self itemFrameAtIndex:index]];
 	itemFrame.origin = [[self window] convertBaseToScreen:itemFrame.origin];

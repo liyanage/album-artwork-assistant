@@ -17,7 +17,7 @@
 - (void)setupQuickLook;
 - (void)updateQuickLook;
 - (void)closeQuickLook;
-- (void)quickLookSelectedItems:(int)itemIndex;
+- (void)quickLookSelectedItems:(NSInteger)itemIndex;
 - (void)setQuickLookPanelDelegate:(id)delegate;
 - (void)selectionChange;
 

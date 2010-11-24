@@ -2,7 +2,7 @@
 #import "AppDelegate.h"
 #import "RegexKitLite.h"
 #import "GTMNSDictionary+URLArguments.h"
-#import "NSString+SBJSON.h"
+#import <JSON/JSON.h>
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
 #import "GTMScriptRunner.h"
@@ -376,20 +376,20 @@
 	NSUInteger index = [self selectedImageIndex];
 	NSUInteger count = [images count];
 	if (index > count - 1) {
-		NSLog(@"[[imageBrowser selectionIndexes] firstIndex] is %d but image count is only %d", index, count);
+		NSLog(@"[[imageBrowser selectionIndexes] firstIndex] is %ld but image count is only %ld", index, count);
 		return nil;
 	}
 	return [images objectAtIndex:index];
 }
 
 
-- (void)removeItemAtIndex:(int)index {
+- (void)removeItemAtIndex:(NSInteger)index {
 	[images removeObjectAtIndex:index];
 	[[imageBrowser dd_invokeOnMainThread] reloadData];
 }
 
 
-- (NSURL *)fileUrlForItemAtIndex:(int)index {
+- (NSURL *)fileUrlForItemAtIndex:(NSInteger)index {
 	ImageSearchItem *item = [images objectAtIndex:index];
 	NSURL *fileUrl = [item fileUrl];
 	if (!fileUrl) {

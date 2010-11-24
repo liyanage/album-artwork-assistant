@@ -63,7 +63,7 @@ NSInteger stringByteSort(NSString *a, NSString *b, void *context);
 - (NSString *)queryStringForParameterDictionary:(NSDictionary *)params {
 	NSArray *paramNames = [[params allKeys] sortedArrayUsingFunction:stringByteSort context:nil];
 	NSMutableString *queryString = [NSMutableString string];
-	int i, n = [paramNames count];
+	NSInteger i, n = [paramNames count];
 	for (i = 0; i < n; i++) {
 		NSString *paramName = [paramNames objectAtIndex:i];
 		[queryString appendFormat:@"%@=%@", paramName, [[params objectForKey:paramName] gtm_stringByEscapingForURLArgument]];
@@ -88,8 +88,8 @@ NSInteger stringByteSort(NSString *a, NSString *b, void *context);
 	bzero(mac, SHA256_DIGEST_SIZE);
 
 	unsigned char *keyBytes = (unsigned char *)[self.secretAccessKey UTF8String];
-	int keyLength = [self.secretAccessKey length];
-	hmac_sha256(keyBytes, keyLength, signatureInputBytes, [signatureInput length], mac, SHA256_DIGEST_SIZE);
+	NSInteger keyLength = [self.secretAccessKey length];
+	hmac_sha256(keyBytes, (unsigned int)keyLength, signatureInputBytes, (unsigned int)[signatureInput length], mac, SHA256_DIGEST_SIZE);
 
 	return [GTMBase64 stringByEncodingBytes:mac length:SHA256_DIGEST_SIZE];
 }
