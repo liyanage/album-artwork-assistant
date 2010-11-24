@@ -631,7 +631,7 @@
 		[NSNumber numberWithBool:YES], @"terminateWithItunes",
 		[NSNumber numberWithBool:YES], @"queueAddSwitchesToItunes",
 		[NSNumber numberWithInt:5], @"imageDownloadTimeoutSeconds",
-		[NSNumber numberWithFloat:0.4], @"imageBrowserZoom",
+		[NSNumber numberWithFloat:0.4f], @"imageBrowserZoom",
 		sortDesc, @"tracksSortDescriptors",
 		nil];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
