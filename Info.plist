@@ -40,5 +40,7 @@
 	<string>dsa_pub.pem</string>
 	<key>SUEnableSystemProfiling</key>
 	<true/>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.6.0</string>
 </dict>
 </plist>
