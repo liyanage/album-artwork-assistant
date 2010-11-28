@@ -20,7 +20,7 @@
 - (NSImage *)tinyAlbumImage {
 	if (tinyAlbumImage) return tinyAlbumImage;
 	NSImage *image = [[NSImage alloc] initWithData:self.imageData];
-	NSImageRep *sourceImageRep = [image bestRepresentationForDevice:nil];
+	NSImageRep *sourceImageRep = [[image representations] lastObject];
 	NSImage *targetImage = [[NSImage alloc] initWithSize:NSMakeSize(28, 28)];
 	[targetImage lockFocus];
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];

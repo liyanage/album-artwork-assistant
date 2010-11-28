@@ -55,8 +55,8 @@
     fileManager = [NSFileManager defaultManager];
     applicationSupportFolder = [self applicationSupportFolder];
     if ( ![fileManager fileExistsAtPath:applicationSupportFolder isDirectory:NULL] ) {
-        [fileManager createDirectoryAtPath:applicationSupportFolder attributes:nil];
-    }
+        [fileManager createDirectoryAtPath:applicationSupportFolder withIntermediateDirectories:YES attributes:nil error:nil];
+	}
     NSString *filename = [NSString stringWithFormat:@"%@.sqlite", [self applicationName]];
     url = [NSURL fileURLWithPath: [applicationSupportFolder stringByAppendingPathComponent:filename]];
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
