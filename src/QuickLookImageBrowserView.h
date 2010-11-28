@@ -9,16 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "Quartz/Quartz.h"
 
-@interface QuickLookImageBrowserView : IKImageBrowserView {
+@interface QuickLookImageBrowserView : IKImageBrowserView <QLPreviewPanelDataSource, QLPreviewPanelDelegate> {
 	Class quickLookPanelClass;
 }
 
 - (void)userDidPressSpaceInImageBrowserView:(id)aBrowser;
-- (void)setupQuickLook;
-- (void)updateQuickLook;
-- (void)closeQuickLook;
-- (void)quickLookSelectedItems:(NSInteger)itemIndex;
-- (void)setQuickLookPanelDelegate:(id)delegate;
-- (void)selectionChange;
 
 @end

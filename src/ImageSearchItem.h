@@ -8,10 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ImageSearchItem.h"
+#import <Quartz/Quartz.h>
 
 #define HTTP_SUCCESS 200
 
-@interface ImageSearchItem : NSObject {
+@interface ImageSearchItem : NSObject <QLPreviewItem> {
 	NSDictionary *searchResult;
 	NSData *imageData;
 	NSURL *fileUrl;

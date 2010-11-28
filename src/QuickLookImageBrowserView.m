@@ -5,55 +5,13 @@
 //  Created by Marc Liyanage on 22.07.08.
 //
 
-// Info and code taken from
-// http://www.macresearch.org/cocoa-tutorial-image-kit-cover-flow-and-quicklook-doing-things-we-shouldnt-are-too-fun-resist
-// http://ciaranwal.sh/2007/12/07/quick-look-apis
-
-
 #import "QuickLookImageBrowserView.h"
-#import "QuickLook.h"
 #import "ImageSearchItem.h"
 #import "StatusDelegateProtocol.h"
 #import "IKImageBrowserFileUrlDataSource.h"
 
 
-
-
 @implementation QuickLookImageBrowserView
-
-- (void)awakeFromNib {
-	[self setupQuickLook];
-}
-
-- (void)setupQuickLook {
-	if(![[NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/QuickLookUI.framework"] load]) {
-		NSLog(@"Unable to load Quick Look");
-		return;
-	}
-
-	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
-	[self setQuickLookPanelDelegate:self];
-}
-
-
-//- (void)setupQuickLook {
-////	NSString *quickLookPrivateFrameworkPath = @"/System/Library/PrivateFrameworks/QuickLookUI.framework";
-////	if([[NSBundle bundleWithPath:quickLookPrivateFrameworkPath] load]) {
-////		NSLog(@"Loaded Quick Look from private framework %@", quickLookPrivateFrameworkPath);
-////	}
-//
-//	quickLookPanelClass = NSClassFromString(@"QLPreviewPanel");
-//	if (!quickLookPanelClass) {
-//		NSLog(@"Unable to load Quick Look, requires Mac OS 10.6");
-//		return;
-//	}
-//	
-//	[self setQuickLookPanelDelegate:self];
-//	[[quickLookPanelClass sharedPreviewPanel] setDataSource:self];
-//}
-//
-//
-//
 
 
 - (void)keyDown:(NSEvent *)event {	
@@ -69,94 +27,42 @@
 }
 
 
+#pragma mark QLPreviewPanelController protocol
+
+- (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel *)panel
+{
+	return YES;
+}
+
+
 - (void)userDidPressSpaceInImageBrowserView:(id)aBrowser {
-	if (!quickLookPanelClass) return;
-	// If the user presses space when the preview panel is open then we close it
-	if([[quickLookPanelClass sharedPreviewPanel] isOpen])
-		[[quickLookPanelClass sharedPreviewPanel] closeWithEffect:2];
-	else {
-		[self updateQuickLook];
+	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
+		[[QLPreviewPanel sharedPreviewPanel] orderOut:self];
+	} else {
+		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:self];
 	}
 }
 
 
-- (void)updateQuickLook {
-	// Otherwise, set the current items
+#pragma mark QLPreviewPanelDataSource protocol
+
+- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
+{
 	NSIndexSet *selected = [self selectionIndexes];
-	if (![selected count]) return;
-	NSInteger index = [selected firstIndex];
-	[self quickLookSelectedItems:index];
-
-	NSMutableArray* URLs = [NSMutableArray array];
-	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
-
-	[[self window] makeKeyWindow];
-}
-
-
-- (void)quickLookSelectedItems:(NSInteger)itemIndex {
-	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:itemIndex];
-	[[self delegate] startBusy:NSLocalizedString(@"loading_image", @"")];
-	[self performSelector:@selector(quickLookSelectedItems2:) withObject:[item url] afterDelay:0.1];
-}
-
-
-- (void)quickLookSelectedItems2:(NSString *)urlString {
-	NSInteger index = [[self selectionIndexes] firstIndex];
-	NSURL *fileUrl = [[self dataSource] fileUrlForItemAtIndex:index];
+	if (![selected count])
+		return nil;
 	
-	[[self delegate] clearBusy];
-	if (!fileUrl) {
-		NSLog(@"unable to get item file url for quicklook");
-		[[quickLookPanelClass sharedPreviewPanel] close];
-		return;
-	}
-
-	NSMutableArray* URLs = [NSMutableArray arrayWithCapacity:1];
-	[URLs addObject:fileUrl];
-	[[quickLookPanelClass sharedPreviewPanel] setURLs:URLs currentIndex:0 preservingDisplayState:YES];
-	[[quickLookPanelClass sharedPreviewPanel] makeKeyAndOrderFrontWithEffect:2];
-}
-
- 
-- (void)setQuickLookPanelDelegate:(id)delegate {
-	if (!quickLookPanelClass) return;
-	[[[quickLookPanelClass sharedPreviewPanel] windowController] setDelegate:delegate];
+	NSInteger firstIndex = [selected firstIndex];
+	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:firstIndex];
+	[[self delegate] startBusy:NSLocalizedString(@"loading_image", @"")];
+	return item;
 }
 
 
-#pragma mark QuickLook Panel delegate methods
-
-- (NSRect)previewPanel:(NSPanel*)panel frameForURL:(NSURL*)URL {
+- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
+{
 	NSIndexSet *selected = [self selectionIndexes];
-	NSAssert([selected count] > 0, @"no items selected");
-	NSInteger index = [selected firstIndex];
-
-	NSRect itemFrame = [self convertRectToBase:[self itemFrameAtIndex:index]];
-	itemFrame.origin = [[self window] convertBaseToScreen:itemFrame.origin];
-	return itemFrame;
+	return [selected count] ? 1 : 0;
 }
-
-
-
-- (void)selectionChange {
-	if (!quickLookPanelClass) return;
-	if(![[quickLookPanelClass sharedPreviewPanel] isOpen]) return;
-
-	[self updateQuickLook];
-}
-
-
-- (void)closeQuickLook {
-	if (!quickLookPanelClass) return;
-	if(![[quickLookPanelClass sharedPreviewPanel] isOpen]) return;
-	[[quickLookPanelClass sharedPreviewPanel] closeWithEffect:2];
-}
-
-- (void)reloadData {
-	[self closeQuickLook];
-	[super reloadData];
-}
-
 
 @end

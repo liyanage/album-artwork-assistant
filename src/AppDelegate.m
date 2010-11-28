@@ -702,7 +702,6 @@
 
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)aBrowser {
 	[self setIsImageSelected:[[aBrowser selectionIndexes] count] > 0];
-	[imageBrowser selectionChange];
 }
 
 

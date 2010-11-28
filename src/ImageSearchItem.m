@@ -51,7 +51,7 @@
 - (NSImage *)tinyImage {
 	// http://www.omnigroup.com/mailman/archive/macosx-dev/2001-November/033402.html
 	NSImage *image = [[NSImage alloc] initWithData:imageData];
-	NSImageRep *sourceImageRep = [image bestRepresentationForDevice:nil];
+	NSImageRep *sourceImageRep = [[image representations] lastObject];
 	NSImage *targetImage = [[NSImage alloc] initWithSize:NSMakeSize(28, 28)];
 	[targetImage lockFocus];
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
@@ -155,6 +155,12 @@
 
 
 
+#pragma mark QLPreviewItem protocol
+
+- (NSURL *)previewItemURL
+{
+	return [self fileUrl];
+}
 
 
 
