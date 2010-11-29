@@ -128,6 +128,7 @@
 	
 	if (![self canInstalliTunesAppleScript]) {
 		[self displayErrorWithTitle:NSLocalizedString(@"quit_blocking_apps_title", @"") message:NSLocalizedString(@"quit_blocking_apps", @"")];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"terminateWithItunesOneTimeOverride"];
 		return;
 	}
 
@@ -649,11 +650,17 @@
 - (void)applicationDidQuit:(NSNotification *)notification {
 	//	NSLog(@"app did quit: %@", notification);
 
+
 	if (![[[notification userInfo] valueForKey:@"NSApplicationBundleIdentifier"] isEqualToString:@"com.apple.iTunes"]) return;
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"terminateWithItunes"]) return;
 
 	//	NSLog(@"itunes quit, so we're quitting...");
 
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"terminateWithItunesOneTimeOverride"]) {
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"terminateWithItunesOneTimeOverride"];
+		return;
+	}
+	
 	[[NSApplication sharedApplication] terminate:self];
 }
 
@@ -727,6 +734,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	UKCrashReporterCheckForCrash();
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"terminateWithItunesOneTimeOverride"];
 /*
 	struct rlimit limit;
 	getrlimit(RLIMIT_NOFILE, &limit);
