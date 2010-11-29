@@ -134,7 +134,6 @@
 			data = nil;
 		}
 	}
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"SearchItemDidFinish" object:self];
 	return data;
 }
 
@@ -160,7 +159,9 @@
 
 - (NSURL *)previewItemURL
 {
-	return [self fileUrl];
+	NSURL *url = [self fileUrl];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"SearchItemDidFinish" object:self];
+	return url;
 }
 
 
