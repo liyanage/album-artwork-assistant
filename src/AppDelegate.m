@@ -642,6 +642,7 @@
 - (void)setupNotifications {
 	// the AppleScript command object sends this notification
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetch:) name:@"fetchiTunesAlbums" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearBusy) name:@"SearchItemDidFinish" object:nil];
 
 	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(applicationDidQuit:) name:NSWorkspaceDidTerminateApplicationNotification object:nil];
 }

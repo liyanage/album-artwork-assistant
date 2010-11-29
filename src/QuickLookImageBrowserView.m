@@ -60,6 +60,7 @@
 	NSInteger firstIndex = [selected firstIndex];
 	ImageSearchItem *item = [[self dataSource] imageBrowser:self itemAtIndex:firstIndex];
 	[[self delegate] startBusy:NSLocalizedString(@"loading_image", @"")];
+	[[self window] displayIfNeeded];
 	return item;
 }
 

@@ -134,6 +134,7 @@
 			data = nil;
 		}
 	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"SearchItemDidFinish" object:self];
 	return data;
 }
 
