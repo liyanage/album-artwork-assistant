@@ -13,6 +13,4 @@
 	Class quickLookPanelClass;
 }
 
-- (void)userDidPressSpaceInImageBrowserView:(id)aBrowser;
-
 @end

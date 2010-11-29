@@ -10,6 +10,9 @@
 #import "StatusDelegateProtocol.h"
 #import "IKImageBrowserFileUrlDataSource.h"
 
+@interface QuickLookImageBrowserView ()
+- (void)toggleQuickLook:(id)sender;
+@end
 
 @implementation QuickLookImageBrowserView
 
@@ -18,13 +21,15 @@
 	NSString *chars = [event charactersIgnoringModifiers]; 
 //	NSLog(@"chars: %@", chars);
 	if([chars characterAtIndex:0] == ' ') {
-		[self userDidPressSpaceInImageBrowserView:self];
+		[self toggleQuickLook:self];
 	} else if ([chars characterAtIndex:0] == ' ') {
 	
 	} else {
 		[super keyDown:event];
 	}
 }
+
+
 
 
 #pragma mark QLPreviewPanelController protocol
@@ -35,7 +40,7 @@
 }
 
 
-- (void)userDidPressSpaceInImageBrowserView:(id)aBrowser {
+- (void)toggleQuickLook:(id)aBrowser {
 	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
 		[[QLPreviewPanel sharedPreviewPanel] orderOut:self];
 	} else {
