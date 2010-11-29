@@ -133,6 +133,20 @@ The contextual menu lets you add the image immediately or add it to the queue:</
 <div class="faq_question">Why doesn’t the queue drawer update when I resize the window?</div>
 <div class="faq_answer"><p>This seems to be a <a href="http://www.cocoabuilder.com/archive/message/cocoa/2008/10/27/221105">bug in Apple’s frameworks</a>. I hope it gets fixed sometime.</p></div>
 
+<div class="faq_question">Why does Album Artwork Assistant usually crash once at launch after updating to a new version?</div>
+<div class="faq_answer"><p>This applies if you see a bunch of lines like the following in the crash report details:</p>
+
+<pre>TDescriptor::CreateMatchingDescriptorInternal(__CFSet const*) const + 237
+TDescriptor::InitBaseFont() + 30
+TDescriptor::CreateMatchingDescriptor(__CFSet const*) const + 47
+__NSFontFactoryWithName + 412
++[NSFont fontWithName:size:] + 51
+-[IKImageBrowserView _setDefaultTextAttributes] + 288
+-[IKImageBrowserView setAppearanceStyle:] + 42
+-[IKImageBrowserView _ikCommonInit] + 2122
+-[IKImageBrowserView initWithCoder:] + 76</pre>
+<p>This is another bug in the system frameworks that I have no control over. I think it only happens on Mac OS X 10.5, so you should upgrade to 10.6.</p></div>
+
 
 </div>
   </body>
