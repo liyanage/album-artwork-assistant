@@ -45,3 +45,4 @@
 
 "webview_image_hover" = "Klicken Sie mit gedrückter Ctrl-Taste um dieses Bild auszuwählen";
 
+"cant_parse_amazon_response" = "Die Bildersuche bei Amazon ist fehlgeschlagen.";

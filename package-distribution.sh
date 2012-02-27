@@ -5,7 +5,7 @@ set -o errexit
 WD=$PWD
 PRODUCT_SHORTNAME=album-artwork-assistant
 
-[ $BUILD_STYLE = Release ] || { echo Distribution target requires "'Release'" build style; false; }
+[ "$CONFIGURATION" = Release ] || { echo Distribution target requires "'Release'" build style; false; }
 
 VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Contents/Info" CFBundleVersion)
 DOWNLOAD_BASE_URL="http://www2.entropy.ch/download"

@@ -3,7 +3,7 @@
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:aws="http://webservices.amazon.com/AWSECommerceService/2005-10-05"
+	xmlns:aws="http://webservices.amazon.com/AWSECommerceService/2011-08-01"
 	exclude-result-prefixes="aws"
 >
 
@@ -33,7 +33,6 @@
 		<integer><xsl:value-of select="aws:LargeImage/aws:Height"/></integer>
 	</dict>
 </xsl:template>
-
 
 
 </xsl:stylesheet>

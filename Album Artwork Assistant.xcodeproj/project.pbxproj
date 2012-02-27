@@ -33,6 +33,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1BE5C9E30E3A1DD800334BA1 /* Build configuration list for PBXAggregateTarget "Distribution" */;
 			buildPhases = (
+				1B91FEA114FBE60700DB7C19 /* ShellScript */,
 				1BE5C9D90E3A1DB900334BA1 /* Run Script Prepare Distribution */,
 			);
 			dependencies = (
@@ -835,7 +836,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "WD=$PWD\n\nsh Resources/help-tools/update-help.sh en \"$WD/Resources/English.lproj/Album Artwork Assistant Help\"\nsh Resources/help-tools/update-help.sh de \"$WD/Resources/German.lproj/Album Artwork Assistant Help\"\n";
+			shellScript = "WD=$PWD\nsh Resources/help-tools/update-help.sh en \"$WD/Resources/English.lproj/Album Artwork Assistant Help\"\nsh Resources/help-tools/update-help.sh de \"$WD/Resources/German.lproj/Album Artwork Assistant Help\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1B7B84980E8C42480048A3B8 /* ShellScript */ = {
@@ -877,6 +878,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "perl extract-aws-secret-key-from-keychain.pl\n";
+		};
+		1B91FEA114FBE60700DB7C19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo packaging distribution";
 		};
 		1BE5C9D90E3A1DB900334BA1 /* Run Script Prepare Distribution */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1067,7 +1081,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.0;
+				CURRENT_PROJECT_VERSION = 3.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -1081,6 +1095,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1292,7 +1307,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.0;
+				CURRENT_PROJECT_VERSION = 3.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -1303,6 +1318,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1319,7 +1335,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.0;
+				CURRENT_PROJECT_VERSION = 3.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
@@ -1328,6 +1344,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://www.entropy.ch/software/macosx/album-artwork-assistant/appcast.xml";

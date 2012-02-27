@@ -348,6 +348,13 @@
 	NSString *xsltPath = [[NSBundle mainBundle] pathForResource:@"amazon2plist" ofType:@"xslt"];
 	NSURL *xsltUrl = [NSURL fileURLWithPath:xsltPath];
 	NSXMLDocument *plistDoc = [xmlDoc objectByApplyingXSLTAtURL:xsltUrl arguments:nil error:&error];
+	if (![plistDoc isKindOfClass:[NSXMLDocument class]]) {
+		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+		[alert setMessageText:NSLocalizedString(@"cant_parse_amazon_response", nil)];
+		[self clearBusy];
+		[alert runModal];
+		return;
+	}
 	id imageData = [[plistDoc description] propertyList];
 
 	for (id item in [imageData valueForKeyPath:@"results"]) {
