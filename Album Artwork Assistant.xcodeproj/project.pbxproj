@@ -1106,6 +1106,7 @@
 		1B77CBED0E3CE52900465756 /* Debug no net */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Marc Liyanage";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1122,6 +1123,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
+				PROVISIONING_PROFILE = "";
 			};
 			name = "Debug no net";
 		};
@@ -1262,6 +1264,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Marc Liyanage";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1277,12 +1280,14 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Marc Liyanage";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1296,6 +1301,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
