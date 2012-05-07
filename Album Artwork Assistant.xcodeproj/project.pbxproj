@@ -22,7 +22,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1B8F60C10FE6F9BE00FF3891 /* Build configuration list for PBXAggregateTarget "AmazonAwsSecretKeyFromKeychain" */;
 			buildPhases = (
-				1B8F60BC0FE6F99E00FF3891 /* ShellScript */,
+				1B8F60BC0FE6F99E00FF3891 /* Extract AWS Secret Key from Keychain */,
 			);
 			dependencies = (
 			);
@@ -866,18 +866,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		1B8F60BC0FE6F99E00FF3891 /* ShellScript */ = {
+		1B8F60BC0FE6F99E00FF3891 /* Extract AWS Secret Key from Keychain */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Extract AWS Secret Key from Keychain";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "perl extract-aws-secret-key-from-keychain.pl\n";
+			shellScript = "set -e\nperl extract-aws-secret-key-from-keychain.pl\n";
 		};
 		1B91FEA114FBE60700DB7C19 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1081,7 +1082,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.1;
+				CURRENT_PROJECT_VERSION = 3.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -1313,7 +1314,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.1;
+				CURRENT_PROJECT_VERSION = 3.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -1341,7 +1342,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3.1;
+				CURRENT_PROJECT_VERSION = 3.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;

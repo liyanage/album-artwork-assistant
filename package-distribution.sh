@@ -6,8 +6,8 @@ WD=$PWD
 PRODUCT_SHORTNAME=album-artwork-assistant
 
 [ "$CONFIGURATION" = Release ] || { echo Distribution target requires "'Release'" build style; false; }
-
 VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Contents/Info" CFBundleVersion)
+[ "$VERSION" = "$CURRENT_PROJECT_VERSION" ] || { echo "Info.plist CFBundleVersion ($VERSION) not equal to CURRENT_PROJECT_VERSION ($CURRENT_PROJECT_VERSION), clean build required?"; false; }
 DOWNLOAD_BASE_URL="http://www2.entropy.ch/download"
 RELEASENOTES_URL="http://www.entropy.ch/software/macosx/$PRODUCT_SHORTNAME/release-notes.html#version-$VERSION"
 

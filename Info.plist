@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleGetInfoString</key>
-	<string>${CURRENT_PROJECT_VERSION}, © 2008-2010 Marc Liyanage</string>
+	<string>${CURRENT_PROJECT_VERSION}, © 2008-2012 Marc Liyanage</string>
 	<key>CFBundleVersion</key>
 	<string>${CURRENT_PROJECT_VERSION}</string>
 	<key>NSAppleScriptEnabled</key>
