@@ -1118,6 +1118,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 				PROVISIONING_PROFILE = "";
@@ -1266,6 +1267,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 				PROVISIONING_PROFILE = "";
@@ -1287,6 +1289,7 @@
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "Album Artwork Assistant";
 				PROVISIONING_PROFILE = "";
