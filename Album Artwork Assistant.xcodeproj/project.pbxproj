@@ -61,14 +61,12 @@
 
 /* Begin PBXBuildFile section */
 		1B01E8290E4AD810009E8310 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B01E8280E4AD810009E8310 /* DataStore.m */; };
-		1B04F3F6129C8D35007DCCE1 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B153C50129B9B570081958A /* JSON.framework */; };
 		1B0B40480E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B0B40470E4BB148006CAE99 /* Album Artwork Assistant.xcdatamodel */; };
 		1B12B4EB0E347927008745CC /* Album Artwork Assistant.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B12B4EA0E347927008745CC /* Album Artwork Assistant.icns */; };
 		1B14A1330EDCAB1000E0591A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A1320EDCAB1000E0591A /* Localizable.strings */; };
 		1B14A2840EDE125500E0591A /* Album Artwork Assistant Help in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2830EDE125500E0591A /* Album Artwork Assistant Help */; };
 		1B14A2B90EDE13D100E0591A /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A2B80EDE13D100E0591A /* release-notes.html */; };
 		1B14A3070EDE8FFF00E0591A /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 1B14A3040EDE8FFA00E0591A /* help.css */; };
-		1B153C5D129B9BA80081958A /* JSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B153C50129B9B570081958A /* JSON.framework */; };
 		1B1CA3D910A0A865008479B4 /* GTMDebugThreadValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CA3D810A0A865008479B4 /* GTMDebugThreadValidation.m */; };
 		1B37BF010F4C2ECD005A5BAB /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */; };
 		1B48E71F0E82BE5500AC5357 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48E71E0E82BE5500AC5357 /* Sparkle.framework */; };
@@ -116,6 +114,8 @@
 		1B8F61F20FE7BA7300FF3891 /* hmac_sha2.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F61870FE7772A00FF3891 /* hmac_sha2.c */; };
 		1B8F622A0FE7BCF200FF3891 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F62290FE7BCF200FF3891 /* GTMBase64.m */; };
 		1B8F622B0FE7BCF200FF3891 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F62290FE7BCF200FF3891 /* GTMBase64.m */; };
+		1B9DAB56155872110064E3D2 /* SBJson.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9DAB4D155871E20064E3D2 /* SBJson.framework */; };
+		1B9DAB571558774D0064E3D2 /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9DAB4D155871E20064E3D2 /* SBJson.framework */; };
 		1BAA29D30E2ABA3300B05717 /* ImageSearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA29D20E2ABA3300B05717 /* ImageSearchItem.m */; };
 		1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAA29D70E2ABB3000B05717 /* Quartz.framework */; };
 		1BAF15C70E33D8EF00A725F6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF15C30E33D8EF00A725F6 /* DDInvocationGrabber.m */; };
@@ -142,34 +142,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
-		1B153C4F129B9B570081958A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53D229810C96121600276605;
-			remoteInfo = JSON;
-		};
-		1B153C51129B9B570081958A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53D2298D0C96122A00276605;
-			remoteInfo = Tests;
-		};
-		1B153C53129B9B570081958A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
-			remoteInfo = libjson;
-		};
-		1B153C55129B9B570081958A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
-			remoteInfo = libjsontests;
-		};
 		1B7394210ED215F40011B0E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -191,12 +163,40 @@
 			remoteGlobalIDString = 1B8F60BD0FE6F99E00FF3891;
 			remoteInfo = AmazonAwsSecretKeyFromKeychain;
 		};
-		1BC63666129B9D640007E4E0 /* PBXContainerItemProxy */ = {
+		1B9DAB4C155871E20064E3D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+			containerPortal = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC12323D1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+		1B9DAB4E155871E20064E3D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC1232521391D5CC00131607;
+			remoteInfo = SBJsonTests;
+		};
+		1B9DAB50155871E20064E3D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2626913920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		1B9DAB52155871E20064E3D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2627313920FC7003D9994;
+			remoteInfo = "sbjson-iosTests";
+		};
+		1B9DAB54155872030064E3D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 53D229800C96121600276605;
-			remoteInfo = JSON;
+			remoteGlobalIDString = BC12323C1391D5CC00131607;
+			remoteInfo = SBJson;
 		};
 		1BE5C9DD0E3A1DBF00334BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -214,7 +214,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1B153C5D129B9BA80081958A /* JSON.framework in Embed Frameworks */,
+				1B9DAB56155872110064E3D2 /* SBJson.framework in Embed Frameworks */,
 				1B48E72A0E82BE8700AC5357 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -250,7 +250,6 @@
 		1B14A3040EDE8FFA00E0591A /* help.css */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.css; path = help.css; sourceTree = "<group>"; };
 		1B14A3050EDE8FFA00E0591A /* update-help.sh */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.script.sh; path = "update-help.sh"; sourceTree = "<group>"; };
 		1B14A3060EDE8FFA00E0591A /* update-help.xslt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.xml; path = "update-help.xslt"; sourceTree = "<group>"; };
-		1B153C44129B9B570081958A /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = "src-external/json-framework/JSON.xcodeproj"; sourceTree = "<group>"; };
 		1B1CA3D710A0A865008479B4 /* GTMDebugThreadValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDebugThreadValidation.h; path = "src-external/google-toolbox-for-mac-read-only/DebugUtils/GTMDebugThreadValidation.h"; sourceTree = "<group>"; };
 		1B1CA3D810A0A865008479B4 /* GTMDebugThreadValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMDebugThreadValidation.m; path = "src-external/google-toolbox-for-mac-read-only/DebugUtils/GTMDebugThreadValidation.m"; sourceTree = "<group>"; };
 		1B37BF000F4C2ECD005A5BAB /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; name = Credits.rtfd; path = Resources/Credits.rtfd; sourceTree = "<group>"; };
@@ -324,6 +323,7 @@
 		1B8F618B0FE7772A00FF3891 /* sha2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha2.h; sourceTree = "<group>"; };
 		1B8F62280FE7BCF200FF3891 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMBase64.h; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMBase64.h"; sourceTree = "<group>"; };
 		1B8F62290FE7BCF200FF3891 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMBase64.m; path = "src-external/google-toolbox-for-mac-read-only/Foundation/GTMBase64.m"; sourceTree = "<group>"; };
+		1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "src-external/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		1BAA29D10E2ABA3300B05717 /* ImageSearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearchItem.h; path = src/ImageSearchItem.h; sourceTree = "<group>"; };
 		1BAA29D20E2ABA3300B05717 /* ImageSearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSearchItem.m; path = src/ImageSearchItem.m; sourceTree = "<group>"; };
 		1BAA29D70E2ABB3000B05717 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
@@ -375,7 +375,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B04F3F6129C8D35007DCCE1 /* JSON.framework in Frameworks */,
+				1B9DAB571558774D0064E3D2 /* SBJson.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1B7656EB0E28C793004A20AE /* libicucore.dylib in Frameworks */,
 				1BAA29D80E2ABB3000B05717 /* Quartz.framework in Frameworks */,
@@ -469,17 +469,6 @@
 			path = "Resources/help-tools";
 			sourceTree = "<group>";
 		};
-		1B153C45129B9B570081958A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1B153C50129B9B570081958A /* JSON.framework */,
-				1B153C52129B9B570081958A /* Tests.octest */,
-				1B153C54129B9B570081958A /* libjson.a */,
-				1B153C56129B9B570081958A /* libjsontests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,10 +555,21 @@
 			path = "src-external/hmac";
 			sourceTree = "<group>";
 		};
+		1B9DAB43155871E10064E3D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B9DAB4D155871E20064E3D2 /* SBJson.framework */,
+				1B9DAB4F155871E20064E3D2 /* SBJsonTests.octest */,
+				1B9DAB51155871E20064E3D2 /* libsbjson-ios.a */,
+				1B9DAB53155871E20064E3D2 /* sbjson-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1BA106770EDA9E3200233FF0 /* External Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1B153C44129B9B570081958A /* JSON.xcodeproj */,
+				1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */,
 				1B8F61860FE7772A00FF3891 /* hmac */,
 				1B5AC7CB0F04424C00D2E9D5 /* UKCrashReporter */,
 				1BAF160C0E33E15500A725F6 /* NDAppleScriptObject */,
@@ -714,8 +714,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B9DAB55155872030064E3D2 /* PBXTargetDependency */,
 				1B8F611F0FE6FC2D00FF3891 /* PBXTargetDependency */,
-				1BC63667129B9D640007E4E0 /* PBXTargetDependency */,
 			);
 			name = "Album Artwork Assistant";
 			productInstallPath = "$(HOME)/Applications";
@@ -742,8 +742,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1B153C45129B9B570081958A /* Products */;
-					ProjectRef = 1B153C44129B9B570081958A /* JSON.xcodeproj */;
+					ProductGroup = 1B9DAB43155871E10064E3D2 /* Products */;
+					ProjectRef = 1B9DAB42155871E10064E3D2 /* SBJson.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -758,32 +758,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1B153C50129B9B570081958A /* JSON.framework */ = {
+		1B9DAB4D155871E20064E3D2 /* SBJson.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = JSON.framework;
-			remoteRef = 1B153C4F129B9B570081958A /* PBXContainerItemProxy */;
+			path = SBJson.framework;
+			remoteRef = 1B9DAB4C155871E20064E3D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1B153C52129B9B570081958A /* Tests.octest */ = {
+		1B9DAB4F155871E20064E3D2 /* SBJsonTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = Tests.octest;
-			remoteRef = 1B153C51129B9B570081958A /* PBXContainerItemProxy */;
+			path = SBJsonTests.octest;
+			remoteRef = 1B9DAB4E155871E20064E3D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1B153C54129B9B570081958A /* libjson.a */ = {
+		1B9DAB51155871E20064E3D2 /* libsbjson-ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libjson.a;
-			remoteRef = 1B153C53129B9B570081958A /* PBXContainerItemProxy */;
+			path = "libsbjson-ios.a";
+			remoteRef = 1B9DAB50155871E20064E3D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1B153C56129B9B570081958A /* libjsontests.octest */ = {
+		1B9DAB53155871E20064E3D2 /* sbjson-iosTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = libjsontests.octest;
-			remoteRef = 1B153C55129B9B570081958A /* PBXContainerItemProxy */;
+			path = "sbjson-iosTests.octest";
+			remoteRef = 1B9DAB52155871E20064E3D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -977,10 +977,10 @@
 			target = 1B8F60BD0FE6F99E00FF3891 /* AmazonAwsSecretKeyFromKeychain */;
 			targetProxy = 1B8F611E0FE6FC2D00FF3891 /* PBXContainerItemProxy */;
 		};
-		1BC63667129B9D640007E4E0 /* PBXTargetDependency */ = {
+		1B9DAB55155872030064E3D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = JSON;
-			targetProxy = 1BC63666129B9D640007E4E0 /* PBXContainerItemProxy */;
+			name = SBJson;
+			targetProxy = 1B9DAB54155872030064E3D2 /* PBXContainerItemProxy */;
 		};
 		1BE5C9DE0E3A1DBF00334BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1068,7 +1068,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Update Help Docs";
 				ZERO_LINK = NO;
 			};
@@ -1084,7 +1083,6 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 3.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1098,7 +1096,6 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1115,7 +1112,6 @@
 					"\"$(SRCROOT)/src-external/json-framework/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1145,7 +1141,6 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1158,7 +1153,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = TestSignedAwsSearchRequest;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1169,7 +1163,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1181,7 +1174,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = TestSignedAwsSearchRequest;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1194,7 +1186,6 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1206,7 +1197,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = TestSignedAwsSearchRequest;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
@@ -1235,7 +1225,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = AmazonAwsSecretKeyFromKeychain;
 				ZERO_LINK = NO;
 			};
@@ -1256,7 +1245,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Album Artwork Assistant";
 				ZERO_LINK = NO;
 			};
@@ -1273,7 +1261,6 @@
 					"\"$(SRCROOT)/src-external/json-framework/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Album Artwork Assistant_Prefix.pch";
@@ -1316,7 +1303,6 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 3.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
@@ -1327,7 +1313,6 @@
 				KEYCHAIN_AWS_SECRET_KEY_NAME = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SU_FEED_URL = "http://127.0.0.1/album-artwork-assistant/appcast.debug.xml";
 				VERSIONING_SYSTEM = "apple-generic";

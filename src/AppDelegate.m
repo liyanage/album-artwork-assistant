@@ -2,7 +2,7 @@
 #import "AppDelegate.h"
 #import "RegexKitLite.h"
 #import "GTMNSDictionary+URLArguments.h"
-#import <JSON/JSON.h>
+#import <SBJSON/SBJSON.h>
 #import "UpdateOperation.h"
 #import "NSObject+DDExtensions.h"
 #import "GTMScriptRunner.h"

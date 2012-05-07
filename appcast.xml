@@ -14,13 +14,13 @@
 			<title>Version 3.2</title>
 			<sparkle:releaseNotesLink>http://www.entropy.ch/software/macosx/album-artwork-assistant/release-notes.html#version-3.2</sparkle:releaseNotesLink>
 			<sparkle:minimumSystemVersion>10.6.5</sparkle:minimumSystemVersion>
-			<pubDate>Mon, 07 May 2012 11:01:40 -0700</pubDate>
+			<pubDate>Mon, 07 May 2012 13:10:40 -0700</pubDate>
 			<enclosure
 				url="http://www2.entropy.ch/download/Album Artwork Assistant 3.2.zip"
 				sparkle:version="3.2"
 				type="application/octet-stream"
-				length="3877426"
-				sparkle:dsaSignature="MC0CFQCBGyAwecquK4aEzWyq0Xi0IFW1swIUEeof1m1PQ/lfRT8sBOG/W9X2SoQ="
+				length="3215791"
+				sparkle:dsaSignature="MC4CFQCFiZJM0/KLbCFWCV7lG8qVk0D0tQIVAJVBCeYX8uqoEhcMw91yXMkkbfSF"
 			/>
 		</item>
 
