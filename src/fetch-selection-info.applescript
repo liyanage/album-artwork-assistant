@@ -6,6 +6,7 @@ tell application "iTunes"
 		if class of myTrack = file track then
 			set mycontainer to container of myTrack
 			set myalbum to album of myTrack
+			set myartist to artist of myTrack
 			--			set isMusicPlaylist to (special kind of container of myTrack = Music)
 			set isMusicPlaylist to true
 			if myalbum = "" then
@@ -14,7 +15,7 @@ tell application "iTunes"
 			else
 				if myalbum is not in myAlbums and isMusicPlaylist then
 					set end of myAlbums to myalbum
-					set myAlbumTracks to (tracks of mycontainer whose album is myalbum)
+					set myAlbumTracks to (tracks of mycontainer whose album is myalbum and artist is myartist)
 					if class of myAlbumTracks is not list then
 						set myAlbumTracks to {myAlbumTracks}
 					end if
